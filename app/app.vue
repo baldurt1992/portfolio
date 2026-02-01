@@ -28,12 +28,7 @@
 
 <template>
   <UApp>
-    <ClientOnly>
-      <LayoutAppHeader />
-      <template #fallback>
-        <header class="bg-default/75 backdrop-blur border-b border-default h-16 sticky top-0 z-50" />
-      </template>
-    </ClientOnly>
+    <LayoutAppHeader />
 
     <UMain>
       <NuxtLayout>
