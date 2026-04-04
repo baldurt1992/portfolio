@@ -1,0 +1,188 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "a11y": {
+    "headerMenuTitle": "Navigation menu",
+    "headerMenuDescription": "Portfolio sections: projects, about, skills, experience, and contact.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "productMediaNav": "Product modules",
+    "openRepoGithub": "Open repository on GitHub",
+    "contactSection": "Go to contact section",
+    "scrollTop": "Back to top"
+  },
+  "header": {
+    "contact": "Contact"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Spanish",
+    "switchTo": "Language"
+  },
+  "hero": {
+    "ctaProject": "Let’s talk about your project",
+    "ctaWork": "See recent work",
+    "portraitTapHint": "Tap the photo to go to About.",
+    "portraitAriaFlip": "Go to the About section. With mouse or keyboard, hover or focus to see the illustration on the back; on touch, the illustration is also in About.",
+    "portraitAriaSimple": "Go to the About section",
+    "portraitAlt": "Portrait of {name}",
+    "illustrationAlt": "Illustration of {name}",
+    "aboutAvatarAlt": "Illustrated avatar of {name}"
+  },
+  "about": {
+    "eyebrow": "Profile",
+    "title": "About me",
+    "description": "Short context: focus, stack, and how I usually collaborate."
+  },
+  "skills": {
+    "eyebrow": "Stack",
+    "title": "Skills",
+    "description": "Technologies I use day to day, grouped by area.",
+    "category": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Tools",
+      "devops": "DevOps"
+    }
+  },
+  "projects": {
+    "eyebrow": "Portfolio",
+    "title": "Projects",
+    "description": "Three highlights: production product (Ticador), multi-tenant ERP (Cosmos), and WordPress with a custom scheduling plugin — stack and scope without sensitive client data."
+  },
+  "experience": {
+    "eyebrow": "Path",
+    "title": "Experience",
+    "description": "Recent roles and the kind of impact I aim to deliver."
+  },
+  "contact": {
+    "eyebrow": "Next step",
+    "title": "Contact",
+    "description": "Share the context, timeline, and what success looks like for you. I reply clearly and straight to the point.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "placeholderName": "Your name",
+    "placeholderEmail": "you{'@'}email.com",
+    "placeholderMessage": "Tell me about your project...",
+    "submit": "Send message",
+    "mailFallback": "Or email me directly at"
+  },
+  "contactForm": {
+    "toastSuccessTitle": "Message sent",
+    "toastSuccessDescription": "I’ll get back to you as soon as I can.",
+    "toastErrorTitle": "Could not send",
+    "toastErrorDescription": "Please try again later."
+  },
+  "projectCard": {
+    "tooltipHeroHover": "Preview on hover. For the full demo —full videos and each module’s detail— open View details.",
+    "tooltipHeroStatic": "Open View details for the full demo: full videos and each system module explained.",
+    "liveBadge": "Live preview",
+    "projectImageAlt": "Screenshot or view of project {title}",
+    "viewProject": "View project",
+    "viewDetails": "View details"
+  },
+  "drawer": {
+    "description": "Video walkthroughs of the product, module by module. Pick an item in the list or use Previous and Next to move through the flows.",
+    "videoFallback": "Your browser cannot play embedded video.",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "stickyContact": {
+    "label": "Contact"
+  },
+  "portfolio": {
+    "bio": {
+      "title": "Full-Stack Developer · Laravel, Vue, Nuxt & Tailwind",
+      "tagline": "End-to-end web products with Laravel, Vue, and Nuxt — solid UX, performance, clean architecture, and teamwork.",
+      "heroTrustLine": "Freelance · Bello, Antioquia · Colombia · Vue, Nuxt, Laravel, WordPress (Divi, Elementor), SaaS/ERP, and deployments",
+      "location": "Bello, Antioquia"
+    },
+    "aboutLead": "I’m a full-stack developer: Laravel on the backend (APIs, Eloquent, queues when needed) and Vue, Nuxt (including Nuxt UI), PrimeVue, and Tailwind on the frontend. I also build and maintain WordPress sites with Divi and Elementor when a CMS fits the product.",
+    "aboutMore": "I care about clear Laravel architecture and clean front-end integrations. I work from Colombia with remote teams and clients: from Laravel sites and APIs to B2B product (SaaS, ERP, user management, domain purchase, and deployment flows). I use Git, agile practices, and I keep improving my English. I like turning requirements into interfaces people can use without friction.",
+    "projects": {
+      "ticador-platform": {
+        "title": "Ticador — production SaaS ecosystem",
+        "description": "I built a production SaaS ecosystem for ticador.online: a marketing site, a multi-tenant provisioning platform, the core workforce attendance system, and a centralized Mail Center. It automates the full onboarding and day-to-day cycle for each customer: environments, guided setup, employees, authorized devices, time clocking, reporting, and real-time notifications. Private repos; representative video and screenshots in this portfolio.",
+        "tags": [
+          "Laravel",
+          "Vue 3",
+          "PrimeVue",
+          "Pinia",
+          "Vite",
+          "Pusher / WebSockets",
+          "GitHub Actions",
+          "Plesk",
+          "MySQL",
+          "REST APIs",
+          "Queues / Jobs",
+          "Multi-tenant provisioning"
+        ],
+        "mediaModules": {
+          "main-navigation": {
+            "title": "Main navigation",
+            "description": "Overview of the admin panel where day-to-day operations are centralized: employees, devices, incidents, reporting, and workplace configuration."
+          },
+          "device-access": {
+            "title": "Device access",
+            "description": "Access control based on authorized devices. The system flags unregistered hardware, surfaces its status, and lets admins validate it before it’s allowed in the clock-in flow."
+          },
+          "incident-report": {
+            "title": "Incident report",
+            "description": "Incident management to log issues, follow cases, and keep employee–admin communication inside the same platform."
+          },
+          "employee-check-in-out": {
+            "title": "Employee check-in / check-out",
+            "description": "Core time-tracking flow where employees clock in and out with an assigned token, keeping a clear record of their workday."
+          },
+          "onboarding-wizard": {
+            "title": "Onboarding wizard",
+            "description": "Guided first-run setup to speed up each customer go-live: company, employees, devices, and reporting in a structured flow."
+          }
+        }
+      },
+      "cosmos-erp": {
+        "title": "Cosmos ERP (multi-tenant)",
+        "description": "ERP in progress: Laravel 12 and Nuxt 4, multi-tenant, Sanctum and Octane; Nuxt UI and TypeScript; MySQL and Redis. Docker Compose across dev, staging, and production with aligned services. GitHub Actions: backend/frontend test jobs (Pest, Vitest, guardrails, coverage) ready to wire in, plus automated deploy pipelines to servers and common hosting panels (Plesk, cPanel, and similar) from main. Docker-first docs and workflows.",
+        "tags": ["Laravel", "Nuxt", "TypeScript", "Docker", "GitHub Actions", "MySQL", "Redis"]
+      },
+      "wordpress-elementor-agenda": {
+        "title": "WordPress with Elementor and custom scheduling plugin",
+        "description": "WordPress site built with Elementor and a bespoke plugin for appointment management under the client’s business rules (bookings, availability, and operational flows). Case studies, screenshots, and public link: polish pending.",
+        "tags": ["WordPress", "Elementor", "PHP", "Custom plugin"]
+      }
+    },
+    "experience": {
+      "freelance-advanced": {
+        "date": "2024 — present",
+        "title": "Freelance — advanced projects and B2B product",
+        "company": "Freelance · Colombia",
+        "description": "Since 2024 I’ve taken on more product and infrastructure-heavy work. With an agency in Colombia: Laravel, APIs, and WordPress, expanding from Elementor into Divi. Remotely, B2B product — SaaS, multi-tenant ERP (Laravel + Nuxt), user-management platforms, domain purchase, and hosting-linked deployment. Docker Compose across environments and GitHub Actions: backend/frontend tests (Pest, Vitest, guardrails) and automated deploys to servers and common panels (Plesk, cPanel, and similar). Remote, production-minded delivery."
+      },
+      "university-eafit": {
+        "date": "2024 — 2025",
+        "title": "University studies",
+        "company": "Universidad EAFIT",
+        "description": "Degree completed. Integrator projects, software-engineering foundations, and quality habits I apply in client work."
+      },
+      "freelance-early": {
+        "date": "2023",
+        "title": "Freelance — early projects",
+        "company": "Independent · small landings and sites",
+        "description": "Scoped client work: promotional landings and pages with WordPress and Elementor, focused on clear layout and fast turnaround."
+      },
+      "cesde-tech": {
+        "date": "2023",
+        "title": "Technical training in web development",
+        "company": "Cesde",
+        "description": "Web-focused program: programming fundamentals, development basics, and databases as a bridge into real projects."
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const portfolioData = usePortfolioData()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -17,7 +18,7 @@ const portfolioData = usePortfolioData()
         target="_blank"
         rel="noopener noreferrer"
         icon="i-simple-icons-github"
-        aria-label="GitHub"
+        :aria-label="t('a11y.github')"
         color="neutral"
         variant="ghost"
       />
@@ -27,7 +28,7 @@ const portfolioData = usePortfolioData()
         target="_blank"
         rel="noopener noreferrer"
         icon="i-simple-icons-linkedin"
-        aria-label="LinkedIn"
+        :aria-label="t('a11y.linkedin')"
         color="neutral"
         variant="ghost"
       />

@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import type { TimelineItem } from '@nuxt/ui'
 
-const { experience } = usePortfolioData()
+const portfolioData = usePortfolioData()
+const { t } = useI18n()
+const experience = computed(() => portfolioData.value.experience)
 
 const timelineItems = computed<TimelineItem[]>(() =>
-  experience.map((exp) => ({
+  experience.value.map((exp) => ({
     date: exp.date,
     title: exp.title,
     description: `${exp.company} — ${exp.description}`,
@@ -20,9 +22,9 @@ const timelineItems = computed<TimelineItem[]>(() =>
         <div class="max-w-2xl mx-auto w-full">
           <UiSectionHeading
             id="experience-heading"
-            eyebrow="Trayectoria"
-            title="Experiencia"
-            description="Roles recientes y el tipo de impacto que busco generar."
+            :eyebrow="t('experience.eyebrow')"
+            :title="t('experience.title')"
+            :description="t('experience.description')"
             :contained="false"
           />
           <div class="mt-16">

@@ -1,9 +1,39 @@
 <script setup>
-  const portfolioData = usePortfolioData()
-  const { bio } = portfolioData
-  const titleLead = bio.brandName ?? bio.name
-  const title = `${titleLead} — ${bio.title}`
-  const description = portfolioData.bio.tagline
+  import { en, es } from '@nuxt/ui/locale'
+  import { portfolioStructure } from '~/data/portfolio'
+
+  const { locale, t } = useI18n()
+
+  /** Nuxt UI < UHeader usa t('header.title'|'header.description'); el locale base no los define. */
+  const nuxtUiLocale = computed(() => {
+    const base = locale.value === 'en' ? en : es
+    return extendLocale(base, {
+      messages: {
+        header: {
+          title: t('a11y.headerMenuTitle'),
+          description: t('a11y.headerMenuDescription')
+        }
+      }
+    })
+  })
+
+  /**
+   * SEO: no usar `usePortfolioData().bio` en Unhead — `tm()` devuelve estructuras que a veces
+   * no pasan ToPrimitive al serializar. `t('portfolio.bio.*')` + nombre en `portfolioStructure` son strings estables.
+   */
+  function seoPageTitle() {
+    const lead =
+      portfolioStructure.bio.brandName ?? portfolioStructure.bio.name ?? ''
+    const sub = t('portfolio.bio.title')
+    return `${lead} — ${typeof sub === 'string' ? sub : ''}`
+  }
+
+  function seoPageDescription() {
+    const d = t('portfolio.bio.tagline')
+    return typeof d === 'string' ? d : ''
+  }
+
+  const htmlLang = computed(() => (locale.value === 'en' ? 'en-US' : 'es-CO'))
 
   useHead({
     meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
@@ -28,21 +58,21 @@
       }
     ],
     htmlAttrs: {
-      lang: 'es'
+      lang: htmlLang
     }
   })
 
   useSeoMeta({
-    title,
-    description,
-    ogTitle: title,
-    ogDescription: description,
+    title: () => seoPageTitle(),
+    description: () => seoPageDescription(),
+    ogTitle: () => seoPageTitle(),
+    ogDescription: () => seoPageDescription(),
     twitterCard: 'summary_large_image'
   })
 </script>
 
 <template>
-  <UApp>
+  <UApp :locale="nuxtUiLocale">
     <LayoutAppHeader />
 
     <UMain>

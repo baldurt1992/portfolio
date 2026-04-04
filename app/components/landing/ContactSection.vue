@@ -1,6 +1,8 @@
 <script setup lang="ts">
   const { form, loading, submit } = useContactForm()
-  const { bio } = usePortfolioData()
+  const portfolioData = usePortfolioData()
+  const { t } = useI18n()
+  const bio = computed(() => portfolioData.value.bio)
 </script>
 
 <template>
@@ -10,32 +12,32 @@
         <div class="max-w-xl mx-auto w-full">
           <UiSectionHeading
             id="contact-heading"
-            eyebrow="Siguiente paso"
-            title="Contacto"
-            description="Cuéntame el contexto, el plazo y qué éxito significa para ti. Respondo con claridad y sin rodeos."
+            :eyebrow="t('contact.eyebrow')"
+            :title="t('contact.title')"
+            :description="t('contact.description')"
             :contained="false"
           />
           <div class="mt-16">
           <UCard variant="subtle" class="card-elevated">
             <UForm class="space-y-4" @submit.prevent="submit">
-              <UFormField name="name" label="Nombre" required>
-                <UInput v-model="form.name" name="name" placeholder="Tu nombre" required class="w-full" />
+              <UFormField name="name" :label="t('contact.name')" required>
+                <UInput v-model="form.name" name="name" :placeholder="t('contact.placeholderName')" required class="w-full" />
               </UFormField>
-              <UFormField name="email" label="Email" required>
-                <UInput v-model="form.email" name="email" type="email" placeholder="tu@email.com" required
+              <UFormField name="email" :label="t('contact.email')" required>
+                <UInput v-model="form.email" name="email" type="email" :placeholder="t('contact.placeholderEmail')" required
                   class="w-full" />
               </UFormField>
-              <UFormField name="message" label="Mensaje" required>
-                <UTextarea v-model="form.message" name="message" placeholder="Cuéntame sobre tu proyecto..." :rows="4"
+              <UFormField name="message" :label="t('contact.message')" required>
+                <UTextarea v-model="form.message" name="message" :placeholder="t('contact.placeholderMessage')" :rows="4"
                   required class="w-full" />
               </UFormField>
               <UButton type="submit" size="lg" :loading="loading" class="w-full sm:w-auto">
-                Enviar mensaje
+                {{ t('contact.submit') }}
               </UButton>
             </UForm>
           </UCard>
           <p class="mt-6 text-center text-sm text-muted">
-            O escríbeme directamente a
+            {{ t('contact.mailFallback') }}
             <UButton :to="`mailto:${bio.email}`" variant="link" color="primary" size="sm" class="p-0 h-auto">
               {{ bio.email }}
             </UButton>

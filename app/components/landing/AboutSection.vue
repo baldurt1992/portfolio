@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const { bio, aboutLead, aboutMore } = usePortfolioData()
+const { t } = useI18n()
+const portfolioData = usePortfolioData()
+const bio = computed(() => portfolioData.value.bio)
+const aboutLead = computed(() => portfolioData.value.aboutLead)
+const aboutMore = computed(() => portfolioData.value.aboutMore)
 </script>
 
 <template>
@@ -10,9 +14,9 @@ const { bio, aboutLead, aboutMore } = usePortfolioData()
         <div class="max-w-3xl mx-auto w-full">
           <UiSectionHeading
             id="about-heading"
-            eyebrow="Perfil"
-            title="Sobre mí"
-            description="Contexto breve: enfoque, stack y cómo suelo colaborar."
+            :eyebrow="t('about.eyebrow')"
+            :title="t('about.title')"
+            :description="t('about.description')"
             :contained="false"
             align="start"
           />
@@ -20,37 +24,37 @@ const { bio, aboutLead, aboutMore } = usePortfolioData()
             <div
               class="flex flex-col md:flex-row md:items-start gap-8 md:gap-10 text-center md:text-left"
             >
-            <div
-              v-if="bio.aboutAvatar"
-              class="flex justify-center md:justify-start shrink-0 md:pt-0.5"
-            >
-              <img
-                :src="bio.aboutAvatar"
-                :alt="`Avatar ilustrado de ${bio.name}`"
-                width="128"
-                height="128"
-                class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover ring-2 ring-default/50 shadow-md bg-elevated [image-rendering:pixelated]"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="min-w-0 flex-1 space-y-6">
-              <p class="text-lg text-highlighted leading-relaxed text-pretty">
-                {{ aboutLead }}
-              </p>
-              <p class="text-muted leading-relaxed text-pretty">
-                {{ aboutMore }}
-              </p>
-              <p
-                v-if="bio.location"
-                class="text-muted flex items-center gap-2 text-sm justify-center md:justify-start"
+              <div
+                v-if="bio.aboutAvatar"
+                class="flex justify-center md:justify-start shrink-0 md:pt-0.5"
               >
-                <UIcon name="i-lucide-map-pin" class="size-4 shrink-0" aria-hidden="true" />
-                {{ bio.location }}
-              </p>
+                <img
+                  :src="bio.aboutAvatar"
+                  :alt="t('hero.aboutAvatarAlt', { name: bio.name })"
+                  width="128"
+                  height="128"
+                  class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover ring-2 ring-default/50 shadow-md bg-elevated [image-rendering:pixelated]"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="min-w-0 flex-1 space-y-6">
+                <p class="text-lg text-highlighted leading-relaxed text-pretty">
+                  {{ aboutLead }}
+                </p>
+                <p class="text-muted leading-relaxed text-pretty">
+                  {{ aboutMore }}
+                </p>
+                <p
+                  v-if="bio.location"
+                  class="text-muted flex items-center gap-2 text-sm justify-center md:justify-start"
+                >
+                  <UIcon name="i-lucide-map-pin" class="size-4 shrink-0" aria-hidden="true" />
+                  {{ bio.location }}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </UiScrollReveal>
     </UContainer>

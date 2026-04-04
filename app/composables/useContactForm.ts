@@ -6,6 +6,7 @@ export interface ContactFormState {
 
 export function useContactForm() {
   const toast = useToast()
+  const { t } = useI18n()
 
   const form = reactive<ContactFormState>({
     name: '',
@@ -33,16 +34,16 @@ export function useContactForm() {
 
       sent.value = true
       toast.add({
-        title: 'Mensaje enviado',
-        description: 'Te responderé lo antes posible.',
+        title: t('contactForm.toastSuccessTitle'),
+        description: t('contactForm.toastSuccessDescription'),
         color: 'success'
       })
       reset()
     } catch (error) {
       console.error('[ContactForm] Error al enviar', { error })
       toast.add({
-        title: 'Error al enviar',
-        description: 'Intenta de nuevo más tarde.',
+        title: t('contactForm.toastErrorTitle'),
+        description: t('contactForm.toastErrorDescription'),
         color: 'error'
       })
     } finally {

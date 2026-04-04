@@ -1,0 +1,188 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "skills": "Skills",
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "contact": "Contacto"
+  },
+  "a11y": {
+    "headerMenuTitle": "Menú de navegación",
+    "headerMenuDescription": "Secciones del portafolio: proyectos, sobre mí, habilidades, experiencia y contacto.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "productMediaNav": "Módulos del producto",
+    "openRepoGithub": "Abrir repositorio en GitHub",
+    "contactSection": "Ir a la sección de contacto",
+    "scrollTop": "Volver arriba"
+  },
+  "header": {
+    "contact": "Contactar"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "switchTo": "Idioma"
+  },
+  "hero": {
+    "ctaProject": "Hablemos de tu proyecto",
+    "ctaWork": "Ver trabajo reciente",
+    "portraitTapHint": "Toca la foto para ir a Sobre mí.",
+    "portraitAriaFlip": "Ir a la sección Sobre mí. Con mouse o teclado, pasa el cursor o enfoca para ver la ilustración en el reverso; en táctil la ilustración también está en Sobre mí.",
+    "portraitAriaSimple": "Ir a la sección Sobre mí",
+    "portraitAlt": "Retrato de {name}",
+    "illustrationAlt": "Ilustración de {name}",
+    "aboutAvatarAlt": "Avatar ilustrado de {name}"
+  },
+  "about": {
+    "eyebrow": "Perfil",
+    "title": "Sobre mí",
+    "description": "Contexto breve: enfoque, stack y cómo suelo colaborar."
+  },
+  "skills": {
+    "eyebrow": "Stack",
+    "title": "Skills",
+    "description": "Tecnologías que uso en el día a día, agrupadas por área.",
+    "category": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Herramientas",
+      "devops": "DevOps"
+    }
+  },
+  "projects": {
+    "eyebrow": "Portafolio",
+    "title": "Proyectos",
+    "description": "Tres líneas destacadas: producto en producción (Ticador), ERP multi-tenant (Cosmos) y WordPress con plugin a medida — stack y alcance sin datos sensibles de cliente."
+  },
+  "experience": {
+    "eyebrow": "Trayectoria",
+    "title": "Experiencia",
+    "description": "Roles recientes y el tipo de impacto que busco generar."
+  },
+  "contact": {
+    "eyebrow": "Siguiente paso",
+    "title": "Contacto",
+    "description": "Cuéntame el contexto, el plazo y qué éxito significa para ti. Respondo con claridad y sin rodeos.",
+    "name": "Nombre",
+    "email": "Email",
+    "message": "Mensaje",
+    "placeholderName": "Tu nombre",
+    "placeholderEmail": "tu{'@'}email.com",
+    "placeholderMessage": "Cuéntame sobre tu proyecto...",
+    "submit": "Enviar mensaje",
+    "mailFallback": "O escríbeme directamente a"
+  },
+  "contactForm": {
+    "toastSuccessTitle": "Mensaje enviado",
+    "toastSuccessDescription": "Te responderé lo antes posible.",
+    "toastErrorTitle": "Error al enviar",
+    "toastErrorDescription": "Intenta de nuevo más tarde."
+  },
+  "projectCard": {
+    "tooltipHeroHover": "Vista previa al pasar el mouse. Para la demo completa —videos enteros y el detalle de cada módulo— abre Ver detalles.",
+    "tooltipHeroStatic": "Abre Ver detalles para ver la demo completa: videos enteros y el detalle de cada módulo del sistema.",
+    "liveBadge": "Vista en vivo",
+    "projectImageAlt": "Captura o vista del proyecto {title}",
+    "viewProject": "Ver proyecto",
+    "viewDetails": "Ver detalles"
+  },
+  "drawer": {
+    "description": "Demostraciones en video del producto, módulo por módulo. Elige un ítem en la lista o usa Anterior y Siguiente para recorrer los flujos.",
+    "videoFallback": "Tu navegador no reproduce video embebido.",
+    "prev": "Anterior",
+    "next": "Siguiente"
+  },
+  "stickyContact": {
+    "label": "Contactar"
+  },
+  "portfolio": {
+    "bio": {
+      "title": "Desarrollador full stack · Laravel, Vue, Nuxt y Tailwind",
+      "tagline": "Productos web de punta a punta con Laravel, Vue y Nuxt — UX, performance, arquitectura clara y trabajo en equipo.",
+      "heroTrustLine": "Freelance · Bello, Antioquia · Colombia · Vue, Nuxt, Laravel, WordPress (Divi, Elementor), SaaS/ERP y despliegues",
+      "location": "Bello, Antioquia"
+    },
+    "aboutLead": "Soy desarrollador full stack: Laravel en el backend (APIs, Eloquent, colas cuando hace falta) y Vue, Nuxt (incl. Nuxt UI), PrimeVue y Tailwind en el frontend. También implemento y mantengo sitios WordPress con Divi y Elementor cuando el producto encaja con un CMS.",
+    "aboutMore": "Me interesa la arquitectura clara del lado Laravel y las integraciones limpias con el front. Trabajo desde Colombia con equipos y clientes en remoto: desde sitios y APIs Laravel hasta producto B2B (SaaS, ERP, gestión de usuarios y flujos con dominios y despliegue). Uso Git, metodologías ágiles y sigo mejorando mi inglés. Disfruto traducir requisitos en interfaces que la gente use sin fricción.",
+    "projects": {
+      "ticador-platform": {
+        "title": "Ticador — ecosistema SaaS en producción",
+        "description": "Desarrollé un ecosistema SaaS en producción para ticador.online, compuesto por una landing comercial, una plataforma de provisioning multi-tenant, el sistema principal de control de asistencia laboral y un Mail Center centralizado. La solución automatiza el ciclo completo de onboarding y operación de cada cliente: creación de entornos, configuración guiada, gestión de empleados, control de dispositivos autorizados, fichaje, reportes y notificaciones en tiempo real. Repositorios privados; video y capturas representativas en el portafolio.",
+        "tags": [
+          "Laravel",
+          "Vue 3",
+          "PrimeVue",
+          "Pinia",
+          "Vite",
+          "Pusher / WebSockets",
+          "GitHub Actions",
+          "Plesk",
+          "MySQL",
+          "REST APIs",
+          "Queues / Jobs",
+          "Multi-tenant provisioning"
+        ],
+        "mediaModules": {
+          "main-navigation": {
+            "title": "Main Navigation",
+            "description": "Vista general del panel administrativo desde donde se centraliza la operación del sistema: empleados, dispositivos, incidencias, reportes y configuración del entorno de trabajo."
+          },
+          "device-access": {
+            "title": "Device Access",
+            "description": "Control de acceso basado en dispositivos autorizados. El sistema detecta equipos no registrados, alerta su estado y permite su validación desde administración antes de habilitar su uso operativo en el flujo de fichaje."
+          },
+          "incident-report": {
+            "title": "Incident Report",
+            "description": "Módulo de gestión de incidencias para registrar novedades, dar seguimiento a casos y mantener comunicación entre empleado y administración dentro de la misma plataforma."
+          },
+          "employee-check-in-out": {
+            "title": "Employee Check-In / Check-Out",
+            "description": "Flujo principal de control horario, donde el empleado registra entradas y salidas mediante un token asignado, manteniendo trazabilidad sobre su jornada laboral."
+          },
+          "onboarding-wizard": {
+            "title": "Onboarding Wizard",
+            "description": "Asistente guiado de configuración inicial para acelerar la puesta en marcha de cada cliente, incluyendo empresa, empleados, dispositivos y reportes dentro de un flujo estructurado."
+          }
+        }
+      },
+      "cosmos-erp": {
+        "title": "Cosmos ERP (multi-tenant)",
+        "description": "ERP en desarrollo: Laravel 12 y Nuxt 4, multi-tenant, Sanctum y Octane; Nuxt UI y TypeScript; MySQL y Redis. Infra Docker Compose (dev, staging y producción) con servicios alineados entre entornos. GitHub Actions: jobs de tests (Pest, Vitest, guardrails y cobertura) listos para integrar en el flujo, más pipelines de despliegue automatizado a servidores y paneles de hosting (Plesk, cPanel y similares) desde la rama principal. Documentación y flujos pensados Docker-first.",
+        "tags": ["Laravel", "Nuxt", "TypeScript", "Docker", "GitHub Actions", "MySQL", "Redis"]
+      },
+      "wordpress-elementor-agenda": {
+        "title": "WordPress con Elementor y plugin de agendas a medida",
+        "description": "Sitio WordPress maquetado con Elementor y plugin personalizado para gestión de agendas según reglas del negocio del cliente (reservas, disponibilidad y flujos operativos). Detalle de casos, capturas y enlace público: refinamiento pendiente.",
+        "tags": ["WordPress", "Elementor", "PHP", "Plugin a medida"]
+      }
+    },
+    "experience": {
+      "freelance-advanced": {
+        "date": "2024 — presente",
+        "title": "Freelance — proyectos avanzados y producto B2B",
+        "company": "Freelance · Colombia",
+        "description": "Desde 2024 intensifico colaboraciones con más carga de producto e infraestructura. Con una agencia en Colombia: Laravel, APIs y sitios WordPress ampliando stack hacia Divi además de Elementor. Además, en remoto, producto B2B — SaaS, ERP multi-tenant (Laravel + Nuxt), plataformas de gestión de usuarios, compra de dominios y despliegue enlazado a hosting. Docker Compose entre entornos (dev, staging, producción) y GitHub Actions: tests backend/frontend (Pest, Vitest, guardrails) y pipelines de despliegue automatizado a servidores y paneles habituales (Plesk, cPanel y similares). Remoto y entregas orientadas a producción."
+      },
+      "university-eafit": {
+        "date": "2024 — 2025",
+        "title": "Formación universitaria",
+        "company": "Universidad EAFIT",
+        "description": "Carrera finalizada. Proyectos integradores, bases de ingeniería de software y hábitos de calidad que aplico en los proyectos con cliente."
+      },
+      "freelance-early": {
+        "date": "2023",
+        "title": "Freelance — primeros proyectos",
+        "company": "Autónomo · landings y sitios pequeños",
+        "description": "Proyectos acotados para clientes: landings y páginas promocionales con WordPress y Elementor, foco en maquetación clara y tiempos de entrega ágiles."
+      },
+      "cesde-tech": {
+        "date": "2023",
+        "title": "Formación técnica en desarrollo web",
+        "company": "Cesde",
+        "description": "Programa orientado a desarrollo web: fundamentos de programación, bases de desarrollo y bases de datos como soporte para pasar a proyectos reales."
+      }
+    }
+  }
+}

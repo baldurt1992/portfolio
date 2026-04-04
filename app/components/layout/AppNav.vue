@@ -5,14 +5,20 @@
     orientation?: 'horizontal' | 'vertical'
   }>()
 
-  const navItems: NavigationMenuItem[] = [
-    { label: 'Inicio', to: '/#hero' },
-    { label: 'Sobre mí', to: '/#about' },
-    { label: 'Skills', to: '/#skills' },
-    { label: 'Proyectos', to: '/#projects' },
-    { label: 'Experiencia', to: '/#experience' },
-    { label: 'Contacto', to: '/#contact' }
-  ]
+  const { t } = useI18n()
+  const localePath = useLocalePath()
+
+  const navItems = computed<NavigationMenuItem[]>(() => {
+    const base = localePath('/')
+    return [
+      { label: t('nav.home'), to: `${base}#hero` },
+      { label: t('nav.about'), to: `${base}#about` },
+      { label: t('nav.skills'), to: `${base}#skills` },
+      { label: t('nav.projects'), to: `${base}#projects` },
+      { label: t('nav.experience'), to: `${base}#experience` },
+      { label: t('nav.contact'), to: `${base}#contact` }
+    ]
+  })
 </script>
 
 <template>

@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { usePreferredReducedMotion } from '@vueuse/core'
 
-const { bio } = usePortfolioData()
+const { t } = useI18n()
+const portfolioData = usePortfolioData()
+const bio = computed(() => portfolioData.value.bio)
 
 const motion = usePreferredReducedMotion()
 
 /** Reverso: avatar / ilustración ya usado en “Sobre mí” — contraste claro con el retrato. */
-const usePortraitFlip = computed(
+const showPortraitFlip = computed(
   () =>
-    !!bio.avatar &&
-    !!bio.aboutAvatar &&
+    !!bio.value.avatar &&
+    !!bio.value.aboutAvatar &&
     motion.value !== 'reduce'
 )
 
@@ -18,33 +20,31 @@ const usePortraitFlip = computed(
  * árbol hasta interacción; en táctil sin hover simplemente no aplica el volteo.
  */
 const flipInnerClass = computed(() =>
-  usePortraitFlip.value
+  showPortraitFlip.value
     ? 'group-hover:transform-[rotateY(180deg)] group-focus-visible:transform-[rotateY(180deg)]'
     : ''
 )
 
 /** Un solo texto para evitar diferencias SSR vs cliente en aria-label. */
 const portraitLinkAriaLabel = computed(() =>
-  usePortraitFlip.value
-    ? 'Ir a la sección Sobre mí. Con mouse o teclado, pasa el cursor o enfoca para ver la ilustración en el reverso; en táctil la ilustración también está en Sobre mí.'
-    : 'Ir a la sección Sobre mí'
+  showPortraitFlip.value ? t('hero.portraitAriaFlip') : t('hero.portraitAriaSimple')
 )
 
-const heroLinks = [
+const heroLinks = computed(() => [
   {
-    label: 'Hablemos de tu proyecto',
+    label: t('hero.ctaProject'),
     to: '#contact',
     trailingIcon: 'i-lucide-arrow-right',
     size: 'xl' as const
   },
   {
-    label: 'Ver trabajo reciente',
+    label: t('hero.ctaWork'),
     to: '#projects',
     size: 'xl' as const,
     color: 'neutral' as const,
     variant: 'outline' as const
   }
-]
+])
 </script>
 
 <template>
@@ -62,9 +62,9 @@ const heroLinks = [
 
       <template v-if="bio.avatar" #body>
         <div class="flex flex-col items-center justify-center w-full gap-2 sm:gap-3">
-          <NuxtLink
-            v-if="usePortraitFlip"
-            to="#about"
+          <a
+            v-if="showPortraitFlip"
+            href="#about"
             class="group relative shrink-0 rounded-full no-underline text-inherit cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-default perspective-[1100px]"
             :aria-label="portraitLinkAriaLabel"
           >
@@ -77,7 +77,7 @@ const heroLinks = [
               >
                 <img
                   :src="bio.avatar"
-                  :alt="`Retrato de ${bio.name}`"
+                  :alt="t('hero.portraitAlt', { name: bio.name })"
                   width="224"
                   height="224"
                   class="size-full object-cover"
@@ -92,7 +92,7 @@ const heroLinks = [
                 <img
                   v-if="bio.aboutAvatar"
                   :src="bio.aboutAvatar"
-                  :alt="`Ilustración de ${bio.name}`"
+                  :alt="t('hero.illustrationAlt', { name: bio.name })"
                   width="224"
                   height="224"
                   class="size-full object-cover object-center scale-110"
@@ -101,16 +101,16 @@ const heroLinks = [
                 />
               </span>
             </span>
-          </NuxtLink>
-          <NuxtLink
+          </a>
+          <a
             v-else
-            to="#about"
+            href="#about"
             class="relative shrink-0 inline-flex rounded-full no-underline text-inherit cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-default"
-            aria-label="Ir a la sección Sobre mí"
+            :aria-label="t('hero.portraitAriaSimple')"
           >
             <img
               :src="bio.avatar"
-              :alt="`Retrato de ${bio.name}`"
+              :alt="t('hero.portraitAlt', { name: bio.name })"
               width="224"
               height="224"
               class="w-40 h-40 sm:w-52 sm:h-52 md:w-56 md:h-56 object-cover rounded-full ring-4 ring-default shadow-lg shrink-0"
@@ -118,12 +118,12 @@ const heroLinks = [
               fetchpriority="high"
               decoding="async"
             />
-          </NuxtLink>
+          </a>
           <p
             v-if="bio.avatar"
             class="hero-portrait-tap-hint text-center text-xs text-muted max-w-[16rem] text-pretty"
           >
-            Toca la foto para ir a Sobre mí.
+            {{ t('hero.portraitTapHint') }}
           </p>
         </div>
       </template>

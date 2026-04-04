@@ -1,4 +1,12 @@
-/** Contenido del portafolio — única fuente de verdad para bio, proyectos, skills y experiencia. */
+/** Contenido del portafolio — tipos, estructura compartida (rutas/ids) y shape de mensajes i18n. */
+
+/** Módulo demostrable del producto (video + copy) — p. ej. recorrido Ticador en el drawer de la card. */
+export interface ProjectMediaModule {
+  id: string
+  title: string
+  description: string
+  videoSrc: string
+}
 
 export interface Project {
   id: string
@@ -9,6 +17,22 @@ export interface Project {
   url?: string
   repo?: string
   year: string
+  /** Clips o recorridos en video con copy, mostrados en “Ver detalles” (drawer). */
+  mediaModules?: ProjectMediaModule[]
+}
+
+export interface ProjectMediaModuleStructure {
+  id: string
+  videoSrc: string
+}
+
+export interface ProjectStructure {
+  id: string
+  image?: string
+  url?: string
+  repo?: string
+  year: string
+  mediaModules?: ProjectMediaModuleStructure[]
 }
 
 export interface Skill {
@@ -23,6 +47,11 @@ export interface ExperienceItem {
   company: string
   description: string
   icon?: string
+}
+
+export interface ExperienceStructureItem {
+  id: string
+  icon: string
 }
 
 export interface Bio {
@@ -53,79 +82,67 @@ export interface PortfolioData {
   experience: ExperienceItem[]
 }
 
-export const portfolioData: PortfolioData = {
+export interface PortfolioLocaleMessages {
+  bio: Pick<Bio, 'title' | 'tagline' | 'heroTrustLine' | 'location'>
+  aboutLead: string
+  aboutMore: string
+  projects: Record<
+    string,
+    {
+      title: string
+      description: string
+      tags: string[]
+      mediaModules?: Record<string, { title: string; description: string }>
+    }
+  >
+  experience: Record<
+    string,
+    Pick<ExperienceItem, 'date' | 'title' | 'company' | 'description'>
+  >
+}
+
+export interface PortfolioStructure {
+  bio: Omit<Bio, 'title' | 'tagline' | 'heroTrustLine' | 'location'>
+  projects: ProjectStructure[]
+  skills: Skill[]
+  experience: ExperienceStructureItem[]
+}
+
+/** Rutas, ids y datos no lingüísticos; el copy vive en `locales/*.json` → clave `portfolio`. */
+export const portfolioStructure: PortfolioStructure = {
   bio: {
     name: 'Andrés Baldur Tamayo Marín',
     brandName: 'BaldurDev',
-    title: 'Frontend Developer · Vue, Nuxt, Laravel & Tailwind',
-    tagline:
-      'Interfaces web rápidas, accesibles y mantenibles con Vue, Nuxt y Laravel — buenas prácticas de UX, performance y trabajo en equipo.',
-    heroTrustLine:
-      'Freelance · Bello, Antioquia · Clientes en Colombia y España · Vue, Nuxt, Laravel, WordPress (Divi, Elementor), SaaS/ERP y despliegues',
     avatar: '/images/portrait.jpg',
     aboutAvatar: '/images/avatar.png',
     email: 'andresbaldur92@gmail.com',
-    location: 'Bello, Antioquia',
     social: {
       github: 'https://github.com/baldurt1992',
       linkedin: 'https://www.linkedin.com/in/baldur92/'
     }
   },
 
-  aboutLead:
-    'Soy desarrollador frontend con foco en Vue, Nuxt (incl. Nuxt UI), PrimeVue y Tailwind. En backend trabajo sobre todo con Laravel (APIs, Eloquent, colas cuando hace falta). También implemento y mantengo sitios WordPress con Divi y Elementor cuando el producto encaja con un CMS.',
-
-  aboutMore:
-    'Me interesa la arquitectura clara del lado Laravel y las integraciones limpias con el front. Colaboro en remoto con equipos en Colombia y Europa: desde sitios y APIs Laravel hasta producto B2B (SaaS, ERP, gestión de usuarios y flujos con dominios y despliegue). Uso Git, metodologías ágiles y sigo mejorando mi inglés. Disfruto traducir requisitos en interfaces que la gente use sin fricción.',
-
   projects: [
     {
+      id: 'ticador-platform',
+      image: '/images/projects/ticador-dashboard.png',
+      url: 'https://ticador.online',
+      year: '2024',
+      mediaModules: [
+        { id: 'main-navigation', videoSrc: '/videos/ticador/ticador-main-navigation.mp4' },
+        { id: 'device-access', videoSrc: '/videos/ticador/ticador-device-access.mp4' },
+        { id: 'incident-report', videoSrc: '/videos/ticador/ticador-incident-report.mp4' },
+        { id: 'employee-check-in-out', videoSrc: '/videos/ticador/ticador-employee-check-in-out.mp4' },
+        { id: 'onboarding-wizard', videoSrc: '/videos/ticador/ticador-onboarding-wizard.mp4' }
+      ]
+    },
+    {
       id: 'cosmos-erp',
-      title: 'Cosmos ERP (multi-tenant)',
-      description:
-        'ERP en desarrollo: Laravel 12 y Nuxt 4, multi-tenant, Sanctum y Octane; Nuxt UI y TypeScript; MySQL y Redis. Infra Docker Compose (dev, staging y producción) con servicios alineados entre entornos. GitHub Actions: jobs de tests (Pest, Vitest, guardrails y cobertura) listos para integrar en el flujo, más pipelines de despliegue automatizado a servidores y paneles de hosting (Plesk, cPanel y similares) desde la rama principal. Documentación y flujos pensados Docker-first.',
-      tags: [
-        'Laravel',
-        'Nuxt',
-        'TypeScript',
-        'Docker',
-        'GitHub Actions',
-        'MySQL',
-        'Redis'
-      ],
       year: '2025'
     },
     {
-      id: 'hosting-orchestration',
-      title: 'Orquestación de hosting, dominios y despliegues',
-      description:
-        'Plataforma en desarrollo en torno a integraciones con paneles y servidores de hosting (p. ej. Plesk, cPanel): flujos de dominios, aprovisionamiento y despliegue de aplicaciones; paneles internos con Laravel, Vue 3, PrimeVue y Pinia.',
-      tags: ['Laravel', 'Vue', 'PrimeVue', 'Pinia', 'Tailwind CSS'],
+      id: 'wordpress-elementor-agenda',
       year: '2024'
-    },
-    {
-      id: 'gov-nuxt',
-      title: 'Aplicación web para entidad gubernamental',
-      description:
-        'Proyecto white label (2023): Nuxt, Pinia y Tailwind. Mejoras de rendimiento y accesibilidad, nuevo flujo de autenticación y ajustes en el modelo de datos para consultas más eficientes.',
-      tags: ['Nuxt', 'Pinia', 'Tailwind CSS'],
-      year: '2023'
-    },
-    {
-      id: 'landing-nuxt',
-      title: 'Landing freelance (Nuxt)',
-      description:
-        'Página altamente optimizada: métricas cercanas a 91 en performance, 96 en accesibilidad y 100 en SEO en Lighthouse; diseño responsive y experiencia fluida.',
-      tags: ['Nuxt', 'Tailwind CSS'],
-      year: '2023'
-    },
-    {
-      id: 'wordpress-institucional',
-      title: 'Plataforma institucional WordPress',
-      description:
-        'White label (2023): rediseño con Divi y Elementor donde aplica; foco en accesibilidad, tiempos de carga más bajos y navegación más clara.',
-      tags: ['WordPress', 'Divi', 'Elementor', 'Accesibilidad'],
-      year: '2023'
     }
   ],
 
@@ -152,35 +169,19 @@ export const portfolioData: PortfolioData = {
 
   experience: [
     {
-      date: '2024 — presente',
-      title: 'Freelance — proyectos avanzados y producto B2B',
-      company: 'Clientes en Colombia y España',
-      description:
-        'Desde 2024 intensifico colaboraciones con más carga de producto e infraestructura. Con una agencia en Colombia: Laravel, APIs y sitios WordPress ampliando stack hacia Divi además de Elementor. Con un equipo en España: producto B2B — SaaS, ERP multi-tenant (Laravel + Nuxt), plataformas de gestión de usuarios, compra de dominios y despliegue enlazado a hosting. Docker Compose entre entornos (dev, staging, producción) y GitHub Actions: tests backend/frontend (Pest, Vitest, guardrails) y pipelines de despliegue automatizado a servidores y paneles habituales (Plesk, cPanel y similares). Remoto y entregas orientadas a producción.',
+      id: 'freelance-advanced',
       icon: 'i-lucide-briefcase'
     },
     {
-      date: '2024 — 2025',
-      title: 'Formación universitaria',
-      company: 'Universidad EAFIT',
-      description:
-        'Carrera finalizada. Proyectos integradores, bases de ingeniería de software y hábitos de calidad que aplico en los proyectos con cliente.',
+      id: 'university-eafit',
       icon: 'i-lucide-graduation-cap'
     },
     {
-      date: '2023',
-      title: 'Freelance — primeros proyectos',
-      company: 'Autónomo · landings y sitios pequeños',
-      description:
-        'Proyectos acotados para clientes: landings y páginas promocionales con WordPress y Elementor, foco en maquetación clara y tiempos de entrega ágiles.',
+      id: 'freelance-early',
       icon: 'i-lucide-layout-template'
     },
     {
-      date: '2023',
-      title: 'Formación técnica en desarrollo web',
-      company: 'Cesde',
-      description:
-        'Programa orientado a desarrollo web: fundamentos de programación, bases de desarrollo y bases de datos como soporte para pasar a proyectos reales.',
+      id: 'cesde-tech',
       icon: 'i-lucide-book-open'
     }
   ]

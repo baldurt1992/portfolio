@@ -70,3 +70,30 @@ main {
 .fade-leave-to {
   opacity: 0;
 }
+
+/** Rebote ligero al hover de la card: lento, ritmo uniforme y bucle mientras dure el hover */
+@keyframes details-cta-bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1.02);
+  }
+  25% {
+    transform: translateY(-4px) scale(1.05);
+  }
+  50% {
+    transform: translateY(0) scale(0.985);
+  }
+  75% {
+    transform: translateY(-2px) scale(1.03);
+  }
+}
+
+.details-cta-bounce {
+  animation: details-cta-bounce 1.3s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .details-cta-bounce {
+    animation: none;
+  }
+}

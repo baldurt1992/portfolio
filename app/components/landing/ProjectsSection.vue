@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const { projects } = usePortfolioData()
+const { t } = useI18n()
+const portfolioData = usePortfolioData()
+const projects = computed(() => portfolioData.value.projects)
 </script>
 
 <template>
@@ -8,9 +10,9 @@ const { projects } = usePortfolioData()
       <UiScrollReveal>
         <UiSectionHeading
           id="projects-heading"
-          eyebrow="Portafolio"
-          title="Proyectos"
-          description="Proyectos recientes y productos en desarrollo: stack, contexto y tipo de impacto (sin datos sensibles de cliente)."
+          :eyebrow="t('projects.eyebrow')"
+          :title="t('projects.title')"
+          :description="t('projects.description')"
         />
         <div
           class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"

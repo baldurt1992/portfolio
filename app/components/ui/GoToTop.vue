@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const show = ref(false)
 const threshold = 400
+const { t } = useI18n()
 
 function checkScroll() {
   show.value = window.scrollY > threshold
@@ -29,7 +30,7 @@ onBeforeUnmount(() => {
       <UButton
         as="button"
         icon="i-lucide-arrow-up"
-        aria-label="Volver arriba"
+        :aria-label="t('a11y.scrollTop')"
         color="primary"
         variant="soft"
         size="lg"
