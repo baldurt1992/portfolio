@@ -14,12 +14,20 @@ const timelineItems = computed<TimelineItem[]>(() =>
 </script>
 
 <template>
-  <section id="experience" class="py-20 sm:py-28 bg-elevated/30">
+  <section id="experience" aria-labelledby="experience-heading" class="py-20 sm:py-28 bg-elevated/30">
     <UContainer>
       <UiScrollReveal>
-        <UiSectionHeading title="Experiencia" description="Mi trayectoria profesional." />
-        <div class="mt-16 max-w-2xl mx-auto">
-          <UTimeline :items="timelineItems" />
+        <div class="max-w-2xl mx-auto w-full">
+          <UiSectionHeading
+            id="experience-heading"
+            eyebrow="Trayectoria"
+            title="Experiencia"
+            description="Roles recientes y el tipo de impacto que busco generar."
+            :contained="false"
+          />
+          <div class="mt-16">
+            <UTimeline :items="timelineItems" />
+          </div>
         </div>
       </UiScrollReveal>
     </UContainer>

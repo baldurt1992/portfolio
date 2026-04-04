@@ -22,7 +22,10 @@ onBeforeUnmount(() => {
 
 <template>
   <Transition name="fade">
-    <div v-if="show" class="fixed bottom-6 right-6 z-40">
+    <div
+      v-if="show"
+      class="fixed bottom-24 right-6 sm:bottom-6 z-40"
+    >
       <UButton
         as="button"
         icon="i-lucide-arrow-up"

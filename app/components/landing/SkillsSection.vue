@@ -1,26 +1,57 @@
 <script setup lang="ts">
+import type { Skill } from '~/composables/usePortfolioData'
+
 const { skills } = usePortfolioData()
+
+const categoryLabels: Record<Skill['category'], string> = {
+  frontend: 'Frontend',
+  backend: 'Backend',
+  tools: 'Herramientas',
+  devops: 'DevOps'
+}
+
+const skillsByCategory = computed(() => {
+  const map = new Map<Skill['category'], Skill[]>()
+  for (const s of skills) {
+    const list = map.get(s.category) ?? []
+    list.push(s)
+    map.set(s.category, list)
+  }
+  return Array.from(map.entries()).filter(([, list]) => list.length > 0)
+})
 </script>
 
 <template>
-  <section id="skills" class="py-20 sm:py-28 bg-elevated/30">
+  <section id="skills" aria-labelledby="skills-heading" class="py-20 sm:py-28 bg-elevated/30">
     <UContainer>
       <UiScrollReveal>
-        <UiSectionHeading
-          title="Skills"
-          description="Herramientas y tecnologías con las que trabajo."
-        />
-        <div class="mt-16 flex flex-wrap justify-center gap-3">
-          <UBadge
-            v-for="skill in skills"
-            :key="skill.name"
-            size="lg"
-            variant="subtle"
-            class="gap-2"
-          >
-            <UIcon v-if="skill.icon" :name="skill.icon" class="size-4" />
-            {{ skill.name }}
-          </UBadge>
+        <div class="max-w-4xl mx-auto w-full">
+          <UiSectionHeading
+            id="skills-heading"
+            eyebrow="Stack"
+            title="Skills"
+            description="Tecnologías que uso en el día a día, agrupadas por área."
+            :contained="false"
+          />
+          <div class="mt-16 space-y-12">
+          <div v-for="[category, list] in skillsByCategory" :key="category">
+            <h3 class="text-sm font-semibold text-muted uppercase tracking-wider text-center mb-5">
+              {{ categoryLabels[category] }}
+            </h3>
+            <div class="flex flex-wrap justify-center gap-3">
+              <UBadge
+                v-for="skill in list"
+                :key="skill.name"
+                size="lg"
+                variant="subtle"
+                class="gap-2"
+              >
+                <UIcon v-if="skill.icon" :name="skill.icon" class="size-4 shrink-0" />
+                {{ skill.name }}
+              </UBadge>
+            </div>
+          </div>
+        </div>
         </div>
       </UiScrollReveal>
     </UContainer>

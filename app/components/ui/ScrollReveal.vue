@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const { setTarget, isVisible } = useScrollReveal()
+const { target, visible } = useScrollReveal()
 </script>
 
 <template>
   <div
-    :ref="setTarget"
+    ref="target"
     class="scroll-reveal"
-    :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
+    :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
   >
     <slot />
   </div>

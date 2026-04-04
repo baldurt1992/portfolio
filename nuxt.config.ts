@@ -8,6 +8,12 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  /** Por defecto oscuro; el usuario puede cambiar con UColorModeButton y se persiste en localStorage. */
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark'
+  },
+
   routeRules: {
     '/': { prerender: true }
   },
@@ -21,5 +27,5 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
-  }
+  },
 })

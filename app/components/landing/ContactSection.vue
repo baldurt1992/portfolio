@@ -4,11 +4,18 @@
 </script>
 
 <template>
-  <section id="contact" class="py-20 sm:py-28">
+  <section id="contact" aria-labelledby="contact-heading" class="py-20 sm:py-28">
     <UContainer>
       <UiScrollReveal>
-        <UiSectionHeading title="Contacto" description="¿Tienes un proyecto en mente? Escríbeme." />
-        <div class="mt-16 max-w-xl mx-auto">
+        <div class="max-w-xl mx-auto w-full">
+          <UiSectionHeading
+            id="contact-heading"
+            eyebrow="Siguiente paso"
+            title="Contacto"
+            description="Cuéntame el contexto, el plazo y qué éxito significa para ti. Respondo con claridad y sin rodeos."
+            :contained="false"
+          />
+          <div class="mt-16">
           <UCard variant="subtle" class="card-elevated">
             <UForm class="space-y-4" @submit.prevent="submit">
               <UFormField name="name" label="Nombre" required>
@@ -33,6 +40,7 @@
               {{ bio.email }}
             </UButton>
           </p>
+        </div>
         </div>
       </UiScrollReveal>
     </UContainer>
