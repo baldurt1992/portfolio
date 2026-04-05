@@ -6,6 +6,8 @@ export interface ProjectMediaModule {
   title: string
   description: string
   videoSrc: string
+  /** Título de sección i18n (p. ej. provisioning vs app de asistencia), opcional. */
+  mediaGroupTitle?: string
 }
 
 export interface Project {
@@ -24,6 +26,8 @@ export interface Project {
 export interface ProjectMediaModuleStructure {
   id: string
   videoSrc: string
+  /** Clave en `portfolio.projects[id].mediaModuleGroups` para agrupar ítems en el drawer. */
+  mediaGroup?: string
 }
 
 export interface ProjectStructure {
@@ -93,6 +97,7 @@ export interface PortfolioLocaleMessages {
       description: string
       tags: string[]
       mediaModules?: Record<string, { title: string; description: string }>
+      mediaModuleGroups?: Record<string, { title: string }>
     }
   >
   experience: Record<
@@ -129,11 +134,46 @@ export const portfolioStructure: PortfolioStructure = {
       url: 'https://ticador.online',
       year: '2024',
       mediaModules: [
-        { id: 'main-navigation', videoSrc: '/videos/ticador/ticador-main-navigation.mp4' },
-        { id: 'device-access', videoSrc: '/videos/ticador/ticador-device-access.mp4' },
-        { id: 'incident-report', videoSrc: '/videos/ticador/ticador-incident-report.mp4' },
-        { id: 'employee-check-in-out', videoSrc: '/videos/ticador/ticador-employee-check-in-out.mp4' },
-        { id: 'onboarding-wizard', videoSrc: '/videos/ticador/ticador-onboarding-wizard.mp4' }
+        {
+          id: 'main-navigation',
+          videoSrc: '/videos/ticador/ticador-main-navigation.mp4',
+          mediaGroup: 'provisioning-admin'
+        },
+        {
+          id: 'tenant-provisioning-flow',
+          videoSrc: '/videos/ticador/ticador-tenant-provisioning-flow.mp4',
+          mediaGroup: 'provisioning-admin'
+        },
+        {
+          id: 'subscriptions-coupons-cycle',
+          videoSrc: '/videos/ticador/ticador-subscriptions-coupons-cycle.mp4',
+          mediaGroup: 'provisioning-admin'
+        },
+        {
+          id: 'onboarding-wizard',
+          videoSrc: '/videos/ticador/ticador-onboarding-wizard.mp4',
+          mediaGroup: 'workforce-app'
+        },
+        {
+          id: 'application-main-navigation',
+          videoSrc: '/videos/ticador/ticador-app-main-navigation.mp4',
+          mediaGroup: 'workforce-app'
+        },
+        {
+          id: 'device-access',
+          videoSrc: '/videos/ticador/ticador-device-access.mp4',
+          mediaGroup: 'workforce-app'
+        },
+        {
+          id: 'employee-check-in-out',
+          videoSrc: '/videos/ticador/ticador-employee-check-in-out.mp4',
+          mediaGroup: 'workforce-app'
+        },
+        {
+          id: 'incident-report',
+          videoSrc: '/videos/ticador/ticador-incident-report.mp4',
+          mediaGroup: 'workforce-app'
+        }
       ]
     },
     {

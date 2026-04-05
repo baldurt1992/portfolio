@@ -109,7 +109,7 @@
     "projects": {
       "ticador-platform": {
         "title": "Ticador — production SaaS ecosystem",
-        "description": "I built a production SaaS ecosystem for ticador.online: a marketing site, a multi-tenant provisioning platform, the core workforce attendance system, and a centralized Mail Center. It automates the full onboarding and day-to-day cycle for each customer: environments, guided setup, employees, authorized devices, time clocking, reporting, and real-time notifications. Private repos; representative video and screenshots in this portfolio.",
+        "description": "I built a production SaaS ecosystem for ticador.online, composed of four decoupled repos that talk to each other: a marketing site, a multi-tenant provisioning platform, the core workforce attendance system, and a Mail Center as a dedicated Laravel service to receive, distribute messages, and log delivery. It automates the full onboarding and day-to-day cycle for each customer: environments, guided setup, employees, authorized devices, time clocking, reporting, and real-time notifications. Private repos; representative video and screenshots in this portfolio.",
         "tags": [
           "Laravel",
           "Vue 3",
@@ -124,26 +124,46 @@
           "Queues / Jobs",
           "Multi-tenant provisioning"
         ],
+        "mediaModuleGroups": {
+          "provisioning-admin": {
+            "title": "Provisioning platform (admin)"
+          },
+          "workforce-app": {
+            "title": "Workforce attendance app (customer)"
+          }
+        },
         "mediaModules": {
           "main-navigation": {
             "title": "Main navigation",
-            "description": "Overview of the admin panel where day-to-day operations are centralized: employees, devices, incidents, reporting, and workplace configuration."
+            "description": "Overview of the Ticador Automatization admin panel, where system operations, site management, subscription access, and key customer provisioning flows are centralized."
+          },
+          "tenant-provisioning-flow": {
+            "title": "Tenant provisioning flow",
+            "description": "End-to-end provisioning from the admin panel: site creation, name validation, deployment kickoff, customer environment setup, administrator assignment, and access to the deployed project on its subdomain."
+          },
+          "subscriptions-coupons-cycle": {
+            "title": "Subscriptions and coupons lifecycle",
+            "description": "Walkthrough of subscription management in the admin panel: active plans, the creation modal, expiration dates, each subscription’s lifecycle, and promotional coupon administration."
+          },
+          "onboarding-wizard": {
+            "title": "Onboarding wizard",
+            "description": "Guided first-run setup to speed up each customer go-live: company, employees, devices, and reporting in a structured flow."
+          },
+          "application-main-navigation": {
+            "title": "Main application panel navigation",
+            "description": "Walkthrough of the operational attendance app shell: employees, devices, clock-in/out, incidents, reporting, and workplace settings — the product admins and staff use every day on the customer site."
           },
           "device-access": {
             "title": "Device access",
             "description": "Access control based on authorized devices. The system flags unregistered hardware, surfaces its status, and lets admins validate it before it’s allowed in the clock-in flow."
           },
-          "incident-report": {
-            "title": "Incident report",
-            "description": "Incident management to log issues, follow cases, and keep employee–admin communication inside the same platform."
-          },
           "employee-check-in-out": {
             "title": "Employee check-in / check-out",
             "description": "Core time-tracking flow where employees clock in and out with an assigned token, keeping a clear record of their workday."
           },
-          "onboarding-wizard": {
-            "title": "Onboarding wizard",
-            "description": "Guided first-run setup to speed up each customer go-live: company, employees, devices, and reporting in a structured flow."
+          "incident-report": {
+            "title": "Incident report",
+            "description": "Incident management to log issues, follow cases, and keep employee–admin communication inside the same platform."
           }
         }
       },

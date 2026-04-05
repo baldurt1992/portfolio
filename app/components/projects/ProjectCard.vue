@@ -11,8 +11,10 @@
   const motion = usePreferredReducedMotion()
   const prefersReducedMotion = computed(() => motion.value === 'reduce')
 
+  /** Clip del panel operativo (app de asistencia); el primer ítem del drawer es el admin Automatization. */
   const heroHoverVideoSrc = computed(
-    () => props.project.mediaModules?.find((m) => m.id === 'main-navigation')?.videoSrc
+    () =>
+      props.project.mediaModules?.find((m) => m.id === 'application-main-navigation')?.videoSrc
   )
 
   const useHeroHoverVideo = computed(

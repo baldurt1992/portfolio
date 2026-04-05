@@ -109,7 +109,7 @@
     "projects": {
       "ticador-platform": {
         "title": "Ticador — ecosistema SaaS en producción",
-        "description": "Desarrollé un ecosistema SaaS en producción para ticador.online, compuesto por una landing comercial, una plataforma de provisioning multi-tenant, el sistema principal de control de asistencia laboral y un Mail Center centralizado. La solución automatiza el ciclo completo de onboarding y operación de cada cliente: creación de entornos, configuración guiada, gestión de empleados, control de dispositivos autorizados, fichaje, reportes y notificaciones en tiempo real. Repositorios privados; video y capturas representativas en el portafolio.",
+        "description": "Desarrollé un ecosistema SaaS en producción para ticador.online, compuesto por cuatro repos desacoplados y conectados entre sí: landing comercial, plataforma de provisioning multi-tenant, sistema principal de control de asistencia laboral y un Mail Center como servicio Laravel dedicado a recibir, distribuir mensajes y registrar logs. La solución automatiza el ciclo completo de onboarding y operación de cada cliente: creación de entornos, configuración guiada, gestión de empleados, control de dispositivos autorizados, fichaje, reportes y notificaciones en tiempo real. Repositorios privados; video y capturas representativas en el portafolio.",
         "tags": [
           "Laravel",
           "Vue 3",
@@ -122,28 +122,48 @@
           "MySQL",
           "REST APIs",
           "Queues / Jobs",
-          "Multi-tenant provisioning"
+          "Aprovisionamiento multi-cliente"
         ],
+        "mediaModuleGroups": {
+          "provisioning-admin": {
+            "title": "Plataforma de aprovisionamiento (administración)"
+          },
+          "workforce-app": {
+            "title": "Aplicación de asistencia (cliente)"
+          }
+        },
         "mediaModules": {
           "main-navigation": {
-            "title": "Main Navigation",
-            "description": "Vista general del panel administrativo desde donde se centraliza la operación del sistema: empleados, dispositivos, incidencias, reportes y configuración del entorno de trabajo."
+            "title": "Navegación principal",
+            "description": "Vista general del panel de administración de Ticador Automatization, desde donde se centralizan la operación del sistema, la gestión de sitios, el acceso a suscripciones y los flujos clave de provisioning para clientes."
           },
-          "device-access": {
-            "title": "Device Access",
-            "description": "Control de acceso basado en dispositivos autorizados. El sistema detecta equipos no registrados, alerta su estado y permite su validación desde administración antes de habilitar su uso operativo en el flujo de fichaje."
+          "tenant-provisioning-flow": {
+            "title": "Flujo de aprovisionamiento de clientes",
+            "description": "Flujo completo de aprovisionamiento desde el panel administrativo: creación del sitio, validación del nombre, inicio del despliegue, preparación del entorno cliente, asignación de administradores y acceso al proyecto desplegado en su subdominio."
           },
-          "incident-report": {
-            "title": "Incident Report",
-            "description": "Módulo de gestión de incidencias para registrar novedades, dar seguimiento a casos y mantener comunicación entre empleado y administración dentro de la misma plataforma."
-          },
-          "employee-check-in-out": {
-            "title": "Employee Check-In / Check-Out",
-            "description": "Flujo principal de control horario, donde el empleado registra entradas y salidas mediante un token asignado, manteniendo trazabilidad sobre su jornada laboral."
+          "subscriptions-coupons-cycle": {
+            "title": "Ciclo de suscripciones y cupones",
+            "description": "Recorrido por la gestión de suscripciones dentro del panel administrativo: visualización de planes activos, uso del modal de creación, control de fechas de vencimiento, interacción con el ciclo de cada suscripción y administración de cupones promocionales."
           },
           "onboarding-wizard": {
-            "title": "Onboarding Wizard",
+            "title": "Asistente de configuración inicial",
             "description": "Asistente guiado de configuración inicial para acelerar la puesta en marcha de cada cliente, incluyendo empresa, empleados, dispositivos y reportes dentro de un flujo estructurado."
+          },
+          "application-main-navigation": {
+            "title": "Navegación principal de la aplicación",
+            "description": "Recorrido por la navegación del panel operativo de asistencia: acceso a empleados, dispositivos, fichaje, incidencias, reportes y la configuración del entorno de trabajo del cliente — la aplicación que usan día a día empleados y administradores del sitio."
+          },
+          "device-access": {
+            "title": "Acceso por dispositivo",
+            "description": "Control de acceso basado en dispositivos autorizados. El sistema detecta equipos no registrados, alerta su estado y permite su validación desde administración antes de habilitar su uso operativo en el flujo de fichaje."
+          },
+          "employee-check-in-out": {
+            "title": "Entrada y salida laboral",
+            "description": "Flujo principal de control horario, donde el empleado registra entradas y salidas mediante un token asignado, manteniendo trazabilidad sobre su jornada laboral."
+          },
+          "incident-report": {
+            "title": "Reporte de incidencias",
+            "description": "Módulo de gestión de incidencias para registrar novedades, dar seguimiento a casos y mantener comunicación entre empleado y administración dentro de la misma plataforma."
           }
         }
       },

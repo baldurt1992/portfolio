@@ -1,10 +1,16 @@
 <script setup lang="ts">
+  import { withoutHash } from '~/utils/withoutHash'
+
   const portfolioData = usePortfolioData()
   const { t, locale } = useI18n()
   const switchLocalePath = useSwitchLocalePath()
   const localePath = useLocalePath()
 
-  const contactTo = computed(() => `${localePath('/')}#contact`)
+  const contactTo = computed(() => `${withoutHash(localePath('/'))}#contact`)
+
+  function localeLinkFor(code: 'es' | 'en') {
+    return withoutHash(switchLocalePath(code))
+  }
 
   const langOptions = [
     { code: 'es' as const, label: 'ES' },
@@ -29,7 +35,7 @@
 <template>
   <UHeader mode="slideover" :menu="headerMenu">
     <template #left>
-      <NuxtLink :to="localePath('/')" class="font-bold text-xl text-highlighted shrink-0">
+      <NuxtLink :to="withoutHash(localePath('/'))" class="font-bold text-xl text-highlighted shrink-0">
         {{ portfolioData.bio.brandName ?? portfolioData.bio.name.split(' ')[0] }}
       </NuxtLink>
       <LayoutAppNav class="hidden lg:flex" />
@@ -44,7 +50,7 @@
         <UButton
           v-for="opt in langOptions"
           :key="opt.code"
-          :to="switchLocalePath(opt.code)"
+          :to="localeLinkFor(opt.code)"
           size="xs"
           :variant="locale === opt.code ? 'soft' : 'ghost'"
           color="neutral"
@@ -55,6 +61,7 @@
       </div>
       <UButton
         :to="contactTo"
+        external
         :label="t('header.contact')"
         color="primary"
         variant="soft"
@@ -93,7 +100,7 @@
           <UButton
             v-for="opt in langOptions"
             :key="opt.code"
-            :to="switchLocalePath(opt.code)"
+            :to="localeLinkFor(opt.code)"
             size="sm"
             :variant="locale === opt.code ? 'soft' : 'ghost'"
             color="neutral"

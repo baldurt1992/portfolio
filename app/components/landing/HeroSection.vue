@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { usePreferredReducedMotion } from '@vueuse/core'
+import { withoutHash } from '~/utils/withoutHash'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 const portfolioData = usePortfolioData()
 const bio = computed(() => portfolioData.value.bio)
 
@@ -30,21 +32,26 @@ const portraitLinkAriaLabel = computed(() =>
   showPortraitFlip.value ? t('hero.portraitAriaFlip') : t('hero.portraitAriaSimple')
 )
 
-const heroLinks = computed(() => [
-  {
-    label: t('hero.ctaProject'),
-    to: '#contact',
-    trailingIcon: 'i-lucide-arrow-right',
-    size: 'xl' as const
-  },
-  {
-    label: t('hero.ctaWork'),
-    to: '#projects',
-    size: 'xl' as const,
-    color: 'neutral' as const,
-    variant: 'outline' as const
-  }
-])
+const heroLinks = computed(() => {
+  const base = withoutHash(localePath('/'))
+  return [
+    {
+      label: t('hero.ctaProject'),
+      to: `${base}#contact`,
+      external: true,
+      trailingIcon: 'i-lucide-arrow-right',
+      size: 'xl' as const
+    },
+    {
+      label: t('hero.ctaWork'),
+      to: `${base}#projects`,
+      external: true,
+      size: 'xl' as const,
+      color: 'neutral' as const,
+      variant: 'outline' as const
+    }
+  ]
+})
 </script>
 
 <template>

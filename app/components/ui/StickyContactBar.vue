@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { withoutHash } from '~/utils/withoutHash'
+
 const localePath = useLocalePath()
 const { t } = useI18n()
 
-const contactTo = computed(() => `${localePath('/')}#contact`)
+const contactTo = computed(() => `${withoutHash(localePath('/'))}#contact`)
 </script>
 
 <template>
@@ -14,6 +16,7 @@ const contactTo = computed(() => `${localePath('/')}#contact`)
     >
       <UButton
         :to="contactTo"
+        external
         block
         size="lg"
         icon="i-lucide-mail"

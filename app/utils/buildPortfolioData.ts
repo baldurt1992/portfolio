@@ -35,11 +35,25 @@ export function buildPortfolioData(
           })
           throw new Error(`Missing i18n media module ${p.id}/${m.id}`)
         }
+        let mediaGroupTitle: string | undefined
+        if (m.mediaGroup != null && m.mediaGroup !== '') {
+          const g = copy.mediaModuleGroups?.[m.mediaGroup]
+          if (!g?.title) {
+            console.error('[buildPortfolioData] Falta título i18n para grupo de medios', {
+              projectId: p.id,
+              mediaGroup: m.mediaGroup,
+              moduleId: m.id
+            })
+            throw new Error(`Missing i18n mediaModuleGroups.${m.mediaGroup} for ${p.id}`)
+          }
+          mediaGroupTitle = g.title
+        }
         return {
           id: m.id,
           videoSrc: m.videoSrc,
           title: modCopy.title,
-          description: modCopy.description
+          description: modCopy.description,
+          mediaGroupTitle
         }
       }) ?? undefined
 
