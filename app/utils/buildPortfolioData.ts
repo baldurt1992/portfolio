@@ -5,6 +5,7 @@ import type {
   PortfolioLocaleMessages,
   PortfolioStructure
 } from '~/data/portfolio'
+import { publicPath } from '~/utils/publicPath'
 
 /**
  * Une `portfolioStructure` (rutas, ids, URLs) con copy por idioma desde vue-i18n (`tm('portfolio')`).
@@ -15,7 +16,9 @@ export function buildPortfolioData(
 ): PortfolioData {
   const bio: Bio = {
     ...structure.bio,
-    ...messages.bio
+    ...messages.bio,
+    avatar: structure.bio.avatar ? publicPath(structure.bio.avatar) : undefined,
+    aboutAvatar: structure.bio.aboutAvatar ? publicPath(structure.bio.aboutAvatar) : undefined
   }
 
   const projects = structure.projects.map((p) => {
@@ -50,7 +53,7 @@ export function buildPortfolioData(
         }
         return {
           id: m.id,
-          videoSrc: m.videoSrc,
+          videoSrc: publicPath(m.videoSrc),
           title: modCopy.title,
           description: modCopy.description,
           mediaGroupTitle
@@ -59,7 +62,7 @@ export function buildPortfolioData(
 
     return {
       id: p.id,
-      image: p.image,
+      image: p.image != null && p.image !== '' ? publicPath(p.image) : undefined,
       url: p.url,
       repo: p.repo,
       year: copy.year ?? p.year,

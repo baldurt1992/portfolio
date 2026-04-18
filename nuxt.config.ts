@@ -64,4 +64,17 @@ export default defineNuxtConfig({
     ],
     detectBrowserLanguage: false
   },
+
+  /**
+   * Iconos empaquetados: en GitHub Pages no hay API Nitro; sin esto el cliente pide
+   * `/api/_nuxt_icon/...` y falla. lucide/simple-icons ya están en dependencies como JSON.
+   */
+  icon: {
+    clientBundle: {
+      scan: true
+    },
+    serverBundle: {
+      collections: ['lucide', 'simple-icons']
+    }
+  }
 })

@@ -1,4 +1,5 @@
 /** Contenido del portafolio — tipos, estructura compartida (rutas/ids) y shape de mensajes i18n. */
+/** Rutas bajo `public/` (sin `app.baseURL`); el prefijo lo aplica `buildPortfolioData`. */
 
 /** Módulo demostrable del producto (video + copy) — p. ej. recorrido Ticador en el drawer de la card. */
 export interface ProjectMediaModule {

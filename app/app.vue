@@ -1,8 +1,15 @@
 <script setup>
+  import { joinURL } from 'ufo'
   import { en, es } from '@nuxt/ui/locale'
   import { portfolioStructure } from '~/data/portfolio'
 
   const { locale, t } = useI18n()
+  const runtimeConfig = useRuntimeConfig()
+
+  /** Favicons / manifest: resolver en setup (no computed anidado) para que el prerender inyecte `app.baseURL`. */
+  function assetHref(path) {
+    return joinURL(runtimeConfig.app.baseURL, path.replace(/^\/+/, ''))
+  }
 
   /** Nuxt UI < UHeader usa t('header.title'|'header.description'); el locale base no los define. */
   const nuxtUiLocale = computed(() => {
@@ -38,11 +45,11 @@
   useHead({
     meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
     link: [
-      { rel: 'icon', href: '/favicon.ico', sizes: '32x32' },
-      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-      { rel: 'icon', type: 'image/png', href: '/favicon-96x96.png', sizes: '96x96' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
-      { rel: 'manifest', href: '/site.webmanifest' },
+      { rel: 'icon', href: assetHref('favicon.ico'), sizes: '32x32' },
+      { rel: 'icon', type: 'image/svg+xml', href: assetHref('favicon.svg') },
+      { rel: 'icon', type: 'image/png', href: assetHref('favicon-96x96.png'), sizes: '96x96' },
+      { rel: 'apple-touch-icon', href: assetHref('apple-touch-icon.png') },
+      { rel: 'manifest', href: assetHref('site.webmanifest') },
       {
         rel: 'preconnect',
         href: 'https://fonts.googleapis.com'
