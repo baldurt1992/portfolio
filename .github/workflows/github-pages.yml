@@ -1,5 +1,8 @@
 # Despliegue estático a GitHub Pages
 # Referencia: https://nuxt.com/deploy/github-pages · https://github.com/actions/deploy-pages
+#
+# Antes del primer deploy: Repo → Settings → Pages → Build and deployment → Source: GitHub Actions
+# (no "Deploy from a branch"). Si no, deploy-pages falla con HTTP 404 al crear el deployment.
 name: Deploy GitHub Pages
 
 on:

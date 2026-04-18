@@ -33,6 +33,15 @@ export default defineNuxtConfig({
     '/en': { prerender: true }
   },
 
+  /**
+   * Mitiga el warning "Duplicated imports useAppConfig" (nitropack vs @nuxt/nitro-server).
+   * En un sitio como este no necesitas app config distinto por request en el servidor.
+   * @see https://github.com/nuxt/nuxt/issues/34812
+   */
+  experimental: {
+    serverAppConfig: false
+  },
+
   compatibilityDate: '2025-01-15',
 
   eslint: {
@@ -54,5 +63,5 @@ export default defineNuxtConfig({
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
     ],
     detectBrowserLanguage: false
-  }
+  },
 })
