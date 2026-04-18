@@ -1,14 +1,17 @@
 <script setup lang="ts">
+  import { toValue } from 'vue'
   import { joinURL } from 'ufo'
   import { en, es } from '@nuxt/ui/locale'
   import { portfolioStructure } from '~/data/portfolio'
+  import { normalizeAppRouterPath } from '~/utils/normalizeAppRouterPath'
   import { withoutHash } from '~/utils/withoutHash'
 
-  const { locale, t } = useI18n()
+  const { locale, locales, defaultLocale, t } = useI18n()
   const localePath = useLocalePath()
   const runtimeConfig = useRuntimeConfig()
 
-  const i18nHead = useLocaleHead()
+  /** `seo: false`: las hreflang/canonical de i18n hacen `joinURL(baseUrl, localePath)` y duplican la base en subrutas. */
+  const i18nHead = useLocaleHead({ seo: false })
 
   // Prerender: hrefs deben usar runtime baseURL (subruta GitHub Pages)
   function assetHref(path: string) {
@@ -16,6 +19,7 @@
   }
 
   const siteBase = computed(() => {
+    // `siteUrl` ya viene sin barra final desde `nuxt.config` (`NUXT_PUBLIC_SITE_URL`).
     const fromEnv = (runtimeConfig.public.siteUrl as string | undefined)?.trim()
     if (fromEnv) {
       return fromEnv.replace(/\/$/, '')
@@ -46,17 +50,61 @@
     return typeof d === 'string' ? d : ''
   }
 
-  const canonicalPageUrl = computed(() => {
+  /** `localePath` puede incluir el segmento de `app.baseURL`; unir eso con `siteUrl` duplicaba el path. */
+  function routerPathToAbsoluteSiteUrl(pathFromLocalePath: string) {
     const base = siteBase.value
     if (!base) {
       return undefined
     }
-    const localized = withoutHash(localePath('/'))
-    const trimmed = localized.replace(/\/$/, '') || '/'
+    const appBase = runtimeConfig.app.baseURL || '/'
+    const norm = normalizeAppRouterPath(withoutHash(pathFromLocalePath), appBase)
+    const trimmed = norm.replace(/\/$/, '') || '/'
     if (trimmed === '/') {
       return base
     }
     return joinURL(base, trimmed.replace(/^\//, ''))
+  }
+
+  const canonicalPageUrl = computed(() => routerPathToAbsoluteSiteUrl(localePath('/')))
+
+  const hreflangHeadLinks = computed(() => {
+    const base = siteBase.value
+    if (!base) {
+      return [] as { rel: 'alternate'; href: string; hreflang: string; key: string }[]
+    }
+    const raw = locales.value ?? []
+    const links: { rel: 'alternate'; href: string; hreflang: string; key: string }[] = []
+    for (const entry of raw) {
+      const code = typeof entry === 'string' ? entry : entry.code
+      const href = routerPathToAbsoluteSiteUrl(localePath('/', code))
+      if (!href) {
+        continue
+      }
+      const hreflang =
+        typeof entry === 'string' ? code : (entry.language ?? code)
+      links.push({
+        rel: 'alternate',
+        href,
+        hreflang,
+        key: `hreflang-${hreflang}`
+      })
+    }
+    const def = toValue(defaultLocale)
+    if (def && links.length) {
+      const defHref = routerPathToAbsoluteSiteUrl(localePath('/', def))
+      if (
+        defHref &&
+        !links.some((l) => l.hreflang === 'x-default')
+      ) {
+        links.unshift({
+          rel: 'alternate',
+          href: defHref,
+          hreflang: 'x-default',
+          key: 'hreflang-x-default'
+        })
+      }
+    }
+    return links
   })
 
   const defaultOgImagePath = 'images/portrait.jpg'
@@ -127,9 +175,17 @@
 
   useHead(() => {
     const h = i18nHead.value
+    const c = canonicalPageUrl.value
     return {
       htmlAttrs: h.htmlAttrs,
       link: [
+        ...(c ? [{ rel: 'canonical' as const, href: c, key: 'canonical' }] : []),
+        ...hreflangHeadLinks.value.map((x) => ({
+          rel: x.rel,
+          href: x.href,
+          hreflang: x.hreflang,
+          key: x.key
+        })),
         ...(h.link ?? []),
         { rel: 'icon', href: assetHref('favicon.ico'), sizes: '32x32' },
         { rel: 'icon', type: 'image/svg+xml', href: assetHref('favicon.svg') },

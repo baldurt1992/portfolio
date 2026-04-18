@@ -1,4 +1,13 @@
-const publicSiteUrl = process.env.NUXT_PUBLIC_SITE_URL?.trim() ?? ''
+/**
+ * `NUXT_PUBLIC_SITE_URL` en prod suele ser la URL pública del repo, p. ej.
+ * `https://baldurt1992.github.io/portfolio/` (con barra final). Normalizamos a **sin** barra final
+ * para `joinURL`, canonical, `i18n.baseUrl` y `@nuxtjs/sitemap` con una sola forma.
+ */
+function normalizedPublicSiteUrl(): string {
+  return process.env.NUXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, '') ?? ''
+}
+
+const publicSiteUrl = normalizedPublicSiteUrl()
 
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/i18n', '@nuxtjs/sitemap'],
@@ -25,7 +34,7 @@ export default defineNuxtConfig({
   // Vacíos en build/CI sin secrets; en prod inyectar NUXT_PUBLIC_EMAILJS_* y NUXT_PUBLIC_SITE_URL.
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || '',
+      siteUrl: publicSiteUrl,
       emailjsPublicKey: '',
       emailjsServiceId: '',
       emailjsTemplateId: ''

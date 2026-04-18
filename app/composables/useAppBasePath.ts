@@ -1,26 +1,17 @@
-import { withBase, withoutTrailingSlash } from 'ufo'
+import { normalizeAppRouterPath } from '~/utils/normalizeAppRouterPath'
 import { withoutHash } from '~/utils/withoutHash'
 
 /**
- * Rutas de `localePath` / `switchLocalePath` suelen ser `/`, `/en` (respecto al origen).
- * Con `app.baseURL` en subruta hay que prefijar para que no resuelvan a `/#hash` en el host.
- * Si i18n ya devuelve `/portfolio/en`, no volver a aplicar base (evita `/portfolio/portfolio/en`).
- * Si llega `portfolio/en` sin `/` inicial, `withBase` duplicaba el segmento.
+ * Devuelve un path relativo al **router** (`/`, `/en`), sin el prefijo de deploy (`/portfolio`).
+ * `NuxtLink` / Vue Router aplican `app.baseURL` solos; si aquí se hace `withBase` y además pasas
+ * el resultado a `NuxtLink`, el href queda `/portfolio/portfolio`.
  */
 export function useAppBasePath() {
   const runtimeConfig = useRuntimeConfig()
 
   function resolve(localeRelativePath: string) {
     const appBase = runtimeConfig.app.baseURL || '/'
-    let rel = withoutHash(localeRelativePath) || '/'
-    if (!rel.startsWith('/')) {
-      rel = `/${rel}`
-    }
-    const root = withoutTrailingSlash(appBase)
-    if (root && root !== '/' && (rel === root || rel.startsWith(`${root}/`))) {
-      return rel
-    }
-    return withBase(rel, appBase)
+    return normalizeAppRouterPath(withoutHash(localeRelativePath), appBase)
   }
 
   return { resolve }
