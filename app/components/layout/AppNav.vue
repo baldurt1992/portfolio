@@ -7,12 +7,12 @@
 
   const { t } = useI18n()
   const localePath = useLocalePath()
-  const { resolve } = useAppBasePath()
+  const { withFragment } = useAppBasePath()
   const { activeHash, navActiveReady } = useLandingNavActive()
 
-  // NuxtLink + hash: `external` evita #fragment distinto SSR/cliente
+  // NuxtLink + hash: `external` evita #fragment distinto SSR/cliente; `withFragment` incluye app.baseURL
   const navItems = computed<NavigationMenuItem[]>(() => {
-    const base = resolve(localePath('/'))
+    const home = localePath('/')
     const entries = [
       { label: t('nav.home'), fragment: '#hero' as const },
       { label: t('nav.about'), fragment: '#about' as const },
@@ -23,7 +23,7 @@
     ]
     return entries.map(({ label, fragment }) => ({
       label,
-      to: `${base}${fragment}`,
+      to: withFragment(home, fragment),
       external: true,
       active: navActiveReady.value && activeHash.value === fragment
     }))

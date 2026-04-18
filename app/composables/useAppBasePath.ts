@@ -1,10 +1,13 @@
+import { withBase, withoutTrailingSlash } from 'ufo'
 import { normalizeAppRouterPath } from '~/utils/normalizeAppRouterPath'
 import { withoutHash } from '~/utils/withoutHash'
 
 /**
- * Devuelve un path relativo al **router** (`/`, `/en`), sin el prefijo de deploy (`/portfolio`).
- * `NuxtLink` / Vue Router aplican `app.baseURL` solos; si aquí se hace `withBase` y además pasas
- * el resultado a `NuxtLink`, el href queda `/portfolio/portfolio`.
+ * `resolve`: path del **router** (`/`, `/en`) para `NuxtLink` sin `external` — Vue aplica `app.baseURL`.
+ *
+ * `withFragment`: enlaces con `external` y `#hash`. Si concatenas `resolve(...) + '#id'`, sale `/#id`
+ * y en `github.io/repo` el navegador va a `github.io/#id` (pierde `/repo`). Aquí se usa `withBase`
+ * sobre el path ya normalizado (sin duplicar).
  */
 export function useAppBasePath() {
   const runtimeConfig = useRuntimeConfig()
@@ -14,5 +17,17 @@ export function useAppBasePath() {
     return normalizeAppRouterPath(withoutHash(localeRelativePath), appBase)
   }
 
-  return { resolve }
+  function resolveExternal(localeRelativePath: string) {
+    const appBase = runtimeConfig.app.baseURL || '/'
+    const rel = normalizeAppRouterPath(withoutHash(localeRelativePath), appBase)
+    return withBase(rel, appBase)
+  }
+
+  function withFragment(localeRelativePath: string, fragment: string) {
+    const f = fragment.startsWith('#') ? fragment : `#${fragment}`
+    const full = resolveExternal(localeRelativePath)
+    return `${withoutTrailingSlash(full)}${f}`
+  }
+
+  return { resolve, resolveExternal, withFragment }
 }

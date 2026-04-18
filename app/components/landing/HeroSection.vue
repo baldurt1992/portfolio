@@ -3,7 +3,7 @@
 
   const { t } = useI18n()
   const localePath = useLocalePath()
-  const { resolve } = useAppBasePath()
+  const { withFragment } = useAppBasePath()
   const portfolioData = usePortfolioData()
   const bio = computed(() => portfolioData.value.bio)
 
@@ -34,19 +34,22 @@
       bio.value.taglineRotatingTokens.length > 0
   )
 
+  /** Mismo criterio que nav/CTA: en subruta GitHub Pages `#about` solo no basta. */
+  const portraitAboutHref = computed(() => withFragment(localePath('/'), '#about'))
+
   const heroLinks = computed(() => {
-    const base = resolve(localePath('/'))
+    const home = localePath('/')
     return [
       {
         label: t('hero.ctaProject'),
-        to: `${base}#contact`,
+        to: withFragment(home, '#contact'),
         external: true,
         trailingIcon: 'i-lucide-arrow-right',
         size: 'xl' as const
       },
       {
         label: t('hero.ctaWork'),
-        to: `${base}#projects`,
+        to: withFragment(home, '#projects'),
         external: true,
         size: 'xl' as const,
         color: 'neutral' as const,
@@ -71,7 +74,7 @@
 
       <template v-if="bio.avatar" #body>
         <div class="flex flex-col items-center justify-center w-full gap-2 sm:gap-3">
-          <a v-if="showPortraitFlip" href="#about"
+          <a v-if="showPortraitFlip" :href="portraitAboutHref"
             class="group relative shrink-0 rounded-full no-underline text-inherit cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-default perspective-[1100px]"
             :aria-label="portraitLinkAriaLabel">
             <span
@@ -89,7 +92,7 @@
               </span>
             </span>
           </a>
-          <a v-else href="#about"
+          <a v-else :href="portraitAboutHref"
             class="relative shrink-0 inline-flex rounded-full no-underline text-inherit cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-default"
             :aria-label="t('hero.portraitAriaSimple')">
             <img :src="bio.avatar" :alt="t('hero.portraitAlt', { name: bio.name })" width="224" height="224"

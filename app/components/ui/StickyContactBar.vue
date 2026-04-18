@@ -1,9 +1,9 @@
 <script setup lang="ts">
   const localePath = useLocalePath()
-  const { resolve } = useAppBasePath()
+  const { withFragment } = useAppBasePath()
   const { t } = useI18n()
 
-  const contactTo = computed(() => `${resolve(localePath('/'))}#contact`)
+  const contactTo = computed(() => withFragment(localePath('/'), '#contact'))
 </script>
 
 <template>

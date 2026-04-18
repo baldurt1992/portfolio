@@ -3,11 +3,11 @@
   const { t, locale } = useI18n()
   const switchLocalePath = useSwitchLocalePath()
   const localePath = useLocalePath()
-  const { resolve } = useAppBasePath()
+  const { resolve, withFragment } = useAppBasePath()
 
   const homePath = computed(() => resolve(localePath('/')))
 
-  const contactTo = computed(() => `${homePath.value}#contact`)
+  const contactTo = computed(() => withFragment(localePath('/'), '#contact'))
 
   function localeLinkFor(code: 'es' | 'en') {
     return resolve(switchLocalePath(code))
