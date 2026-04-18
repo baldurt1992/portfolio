@@ -23,7 +23,13 @@
           <UiSectionHeading id="experience-heading" :eyebrow="t('experience.eyebrow')" :title="t('experience.title')"
             :description="t('experience.description')" :contained="false" />
           <div class="mt-16">
-            <UTimeline :items="timelineItems" />
+            <UTimeline
+              :items="timelineItems"
+              color="primary"
+              :ui="{
+                date: 'text-primary text-xs/5 font-medium'
+              }"
+            />
           </div>
         </div>
       </UiScrollReveal>

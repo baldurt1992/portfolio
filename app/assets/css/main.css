@@ -3,7 +3,6 @@
 @import '@nuxt/ui';
 
 @theme {
-  /* Una familia tipográfica definida (guía UX: técnico/editorial; evita duos genéricos estilo Inter+Purple) */
   --font-sans: 'Space Grotesk', system-ui, sans-serif;
 }
 
@@ -22,9 +21,6 @@ main {
   overflow-y: visible;
 }
 
-/**
- * Velo fino tipo grano cósmico sobre la nebulosa (no geometría; solo textura).
- */
 .landing-nebula-bg::after {
   content: '';
   position: absolute;
@@ -75,7 +71,6 @@ main {
     0 8px 16px -8px rgb(0 0 0 / 0.25);
 }
 
-/* Opacity + transform: recomendado para animaciones fluidas (Vue performance notes) */
 @media (prefers-reduced-motion: reduce) {
   .scroll-reveal {
     transition: none !important;
@@ -88,10 +83,7 @@ main {
     transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/**
- * Hero retrato: mismo nodo en SSR y cliente. La visibilidad según “hover fino”
- * solo puede hacerse con CSS (no useMediaQuery en template), si no Vue hidrata distinto.
- */
+/* Hover fino solo con CSS — evita divergencia SSR/cliente (media queries en template) */
 @media (hover: hover) and (pointer: fine) {
   .hero-portrait-tap-hint {
     display: none;
@@ -107,7 +99,6 @@ main {
   opacity: 0;
 }
 
-/** Rebote ligero al hover de la card: lento, ritmo uniforme y bucle mientras dure el hover */
 @keyframes details-cta-bounce {
   0%,
   100% {

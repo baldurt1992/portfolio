@@ -3,15 +3,9 @@
     defineProps<{
       title: string
       description?: string
-      /** Etiqueta pequeña encima del título (ej. sección). */
       eyebrow?: string
       id?: string
-      /**
-       * Si true (default), el encabezado usa max-w-2xl centrado.
-       * En false, ocupa el ancho del padre (útil cuando padre y cuerpo comparten la misma max-width).
-       */
       contained?: boolean
-      /** Alineación del texto: center para bloques centrados; start para columna editorial (desktop). */
       align?: 'center' | 'start'
     }>(),
     { contained: true, align: 'center' }

@@ -42,7 +42,7 @@
     "description": "Contexto breve: enfoque, stack y cómo suelo colaborar."
   },
   "skills": {
-    "eyebrow": "Stack",
+    "eyebrow": "Tecnologías",
     "title": "Skills",
     "description": "Tecnologías que uso en el día a día, agrupadas por área.",
     "category": {
@@ -58,7 +58,7 @@
     "description": "Tres líneas destacadas: producto en producción (Ticador), ERP multi-tenant (Cosmos) y WordPress con plugin a medida — stack y alcance sin datos sensibles de cliente."
   },
   "experience": {
-    "eyebrow": "Trayectoria",
+    "eyebrow": "Recorrido",
     "title": "Experiencia",
     "description": "Roles recientes y el tipo de impacto que busco generar."
   },

@@ -10,7 +10,7 @@
   const localePath = useLocalePath()
   const { activeHash, navActiveReady } = useLandingNavActive()
 
-  /** `external: true` evita que RouterLink recorte el `#fragment` en SSR → mismatch de hidratación. */
+  // NuxtLink + hash: `external` evita #fragment distinto SSR/cliente
   const navItems = computed<NavigationMenuItem[]>(() => {
     const base = withoutHash(localePath('/'))
     const entries = [

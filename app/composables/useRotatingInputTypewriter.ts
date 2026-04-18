@@ -8,10 +8,6 @@ function delay(ms: number) {
   })
 }
 
-/**
- * Simula un campo de texto: escribe cada token letra a letra, lo borra como backspace,
- * pasa al siguiente; bucle infinito. Solo en cliente (`onMounted`).
- */
 export function useRotatingInputTypewriter(
   tokensSource: MaybeRefOrGetter<string[]>,
   options: {

@@ -42,7 +42,7 @@
     "description": "Short context: focus, stack, and how I usually collaborate."
   },
   "skills": {
-    "eyebrow": "Stack",
+    "eyebrow": "Technologies",
     "title": "Skills",
     "description": "Technologies I use day to day, grouped by area.",
     "category": {
@@ -58,7 +58,7 @@
     "description": "Three highlights: production product (Ticador), multi-tenant ERP (Cosmos), and WordPress with a custom scheduling plugin — stack and scope without sensitive client data."
   },
   "experience": {
-    "eyebrow": "Path",
+    "eyebrow": "Journey",
     "title": "Experience",
     "description": "Recent roles and the kind of impact I aim to deliver."
   },

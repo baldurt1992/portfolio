@@ -1,10 +1,6 @@
 import { useIntersectionObserver, usePreferredReducedMotion } from '@vueuse/core'
 
-/**
- * Reveal al entrar en viewport: IO estable (VueUse) + sync si ya está visible al montar.
- * Respeta prefers-reduced-motion.
- * `allowConceal` evita opacity-0 en el primer paint del cliente para alinear hidratación con SSR.
- */
+// allowConceal: no opacity-0 en 1er paint cliente si el bloque ya intersecta (SSR mostró visible)
 export function useScrollReveal(options?: { threshold?: number; rootMargin?: string }) {
   const { threshold = 0, rootMargin = '0px' } = options ?? {}
   const target = ref<HTMLElement | null>(null)

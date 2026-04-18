@@ -1,6 +1,5 @@
 import { useThrottleFn } from '@vueuse/core'
 
-/** Anclas de la landing; mismo orden que el menú en `AppNav`. */
 const SECTION_HASHES = [
   '#hero',
   '#about',
@@ -16,23 +15,16 @@ function isLandingHash(h: string): h is SectionHash {
   return (SECTION_HASHES as readonly SectionHash[]).includes(h as SectionHash)
 }
 
-/**
- * Ítem activo del nav de la landing: sincroniza con `#fragment` y con la sección visible al hacer scroll.
- */
 export function useLandingNavActive() {
   const route = useRoute()
   const activeHash = ref<SectionHash>(SECTION_HASHES[0])
-  /**
-   * El `#fragment` no existe en SSR; `activeHash` puede divergir entre servidor y cliente en el 1er paint.
-   * Sin esto, `item.active` en el nav rompe la hidratación (clases `text-primary` vs `text-muted`).
-   */
+  // SSR sin #fragment: diff de active 1er paint; hasta onMounted no aplicamos active en el nav
   const navActiveReady = ref(false)
 
   function computeActiveFromScroll() {
     if (import.meta.server) {
       return
     }
-    /** Alineado aprox. con header + ~`scroll-margin-top` en secciones. */
     const offsetPx = 100
     let current: SectionHash = SECTION_HASHES[0]
     for (const hash of SECTION_HASHES) {

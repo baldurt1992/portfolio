@@ -2,21 +2,16 @@ import type { Composer } from 'vue-i18n'
 
 type RtFn = Composer['rt']
 
-/** `rt` acepta tipos internos de Intlify; en runtime es seguro para nodos devueltos por `tm`. */
 function asRtInput(v: unknown): Parameters<RtFn>[0] {
   return v as Parameters<RtFn>[0]
 }
 
-/** AST / nodo compilado de Intlify (mensajes desde `tm()` en vue-i18n moderno). */
 function isIntlifyMessageNode(o: object): o is Record<string, unknown> {
   const x = o as Record<string, unknown>
   return typeof x.type === 'number' && x.body != null && typeof x.body === 'object'
 }
 
-/**
- * Convierte el árbol devuelto por `tm('...')` en valores listos para la UI (strings planos).
- * @see https://vue-i18n.intlify.dev/guide/advanced/composition#tm-key
- */
+// tm() devuelve nodos Intlify; rt() los convierte a string para la UI
 export function resolveTmTree<T>(value: T, rt: RtFn): T {
   if (value == null) return value
   const t = typeof value

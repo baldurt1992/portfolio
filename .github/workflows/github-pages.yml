@@ -29,14 +29,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Base URL para GitHub Pages
+      - name: Base URL y URL pública del sitio (SEO)
         id: base
         run: |
+          OWNER="${{ github.repository_owner }}"
           NAME="${{ github.event.repository.name }}"
           if [[ "$NAME" == *.github.io ]]; then
             echo "path=/" >> "$GITHUB_OUTPUT"
+            echo "site_url=https://${OWNER}.github.io" >> "$GITHUB_OUTPUT"
           else
             echo "path=/${NAME}/" >> "$GITHUB_OUTPUT"
+            echo "site_url=https://${OWNER}.github.io/${NAME}" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Node
@@ -51,6 +54,8 @@ jobs:
       - name: Build (Nuxt github_pages)
         env:
           NUXT_APP_BASE_URL: ${{ steps.base.outputs.path }}
+          # Público, no es secreto; si usas dominio propio define la variable de repositorio y sobreescribe.
+          NUXT_PUBLIC_SITE_URL: ${{ vars.NUXT_PUBLIC_SITE_URL || steps.base.outputs.site_url }}
           NUXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${{ secrets.NUXT_PUBLIC_EMAILJS_PUBLIC_KEY }}
           NUXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.NUXT_PUBLIC_EMAILJS_SERVICE_ID }}
           NUXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.NUXT_PUBLIC_EMAILJS_TEMPLATE_ID }}

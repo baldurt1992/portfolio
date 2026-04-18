@@ -1,13 +1,8 @@
-/** Contenido del portafolio — tipos, estructura compartida (rutas/ids) y shape de mensajes i18n. */
-/** Rutas bajo `public/` (sin `app.baseURL`); el prefijo lo aplica `buildPortfolioData`. */
-
-/** Módulo demostrable del producto (video + copy) — p. ej. recorrido Ticador en el drawer de la card. */
 export interface ProjectMediaModule {
   id: string
   title: string
   description: string
   videoSrc: string
-  /** Título de sección i18n (p. ej. provisioning vs app de asistencia), opcional. */
   mediaGroupTitle?: string
 }
 
@@ -20,14 +15,12 @@ export interface Project {
   url?: string
   repo?: string
   year: string
-  /** Clips o recorridos en video con copy, mostrados en “Ver detalles” (drawer). */
   mediaModules?: ProjectMediaModule[]
 }
 
 export interface ProjectMediaModuleStructure {
   id: string
   videoSrc: string
-  /** Clave en `portfolio.projects[id].mediaModuleGroups` para agrupar ítems en el drawer. */
   mediaGroup?: string
 }
 
@@ -64,16 +57,11 @@ export interface Bio {
   brandName?: string
   title: string
   tagline: string
-  /** Hero: texto fijo antes del “teclado”; debe ser prefijo de `tagline`. */
   taglinePrefix?: string
-  /** Hero: fragmento con animación tipo escritura; `tagline` = prefix + typewriter. */
   taglineTypewriter?: string
-  /** Hero: términos que rotan dentro del “input” (escribir → borrar con backspace → siguiente). */
   taglineRotatingTokens?: string[]
   heroTrustLine?: string
-  /** Retrato principal del hero (foto). */
   avatar?: string
-  /** Avatar / ilustración para “Sobre mí” (p. ej. pixel art); independiente del retrato del hero. */
   aboutAvatar?: string
   email: string
   location?: string
@@ -102,7 +90,6 @@ export interface PortfolioLocaleMessages {
     string,
     {
       title: string
-      /** Periodo mostrado en la card; si falta, se usa `year` de `portfolioStructure`. */
       year?: string
       description: string
       tags: string[]
@@ -120,7 +107,6 @@ export interface PortfolioStructure {
   experience: ExperienceStructureItem[]
 }
 
-/** Rutas, ids y datos no lingüísticos; el copy vive en `locales/*.json` → clave `portfolio`. */
 export const portfolioStructure: PortfolioStructure = {
   bio: {
     name: 'Andrés Baldur Tamayo Marín',

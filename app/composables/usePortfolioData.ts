@@ -12,10 +12,6 @@ export type {
   Skill
 } from '~/data/portfolio'
 
-/**
- * Portafolio del sitio según el locale activo (vue-i18n → clave `portfolio` en `locales/*.json`).
- * `tm()` devuelve mensajes compilados; hay que pasarlos por `rt()` (ver docs vue-i18n).
- */
 export function usePortfolioData(): ComputedRef<PortfolioData> {
   const { locale, tm, rt } = useI18n()
 

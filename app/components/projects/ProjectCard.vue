@@ -14,10 +14,6 @@
   const descriptionRef = ref<HTMLElement | null>(null)
   const isDescriptionOverflowing = ref(false)
 
-  /**
-   * Video del hero en hover: Ticador usa el panel de la app; Cosmos el recorrido ERP (`erp-overview`).
-   * Si no aplica, cae al primer clip del proyecto.
-   */
   const heroHoverVideoSrc = computed(() => {
     const modules = props.project.mediaModules ?? []
     const byId = (id: string) => modules.find((m) => m.id === id)?.videoSrc
@@ -34,15 +30,12 @@
 
   const hoverVideoRef = ref<HTMLVideoElement | null>(null)
 
-  /** Encadena hover del hero con el CTA «Ver detalles» (acento primary). */
   const highlightDetailsCta = ref(false)
 
   function playHeroVideo() {
     const el = hoverVideoRef.value
     if (!el) return
-    void el.play().catch(() => {
-      /* autoplay política: ignorar */
-    })
+    void el.play().catch(() => { })
   }
 
   function resetHeroVideo() {

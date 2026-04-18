@@ -4,15 +4,11 @@ export default defineAppConfig({
       primary: 'teal',
       neutral: 'zinc'
     },
-    /** Misma fórmula que `header`: vidrio suave sobre la nebulosa (`bg-default/75 backdrop-blur`). */
     footer: {
       slots: {
         root: 'w-full border-t border-default bg-default/75 backdrop-blur'
       }
     },
-    /**
-     * Hero: tipografía más ligera que `text-xl`; ancho alineado al `h1` (misma columna, sin `max-w-prose`).
-     */
     pageHero: {
       slots: {
         description:

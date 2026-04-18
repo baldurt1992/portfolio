@@ -1,10 +1,6 @@
 import { joinURL } from 'ufo'
 
-/**
- * Archivos en `public/` con prefijo `app.baseURL` (p. ej. GitHub Pages en `/repo/`).
- * Usa `runtimeConfig.app.baseURL` en contexto Nuxt (SSR/prerender incluido); `import.meta.env.BASE_URL`
- * puede ser `/` en el bundle del servidor aunque el sitio esté en subruta.
- */
+/** Subrutas: en SSR/prerender `import.meta.env.BASE_URL` suele ser `/`; `runtimeConfig.app.baseURL` no. */
 export function publicPath(path: string): string {
   const trimmed = path.replace(/^\/+/, '')
   try {

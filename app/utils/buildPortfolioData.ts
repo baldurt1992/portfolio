@@ -7,9 +7,6 @@ import type {
 } from '~/data/portfolio'
 import { publicPath } from '~/utils/publicPath'
 
-/**
- * Une `portfolioStructure` (rutas, ids, URLs) con copy por idioma desde vue-i18n (`tm('portfolio')`).
- */
 export function buildPortfolioData(
   structure: PortfolioStructure,
   messages: PortfolioLocaleMessages

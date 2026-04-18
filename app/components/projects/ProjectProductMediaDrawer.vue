@@ -4,7 +4,6 @@
 
   const props = defineProps<{
     project: Project
-    /** Cuando el hero de la card enlaza el CTA (hover en portada). */
     highlightDetailsCta?: boolean
   }>()
 
@@ -14,7 +13,6 @@
 
   const items = computed(() => props.project.mediaModules ?? [])
 
-  /** Encabezados de sección + ítems, para separar provisioning/admin vs app de asistencia. */
   type NavEntry =
     | { kind: 'heading'; label: string; key: string }
     | { kind: 'item'; index: number }
@@ -142,7 +140,7 @@
                   </span>
                   <span class="line-clamp-2 lg:line-clamp-3">{{
                     items[entry.index]?.title
-                    }}</span>
+                  }}</span>
                 </button>
               </li>
             </template>
@@ -177,8 +175,8 @@
                 <button v-for="rate in PLAYBACK_RATES" :key="rate" type="button"
                   class="min-w-10 rounded-md px-2 py-1 text-xs font-medium tabular-nums transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                   :class="playbackRate === rate
-                      ? 'bg-primary text-inverted'
-                      : 'bg-white/10 text-white/90 hover:bg-white/15'
+                    ? 'bg-primary text-inverted'
+                    : 'bg-white/10 text-white/90 hover:bg-white/15'
                     " :aria-pressed="playbackRate === rate"
                   :aria-label="t('drawer.playbackSpeedAria', { rate: formatRateLabel(rate) })"
                   @click="playbackRate = rate">

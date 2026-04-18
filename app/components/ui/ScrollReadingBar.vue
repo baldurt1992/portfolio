@@ -9,7 +9,6 @@
     Math.min(100, Math.max(0, Math.round(progress.value * 100)))
   )
 
-  /** Porcentaje sin redondear para que el ancho de la barra sea fluido con el scroll. */
   const widthPercent = computed(
     () => `${Math.min(100, Math.max(0, progress.value * 100))}%`
   )

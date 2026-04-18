@@ -1,7 +1,7 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-// baseURL: en CI (GitHub Pages) exporta `NUXT_APP_BASE_URL` (p. ej. `/repo/` o `/` para usuario.github.io). Nuxt lo fusiona con `app` sin usar `process` aquí.
+const publicSiteUrl = process.env.NUXT_PUBLIC_SITE_URL?.trim() ?? ''
+
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/i18n'],
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/i18n', '@nuxtjs/sitemap'],
 
   devtools: {
     enabled: true
@@ -9,19 +9,23 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  /** Por defecto oscuro; el usuario puede cambiar con UColorModeButton y se persiste en localStorage. */
-  colorMode: {
-    preference: 'dark',
-    fallback: 'dark'
+  site: {
+    name: 'BaldurDev',
+    url: publicSiteUrl || 'http://localhost:3000'
   },
 
-  /**
-   * EmailJS: vacío por defecto para que CI / GitHub Pages construyan sin secretos.
-   * En producción, define NUXT_PUBLIC_EMAILJS_PUBLIC_KEY, NUXT_PUBLIC_EMAILJS_SERVICE_ID,
-   * NUXT_PUBLIC_EMAILJS_TEMPLATE_ID en el entorno de build (por ejemplo secrets del workflow).
-   */
+  // `classSuffix: ''` → clase `dark` (Tailwind). Declarar `@nuxtjs/color-mode` en modules antes que @nuxt/ui rompe esto (default `-mode`).
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
+    classSuffix: '',
+    disableTransition: true
+  },
+
+  // Vacíos en build/CI sin secrets; en prod inyectar NUXT_PUBLIC_EMAILJS_* y NUXT_PUBLIC_SITE_URL.
   runtimeConfig: {
     public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || '',
       emailjsPublicKey: '',
       emailjsServiceId: '',
       emailjsTemplateId: ''
@@ -30,19 +34,23 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': { prerender: true },
-    '/en': { prerender: true }
+    '/en': { prerender: true },
+    '/sitemap.xml': { prerender: true },
+    '/robots.txt': { prerender: true }
   },
 
-  /**
-   * Mitiga el warning "Duplicated imports useAppConfig" (nitropack vs @nuxt/nitro-server).
-   * En un sitio como este no necesitas app config distinto por request en el servidor.
-   * @see https://github.com/nuxt/nuxt/issues/34812
-   */
+  // https://github.com/nuxt/nuxt/issues/34812 — warning useAppConfig duplicado
   experimental: {
     serverAppConfig: false
   },
 
   compatibilityDate: '2025-01-15',
+
+  nitro: {
+    prerender: {
+      routes: ['/robots.txt']
+    }
+  },
 
   eslint: {
     config: {
@@ -54,7 +62,6 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    /** Español por defecto; no redirigir según Accept-Language (muchas máquinas en EN verían /en sin querer). */
     defaultLocale: 'es',
     strategy: 'prefix_except_default',
     langDir: 'locales',
@@ -62,14 +69,14 @@ export default defineNuxtConfig({
       { code: 'es', language: 'es-CO', name: 'Español', file: 'es.json' },
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
     ],
+    baseUrl: publicSiteUrl || 'http://localhost:3000',
+    // Sin redirect por Accept-Language (evita /en no deseado)
     detectBrowserLanguage: false
   },
 
-  /**
-   * Iconos empaquetados: en GitHub Pages no hay API Nitro; sin esto el cliente pide
-   * `/api/_nuxt_icon/...` y falla. lucide/simple-icons ya están en dependencies como JSON.
-   */
+  // Estático: sin servidor Nitro para `/api/_nuxt_icon` — Iconify en cliente
   icon: {
+    provider: 'iconify',
     clientBundle: {
       scan: true
     },

@@ -6,7 +6,7 @@ export interface ContactFormState {
 
 const LOG_TAG = '[ContactForm]'
 
-/** Variables que debe usar la plantilla en EmailJS (Content → variables). */
+// Nombres deben coincidir con la plantilla EmailJS (dashboard)
 const EMAILJS_TEMPLATE_FIELDS = {
   user_name: 'user_name',
   user_email: 'user_email',

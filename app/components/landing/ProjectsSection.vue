@@ -3,7 +3,6 @@
   const portfolioData = usePortfolioData()
   const projects = computed(() => portfolioData.value.projects)
 
-  /** En lg: 12 cols — Ticador (7); Cosmos y WordPress comparten ancho (5 cada uno). */
   const projectGridClass: Record<string, string> = {
     'ticador-platform': 'sm:col-span-2 lg:col-span-7',
     'cosmos-erp': 'lg:col-span-5',

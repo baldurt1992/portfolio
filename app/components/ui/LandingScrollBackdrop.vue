@@ -26,19 +26,12 @@
     ]
   }
 
-  /**
-   * Una curva suave única (evita saltos al mezclar dos fuentes de scroll distintas).
-   */
+  // Una sola curva a partir de eased + lineal (dos “relojes” distintos si no se mezclan)
   function smoothScroll01(easedT: number, linearP: number): number {
     const u = lerp(easedT, linearP, 0.5)
     return u * u * (3 - 2 * u)
   }
 
-  /**
-   * Ruta cromática alrededor del primary (teal), sin “solo verde claro/oscuro”:
-   * vacío zinc → teal profundo → pizarra azulada → jade apagado → acero cian → cierre en frío.
-   * Saturación acotada en cada stop para que, al mezclar capas, no compita con texto `text-default`.
-   */
   const PALETTE_DARK: ReadonlyArray<readonly [number, number, number]> = [
     [7, 12, 18],
     [9, 26, 32],
@@ -61,11 +54,7 @@
     [245, 250, 248]
   ]
 
-  function colorAt(
-    isDark: boolean,
-    /** 0 = tono superior (hero), 1 = tono al final del documento */
-    u: number
-  ): [number, number, number] {
+  function colorAt(isDark: boolean, u: number): [number, number, number] {
     const stops = isDark ? PALETTE_DARK : PALETTE_LIGHT
     const x = Math.min(1, Math.max(0, u)) * (stops.length - 1)
     const i = Math.min(Math.floor(x), stops.length - 2)
@@ -73,9 +62,6 @@
     return lerpRgb(stops[i]!, stops[i + 1]!, f)
   }
 
-  /**
-   * Ligera separación entre capas a lo largo de la MISMA rampa (sin otro “reloj” que dispare saltos).
-   */
   function layerU(globalS: number, layerIndex: number, totalLayers: number): number {
     const spread = 0.1
     const center = (layerIndex / Math.max(1, totalLayers - 1) - 0.5) * spread
@@ -85,7 +71,6 @@
   function meshBackground(isDark: boolean, easedT: number, linearP: number) {
     const s = reduceMotion.value === 'reduce' ? 0 : smoothScroll01(easedT, linearP)
 
-    /** 1 arriba del hero → 0 ya hacia mitad de página (sin saltos). */
     const heroPresence = Math.max(0, 1 - s / 0.42)
 
     const layers: string[] = []
@@ -114,9 +99,7 @@
         ? lerp(0.13, 0.3, s) * lerp(0.75, 1, i / (n - 1))
         : lerp(0.078, 0.195, s) * lerp(0.72, 1, i / (n - 1))
 
-      /* Posiciones: derivadas solo de s (transición continua arriba → abajo). */
       const x = lerp(20, 74, s) + (i / (n - 1)) * 14 - 7
-      /* Solo s lineal + reparto por capa: sin oscilaciones extra que peguen “bandas”. */
       const y = lerp(14, 80, s) + i * 5.5
 
       const rx = lerp(58, 88, s) + i * 3
@@ -146,7 +129,6 @@
       `linear-gradient(${lerp(168, 198, s)}deg, rgb(${vr} ${vg} ${vb} / ${vinA}) 0%, transparent 52%)`
     )
 
-    /* Profundidad tipo “vacío” + gas difuso (nebulosa más espacial; capa posterior en la lista = atrás). */
     const voidRgb = isDark ? [4, 10, 18] : [248, 252, 251]
     const voidA = isDark ? lerp(0.18, 0.08, s) : lerp(0.025, 0.008, s)
     layers.push(
@@ -164,7 +146,6 @@
     return layers.join(', ')
   }
 
-  /** Misma familia que `PALETTE_*`: debajo de los gradientes no debe verse un `bg-default` plano. */
   function meshBaseColor(isDark: boolean) {
     return isDark ? 'rgb(7, 12, 18)' : 'rgb(250, 250, 249)'
   }
