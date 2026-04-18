@@ -79,7 +79,9 @@
     "toastSuccessTitle": "Message sent",
     "toastSuccessDescription": "I’ll get back to you as soon as I can.",
     "toastErrorTitle": "Could not send",
-    "toastErrorDescription": "Please try again later."
+    "toastErrorDescription": "Please try again later.",
+    "toastMailtoTitle": "Opening your email app",
+    "toastMailtoDescription": "Integrated delivery isn’t configured for this deployment; your mail client opened with the draft. Review and send, or use the email link below."
   },
   "projectCard": {
     "tooltipHeroHover": "Short preview on hover. Want more? Click View details.",

@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+// baseURL: en CI (GitHub Pages) exporta `NUXT_APP_BASE_URL` (p. ej. `/repo/` o `/` para usuario.github.io). Nuxt lo fusiona con `app` sin usar `process` aquí.
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/i18n'],
 
@@ -12,6 +13,19 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'dark',
     fallback: 'dark'
+  },
+
+  /**
+   * EmailJS: vacío por defecto para que CI / GitHub Pages construyan sin secretos.
+   * En producción, define NUXT_PUBLIC_EMAILJS_PUBLIC_KEY, NUXT_PUBLIC_EMAILJS_SERVICE_ID,
+   * NUXT_PUBLIC_EMAILJS_TEMPLATE_ID en el entorno de build (por ejemplo secrets del workflow).
+   */
+  runtimeConfig: {
+    public: {
+      emailjsPublicKey: '',
+      emailjsServiceId: '',
+      emailjsTemplateId: ''
+    }
   },
 
   routeRules: {
@@ -40,5 +54,5 @@ export default defineNuxtConfig({
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
     ],
     detectBrowserLanguage: false
-  },
+  }
 })

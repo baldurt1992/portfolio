@@ -79,7 +79,9 @@
     "toastSuccessTitle": "Mensaje enviado",
     "toastSuccessDescription": "Te responderé lo antes posible.",
     "toastErrorTitle": "Error al enviar",
-    "toastErrorDescription": "Intenta de nuevo más tarde."
+    "toastErrorDescription": "Intenta de nuevo más tarde.",
+    "toastMailtoTitle": "Abriendo tu correo",
+    "toastMailtoDescription": "Este sitio no tiene el envío integrado configurado; se abrió tu cliente con el mensaje. Revísalo y envía, o usa el enlace de correo debajo."
   },
   "projectCard": {
     "tooltipHeroHover": "Vista previa breve al pasar el cursor. ¿Quieres saber más? Haz clic en Ver detalles.",

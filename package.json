@@ -5,6 +5,7 @@
   "scripts": {
     "clean": "nuxi cleanup",
     "build": "nuxt build",
+    "build:github": "nuxt build --preset github_pages",
     "dev": "nuxt dev",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -14,6 +15,7 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@iconify-json/lucide": "^1.2.87",
     "@iconify-json/simple-icons": "^1.2.68",
     "@nuxt/ui": "^4.4.0",
