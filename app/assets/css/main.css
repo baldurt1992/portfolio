@@ -3,12 +3,14 @@
 @import '@nuxt/ui';
 
 @theme {
+  /* Una familia tipográfica definida (guía UX: técnico/editorial; evita duos genéricos estilo Inter+Purple) */
   --font-sans: 'Space Grotesk', system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  overflow-x: clip;
 }
 
 section[id] {
@@ -16,11 +18,39 @@ section[id] {
 }
 
 main {
-  overflow: visible;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+/**
+ * Velo fino tipo grano cósmico sobre la nebulosa (no geometría; solo textura).
+ */
+.landing-nebula-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.052;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.dark .landing-nebula-bg::after {
+  opacity: 0.075;
+  mix-blend-mode: soft-light;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-nebula-bg::after {
+    opacity: 0.028;
+  }
 }
 
 .card-elevated {
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
+  border-radius: 0.75rem;
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.04),
+    0 4px 12px -2px rgb(0 0 0 / 0.06);
   transition:
     box-shadow 0.25s ease,
     transform 0.25s ease;
@@ -28,15 +58,21 @@ main {
 
 .card-elevated:hover {
   box-shadow:
-    0 12px 24px -8px rgb(0 0 0 / 0.12),
-    0 4px 8px -4px rgb(0 0 0 / 0.06);
+    0 14px 28px -10px rgb(0 0 0 / 0.1),
+    0 6px 14px -6px rgb(0 0 0 / 0.06);
   transform: translateY(-2px);
+}
+
+.dark .card-elevated {
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.2),
+    0 4px 16px -2px rgb(0 0 0 / 0.35);
 }
 
 .dark .card-elevated:hover {
   box-shadow:
-    0 12px 24px -8px rgb(0 0 0 / 0.35),
-    0 4px 8px -4px rgb(0 0 0 / 0.2);
+    0 18px 36px -12px rgb(0 0 0 / 0.45),
+    0 8px 16px -8px rgb(0 0 0 / 0.25);
 }
 
 /* Opacity + transform: recomendado para animaciones fluidas (Vue performance notes) */

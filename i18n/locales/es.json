@@ -15,7 +15,8 @@
     "productMediaNav": "Módulos del producto",
     "openRepoGithub": "Abrir repositorio en GitHub",
     "contactSection": "Ir a la sección de contacto",
-    "scrollTop": "Volver arriba"
+    "scrollTop": "Volver arriba",
+    "scrollReadingProgress": "Progreso de lectura de la página"
   },
   "header": {
     "contact": "Contactar"
@@ -81,18 +82,22 @@
     "toastErrorDescription": "Intenta de nuevo más tarde."
   },
   "projectCard": {
-    "tooltipHeroHover": "Vista previa al pasar el mouse. Para la demo completa —videos enteros y el detalle de cada módulo— abre Ver detalles.",
-    "tooltipHeroStatic": "Abre Ver detalles para ver la demo completa: videos enteros y el detalle de cada módulo del sistema.",
+    "tooltipHeroHover": "Vista previa breve al pasar el cursor. ¿Quieres saber más? Haz clic en Ver detalles.",
+    "tooltipHeroStatic": "¿Quieres la demo completa y el detalle de cada módulo? Haz clic en Ver detalles.",
     "liveBadge": "Vista en vivo",
     "projectImageAlt": "Captura o vista del proyecto {title}",
     "viewProject": "Ver proyecto",
-    "viewDetails": "Ver detalles"
+    "viewDetails": "Ver detalles",
+    "showMore": "Ver más",
+    "showLess": "Ver menos"
   },
   "drawer": {
     "description": "Demostraciones en video del producto, módulo por módulo. Elige un ítem en la lista o usa Anterior y Siguiente para recorrer los flujos.",
     "videoFallback": "Tu navegador no reproduce video embebido.",
     "prev": "Anterior",
-    "next": "Siguiente"
+    "next": "Siguiente",
+    "playbackSpeed": "Velocidad",
+    "playbackSpeedAria": "Velocidad de reproducción: {rate}"
   },
   "stickyContact": {
     "label": "Contactar"
@@ -101,6 +106,8 @@
     "bio": {
       "title": "Desarrollador full stack · Laravel, Vue, Nuxt y Tailwind",
       "tagline": "Productos web de punta a punta con Laravel, Vue y Nuxt — UX, performance, arquitectura clara y trabajo en equipo.",
+      "taglinePrefix": "Productos web de punta a punta con ",
+      "taglineRotatingTokens": ["Laravel", "Vue", "Nuxt", "UX", "performance", "Tailwind"],
       "heroTrustLine": "Freelance · Bello, Antioquia · Colombia · Vue, Nuxt, Laravel, WordPress (Divi, Elementor), SaaS/ERP y despliegues",
       "location": "Bello, Antioquia"
     },
@@ -109,6 +116,7 @@
     "projects": {
       "ticador-platform": {
         "title": "Ticador — ecosistema SaaS en producción",
+        "year": "2024/2025",
         "description": "Desarrollé un ecosistema SaaS en producción para ticador.online, compuesto por cuatro repos desacoplados y conectados entre sí: landing comercial, plataforma de provisioning multi-tenant, sistema principal de control de asistencia laboral y un Mail Center como servicio Laravel dedicado a recibir, distribuir mensajes y registrar logs. La solución automatiza el ciclo completo de onboarding y operación de cada cliente: creación de entornos, configuración guiada, gestión de empleados, control de dispositivos autorizados, fichaje, reportes y notificaciones en tiempo real. Repositorios privados; video y capturas representativas en el portafolio.",
         "tags": [
           "Laravel",
@@ -168,14 +176,79 @@
         }
       },
       "cosmos-erp": {
-        "title": "Cosmos ERP (multi-tenant)",
-        "description": "ERP en desarrollo: Laravel 12 y Nuxt 4, multi-tenant, Sanctum y Octane; Nuxt UI y TypeScript; MySQL y Redis. Infra Docker Compose (dev, staging y producción) con servicios alineados entre entornos. GitHub Actions: jobs de tests (Pest, Vitest, guardrails y cobertura) listos para integrar en el flujo, más pipelines de despliegue automatizado a servidores y paneles de hosting (Plesk, cPanel y similares) desde la rama principal. Documentación y flujos pensados Docker-first.",
-        "tags": ["Laravel", "Nuxt", "TypeScript", "Docker", "GitHub Actions", "MySQL", "Redis"]
+        "title": "Cosmos ERP — plataforma ERP multi-tenant en desarrollo",
+        "year": "2025 / actualidad",
+        "description": "ERP multi-tenant orientado a operación comercial y facturación, con flujos de configuración inicial, gestión de clientes, emisión de facturas, conversión documental con trazabilidad y operación TPV. El producto también incorpora archivos auxiliares con peso fiscal, estadísticas por módulo, modo kiosk y una capa administrativa para backups, provisión manual de tenants y gestión de administradores. Actualmente sigue en desarrollo activo, pero ya ha sido probado por clientes reales de empresas seleccionadas. Pendientes antes de su distribución general: integración Verifactu para normativa electrónica, módulo de notificaciones y configuraciones operativas adicionales.",
+        "tags": [
+          "Laravel",
+          "Nuxt",
+          "TypeScript",
+          "MySQL",
+          "Redis",
+          "Multi-tenant",
+          "ERP",
+          "POS",
+          "Document lifecycle",
+          "Docker",
+          "GitHub Actions"
+        ],
+        "mediaModuleGroups": {
+          "core-erp": {
+            "title": "ERP principal"
+          },
+          "pos-operations": {
+            "title": "TPV y operación"
+          }
+        },
+        "mediaModules": {
+          "initial-setup": {
+            "title": "Configuración inicial",
+            "description": "Flujo de configuración inicial del ERP desde el primer acceso: validación del correo mediante código OTP, registro de los datos personales del administrador, configuración de la información de la empresa y carga de los datos fiscales. El proceso finaliza con una pantalla resumen que deja el entorno listo para comenzar a operar."
+          },
+          "erp-overview": {
+            "title": "Navegación principal del ERP",
+            "description": "Recorrido general por la navegación del sistema, mostrando distintos módulos del dashboard, archivos auxiliares con peso fiscal, secciones de informes, configuración y ayuda, como visión rápida de la amplitud funcional del producto."
+          },
+          "customer-creation": {
+            "title": "Creación de clientes",
+            "description": "Flujo de alta de clientes dentro del ERP, incluyendo datos generales, información bancaria con autocompletado del banco a partir del IBAN, y recorrido por las pestañas de contacto y facturación dentro del mismo modal para dejar el registro preparado para la operación comercial."
+          },
+          "sales-invoice-creation": {
+            "title": "Creación de facturas de venta",
+            "description": "Emisión de facturas de venta desde el ERP, recorriendo las pestañas principales del documento pero centrando el flujo en la selección del cliente, la carga de líneas, cantidades y la generación final de la factura."
+          },
+          "document-conversion": {
+            "title": "Conversión documental y trazabilidad",
+            "description": "Flujo de conversión entre documentos comerciales, incluyendo selección de origen, destino, ejercicio fiscal, cliente, documentos a convertir y opciones de conversión. La demostración muestra también la apertura del documento resultante y la trazabilidad completa a través del historial de conversiones asociadas a ese documento."
+          },
+          "pos-configuration-billing": {
+            "title": "Configuración TPV y facturación operativa",
+            "description": "Recorrido por la configuración inicial del TPV, incluyendo selección de serie de facturación, configuración de caja, mesas y secciones de trabajo, seguido del flujo completo de facturación de productos. La demostración incluye además validación estricta de stock e invalidación cuando no se cumplen las condiciones de inventario."
+          }
+        }
       },
       "wordpress-elementor-agenda": {
-        "title": "WordPress con Elementor y plugin de agendas a medida",
-        "description": "Sitio WordPress maquetado con Elementor y plugin personalizado para gestión de agendas según reglas del negocio del cliente (reservas, disponibilidad y flujos operativos). Detalle de casos, capturas y enlace público: refinamiento pendiente.",
-        "tags": ["WordPress", "Elementor", "PHP", "Plugin a medida"]
+        "title": "Sitio web odontológico con plugin personalizado de reservas",
+        "year": "2025",
+        "description": "Sitio WordPress para clínica odontológica con flujo de agendamiento desarrollado a medida: selección de servicio, fecha y hora, captura de datos del paciente, integración con Bold Payments, resumen de la reserva y notificaciones automáticas por correo para paciente y administración.",
+        "tags": [
+          "WordPress",
+          "PHP",
+          "Plugin personalizado",
+          "Bold Payments",
+          "Booking Flow",
+          "Email Notifications"
+        ],
+        "mediaModules": {
+          "main-navigation": {
+            "title": "Navegación principal",
+            "description": "Recorrido general por el sitio web en producción, mostrando las vistas principales de inicio, servicios, contacto y una vista rápida de la agenda, como contexto del producto y de la experiencia pública para el paciente."
+          },
+          "booking-flow": {
+            "title": "Flujo de agendamiento",
+            "description": "Flujo de reserva online con integración a Bold Payments. El paciente selecciona servicio, fecha y hora, completa sus datos, confirma la reserva y elige entre pago completo o depósito. La demostración llega hasta la apertura del modal de Bold, ya que el proyecto está en producción; una vez confirmada la transacción, el sistema registra la cita, dirige al usuario a una vista de resumen con el estado del pago y la reserva, y envía notificaciones por correo tanto a la clínica como al paciente."
+          }
+        }
       }
     },
     "experience": {

@@ -32,6 +32,13 @@ const portraitLinkAriaLabel = computed(() =>
   showPortraitFlip.value ? t('hero.portraitAriaFlip') : t('hero.portraitAriaSimple')
 )
 
+const showTaglineTypewriter = computed(
+  () =>
+    !!bio.value.taglinePrefix &&
+    Array.isArray(bio.value.taglineRotatingTokens) &&
+    bio.value.taglineRotatingTokens.length > 0
+)
+
 const heroLinks = computed(() => {
   const base = withoutHash(localePath('/'))
   return [
@@ -58,13 +65,21 @@ const heroLinks = computed(() => {
   <section id="hero" aria-labelledby="hero-title">
     <UPageHero
       :title="bio.name"
-      :description="bio.tagline"
+      :description="showTaglineTypewriter ? undefined : bio.tagline"
       :headline="bio.title"
       orientation="vertical"
       :links="heroLinks"
     >
       <template #title>
         <span id="hero-title" class="text-pretty">{{ bio.name }}</span>
+      </template>
+
+      <template v-if="showTaglineTypewriter" #description>
+        <LandingHeroTaglineTypewriter
+          :prefix="bio.taglinePrefix!"
+          :tokens="bio.taglineRotatingTokens!"
+          :full-tagline="bio.tagline"
+        />
       </template>
 
       <template v-if="bio.avatar" #body>

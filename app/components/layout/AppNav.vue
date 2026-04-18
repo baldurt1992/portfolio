@@ -8,18 +8,25 @@
 
   const { t } = useI18n()
   const localePath = useLocalePath()
+  const { activeHash, navActiveReady } = useLandingNavActive()
 
   /** `external: true` evita que RouterLink recorte el `#fragment` en SSR → mismatch de hidratación. */
   const navItems = computed<NavigationMenuItem[]>(() => {
     const base = withoutHash(localePath('/'))
-    return [
-      { label: t('nav.home'), to: `${base}#hero`, external: true },
-      { label: t('nav.about'), to: `${base}#about`, external: true },
-      { label: t('nav.skills'), to: `${base}#skills`, external: true },
-      { label: t('nav.projects'), to: `${base}#projects`, external: true },
-      { label: t('nav.experience'), to: `${base}#experience`, external: true },
-      { label: t('nav.contact'), to: `${base}#contact`, external: true }
+    const entries = [
+      { label: t('nav.home'), fragment: '#hero' as const },
+      { label: t('nav.about'), fragment: '#about' as const },
+      { label: t('nav.skills'), fragment: '#skills' as const },
+      { label: t('nav.projects'), fragment: '#projects' as const },
+      { label: t('nav.experience'), fragment: '#experience' as const },
+      { label: t('nav.contact'), fragment: '#contact' as const }
     ]
+    return entries.map(({ label, fragment }) => ({
+      label,
+      to: `${base}${fragment}`,
+      external: true,
+      active: navActiveReady.value && activeHash.value === fragment
+    }))
   })
 </script>
 

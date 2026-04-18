@@ -15,7 +15,8 @@
     "productMediaNav": "Product modules",
     "openRepoGithub": "Open repository on GitHub",
     "contactSection": "Go to contact section",
-    "scrollTop": "Back to top"
+    "scrollTop": "Back to top",
+    "scrollReadingProgress": "Page scroll progress"
   },
   "header": {
     "contact": "Contact"
@@ -81,18 +82,22 @@
     "toastErrorDescription": "Please try again later."
   },
   "projectCard": {
-    "tooltipHeroHover": "Preview on hover. For the full demo —full videos and each module’s detail— open View details.",
-    "tooltipHeroStatic": "Open View details for the full demo: full videos and each system module explained.",
+    "tooltipHeroHover": "Short preview on hover. Want more? Click View details.",
+    "tooltipHeroStatic": "Want the full walkthrough and each module? Click View details.",
     "liveBadge": "Live preview",
     "projectImageAlt": "Screenshot or view of project {title}",
     "viewProject": "View project",
-    "viewDetails": "View details"
+    "viewDetails": "View details",
+    "showMore": "See more",
+    "showLess": "See less"
   },
   "drawer": {
     "description": "Video walkthroughs of the product, module by module. Pick an item in the list or use Previous and Next to move through the flows.",
     "videoFallback": "Your browser cannot play embedded video.",
     "prev": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "playbackSpeed": "Speed",
+    "playbackSpeedAria": "Playback speed: {rate}"
   },
   "stickyContact": {
     "label": "Contact"
@@ -100,7 +105,9 @@
   "portfolio": {
     "bio": {
       "title": "Full-Stack Developer · Laravel, Vue, Nuxt & Tailwind",
-      "tagline": "End-to-end web products with Laravel, Vue, and Nuxt — solid UX, performance, clean architecture, and teamwork.",
+      "tagline": "End-to-end web products with Laravel, Vue and Nuxt — solid UX, performance, clean architecture, and teamwork.",
+      "taglinePrefix": "End-to-end web products with ",
+      "taglineRotatingTokens": ["Laravel", "Vue", "Nuxt", "UX", "performance", "Tailwind"],
       "heroTrustLine": "Freelance · Bello, Antioquia · Colombia · Vue, Nuxt, Laravel, WordPress (Divi, Elementor), SaaS/ERP, and deployments",
       "location": "Bello, Antioquia"
     },
@@ -109,6 +116,7 @@
     "projects": {
       "ticador-platform": {
         "title": "Ticador — production SaaS ecosystem",
+        "year": "2024/2025",
         "description": "I built a production SaaS ecosystem for ticador.online, composed of four decoupled repos that talk to each other: a marketing site, a multi-tenant provisioning platform, the core workforce attendance system, and a Mail Center as a dedicated Laravel service to receive, distribute messages, and log delivery. It automates the full onboarding and day-to-day cycle for each customer: environments, guided setup, employees, authorized devices, time clocking, reporting, and real-time notifications. Private repos; representative video and screenshots in this portfolio.",
         "tags": [
           "Laravel",
@@ -168,14 +176,79 @@
         }
       },
       "cosmos-erp": {
-        "title": "Cosmos ERP (multi-tenant)",
-        "description": "ERP in progress: Laravel 12 and Nuxt 4, multi-tenant, Sanctum and Octane; Nuxt UI and TypeScript; MySQL and Redis. Docker Compose across dev, staging, and production with aligned services. GitHub Actions: backend/frontend test jobs (Pest, Vitest, guardrails, coverage) ready to wire in, plus automated deploy pipelines to servers and common hosting panels (Plesk, cPanel, and similar) from main. Docker-first docs and workflows.",
-        "tags": ["Laravel", "Nuxt", "TypeScript", "Docker", "GitHub Actions", "MySQL", "Redis"]
+        "title": "Cosmos ERP — multi-tenant ERP platform in development",
+        "year": "2025 — present",
+        "description": "Multi-tenant ERP focused on commercial operations and invoicing, with flows for initial setup, customer management, invoice issuance, document conversion with traceability, and POS operations. The product also includes tax-relevant auxiliary records, module-level statistics, kiosk mode, and an administrative layer for backups, manual tenant provisioning, and administrator management. It remains in active development but has already been tested by selected real-world customers. Before general distribution: Verifactu integration for electronic compliance, a notifications module, and additional operational settings.",
+        "tags": [
+          "Laravel",
+          "Nuxt",
+          "TypeScript",
+          "MySQL",
+          "Redis",
+          "Multi-tenant",
+          "ERP",
+          "POS",
+          "Document lifecycle",
+          "Docker",
+          "GitHub Actions"
+        ],
+        "mediaModuleGroups": {
+          "core-erp": {
+            "title": "Core ERP"
+          },
+          "pos-operations": {
+            "title": "POS and operations"
+          }
+        },
+        "mediaModules": {
+          "initial-setup": {
+            "title": "Initial setup",
+            "description": "First-run ERP setup from the initial access: email validation through an OTP code, administrator personal data entry, company information setup, and fiscal data configuration. The flow ends with a summary screen that leaves the environment ready for daily operation."
+          },
+          "erp-overview": {
+            "title": "Main ERP navigation",
+            "description": "General walkthrough of the system navigation, showing several dashboard modules, tax-relevant auxiliary records, reporting sections, settings, and help as a quick overview of the product’s functional scope."
+          },
+          "customer-creation": {
+            "title": "Customer creation",
+            "description": "Customer creation flow inside the ERP, including general information, banking details with bank auto-fill based on the IBAN, and a walkthrough of the contact and billing tabs within the same modal to prepare the record for commercial operations."
+          },
+          "sales-invoice-creation": {
+            "title": "Sales invoice creation",
+            "description": "Sales invoice issuance from the ERP, going through the main document tabs while focusing the flow on customer selection, line items, quantities, and the final invoice creation."
+          },
+          "document-conversion": {
+            "title": "Document conversion and traceability",
+            "description": "Commercial document conversion flow, including source, target, fiscal year, customer, document selection, and conversion options. The demo also shows the converted document being opened and the full traceability available through that document’s conversion history."
+          },
+          "pos-configuration-billing": {
+            "title": "POS setup and operational billing",
+            "description": "Walkthrough of the initial POS setup, including invoice series selection, cash register setup, tables, and work sections, followed by the full product billing flow. The demo also shows strict stock validation and invalidation when inventory conditions are not met."
+          }
+        }
       },
       "wordpress-elementor-agenda": {
-        "title": "WordPress with Elementor and custom scheduling plugin",
-        "description": "WordPress site built with Elementor and a bespoke plugin for appointment management under the client’s business rules (bookings, availability, and operational flows). Case studies, screenshots, and public link: polish pending.",
-        "tags": ["WordPress", "Elementor", "PHP", "Custom plugin"]
+        "title": "Dental clinic site with a custom booking plugin",
+        "year": "2025",
+        "description": "WordPress site for a dental clinic with a bespoke scheduling flow: service selection, date and time, patient details, Bold Payments integration, booking summary, and automated email notifications for both the patient and the practice.",
+        "tags": [
+          "WordPress",
+          "PHP",
+          "Custom plugin",
+          "Bold Payments",
+          "Booking Flow",
+          "Email Notifications"
+        ],
+        "mediaModules": {
+          "main-navigation": {
+            "title": "Main site navigation",
+            "description": "Walkthrough of the live site: home, services, contact, and a quick look at the booking area — context for the product and the public-facing patient experience."
+          },
+          "booking-flow": {
+            "title": "Booking flow",
+            "description": "Online booking flow with Bold Payments integration. The patient selects the service, date, and time, enters their details, confirms the reservation, and chooses full payment or deposit. The demo goes as far as opening the Bold modal because the project is already in production; once the transaction is confirmed, the system registers the appointment, takes the user to a summary view with reservation and payment status, and sends email notifications to both the clinic and the patient."
+          }
+        }
       }
     },
     "experience": {

@@ -3,8 +3,11 @@
 </script>
 
 <template>
-  <div class="relative z-1 isolate min-h-screen flex flex-col">
+  <!-- Sin z-index en el root: evita que todo el `<main>` quede por encima del footer (hermano en `app.vue`). -->
+  <div class="relative isolate min-h-screen flex flex-col bg-transparent">
     <LandingScrollBackdrop />
-    <slot />
+    <div class="relative z-10 flex flex-col">
+      <slot />
+    </div>
   </div>
 </template>

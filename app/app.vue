@@ -74,16 +74,17 @@
 <template>
   <UApp :locale="nuxtUiLocale">
     <LayoutAppHeader />
+    <UiScrollReadingBar />
 
-    <UMain>
+    <UMain class="bg-transparent">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
     </UMain>
 
-    <USeparator class="h-px" />
-
-    <LayoutAppFooter />
+    <div class="relative z-30">
+      <LayoutAppFooter />
+    </div>
 
     <UiStickyContactBar />
     <UiGoToTop />

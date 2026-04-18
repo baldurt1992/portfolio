@@ -38,14 +38,41 @@
     return entries
   })
 
+  const PLAYBACK_RATES = [0.5, 0.75, 1, 1.25, 1.5, 2] as const
+
   const open = ref(false)
   const activeIndex = ref(0)
+  const playbackRate = ref(1)
+  const videoRef = ref<HTMLVideoElement | null>(null)
 
   const current = computed(() => items.value[activeIndex.value]!)
 
+  function applyPlaybackRate() {
+    const el = videoRef.value
+    if (el) el.playbackRate = playbackRate.value
+  }
+
+  function formatRateLabel(rate: number) {
+    return `${rate}×`
+  }
+
   watch(open, (isOpen) => {
-    if (isOpen) activeIndex.value = 0
+    if (isOpen) {
+      activeIndex.value = 0
+      playbackRate.value = 1
+    }
   })
+
+  watch(playbackRate, () => {
+    applyPlaybackRate()
+  })
+
+  watch(
+    () => current.value.id,
+    () => {
+      nextTick(() => applyPlaybackRate())
+    }
+  )
 
   function selectModule(index: number) {
     activeIndex.value = index
@@ -76,7 +103,7 @@
     }">
     <UButton size="sm" :color="highlightDetailsCta ? 'info' : 'neutral'"
       :variant="highlightDetailsCta ? 'soft' : 'outline'" icon="i-lucide-panel-right-open" :class="[
-        'border-dashed transition-shadow duration-200',
+        'cursor-pointer border-dashed transition-shadow duration-200',
         highlightDetailsCta &&
         'shadow-[0_0_0_1px_rgba(34,211,238,0.5),0_0_20px_rgba(34,211,238,0.22)] dark:shadow-[0_0_0_1px_rgba(34,211,238,0.45),0_0_24px_rgba(34,211,238,0.18)]',
         highlightDetailsCta && allowBounce && 'details-cta-bounce',
@@ -104,8 +131,8 @@
                 <button type="button"
                   class="flex w-full items-center gap-2 rounded-md px-3 py-2.5 text-left text-sm transition-colors hover:bg-elevated"
                   :class="entry.index === activeIndex
-                      ? 'bg-primary/15 text-highlighted ring-1 ring-primary/25'
-                      : 'text-muted'
+                    ? 'bg-primary/15 text-highlighted ring-1 ring-primary/25'
+                    : 'text-muted'
                     " :aria-current="entry.index === activeIndex ? 'true' : undefined"
                   @click="selectModule(entry.index)">
                   <span
@@ -135,11 +162,30 @@
           </p>
 
           <div class="mt-4 overflow-hidden rounded-xl bg-black ring-1 ring-default/60 shadow-sm">
-            <video :key="current.id" :src="current.videoSrc" controls controlslist="nodownload" autoplay muted
-              playsinline preload="auto"
-              class="mx-auto max-h-[min(58vh,560px)] w-full object-contain sm:max-h-[min(64vh,640px)] lg:max-h-[min(70vh,720px)]">
+            <video :key="current.id" ref="videoRef" :src="current.videoSrc" controls controlslist="nodownload" autoplay
+              muted playsinline preload="auto"
+              class="mx-auto max-h-[min(58vh,560px)] w-full object-contain sm:max-h-[min(64vh,640px)] lg:max-h-[min(70vh,720px)]"
+              @loadeddata="applyPlaybackRate">
               {{ t('drawer.videoFallback') }}
             </video>
+            <div class="flex flex-wrap items-center gap-2 border-t border-white/10 bg-zinc-950/95 px-3 py-2.5 sm:gap-3"
+              role="group" :aria-label="t('drawer.playbackSpeed')">
+              <span class="text-xs font-medium text-white/70 shrink-0">
+                {{ t('drawer.playbackSpeed') }}
+              </span>
+              <div class="flex flex-wrap gap-1">
+                <button v-for="rate in PLAYBACK_RATES" :key="rate" type="button"
+                  class="min-w-10 rounded-md px-2 py-1 text-xs font-medium tabular-nums transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                  :class="playbackRate === rate
+                      ? 'bg-primary text-inverted'
+                      : 'bg-white/10 text-white/90 hover:bg-white/15'
+                    " :aria-pressed="playbackRate === rate"
+                  :aria-label="t('drawer.playbackSpeedAria', { rate: formatRateLabel(rate) })"
+                  @click="playbackRate = rate">
+                  {{ formatRateLabel(rate) }}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

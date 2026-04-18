@@ -63,6 +63,12 @@ export interface Bio {
   brandName?: string
   title: string
   tagline: string
+  /** Hero: texto fijo antes del “teclado”; debe ser prefijo de `tagline`. */
+  taglinePrefix?: string
+  /** Hero: fragmento con animación tipo escritura; `tagline` = prefix + typewriter. */
+  taglineTypewriter?: string
+  /** Hero: términos que rotan dentro del “input” (escribir → borrar con backspace → siguiente). */
+  taglineRotatingTokens?: string[]
   heroTrustLine?: string
   /** Retrato principal del hero (foto). */
   avatar?: string
@@ -87,23 +93,23 @@ export interface PortfolioData {
 }
 
 export interface PortfolioLocaleMessages {
-  bio: Pick<Bio, 'title' | 'tagline' | 'heroTrustLine' | 'location'>
+  bio: Pick<Bio, 'title' | 'tagline' | 'heroTrustLine' | 'location'> &
+    Partial<Pick<Bio, 'taglinePrefix' | 'taglineTypewriter' | 'taglineRotatingTokens'>>
   aboutLead: string
   aboutMore: string
   projects: Record<
     string,
     {
       title: string
+      /** Periodo mostrado en la card; si falta, se usa `year` de `portfolioStructure`. */
+      year?: string
       description: string
       tags: string[]
       mediaModules?: Record<string, { title: string; description: string }>
       mediaModuleGroups?: Record<string, { title: string }>
     }
   >
-  experience: Record<
-    string,
-    Pick<ExperienceItem, 'date' | 'title' | 'company' | 'description'>
-  >
+  experience: Record<string, Pick<ExperienceItem, 'date' | 'title' | 'company' | 'description'>>
 }
 
 export interface PortfolioStructure {
@@ -132,7 +138,7 @@ export const portfolioStructure: PortfolioStructure = {
       id: 'ticador-platform',
       image: '/images/projects/ticador-dashboard.png',
       url: 'https://ticador.online',
-      year: '2024',
+      year: '2024/2025',
       mediaModules: [
         {
           id: 'main-navigation',
@@ -178,11 +184,56 @@ export const portfolioStructure: PortfolioStructure = {
     },
     {
       id: 'cosmos-erp',
-      year: '2025'
+      image: '/images/projects/cosmos-erp-dashboard.png',
+      year: '2025 / actualidad',
+      mediaModules: [
+        {
+          id: 'initial-setup',
+          videoSrc: '/videos/cosmos/cosmos-initial-setup.mp4',
+          mediaGroup: 'core-erp'
+        },
+        {
+          id: 'erp-overview',
+          videoSrc: '/videos/cosmos/cosmos-erp-overview.mp4',
+          mediaGroup: 'core-erp'
+        },
+        {
+          id: 'customer-creation',
+          videoSrc: '/videos/cosmos/cosmos-customer-creation.mp4',
+          mediaGroup: 'core-erp'
+        },
+        {
+          id: 'sales-invoice-creation',
+          videoSrc: '/videos/cosmos/cosmos-sales-invoice-creation.mp4',
+          mediaGroup: 'core-erp'
+        },
+        {
+          id: 'document-conversion',
+          videoSrc: '/videos/cosmos/cosmos-document-conversion.mp4',
+          mediaGroup: 'core-erp'
+        },
+        {
+          id: 'pos-configuration-billing',
+          videoSrc: '/videos/cosmos/cosmos-pos-configuration-billing.mp4',
+          mediaGroup: 'pos-operations'
+        }
+      ]
     },
     {
       id: 'wordpress-elementor-agenda',
-      year: '2024'
+      image: '/images/projects/wordpress-dental-site.png',
+      url: 'https://carolinaodontologa.com/',
+      year: '2025',
+      mediaModules: [
+        {
+          id: 'main-navigation',
+          videoSrc: '/videos/wordpress-elementor-agenda/wordpress-main-navigation.mp4'
+        },
+        {
+          id: 'booking-flow',
+          videoSrc: '/videos/wordpress-elementor-agenda/wordpress-booking-flow.mp4'
+        }
+      ]
     }
   ],
 

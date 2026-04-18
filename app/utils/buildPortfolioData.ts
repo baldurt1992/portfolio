@@ -62,7 +62,7 @@ export function buildPortfolioData(
       image: p.image,
       url: p.url,
       repo: p.repo,
-      year: p.year,
+      year: copy.year ?? p.year,
       tags: copy.tags,
       title: copy.title,
       description: copy.description,
