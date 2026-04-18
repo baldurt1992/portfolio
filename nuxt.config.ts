@@ -52,6 +52,16 @@ export default defineNuxtConfig({
     }
   },
 
+  // Sin `debug.hooks`: con `DEBUG` en el entorno (std-env `isDebug`) Nuxt inyecta
+  // `plugins/debug-hooks` → `console.time('[nuxt-app] i18n:beforeLocaleSwitch')` puede
+  // repetirse si el hook se anida/paraleliza antes del `timeEnd` (hookable createDebugger).
+  debug: {
+    hooks: {
+      client: false,
+      server: false
+    }
+  },
+
   eslint: {
     config: {
       stylistic: {

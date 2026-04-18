@@ -1,15 +1,16 @@
 <script setup lang="ts">
-  import { withoutHash } from '~/utils/withoutHash'
-
   const portfolioData = usePortfolioData()
   const { t, locale } = useI18n()
   const switchLocalePath = useSwitchLocalePath()
   const localePath = useLocalePath()
+  const { resolve } = useAppBasePath()
 
-  const contactTo = computed(() => `${withoutHash(localePath('/'))}#contact`)
+  const homePath = computed(() => resolve(localePath('/')))
+
+  const contactTo = computed(() => `${homePath.value}#contact`)
 
   function localeLinkFor(code: 'es' | 'en') {
-    return withoutHash(switchLocalePath(code))
+    return resolve(switchLocalePath(code))
   }
 
   const langOptions = [
@@ -29,7 +30,7 @@
 <template>
   <UHeader mode="slideover" :menu="headerMenu">
     <template #left>
-      <NuxtLink :to="withoutHash(localePath('/'))" class="font-bold text-xl text-highlighted shrink-0">
+      <NuxtLink :to="homePath" class="font-bold text-xl text-highlighted shrink-0">
         {{ portfolioData.bio.brandName ?? portfolioData.bio.name.split(' ')[0] }}
       </NuxtLink>
       <LayoutAppNav class="hidden lg:flex" />

@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import type { NavigationMenuItem } from '@nuxt/ui'
-  import { withoutHash } from '~/utils/withoutHash'
 
   defineProps<{
     orientation?: 'horizontal' | 'vertical'
@@ -8,11 +7,12 @@
 
   const { t } = useI18n()
   const localePath = useLocalePath()
+  const { resolve } = useAppBasePath()
   const { activeHash, navActiveReady } = useLandingNavActive()
 
   // NuxtLink + hash: `external` evita #fragment distinto SSR/cliente
   const navItems = computed<NavigationMenuItem[]>(() => {
-    const base = withoutHash(localePath('/'))
+    const base = resolve(localePath('/'))
     const entries = [
       { label: t('nav.home'), fragment: '#hero' as const },
       { label: t('nav.about'), fragment: '#about' as const },

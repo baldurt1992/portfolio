@@ -1,9 +1,9 @@
 <script setup lang="ts">
   import { usePreferredReducedMotion } from '@vueuse/core'
-  import { withoutHash } from '~/utils/withoutHash'
 
   const { t } = useI18n()
   const localePath = useLocalePath()
+  const { resolve } = useAppBasePath()
   const portfolioData = usePortfolioData()
   const bio = computed(() => portfolioData.value.bio)
 
@@ -35,7 +35,7 @@
   )
 
   const heroLinks = computed(() => {
-    const base = withoutHash(localePath('/'))
+    const base = resolve(localePath('/'))
     return [
       {
         label: t('hero.ctaProject'),
