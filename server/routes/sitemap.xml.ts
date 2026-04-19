@@ -65,4 +65,3 @@ ${url.alternatives
 
   return xml
 })
-

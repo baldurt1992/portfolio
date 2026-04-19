@@ -19,7 +19,7 @@
   }
 
   const siteBase = computed(() => {
-    // `siteUrl` ya viene sin barra final desde `nuxt.config` (`NUXT_PUBLIC_SITE_URL`).
+    // `siteUrl` viene de `NUXT_PUBLIC_SITE_URL` (en prod, el CI). Si vacío, origen de la petición / ventana.
     const fromEnv = (runtimeConfig.public.siteUrl as string | undefined)?.trim()
     if (fromEnv) {
       return fromEnv.replace(/\/$/, '')
@@ -37,16 +37,14 @@
 
   const portfolioData = usePortfolioData()
 
-  // useSeoMeta: evitar datos de tm() en head (serialización); strings vía t() + portfolioStructure
+  // useSeoMeta: evitar datos de tm() en head (serialización); strings vía t() + claves SEO dedicadas
   function seoPageTitle() {
-    const lead =
-      portfolioStructure.bio.brandName ?? portfolioStructure.bio.name ?? ''
-    const sub = t('portfolio.bio.title')
-    return `${lead} — ${typeof sub === 'string' ? sub : ''}`
+    const title = t('portfolio.seo.pageTitle')
+    return typeof title === 'string' ? title : ''
   }
 
   function seoPageDescription() {
-    const d = t('portfolio.bio.tagline')
+    const d = t('portfolio.seo.pageDescription')
     return typeof d === 'string' ? d : ''
   }
 
@@ -130,12 +128,23 @@
     const imagePath = (bio.avatar ?? `/${defaultOgImagePath}`).replace(/^\//, '')
     const image = joinURL(base, imagePath)
 
+    const pageDesc = seoPageDescription()
+    const knowsAbout = [
+      'Laravel',
+      'Vue.js',
+      'Nuxt',
+      'Full-stack web development',
+      'SaaS',
+      'ERP software'
+    ]
+
     return [
       {
         '@type': 'WebSite',
         '@id': `${base}/#website`,
         url: base,
         name: brand,
+        description: pageDesc,
         inLanguage: locale.value === 'en' ? 'en-US' : 'es-CO',
         publisher: { '@id': `${base}/#person` }
       },
@@ -155,7 +164,19 @@
         name,
         url: base,
         image,
+        description: pageDesc,
         jobTitle: bio.title,
+        knowsAbout,
+        workLocation: {
+          '@type': 'Place',
+          name: bio.location ?? 'Antioquia, Colombia',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Bello',
+            addressRegion: 'Antioquia',
+            addressCountry: 'CO'
+          }
+        },
         ...(sameAs.length ? { sameAs } : {})
       }
     ]
@@ -177,6 +198,7 @@
     const h = i18nHead.value
     const c = canonicalPageUrl.value
     return {
+      charset: 'utf-8',
       htmlAttrs: h.htmlAttrs,
       link: [
         ...(c ? [{ rel: 'canonical' as const, href: c, key: 'canonical' }] : []),
@@ -209,6 +231,11 @@
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
+          name: 'robots',
+          content:
+            'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+        },
+        {
           name: 'google-site-verification',
           content: 'Cyzuutc_r90SjHWcmCtKJykH06_Ae7bC6Pos30HBHaE'
         },
@@ -239,6 +266,7 @@
     ogSiteName: () => portfolioStructure.bio.brandName ?? 'BaldurDev',
     ogUrl: () => canonicalPageUrl.value,
     ogImage: () => ogImageUrl.value,
+    ogLocale: () => (locale.value === 'en' ? 'en_US' : 'es_CO'),
     twitterCard: 'summary_large_image',
     twitterTitle: () => seoPageTitle(),
     twitterDescription: () => seoPageDescription(),

@@ -57,10 +57,16 @@
 
 <template>
   <section id="hero" aria-labelledby="hero-title">
-    <UPageHero :title="bio.name" :description="showTaglineTypewriter ? undefined : bio.tagline" :headline="bio.title"
-      orientation="vertical" :links="heroLinks">
+    <!-- Un solo <h1>: rol SEO (keywords) + nombre. El headline suelto de UPageHero no es h1. -->
+    <UPageHero :description="showTaglineTypewriter ? undefined : bio.tagline" orientation="vertical" :links="heroLinks">
       <template #title>
-        <span id="hero-title" class="text-pretty">{{ bio.name }}</span>
+        <span id="hero-title" class="flex flex-col items-center gap-3 text-center">
+          <span
+            class="text-base sm:text-lg font-semibold text-primary tracking-tight text-pretty max-w-2xl leading-snug">{{
+              bio.title }}</span>
+          <span class="text-3xl sm:text-4xl md:text-5xl font-bold text-highlighted tracking-tight text-balance">{{
+            bio.name }}</span>
+        </span>
       </template>
 
       <template v-if="showTaglineTypewriter" #description>

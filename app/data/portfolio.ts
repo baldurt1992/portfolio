@@ -84,6 +84,11 @@ export interface PortfolioData {
 export interface PortfolioLocaleMessages {
   bio: Pick<Bio, 'title' | 'tagline' | 'heroTrustLine' | 'location'> &
     Partial<Pick<Bio, 'taglinePrefix' | 'taglineTypewriter' | 'taglineRotatingTokens'>>
+  /** Título y descripción del documento (SERPs); pueden diferir del hero. */
+  seo: {
+    pageTitle: string
+    pageDescription: string
+  }
   aboutLead: string
   aboutMore: string
   projects: Record<
