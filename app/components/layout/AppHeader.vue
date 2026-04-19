@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  const appConfig = useAppConfig()
   const portfolioData = usePortfolioData()
   const { t, locale } = useI18n()
   const switchLocalePath = useSwitchLocalePath()
@@ -58,18 +59,50 @@
     </template>
 
     <template #content="{ close }">
-      <div class="flex flex-col gap-4">
-        <div class="flex items-center gap-0.5 rounded-lg border border-default/40 p-0.5 w-fit -mx-2.5" role="group"
-          :aria-label="t('languages.switchTo')">
-          <UButton v-for="opt in langOptions" :key="opt.code" :to="localeLinkFor(opt.code)" size="sm"
-            :variant="locale === opt.code ? 'soft' : 'ghost'" color="neutral"
-            @click="close?.()"
-            class="min-w-11 justify-center font-semibold tabular-nums">
-            {{ opt.label }}
-          </UButton>
+      <div class="flex h-full flex-col">
+        <div class="flex items-center justify-between gap-3 border-b border-default/60 px-4 sm:px-6 h-(--ui-header-height)">
+          <NuxtLink :to="homePath" class="font-bold text-xl text-highlighted shrink-0" @click="close?.()">
+            {{ portfolioData.bio.brandName ?? portfolioData.bio.name.split(' ')[0] }}
+          </NuxtLink>
+
+          <div class="flex items-center gap-1.5">
+            <UColorModeButton />
+            <UButton
+              color="neutral"
+              variant="ghost"
+              :icon="appConfig.ui.icons.close"
+              :aria-label="t('header.close')"
+              @click="close?.()"
+            />
+          </div>
         </div>
-        <div @click="close?.()">
-          <LayoutAppNav orientation="vertical" class="-mx-2.5" />
+
+        <div class="flex flex-col gap-4 overflow-y-auto p-4 sm:p-6">
+          <div class="flex items-center gap-0.5 rounded-lg border border-default/40 p-0.5 w-fit" role="group"
+            :aria-label="t('languages.switchTo')">
+            <UButton v-for="opt in langOptions" :key="opt.code" :to="localeLinkFor(opt.code)" size="sm"
+              :variant="locale === opt.code ? 'soft' : 'ghost'" color="neutral"
+              @click="close?.()"
+              class="min-w-11 justify-center font-semibold tabular-nums">
+              {{ opt.label }}
+            </UButton>
+          </div>
+
+          <UButton :to="contactTo" :label="t('header.contact')" color="primary" variant="soft"
+            class="w-full justify-center" @click="close?.()" />
+
+          <div @click="close?.()">
+            <LayoutAppNav orientation="vertical" class="-mx-2.5" />
+          </div>
+
+          <div class="flex items-center gap-1.5 pt-2">
+            <UButton v-if="portfolioData.bio.social.github" :to="portfolioData.bio.social.github" target="_blank"
+              rel="noopener noreferrer" icon="i-simple-icons-github" :aria-label="t('a11y.github')" color="neutral"
+              variant="ghost" @click="close?.()" />
+            <UButton v-if="portfolioData.bio.social.linkedin" :to="portfolioData.bio.social.linkedin" target="_blank"
+              rel="noopener noreferrer" icon="i-simple-icons-linkedin" :aria-label="t('a11y.linkedin')" color="neutral"
+              variant="ghost" @click="close?.()" />
+          </div>
         </div>
       </div>
     </template>

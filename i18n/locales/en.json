@@ -19,7 +19,11 @@
     "scrollReadingProgress": "Page scroll progress"
   },
   "header": {
-    "contact": "Contact"
+    "contact": "Contact",
+    "open": "Open menu",
+    "close": "Close menu",
+    "title": "Menu",
+    "description": "Main site navigation"
   },
   "languages": {
     "en": "English",

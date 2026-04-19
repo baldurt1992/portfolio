@@ -19,7 +19,11 @@
     "scrollReadingProgress": "Progreso de lectura de la página"
   },
   "header": {
-    "contact": "Contactar"
+    "contact": "Contactar",
+    "open": "Abrir menú",
+    "close": "Cerrar menú",
+    "title": "Menú",
+    "description": "Navegación principal del sitio"
   },
   "languages": {
     "en": "English",
