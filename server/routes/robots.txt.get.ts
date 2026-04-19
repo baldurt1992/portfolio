@@ -11,7 +11,7 @@ export default defineEventHandler((event) => {
     }
   })()
   const base = fromEnv || fallback
-  const sitemapPath = '/sitemap_index.xml'
+  const sitemapPath = '/sitemap.xml'
   const sitemap = base ? `${base}${sitemapPath}` : sitemapPath
   setHeader(event, 'content-type', 'text/plain; charset=utf-8')
   setHeader(event, 'cache-control', 'public, max-age=3600')

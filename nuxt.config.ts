@@ -103,6 +103,29 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false
   },
 
+  sitemap: {
+    autoI18n: false,
+    excludeAppSources: true,
+    urls: [
+      {
+        loc: '/',
+        alternatives: [
+          { hreflang: 'es-CO', href: '/' },
+          { hreflang: 'en-US', href: '/en' },
+          { hreflang: 'x-default', href: '/' }
+        ]
+      },
+      {
+        loc: '/en',
+        alternatives: [
+          { hreflang: 'es-CO', href: '/' },
+          { hreflang: 'en-US', href: '/en' },
+          { hreflang: 'x-default', href: '/' }
+        ]
+      }
+    ]
+  },
+
   // Estático: sin servidor Nitro para `/api/_nuxt_icon` — Iconify en cliente
   icon: {
     provider: 'iconify',
