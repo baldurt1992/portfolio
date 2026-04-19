@@ -3,14 +3,13 @@
   const { t, locale } = useI18n()
   const switchLocalePath = useSwitchLocalePath()
   const localePath = useLocalePath()
-  const { resolve, withFragment } = useAppBasePath()
 
-  const homePath = computed(() => resolve(localePath('/')))
+  const homePath = computed(() => localePath('/'))
 
-  const contactTo = computed(() => withFragment(localePath('/'), '#contact'))
+  const contactTo = computed(() => ({ path: localePath('/'), hash: '#contact' }))
 
   function localeLinkFor(code: 'es' | 'en') {
-    return resolve(switchLocalePath(code))
+    return withoutHash(switchLocalePath(code))
   }
 
   const langOptions = [
@@ -45,7 +44,7 @@
           {{ opt.label }}
         </UButton>
       </div>
-      <UButton :to="contactTo" external :label="t('header.contact')" color="primary" variant="soft"
+      <UButton :to="contactTo" :label="t('header.contact')" color="primary" variant="soft"
         class="hidden sm:inline-flex" />
       <UColorModeButton />
       <UButton v-if="portfolioData.bio.social.github" :to="portfolioData.bio.social.github" target="_blank"

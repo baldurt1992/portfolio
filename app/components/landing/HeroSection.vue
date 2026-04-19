@@ -3,7 +3,6 @@
 
   const { t } = useI18n()
   const localePath = useLocalePath()
-  const { withFragment } = useAppBasePath()
   const portfolioData = usePortfolioData()
   const bio = computed(() => portfolioData.value.bio)
 
@@ -34,23 +33,20 @@
       bio.value.taglineRotatingTokens.length > 0
   )
 
-  /** Mismo criterio que nav/CTA: en subruta GitHub Pages `#about` solo no basta. */
-  const portraitAboutHref = computed(() => withFragment(localePath('/'), '#about'))
+  const portraitAboutTo = computed(() => ({ path: localePath('/'), hash: '#about' }))
 
   const heroLinks = computed(() => {
     const home = localePath('/')
     return [
       {
         label: t('hero.ctaProject'),
-        to: withFragment(home, '#contact'),
-        external: true,
+        to: { path: home, hash: '#contact' },
         trailingIcon: 'i-lucide-arrow-right',
         size: 'xl' as const
       },
       {
         label: t('hero.ctaWork'),
-        to: withFragment(home, '#projects'),
-        external: true,
+        to: { path: home, hash: '#projects' },
         size: 'xl' as const,
         color: 'neutral' as const,
         variant: 'outline' as const
@@ -74,7 +70,7 @@
 
       <template v-if="bio.avatar" #body>
         <div class="flex flex-col items-center justify-center w-full gap-2 sm:gap-3">
-          <a v-if="showPortraitFlip" :href="portraitAboutHref"
+          <NuxtLink v-if="showPortraitFlip" :to="portraitAboutTo"
             class="group relative shrink-0 rounded-full no-underline text-inherit cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-default perspective-[1100px]"
             :aria-label="portraitLinkAriaLabel">
             <span
@@ -91,14 +87,14 @@
                   decoding="async" />
               </span>
             </span>
-          </a>
-          <a v-else :href="portraitAboutHref"
+          </NuxtLink>
+          <NuxtLink v-else :to="portraitAboutTo"
             class="relative shrink-0 inline-flex rounded-full no-underline text-inherit cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-default"
             :aria-label="t('hero.portraitAriaSimple')">
             <img :src="bio.avatar" :alt="t('hero.portraitAlt', { name: bio.name })" width="224" height="224"
               class="w-40 h-40 sm:w-52 sm:h-52 md:w-56 md:h-56 object-cover rounded-full ring-4 ring-default shadow-lg shrink-0"
               loading="eager" fetchpriority="high" decoding="async" />
-          </a>
+          </NuxtLink>
           <p v-if="bio.avatar" class="hero-portrait-tap-hint text-center text-xs text-muted max-w-[16rem] text-pretty">
             {{ t('hero.portraitTapHint') }}
           </p>
