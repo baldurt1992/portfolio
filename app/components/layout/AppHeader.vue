@@ -82,8 +82,7 @@
             :aria-label="t('languages.switchTo')">
             <UButton v-for="opt in langOptions" :key="opt.code" :to="localeLinkFor(opt.code)" size="sm"
               :variant="locale === opt.code ? 'soft' : 'ghost'" color="neutral"
-              @click="close?.()"
-              class="min-w-11 justify-center font-semibold tabular-nums">
+              class="min-w-11 justify-center font-semibold tabular-nums" @click="close?.()">
               {{ opt.label }}
             </UButton>
           </div>
