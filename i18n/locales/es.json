@@ -2,7 +2,7 @@
   "nav": {
     "home": "Inicio",
     "about": "Sobre mí",
-    "skills": "Skills",
+    "skills": "Tecnologías",
     "projects": "Proyectos",
     "experience": "Experiencia",
     "contact": "Contacto"
@@ -42,8 +42,8 @@
     "description": "Contexto breve: enfoque, stack y cómo suelo colaborar."
   },
   "skills": {
-    "eyebrow": "Tecnologías",
-    "title": "Skills",
+    "eyebrow": "Stack",
+    "title": "Tecnologías",
     "description": "Tecnologías que uso en el día a día, agrupadas por área.",
     "category": {
       "frontend": "Frontend",

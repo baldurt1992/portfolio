@@ -2,7 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "skills": "Skills",
+    "skills": "Technologies",
     "projects": "Projects",
     "experience": "Experience",
     "contact": "Contact"
@@ -42,8 +42,8 @@
     "description": "Short context: focus, stack, and how I usually collaborate."
   },
   "skills": {
-    "eyebrow": "Technologies",
-    "title": "Skills",
+    "eyebrow": "Stack",
+    "title": "Technologies",
     "description": "Technologies I use day to day, grouped by area.",
     "category": {
       "frontend": "Frontend",

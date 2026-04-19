@@ -3,7 +3,7 @@ import { useThrottleFn } from '@vueuse/core'
 const SECTION_HASHES = [
   '#hero',
   '#about',
-  '#skills',
+  '#technologies',
   '#projects',
   '#experience',
   '#contact'

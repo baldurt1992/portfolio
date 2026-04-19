@@ -24,11 +24,11 @@
 </script>
 
 <template>
-  <section id="skills" aria-labelledby="skills-heading" class="py-24 sm:py-32">
+  <section id="technologies" aria-labelledby="technologies-heading" class="py-24 sm:py-32">
     <UContainer>
       <UiScrollReveal>
         <div class="max-w-4xl mx-auto w-full">
-          <UiSectionHeading id="skills-heading" :eyebrow="t('skills.eyebrow')" :title="t('skills.title')"
+          <UiSectionHeading id="technologies-heading" :eyebrow="t('skills.eyebrow')" :title="t('skills.title')"
             :description="t('skills.description')" :contained="false" />
           <div class="mt-16 space-y-12">
             <div v-for="[category, list] in skillsByCategory" :key="category">

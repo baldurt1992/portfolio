@@ -3,6 +3,7 @@
   const { t, locale } = useI18n()
   const switchLocalePath = useSwitchLocalePath()
   const localePath = useLocalePath()
+  const menuOpen = ref(false)
 
   const homePath = computed(() => localePath('/'))
 
@@ -21,13 +22,14 @@
   const headerMenu = {
     side: 'right' as const,
     content: {
-      onOpenAutoFocus: (_e: Event) => { }
+      onOpenAutoFocus: (_e: Event) => { },
+      onCloseAutoFocus: (e: Event) => e.preventDefault()
     }
   }
 </script>
 
 <template>
-  <UHeader mode="slideover" :menu="headerMenu">
+  <UHeader v-model:open="menuOpen" mode="slideover" :menu="headerMenu">
     <template #left>
       <NuxtLink :to="homePath" class="font-bold text-xl text-highlighted shrink-0">
         {{ portfolioData.bio.brandName ?? portfolioData.bio.name.split(' ')[0] }}
@@ -55,17 +57,20 @@
         variant="ghost" />
     </template>
 
-    <template #body>
+    <template #content="{ close }">
       <div class="flex flex-col gap-4">
         <div class="flex items-center gap-0.5 rounded-lg border border-default/40 p-0.5 w-fit -mx-2.5" role="group"
           :aria-label="t('languages.switchTo')">
           <UButton v-for="opt in langOptions" :key="opt.code" :to="localeLinkFor(opt.code)" size="sm"
             :variant="locale === opt.code ? 'soft' : 'ghost'" color="neutral"
+            @click="close?.()"
             class="min-w-11 justify-center font-semibold tabular-nums">
             {{ opt.label }}
           </UButton>
         </div>
-        <LayoutAppNav orientation="vertical" class="-mx-2.5" />
+        <div @click="close?.()">
+          <LayoutAppNav orientation="vertical" class="-mx-2.5" />
+        </div>
       </div>
     </template>
   </UHeader>
