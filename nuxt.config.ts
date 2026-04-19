@@ -8,16 +8,6 @@ function normalizedPublicSiteUrl(): string {
 }
 
 const publicSiteUrl = normalizedPublicSiteUrl()
-const publicSiteOrigin = (() => {
-  if (!publicSiteUrl) {
-    return ''
-  }
-  try {
-    return new URL(publicSiteUrl).origin
-  } catch {
-    return ''
-  }
-})()
 
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/i18n'],
@@ -27,11 +17,6 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
-
-  site: {
-    name: 'BaldurDev',
-    url: publicSiteOrigin || 'http://localhost:3000'
-  },
 
   // `classSuffix: ''` → clase `dark` (Tailwind). Declarar `@nuxtjs/color-mode` en modules antes que @nuxt/ui rompe esto (default `-mode`).
   colorMode: {
