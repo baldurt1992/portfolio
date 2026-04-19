@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "optimize:images": "node scripts/optimize-public-images.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -32,6 +33,7 @@
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.1",
+    "sharp": "^0.34.5",
     "typescript": "^5.9.3",
     "vue-tsc": "^3.2.4"
   }

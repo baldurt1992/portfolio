@@ -116,8 +116,8 @@ export const portfolioStructure: PortfolioStructure = {
   bio: {
     name: 'Andrés Baldur Tamayo Marín',
     brandName: 'BaldurDev',
-    avatar: '/images/portrait.jpg',
-    aboutAvatar: '/images/avatar.png',
+    avatar: '/images/portrait.webp',
+    aboutAvatar: '/images/avatar.webp',
     email: 'andresbaldur92@gmail.com',
     social: {
       github: 'https://github.com/baldurt1992',

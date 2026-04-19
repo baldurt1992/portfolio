@@ -105,7 +105,7 @@
     return links
   })
 
-  const defaultOgImagePath = 'images/portrait.jpg'
+  const defaultOgImagePath = 'images/portrait.webp'
 
   const ogImageUrl = computed(() => {
     const base = siteBase.value
@@ -223,9 +223,13 @@
           href: 'https://fonts.gstatic.com',
           crossorigin: ''
         },
+        // `media="print"` + onload: no bloquea el primer paint (Lighthouse); luego aplica a pantalla.
         {
+          key: 'fonts-space-grotesk',
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap'
+          href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap',
+          media: 'print',
+          onload: "this.media='all'"
         }
       ],
       meta: [
