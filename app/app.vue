@@ -208,6 +208,10 @@
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          name: 'google-site-verification',
+          content: 'Cyzuutc_r90SjHWcmCtKJykH06_Ae7bC6Pos30HBHaE'
+        },
         ...(h.meta ?? [])
       ],
       script:
