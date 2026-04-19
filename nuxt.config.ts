@@ -20,11 +20,11 @@ const publicSiteOrigin = (() => {
 })()
 
 export default defineNuxtConfig({
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/i18n'],
+
   devtools: {
     enabled: true
   },
-
-  modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/i18n', '@nuxtjs/sitemap'],
 
   css: ['~/assets/css/main.css'],
 
@@ -55,6 +55,7 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/en': { prerender: true },
     '/sitemap.xml': { prerender: true },
+    '/sitemap_index.xml': { prerender: true },
     '/robots.txt': { prerender: true }
   },
 
@@ -101,29 +102,6 @@ export default defineNuxtConfig({
     baseUrl: publicSiteUrl || 'http://localhost:3000',
     // Sin redirect por Accept-Language (evita /en no deseado)
     detectBrowserLanguage: false
-  },
-
-  sitemap: {
-    autoI18n: false,
-    excludeAppSources: true,
-    urls: [
-      {
-        loc: '/',
-        alternatives: [
-          { hreflang: 'es-CO', href: '/' },
-          { hreflang: 'en-US', href: '/en' },
-          { hreflang: 'x-default', href: '/' }
-        ]
-      },
-      {
-        loc: '/en',
-        alternatives: [
-          { hreflang: 'es-CO', href: '/' },
-          { hreflang: 'en-US', href: '/en' },
-          { hreflang: 'x-default', href: '/' }
-        ]
-      }
-    ]
   },
 
   // Estático: sin servidor Nitro para `/api/_nuxt_icon` — Iconify en cliente
