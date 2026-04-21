@@ -43,7 +43,7 @@
   "about": {
     "eyebrow": "Perfil",
     "title": "Sobre mí",
-    "description": "Contexto breve: enfoque, stack y cómo suelo colaborar."
+    "description": "Una visión rápida de cómo trabajo, qué construyo y dónde aporto más valor."
   },
   "skills": {
     "eyebrow": "Stack",
@@ -110,19 +110,19 @@
   },
   "portfolio": {
     "seo": {
-      "pageTitle": "BaldurDev — Laravel & Vue · Fullstack Medellín, Colombia",
-      "pageDescription": "Desarrollador fullstack Laravel y Vue en Medellín (Colombia). Freelance: SaaS, ERP multi-tenant, APIs y productos con Nuxt. Laravel developer y Vue developer con casos en producción."
+      "pageTitle": "BaldurDev — Desarrollador fullstack Laravel, Vue y Nuxt",
+      "pageDescription": "Desarrollador fullstack en Colombia especializado en Laravel, Vue y Nuxt. SaaS, ERP multi-tenant, APIs, WordPress a medida y productos web con foco en producción."
     },
     "bio": {
-      "title": "Desarrollador fullstack Laravel & Vue · Medellín · Freelance",
-      "tagline": "Laravel, Vue y Nuxt para productos que convierten: performance, UX sólida y arquitectura mantenible. Hablemos de tu MVP, ERP o SaaS.",
-      "taglinePrefix": "Laravel, Vue y Nuxt para productos que convierten: ",
-      "taglineRotatingTokens": ["performance", "UX sólida", "SaaS", "ERP", "APIs", "Medellín"],
-      "heroTrustLine": "Freelance Laravel & Vue · Medellín, Colombia · SaaS, ERP, WordPress (Divi/Elementor) y despliegues",
+      "title": "Desarrollador fullstack · Laravel, Vue, Nuxt y Tailwind",
+      "tagline": "Construyo productos web de negocio: SaaS, ERP, APIs, dashboards, automatizaciones y sitios a medida con UX clara, performance y arquitectura mantenible.",
+      "taglinePrefix": "Construyo productos web de negocio: ",
+      "taglineRotatingTokens": ["SaaS", "ERP", "APIs", "dashboards", "automatizaciones", "sitios a medida"],
+      "heroTrustLine": "Freelance · Bello, Antioquia · Colombia · Laravel, Vue, Nuxt, WordPress (Divi/Elementor), SaaS/ERP y despliegues",
       "location": "Bello, Antioquia"
     },
-    "aboutLead": "Soy desarrollador fullstack Laravel y Vue: backend con APIs, Eloquent y colas cuando aportan; frontend con Vue, Nuxt (Nuxt UI), PrimeVue y Tailwind. También implemento sitios WordPress con Divi y Elementor cuando el producto encaja con un CMS.",
-    "aboutMore": "Trabajo como freelance desde Colombia con equipos y clientes remotos: APIs y sitios Laravel, productos B2B (SaaS, ERP multi-tenant, gestión de usuarios, dominios y despliegue). Me enfoco en integraciones limpias Laravel↔Vue y en interfaces usables. Git, entregas iterativas y mejora continua de inglés.",
+    "aboutLead": "Soy desarrollador fullstack con foco en Laravel, Vue y Nuxt. En backend trabajo con APIs, Eloquent, colas cuando aportan valor e integraciones entre servicios; en frontend construyo interfaces con Vue, Nuxt UI, PrimeVue y Tailwind. También implemento sitios WordPress con Divi y Elementor cuando el proyecto encaja mejor con un CMS.",
+    "aboutMore": "Trabajo como freelance desde Colombia con equipos y clientes remotos en productos B2B, SaaS, ERP multi-tenant, gestión de usuarios, dominios y despliegues. Me enfoco en integraciones limpias entre backend y frontend, interfaces usables, entregas iterativas con Git y mejora continua de mi inglés.",
     "projects": {
       "ticador-platform": {
         "title": "Ticador — ecosistema SaaS en producción",

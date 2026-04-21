@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { usePreferredReducedMotion } from '@vueuse/core'
   import type { Project } from '~/composables/usePortfolioData'
+  import { projectImageSrcset } from '~/utils/responsiveImages'
 
   const props = defineProps<{
     project: Project
@@ -65,6 +66,8 @@
   const projectImageAlt = computed(() =>
     t('projectCard.projectImageAlt', { title: props.project.title })
   )
+  const projectImageResponsiveSrcset = computed(() => projectImageSrcset(props.project.image))
+  const projectImageSizes = '(min-width: 1024px) 648px, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)'
 
   const hasProjectActions = computed(
     () =>
@@ -112,7 +115,8 @@
         <UTooltip v-else-if="useHeroHoverVideo" arrow :delay-duration="450" :text="tooltipHeroHover"
           :content="{ side: 'top', align: 'center' }">
           <div class="relative overflow-hidden bg-default/25 border-b border-default/20 outline-none">
-            <img :src="project.image" :alt="projectImageAlt"
+            <img :src="project.image" :srcset="projectImageResponsiveSrcset" :sizes="projectImageSizes"
+              :alt="projectImageAlt"
               class="relative z-0 w-full h-auto block transition-opacity duration-300"
               :class="highlightDetailsCta ? 'opacity-0' : 'opacity-100'" loading="lazy" decoding="async" />
             <video ref="hoverVideoRef" :src="heroHoverVideoSrc"
@@ -131,14 +135,14 @@
         <UTooltip v-else-if="project.image && project.mediaModules?.length" arrow :delay-duration="400"
           :text="tooltipHeroStatic" :content="{ side: 'top', align: 'center' }">
           <div class="overflow-hidden bg-default/25 border-b border-default/20">
-            <img :src="project.image" :alt="projectImageAlt" class="w-full h-auto block" loading="lazy"
-              decoding="async" />
+            <img :src="project.image" :srcset="projectImageResponsiveSrcset" :sizes="projectImageSizes"
+              :alt="projectImageAlt" class="w-full h-auto block" loading="lazy" decoding="async" />
           </div>
         </UTooltip>
 
         <div v-else-if="project.image" class="overflow-hidden bg-default/25 border-b border-default/20">
-          <img :src="project.image" :alt="projectImageAlt" class="w-full h-auto block" loading="lazy"
-            decoding="async" />
+          <img :src="project.image" :srcset="projectImageResponsiveSrcset" :sizes="projectImageSizes"
+            :alt="projectImageAlt" class="w-full h-auto block" loading="lazy" decoding="async" />
         </div>
 
         <div v-if="hasProjectActions"

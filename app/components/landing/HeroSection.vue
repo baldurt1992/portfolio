@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { usePreferredReducedMotion } from '@vueuse/core'
+  import { avatarImageSrcset, portraitImageSrcset } from '~/utils/responsiveImages'
 
   const { t } = useI18n()
   const localePath = useLocalePath()
@@ -34,6 +35,8 @@
   )
 
   const portraitAboutTo = computed(() => ({ path: localePath('/'), hash: '#about' }))
+  const portraitSrcset = computed(() => portraitImageSrcset(bio.value.avatar))
+  const aboutAvatarSrcset = computed(() => avatarImageSrcset(bio.value.aboutAvatar))
 
   const heroLinks = computed(() => {
     const home = localePath('/')
@@ -83,12 +86,14 @@
               class="relative block w-40 h-40 sm:w-52 sm:h-52 md:w-56 md:h-56 transform-3d transition-transform duration-500 ease-in-out will-change-transform rounded-full ring-4 ring-default shadow-lg"
               :class="flipInnerClass">
               <span class="absolute inset-0 overflow-hidden rounded-full backface-hidden bg-default">
-                <img :src="bio.avatar" :alt="t('hero.portraitAlt', { name: bio.name })" width="224" height="224"
+                <img :src="bio.avatar" :srcset="portraitSrcset" sizes="(min-width: 768px) 224px, 208px"
+                  :alt="t('hero.portraitAlt', { name: bio.name })" width="224" height="224"
                   class="size-full object-cover" loading="eager" fetchpriority="high" decoding="async" />
               </span>
               <span
                 class="absolute inset-0 overflow-hidden rounded-full backface-hidden transform-[rotateY(180deg)] bg-default">
-                <img v-if="bio.aboutAvatar" :src="bio.aboutAvatar" :alt="t('hero.illustrationAlt', { name: bio.name })"
+                <img v-if="bio.aboutAvatar" :src="bio.aboutAvatar" :srcset="aboutAvatarSrcset"
+                  sizes="(min-width: 768px) 224px, 208px" :alt="t('hero.illustrationAlt', { name: bio.name })"
                   width="224" height="224" class="size-full object-cover object-center scale-110" loading="eager"
                   decoding="async" />
               </span>
@@ -97,7 +102,8 @@
           <NuxtLink v-else :to="portraitAboutTo"
             class="relative shrink-0 inline-flex rounded-full no-underline text-inherit cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-default"
             :aria-label="t('hero.portraitAriaSimple')">
-            <img :src="bio.avatar" :alt="t('hero.portraitAlt', { name: bio.name })" width="224" height="224"
+            <img :src="bio.avatar" :srcset="portraitSrcset" sizes="(min-width: 768px) 224px, 208px"
+              :alt="t('hero.portraitAlt', { name: bio.name })" width="224" height="224"
               class="w-40 h-40 sm:w-52 sm:h-52 md:w-56 md:h-56 object-cover rounded-full ring-4 ring-default shadow-lg shrink-0"
               loading="eager" fetchpriority="high" decoding="async" />
           </NuxtLink>

@@ -1,9 +1,12 @@
 <script setup lang="ts">
+  import { avatarImageSrcset } from '~/utils/responsiveImages'
+
   const { t } = useI18n()
   const portfolioData = usePortfolioData()
   const bio = computed(() => portfolioData.value.bio)
   const aboutLead = computed(() => portfolioData.value.aboutLead)
   const aboutMore = computed(() => portfolioData.value.aboutMore)
+  const aboutAvatarSrcset = computed(() => avatarImageSrcset(bio.value.aboutAvatar))
 </script>
 
 <template>
@@ -17,7 +20,8 @@
           <div class="mt-10 md:mt-14">
             <div class="flex flex-col md:flex-row md:items-start gap-8 md:gap-10 text-center md:text-left">
               <div v-if="bio.aboutAvatar" class="flex justify-center md:justify-start shrink-0 md:pt-0.5">
-                <img :src="bio.aboutAvatar" :alt="t('hero.aboutAvatarAlt', { name: bio.name })" width="128" height="128"
+                <img :src="bio.aboutAvatar" :srcset="aboutAvatarSrcset" sizes="(min-width: 640px) 112px, 96px"
+                  :alt="t('hero.aboutAvatarAlt', { name: bio.name })" width="128" height="128"
                   class="w-24 h-24 sm:w-28 sm:h-28 rounded-xl object-cover ring-1 ring-default/35 shadow-md bg-elevated [image-rendering:pixelated]"
                   loading="lazy" decoding="async" />
               </div>
