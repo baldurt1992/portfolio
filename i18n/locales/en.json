@@ -85,7 +85,12 @@
     "toastErrorTitle": "Could not send",
     "toastErrorDescription": "Please try again later.",
     "toastMailtoTitle": "Opening your email app",
-    "toastMailtoDescription": "Integrated delivery isn’t configured for this deployment; your mail client opened with the draft. Review and send, or use the email link below."
+    "toastMailtoDescription": "Integrated delivery isn’t configured for this deployment; your mail client opened with the draft. Review and send, or use the email link below.",
+    "toastCaptchaRequiredTitle": "Verification required",
+    "toastCaptchaRequiredDescription": "Complete the anti-spam check before sending.",
+    "toastCaptchaVerifyTitle": "Verification failed",
+    "toastCaptchaVerifyDescription": "The check expired or was rejected. Please try again.",
+    "toastCaptchaLoadDescription": "The verification widget could not load. Check your connection or strict blockers."
   },
   "projectCard": {
     "tooltipHeroHover": "Short preview on hover. Want more? Click View details.",
@@ -117,7 +122,14 @@
       "title": "Full-stack developer · Laravel, Vue, Nuxt & Tailwind",
       "tagline": "I build business web products: SaaS, ERP, APIs, dashboards, automations, and custom websites with clear UX, performance, and maintainable architecture.",
       "taglinePrefix": "I build business web products: ",
-      "taglineRotatingTokens": ["SaaS", "ERP", "APIs", "dashboards", "automations", "custom websites"],
+      "taglineRotatingTokens": [
+        "SaaS",
+        "ERP",
+        "APIs",
+        "dashboards",
+        "automations",
+        "custom websites"
+      ],
       "heroTrustLine": "Freelance · Bello, Antioquia · Colombia · Laravel, Vue, Nuxt, WordPress (Divi/Elementor), SaaS/ERP, and deployments",
       "location": "Bello, Antioquia"
     },

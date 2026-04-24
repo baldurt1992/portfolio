@@ -85,7 +85,12 @@
     "toastErrorTitle": "Error al enviar",
     "toastErrorDescription": "Intenta de nuevo más tarde.",
     "toastMailtoTitle": "Abriendo tu correo",
-    "toastMailtoDescription": "Este sitio no tiene el envío integrado configurado; se abrió tu cliente con el mensaje. Revísalo y envía, o usa el enlace de correo debajo."
+    "toastMailtoDescription": "Este sitio no tiene el envío integrado configurado; se abrió tu cliente con el mensaje. Revísalo y envía, o usa el enlace de correo debajo.",
+    "toastCaptchaRequiredTitle": "Verificación pendiente",
+    "toastCaptchaRequiredDescription": "Completa la verificación anti‑spam antes de enviar.",
+    "toastCaptchaVerifyTitle": "No se pudo verificar",
+    "toastCaptchaVerifyDescription": "La verificación expiró o fue rechazada. Inténtalo de nuevo.",
+    "toastCaptchaLoadDescription": "No se pudo cargar la verificación. Revisa tu conexión o desactiva bloqueadores agresivos."
   },
   "projectCard": {
     "tooltipHeroHover": "Vista previa breve al pasar el cursor. ¿Quieres saber más? Haz clic en Ver detalles.",
@@ -117,7 +122,14 @@
       "title": "Desarrollador fullstack · Laravel, Vue, Nuxt y Tailwind",
       "tagline": "Construyo productos web de negocio: SaaS, ERP, APIs, dashboards, automatizaciones y sitios a medida con UX clara, performance y arquitectura mantenible.",
       "taglinePrefix": "Construyo productos web de negocio: ",
-      "taglineRotatingTokens": ["SaaS", "ERP", "APIs", "dashboards", "automatizaciones", "sitios a medida"],
+      "taglineRotatingTokens": [
+        "SaaS",
+        "ERP",
+        "APIs",
+        "dashboards",
+        "automatizaciones",
+        "sitios a medida"
+      ],
       "heroTrustLine": "Freelance · Bello, Antioquia · Colombia · Laravel, Vue, Nuxt, WordPress (Divi/Elementor), SaaS/ERP y despliegues",
       "location": "Bello, Antioquia"
     },

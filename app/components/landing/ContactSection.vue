@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { form, loading, submit } = useContactForm()
+  const { form, loading, submit, showTurnstileWidget, turnstileContainerRef } = useContactForm()
   const portfolioData = usePortfolioData()
   const { t } = useI18n()
   const bio = computed(() => portfolioData.value.bio)
@@ -27,6 +27,7 @@
                   <UTextarea v-model="form.message" name="message" :placeholder="t('contact.placeholderMessage')"
                     :rows="4" required class="w-full" />
                 </UFormField>
+                <div v-if="showTurnstileWidget" ref="turnstileContainerRef" class="flex min-h-[65px] justify-center" />
                 <UButton type="submit" size="lg" :loading="loading" class="w-full sm:w-auto">
                   {{ t('contact.submit') }}
                 </UButton>

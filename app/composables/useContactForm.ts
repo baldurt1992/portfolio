@@ -55,6 +55,49 @@ export function useContactForm() {
     )
   })
 
+  const turnstileSiteKey = computed(
+    () =>
+      (typeof config.public.turnstileSiteKey === 'string' &&
+        config.public.turnstileSiteKey.trim()) ||
+      ''
+  )
+
+  const turnstileVerifyUrl = computed(
+    () =>
+      (typeof config.public.turnstileVerifyUrl === 'string' &&
+        config.public.turnstileVerifyUrl.trim()) ||
+      ''
+  )
+
+  const isTurnstileConfigured = computed(() =>
+    Boolean(turnstileSiteKey.value && turnstileVerifyUrl.value)
+  )
+
+  /**
+   * EmailJS + Turnstile configurados (lógica de negocio).
+   * El DOM del widget no debe depender solo de esto en SSR: ver `showTurnstileWidget`.
+   */
+  const isTurnstileEnabledForEmail = computed(
+    () => isEmailJsConfigured.value && isTurnstileConfigured.value
+  )
+
+  /**
+   * Evita hydration mismatch: en SSR y en el primer paint del cliente el slot del formulario
+   * debe coincidir; el captcha solo existe después de onMounted.
+   */
+  const contactFormMounted = ref(false)
+  onMounted(() => {
+    contactFormMounted.value = true
+  })
+
+  const showTurnstileWidget = computed(
+    () => isTurnstileEnabledForEmail.value && contactFormMounted.value
+  )
+
+  const turnstile = useTurnstileWidget(() =>
+    showTurnstileWidget.value ? turnstileSiteKey.value : ''
+  )
+
   function reset() {
     form.name = ''
     form.email = ''
@@ -110,6 +153,9 @@ export function useContactForm() {
       color: 'success'
     })
     reset()
+    if (isTurnstileConfigured.value) {
+      turnstile.reset()
+    }
   }
 
   async function submit() {
@@ -122,17 +168,55 @@ export function useContactForm() {
         return
       }
 
+      if (isTurnstileConfigured.value) {
+        if (turnstile.scriptFailed.value) {
+          console.error(`${LOG_TAG} Turnstile script no disponible`)
+          toast.add({
+            title: t('contactForm.toastErrorTitle'),
+            description: t('contactForm.toastCaptchaLoadDescription'),
+            color: 'error'
+          })
+          return
+        }
+        if (!turnstile.token.value) {
+          toast.add({
+            title: t('contactForm.toastCaptchaRequiredTitle'),
+            description: t('contactForm.toastCaptchaRequiredDescription'),
+            color: 'warning'
+          })
+          return
+        }
+
+        if (import.meta.dev) {
+          console.info(`${LOG_TAG} Turnstile → verify`, { verifyUrl: turnstileVerifyUrl.value })
+        }
+
+        await verifyTurnstileToken(turnstileVerifyUrl.value, turnstile.token.value)
+      }
+
       await submitWithEmailJs()
     } catch (error: unknown) {
-      const err = error as { status?: number; text?: string }
+      const isVerify = error instanceof TurnstileVerifyError
+      const err = error as { status?: number; text?: string; message?: string }
+
       console.error(`${LOG_TAG} envío fallido`, {
         status: err?.status,
         text: err?.text,
-        delivery: 'emailjs'
+        message: err?.message,
+        delivery: isVerify ? 'turnstile_verify' : 'emailjs'
       })
+
+      if (isTurnstileConfigured.value) {
+        turnstile.reset()
+      }
+
       toast.add({
-        title: t('contactForm.toastErrorTitle'),
-        description: t('contactForm.toastErrorDescription'),
+        title: isVerify
+          ? t('contactForm.toastCaptchaVerifyTitle')
+          : t('contactForm.toastErrorTitle'),
+        description: isVerify
+          ? t('contactForm.toastCaptchaVerifyDescription')
+          : t('contactForm.toastErrorDescription'),
         color: 'error'
       })
     } finally {
@@ -145,6 +229,9 @@ export function useContactForm() {
     loading,
     sent,
     isEmailJsConfigured,
+    isTurnstileConfigured,
+    showTurnstileWidget,
+    turnstileContainerRef: turnstile.containerRef,
     submit,
     reset
   }

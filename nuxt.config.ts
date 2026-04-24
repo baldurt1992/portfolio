@@ -31,7 +31,11 @@ export default defineNuxtConfig({
       siteUrl: publicSiteUrl,
       emailjsPublicKey: '',
       emailjsServiceId: '',
-      emailjsTemplateId: ''
+      emailjsTemplateId: '',
+      /** Site key pública Turnstile (widget). */
+      turnstileSiteKey: '',
+      /** URL absoluta del verificador (Pages Function), ej. https://tu-proyecto.pages.dev/api/verify-turnstile */
+      turnstileVerifyUrl: ''
     }
   },
 
