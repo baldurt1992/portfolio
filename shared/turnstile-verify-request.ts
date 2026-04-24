@@ -31,6 +31,8 @@ function corsHeaders(request: Request, env: TurnstileVerifyEnv): Headers {
   h.set('Access-Control-Allow-Methods', 'POST, OPTIONS')
   h.set('Access-Control-Allow-Headers', 'Content-Type')
   h.set('Access-Control-Max-Age', '86400')
+  // Evita que buscadores indexen el host *.workers.dev del verificador (no es contenido público).
+  h.set('X-Robots-Tag', 'noindex, nofollow')
   return h
 }
 
