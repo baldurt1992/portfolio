@@ -33,6 +33,8 @@
   "hero": {
     "ctaProject": "Hablemos de tu proyecto",
     "ctaWork": "Ver trabajo reciente",
+    "downloadCv": "Descargar CV",
+    "downloadCvAria": "Descargar currículum en PDF",
     "portraitTapHint": "Toca la foto para ir a Sobre mí.",
     "portraitAriaFlip": "Ir a la sección Sobre mí. Con mouse o teclado, pasa el cursor o enfoca para ver la ilustración en el reverso; en táctil la ilustración también está en Sobre mí.",
     "portraitAriaSimple": "Ir a la sección Sobre mí",

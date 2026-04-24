@@ -70,6 +70,9 @@ export interface Bio {
     linkedin?: string
     twitter?: string
   }
+  /** Ruta bajo `public/`; URL final en `cvHref` vía `buildPortfolioData`. */
+  cvHref?: string
+  cvFileName?: string
 }
 
 export interface PortfolioData {
@@ -106,7 +109,10 @@ export interface PortfolioLocaleMessages {
 }
 
 export interface PortfolioStructure {
-  bio: Omit<Bio, 'title' | 'tagline' | 'heroTrustLine' | 'location'>
+  bio: Omit<Bio, 'title' | 'tagline' | 'heroTrustLine' | 'location' | 'cvHref' | 'cvFileName'> & {
+    /** Archivo en `public/` (ej. `Baldur_Tamayo_CV.pdf`). */
+    cvFile?: string
+  }
   projects: ProjectStructure[]
   skills: Skill[]
   experience: ExperienceStructureItem[]
@@ -122,7 +128,8 @@ export const portfolioStructure: PortfolioStructure = {
     social: {
       github: 'https://github.com/baldurt1992',
       linkedin: 'https://www.linkedin.com/in/baldur92/'
-    }
+    },
+    cvFile: 'Baldur_Tamayo_CV.pdf'
   },
 
   projects: [

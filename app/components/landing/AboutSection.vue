@@ -37,6 +37,12 @@
                   <UIcon name="i-lucide-map-pin" class="size-4 shrink-0" aria-hidden="true" />
                   {{ bio.location }}
                 </p>
+                <div v-if="bio.cvHref && bio.cvFileName"
+                  class="flex justify-center md:justify-start pt-2">
+                  <UButton :href="bio.cvHref" external :download="bio.cvFileName" color="primary" variant="soft"
+                    size="lg" trailing-icon="i-lucide-file-down" :aria-label="t('hero.downloadCvAria')"
+                    :label="t('hero.downloadCv')" />
+                </div>
               </div>
             </div>
           </div>

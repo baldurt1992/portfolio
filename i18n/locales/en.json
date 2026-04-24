@@ -33,6 +33,8 @@
   "hero": {
     "ctaProject": "Let’s talk about your project",
     "ctaWork": "See recent work",
+    "downloadCv": "Download CV",
+    "downloadCvAria": "Download résumé as PDF",
     "portraitTapHint": "Tap the photo to go to About.",
     "portraitAriaFlip": "Go to the About section. With mouse or keyboard, hover or focus to see the illustration on the back; on touch, the illustration is also in About.",
     "portraitAriaSimple": "Go to the About section",

@@ -40,7 +40,7 @@
 
   const heroLinks = computed(() => {
     const home = localePath('/')
-    return [
+    const links: Array<Record<string, unknown>> = [
       {
         label: t('hero.ctaProject'),
         to: { path: home, hash: '#contact' },
@@ -55,6 +55,22 @@
         variant: 'outline' as const
       }
     ]
+    const href = bio.value.cvHref
+    const fileName = bio.value.cvFileName
+    if (href && fileName) {
+      links.push({
+        label: t('hero.downloadCv'),
+        href,
+        external: true,
+        size: 'xl' as const,
+        color: 'neutral' as const,
+        variant: 'outline' as const,
+        trailingIcon: 'i-lucide-file-down',
+        download: fileName,
+        'aria-label': t('hero.downloadCvAria')
+      })
+    }
+    return links
   })
 </script>
 

@@ -11,11 +11,18 @@ export function buildPortfolioData(
   structure: PortfolioStructure,
   messages: PortfolioLocaleMessages
 ): PortfolioData {
+  const { cvFile, ...bioFromStructure } = structure.bio
   const bio: Bio = {
-    ...structure.bio,
+    ...bioFromStructure,
     ...messages.bio,
     avatar: structure.bio.avatar ? publicPath(structure.bio.avatar) : undefined,
-    aboutAvatar: structure.bio.aboutAvatar ? publicPath(structure.bio.aboutAvatar) : undefined
+    aboutAvatar: structure.bio.aboutAvatar ? publicPath(structure.bio.aboutAvatar) : undefined,
+    ...(cvFile
+      ? {
+          cvHref: publicPath(cvFile),
+          cvFileName: cvFile.replace(/^.*[/\\]/, '')
+        }
+      : {})
   }
 
   const projects = structure.projects.map((p) => {
