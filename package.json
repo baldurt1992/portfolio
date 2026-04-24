@@ -13,7 +13,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "typecheck": "nuxt typecheck",
-    "optimize:images": "node scripts/optimize-public-images.mjs"
+    "optimize:images": "node scripts/optimize-public-images.mjs",
+    "deploy:turnstile-worker": "wrangler deploy --config workers/turnstile-verify/wrangler.toml"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -35,6 +36,7 @@
     "prettier": "^3.8.1",
     "sharp": "^0.34.5",
     "typescript": "^5.9.3",
-    "vue-tsc": "^3.2.4"
+    "vue-tsc": "^3.2.4",
+    "wrangler": "^4.54.0"
   }
 }

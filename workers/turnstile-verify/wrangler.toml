@@ -1,0 +1,16 @@
+# Worker dedicado para siteverify Turnstile (cuando el sitio está en *.workers.dev sin Pages Functions).
+#
+# Desde la raíz del repo:
+#   npx wrangler@4 deploy --config workers/turnstile-verify/wrangler.toml
+#
+# Secret (Turnstile):
+#   npx wrangler@4 secret put TURNSTILE_SECRET_KEY --config workers/turnstile-verify/wrangler.toml
+#
+# Variable de texto TURNSTILE_ALLOWED_ORIGINS: Dashboard → Worker → Settings → Variables
+#
+# NUXT_PUBLIC_TURNSTILE_VERIFY_URL = https://<nombre-worker>.<subcuenta>.workers.dev/
+# (POST a la raíz /; no hace falta /api/verify-turnstile)
+
+name = "portfolio-turnstile-verify"
+main = "src/index.ts"
+compatibility_date = "2025-01-15"
