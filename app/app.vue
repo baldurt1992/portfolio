@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { toValue } from 'vue'
-  import { joinURL } from 'ufo'
+  import { joinURL, withTrailingSlash } from 'ufo'
   import { en, es } from '@nuxt/ui/locale'
   import { portfolioStructure } from '~/data/portfolio'
   import { normalizeAppRouterPath } from '~/utils/normalizeAppRouterPath'
@@ -48,7 +48,10 @@
     return typeof d === 'string' ? d : ''
   }
 
-  /** `localePath` puede incluir el segmento de `app.baseURL`; unir eso con `siteUrl` duplicaba el path. */
+  /**
+   * GitHub Pages sirve proyectos como carpetas (`index.html`) y redirige `/en` → `/en/`.
+   * Canonical y hreflang deben coincidir con esa URL final o Google reporta "error de redirección".
+   */
   function routerPathToAbsoluteSiteUrl(pathFromLocalePath: string) {
     const base = siteBase.value
     if (!base) {
@@ -57,10 +60,11 @@
     const appBase = runtimeConfig.app.baseURL || '/'
     const norm = normalizeAppRouterPath(withoutHash(pathFromLocalePath), appBase)
     const trimmed = norm.replace(/\/$/, '') || '/'
-    if (trimmed === '/') {
-      return base
-    }
-    return joinURL(base, trimmed.replace(/^\//, ''))
+    const pathUrl =
+      trimmed === '/'
+        ? joinURL(base, '/')
+        : joinURL(base, trimmed.replace(/^\//, ''))
+    return withTrailingSlash(pathUrl)
   }
 
   const canonicalPageUrl = computed(() => routerPathToAbsoluteSiteUrl(localePath('/')))
@@ -121,7 +125,7 @@
     if (!base) {
       return []
     }
-    const pageUrl = canonicalPageUrl.value ?? base
+    const pageUrl = canonicalPageUrl.value ?? withTrailingSlash(joinURL(base, '/'))
     const name = bio.name
     const brand = bio.brandName ?? name
     const sameAs = [bio.social.github, bio.social.linkedin].filter(Boolean) as string[]
@@ -142,7 +146,7 @@
       {
         '@type': 'WebSite',
         '@id': `${base}/#website`,
-        url: base,
+        url: withTrailingSlash(joinURL(base, '/')),
         name: brand,
         description: pageDesc,
         inLanguage: locale.value === 'en' ? 'en-US' : 'es-CO',
@@ -162,7 +166,7 @@
         '@type': 'Person',
         '@id': `${base}/#person`,
         name,
-        url: base,
+        url: withTrailingSlash(joinURL(base, '/')),
         image,
         description: pageDesc,
         jobTitle: bio.title,

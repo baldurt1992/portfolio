@@ -23,20 +23,21 @@ export default defineEventHandler((event) => {
 
   const base = (fromEnv || fallback).replace(/\/$/, '')
 
+  /** Misma convención que el HTML (GitHub Pages: `/en` → 301 a `/en/`). */
   const urls = [
     {
       loc: `${base}/`,
       alternatives: [
         { hreflang: 'es-CO', href: `${base}/` },
-        { hreflang: 'en-US', href: `${base}/en` },
+        { hreflang: 'en-US', href: `${base}/en/` },
         { hreflang: 'x-default', href: `${base}/` }
       ]
     },
     {
-      loc: `${base}/en`,
+      loc: `${base}/en/`,
       alternatives: [
         { hreflang: 'es-CO', href: `${base}/` },
-        { hreflang: 'en-US', href: `${base}/en` },
+        { hreflang: 'en-US', href: `${base}/en/` },
         { hreflang: 'x-default', href: `${base}/` }
       ]
     }
