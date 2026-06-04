@@ -45,9 +45,19 @@
 
   const current = computed(() => items.value[activeIndex.value]!)
 
+  function enforceMutedPlayback() {
+    const el = videoRef.value
+    if (!el) return
+    el.defaultMuted = true
+    el.muted = true
+    el.volume = 0
+  }
+
   function applyPlaybackRate() {
     const el = videoRef.value
-    if (el) el.playbackRate = playbackRate.value
+    if (!el) return
+    enforceMutedPlayback()
+    el.playbackRate = playbackRate.value
   }
 
   function formatRateLabel(rate: number) {
@@ -163,7 +173,7 @@
             <video :key="current.id" ref="videoRef" :src="current.videoSrc" controls controlslist="nodownload" autoplay
               muted playsinline preload="auto"
               class="mx-auto max-h-[min(58vh,560px)] w-full object-contain sm:max-h-[min(64vh,640px)] lg:max-h-[min(70vh,720px)]"
-              @loadeddata="applyPlaybackRate">
+              @loadeddata="applyPlaybackRate" @volumechange="enforceMutedPlayback">
               {{ t('drawer.videoFallback') }}
             </video>
             <div class="flex flex-wrap items-center gap-2 border-t border-white/10 bg-zinc-950/95 px-3 py-2.5 sm:gap-3"

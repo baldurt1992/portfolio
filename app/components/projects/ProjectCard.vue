@@ -33,9 +33,18 @@
 
   const highlightDetailsCta = ref(false)
 
+  function enforceMutedHoverVideo() {
+    const el = hoverVideoRef.value
+    if (!el) return
+    el.defaultMuted = true
+    el.muted = true
+    el.volume = 0
+  }
+
   function playHeroVideo() {
     const el = hoverVideoRef.value
     if (!el) return
+    enforceMutedHoverVideo()
     void el.play().catch(() => { })
   }
 
@@ -87,6 +96,7 @@
   }
 
   onMounted(() => {
+    enforceMutedHoverVideo()
     nextTick(measureDescriptionOverflow)
   })
 
@@ -122,7 +132,7 @@
             <video ref="hoverVideoRef" :src="heroHoverVideoSrc"
               class="pointer-events-none absolute inset-0 z-10 h-full w-full object-cover object-top transition-opacity duration-300"
               :class="highlightDetailsCta ? 'opacity-100' : 'opacity-0'" muted playsinline preload="metadata"
-              aria-hidden="true" />
+              aria-hidden="true" @loadeddata="enforceMutedHoverVideo" @volumechange="enforceMutedHoverVideo" />
             <span
               class="pointer-events-none absolute end-3 top-3 z-20 inline-flex items-center gap-1 rounded-md bg-default/85 px-2 py-1 text-xs font-medium text-highlighted shadow-sm ring-1 ring-default/60 transition-opacity duration-300"
               :class="highlightDetailsCta ? 'opacity-100' : 'opacity-0'" aria-hidden="true">
