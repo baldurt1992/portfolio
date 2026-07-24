@@ -2,23 +2,26 @@
   const { t } = useI18n()
   const portfolioData = usePortfolioData()
   const projects = computed(() => portfolioData.value.projects)
-
-  const projectGridClass: Record<string, string> = {
-    'ticador-platform': 'sm:col-span-2 lg:col-span-7',
-    'cosmos-erp': 'lg:col-span-5',
-    'wordpress-elementor-agenda': 'lg:col-span-5'
-  }
 </script>
 
 <template>
-  <section id="projects" aria-labelledby="projects-heading" class="py-24 sm:py-32">
+  <section id="projects" aria-labelledby="projects-heading" class="py-20 sm:py-28">
     <UContainer>
       <UiScrollReveal>
-        <UiSectionHeading id="projects-heading" :eyebrow="t('projects.eyebrow')" :title="t('projects.title')"
-          :description="t('projects.description')" />
-        <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
-          <UiScrollReveal v-for="(project, i) in projects" :key="project.id"
-            :class="projectGridClass[project.id] ?? 'lg:col-span-12'">
+        <UiSectionHeading id="projects-heading" lot="CARD-01" :eyebrow="t('projects.eyebrow')"
+          :title="t('projects.title')" :description="t('projects.description')" :contained="false" />
+
+        <div class="hc-window mt-8 mb-10">
+          <UiStackTitleBar title="CARD FIELD · WORK SAMPLES" :meta="`${projects.length} CARDS`" />
+          <div class="hc-menubar" aria-hidden="true">
+            <strong>Browse</strong>
+            <span>Open</span>
+            <span>Link</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+          <UiScrollReveal v-for="(project, i) in projects" :key="project.id" class="h-full">
             <ProjectsProjectCard :project="project" :featured="i === 0" />
           </UiScrollReveal>
         </div>

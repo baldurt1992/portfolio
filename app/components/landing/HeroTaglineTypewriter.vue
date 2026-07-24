@@ -18,24 +18,29 @@
   const inputWidthCh = computed(() => {
     const longest = props.tokens.reduce((max, t) => Math.max(max, t.trim().length), 0)
     const base = longest + 1.25
-    return `${Math.max(base, 18)}ch`
+    return `${Math.max(base, 14)}ch`
   })
+
+  const fieldStyle = computed(() => ({
+    '--hc-typewriter-w': inputWidthCh.value
+  }))
 </script>
 
 <template>
-  <div class="w-full text-center">
-    <div class="mx-auto flex w-full max-w-4xl flex-wrap items-center justify-center gap-x-2 gap-y-2 sm:gap-x-2.5"
+  <div class="w-full min-w-0 max-w-full text-start">
+    <div
+      class="flex w-full min-w-0 max-w-full flex-col items-stretch gap-y-2 min-[420px]:flex-row min-[420px]:flex-nowrap min-[420px]:items-center min-[420px]:gap-x-2 sm:gap-x-2.5"
       aria-hidden="true">
-      <span class="inline text-balance text-base leading-relaxed text-default/88 dark:text-default/85 sm:text-lg">
+      <span
+        class="min-w-0 break-words text-pretty text-base leading-snug text-muted min-[420px]:flex-1 sm:text-lg sm:leading-relaxed">
         {{ prefix }}
       </span>
       <span
-        class="box-border inline-flex h-9 max-w-full items-center overflow-hidden rounded-md border border-default/45 bg-elevated/50 px-2.5 py-0 font-medium leading-none text-highlighted shadow-sm ring-1 ring-default/20 backdrop-blur-sm dark:bg-elevated/35 sm:h-10 sm:px-3"
-        :style="{ width: `min(100%, ${inputWidthCh})` }" role="presentation">
-        <span class="inline-flex min-h-0 min-w-0 max-w-full items-baseline text-left text-base sm:text-lg">
-          <span class="max-w-full whitespace-pre text-left tracking-tight">{{ displayed }}</span>
-          <span class="-mb-px inline-block h-[1.05em] w-px shrink-0 translate-y-px bg-primary animate-pulse"
-            aria-hidden="true" />
+        class="hc-typewriter-field inline-flex h-9 w-full min-w-0 max-w-full shrink items-center overflow-hidden border-2 border-ink bg-dock-void px-2.5 py-0 font-medium leading-none text-ink shadow-[2px_2px_0_var(--color-manifest-shadow)] sm:h-10 sm:px-3 sm:shadow-[3px_3px_0_var(--color-manifest-shadow)]"
+        :style="fieldStyle" role="presentation">
+        <span class="inline-flex min-h-0 min-w-0 max-w-full items-center text-left text-base sm:text-lg">
+          <span class="max-w-full truncate whitespace-pre text-left tracking-tight">{{ displayed }}</span>
+          <span class="ms-0.5 inline-block h-[1.05em] w-0.5 shrink-0 bg-seal animate-pulse" aria-hidden="true" />
         </span>
       </span>
     </div>

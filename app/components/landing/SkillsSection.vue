@@ -24,22 +24,25 @@
 </script>
 
 <template>
-  <section id="technologies" aria-labelledby="technologies-heading" class="py-24 sm:py-32">
+  <section id="technologies" aria-labelledby="technologies-heading" class="py-20 sm:py-28">
     <UContainer>
       <UiScrollReveal>
-        <div class="max-w-4xl mx-auto w-full">
-          <UiSectionHeading id="technologies-heading" :eyebrow="t('skills.eyebrow')" :title="t('skills.title')"
-            :description="t('skills.description')" :contained="false" />
-          <div class="mt-16 space-y-12">
-            <div v-for="[category, list] in skillsByCategory" :key="category">
-              <h3 class="text-sm font-semibold text-muted uppercase tracking-wider text-center mb-5">
+        <UiSectionHeading id="technologies-heading" lot="STAGE-02" :eyebrow="t('skills.eyebrow')"
+          :title="t('skills.title')" :description="t('skills.description')" :contained="false" />
+
+        <div class="hc-window mt-12">
+          <UiStackTitleBar title="SKILLS · TOOLKIT" :meta="`${skills.length} CHIPS`" />
+          <div class="hc-body !pt-2">
+            <div v-for="[category, list] in skillsByCategory" :key="category"
+              class="manifest-row grid-cols-1 sm:grid-cols-[9rem_1fr]">
+              <h3 class="manifest-kicker mb-0 self-start pt-1">
                 {{ categoryLabels[category] }}
               </h3>
-              <div class="flex flex-wrap justify-center gap-3">
-                <UBadge v-for="skill in list" :key="skill.name" size="lg" variant="subtle" class="gap-2">
+              <div class="flex flex-wrap gap-2">
+                <span v-for="skill in list" :key="skill.name" class="manifest-chip">
                   <UIcon v-if="skill.icon" :name="skill.icon" class="size-4 shrink-0" />
                   {{ skill.name }}
-                </UBadge>
+                </span>
               </div>
             </div>
           </div>

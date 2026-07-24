@@ -29,19 +29,13 @@
 <template>
   <nav aria-label="Primary">
     <ul :class="[
-      'flex gap-1.5',
+      'flex gap-0.5',
       props.orientation === 'horizontal' ? 'items-center' : 'flex-col'
     ]">
       <li v-for="item in navItems" :key="item.fragment">
-        <NuxtLink
-          :to="item.to"
-          :class="[
-            'inline-flex shrink-0 items-center whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-default',
-            navActiveReady && activeHash === item.fragment
-              ? 'text-primary bg-primary/10'
-              : 'text-muted hover:text-highlighted hover:bg-default/70'
-          ]"
-        >
+        <NuxtLink :to="item.to"
+          class="hc-nav-link inline-flex shrink-0 items-center whitespace-nowrap outline-none focus-visible:ring-2 focus-visible:ring-seal"
+          :class="navActiveReady && activeHash === item.fragment && 'is-active'">
           {{ item.label }}
         </NuxtLink>
       </li>

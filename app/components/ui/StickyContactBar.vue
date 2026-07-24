@@ -8,12 +8,11 @@
 <template>
   <div
     class="lg:hidden fixed inset-x-0 bottom-0 z-30 pointer-events-none p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
-    <div
-      class="pointer-events-auto mx-auto max-w-md rounded-full border border-default/50 bg-default/85 backdrop-blur-md shadow-lg">
-      <UButton :to="contactTo" block size="lg" icon="i-lucide-mail" class="rounded-full justify-center"
-        :aria-label="t('a11y.contactSection')">
+    <div class="pointer-events-auto mx-auto max-w-md">
+      <NuxtLink :to="contactTo" class="hc-btn w-full justify-center" :aria-label="t('a11y.contactSection')">
+        <UIcon name="i-lucide-mail" class="size-4" aria-hidden="true" />
         {{ t('stickyContact.label') }}
-      </UButton>
+      </NuxtLink>
     </div>
   </div>
 </template>

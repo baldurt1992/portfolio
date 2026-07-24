@@ -6,14 +6,26 @@
 </script>
 
 <template>
-  <section id="contact" aria-labelledby="contact-heading" class="py-24 sm:py-32">
+  <section id="contact" aria-labelledby="contact-heading" class="py-20 sm:py-28">
     <UContainer>
       <UiScrollReveal>
-        <div class="max-w-xl mx-auto w-full">
-          <UiSectionHeading id="contact-heading" :eyebrow="t('contact.eyebrow')" :title="t('contact.title')"
+        <div class="max-w-2xl">
+          <UiSectionHeading id="contact-heading" lot="LINK" :eyebrow="t('contact.eyebrow')" :title="t('contact.title')"
             :description="t('contact.description')" :contained="false" />
-          <div class="mt-16">
-            <UCard variant="subtle" class="card-elevated">
+
+          <div class="hc-window mt-12">
+            <UiStackTitleBar title="CONTACT · GO TO" :meta="bio.email" credit />
+            <div class="hc-menubar" aria-hidden="true">
+              <strong>Message</strong>
+              <span>Send</span>
+              <span>Clear</span>
+            </div>
+            <div class="hc-body">
+              <div class="manifest-bol-rail mb-6 justify-start!">
+                <span><strong>GO</strong> · CONTACT</span>
+                <span>{{ bio.email }}</span>
+              </div>
+
               <UForm class="space-y-4" @submit.prevent="submit">
                 <UFormField name="name" :label="t('contact.name')" required>
                   <UInput v-model="form.name" name="name" :placeholder="t('contact.placeholderName')" required
@@ -27,19 +39,21 @@
                   <UTextarea v-model="form.message" name="message" :placeholder="t('contact.placeholderMessage')"
                     :rows="4" required class="w-full" />
                 </UFormField>
-                <div v-if="showTurnstileWidget" ref="turnstileContainerRef" class="flex min-h-[65px] justify-center" />
-                <UButton type="submit" size="lg" :loading="loading" class="w-full sm:w-auto">
+                <div v-if="showTurnstileWidget" ref="turnstileContainerRef" class="flex min-h-16.25 justify-start" />
+                <button type="submit" class="hc-btn" :disabled="loading" :aria-busy="loading">
+                  <UIcon v-if="loading" name="i-lucide-loader-circle" class="size-4 animate-spin" aria-hidden="true" />
                   {{ t('contact.submit') }}
-                </UButton>
+                </button>
               </UForm>
-            </UCard>
-            <p class="mt-6 text-center text-sm text-muted">
-              {{ t('contact.mailFallback') }}
-              <UButton :to="`mailto:${bio.email}`" variant="link" color="primary" size="sm" class="p-0 h-auto">
-                {{ bio.email }}
-              </UButton>
-            </p>
+            </div>
           </div>
+
+          <p class="mt-6 text-sm text-muted">
+            {{ t('contact.mailFallback') }}
+            <a :href="`mailto:${bio.email}`" class="font-pixel text-attract-magenta underline underline-offset-2">
+              {{ bio.email }}
+            </a>
+          </p>
         </div>
       </UiScrollReveal>
     </UContainer>

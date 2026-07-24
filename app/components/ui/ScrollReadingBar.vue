@@ -19,10 +19,18 @@
 </script>
 
 <template>
-  <div class="pointer-events-none fixed inset-x-0 top-0 z-55 h-0.5 bg-default/20" role="progressbar"
-    :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100" :aria-label="t('a11y.scrollReadingProgress')">
+  <div
+    class="pointer-events-none fixed inset-x-0 top-0 z-55 h-1 bg-ink/15"
+    role="progressbar"
+    :aria-valuenow="percent"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    :aria-label="t('a11y.scrollReadingProgress')"
+  >
     <div
-      class="h-full max-w-full origin-left will-change-[width] bg-linear-to-r from-primary via-teal-400 to-emerald-300 dark:via-teal-500 dark:to-cyan-400/85"
-      :class="barTransitionClass" :style="{ width: widthPercent }" />
+      class="h-full max-w-full origin-left will-change-[width] bg-linear-to-r from-attract-magenta via-seal to-attract-cyan"
+      :class="barTransitionClass"
+      :style="{ width: widthPercent }"
+    />
   </div>
 </template>

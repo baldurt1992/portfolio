@@ -122,8 +122,8 @@
     },
     "bio": {
       "title": "Desarrollador fullstack · Laravel, Vue, Nuxt y Tailwind",
-      "tagline": "Construyo productos web de negocio: SaaS, ERP, APIs, dashboards, automatizaciones y sitios a medida con UX clara, performance y arquitectura mantenible.",
-      "taglinePrefix": "Construyo productos web de negocio: ",
+      "tagline": "Construyo productos web: SaaS, ERP, APIs, dashboards, automatizaciones y sitios a medida con UX clara, performance y arquitectura mantenible.",
+      "taglinePrefix": "Construyo productos web: ",
       "taglineRotatingTokens": [
         "SaaS",
         "ERP",

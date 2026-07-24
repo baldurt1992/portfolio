@@ -30,7 +30,6 @@
   )
 
   const hoverVideoRef = ref<HTMLVideoElement | null>(null)
-
   const highlightDetailsCta = ref(false)
 
   function enforceMutedHoverVideo() {
@@ -76,7 +75,7 @@
     t('projectCard.projectImageAlt', { title: props.project.title })
   )
   const projectImageResponsiveSrcset = computed(() => projectImageSrcset(props.project.image))
-  const projectImageSizes = '(min-width: 1024px) 648px, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)'
+  const projectImageSizes = '(min-width: 1024px) 420px, (min-width: 640px) calc(50vw - 2rem), calc(100vw - 2rem)'
 
   const hasProjectActions = computed(
     () =>
@@ -107,93 +106,79 @@
 </script>
 
 <template>
-  <UCard variant="subtle" :class="[
-    'card-elevated h-full flex flex-col overflow-hidden p-0 gap-0 rounded-xl',
-    featured && 'ring-1 ring-primary/15'
-  ]" :ui="{
-    header: 'p-0 border-b border-default/25',
-    body: 'p-4 sm:p-5'
-  }" @mouseenter="onCardEnter" @mouseleave="onCardLeave">
-    <template #header>
-      <div class="space-y-0">
-        <div v-if="!project.image"
-          class="aspect-21/9 sm:aspect-2/1 bg-linear-to-br from-primary/15 via-primary/5 to-transparent flex items-center justify-center"
-          aria-hidden="true">
-          <UIcon name="i-lucide-layout-template" class="size-12 sm:size-14 text-primary/40" />
-        </div>
+  <article class="hc-window flex h-full flex-col" :class="featured && 'ring-2 ring-seal'" @mouseenter="onCardEnter"
+    @mouseleave="onCardLeave">
+    <UiStackTitleBar :title="project.title" :meta="String(project.year)" :credit="featured" />
 
-        <UTooltip v-else-if="useHeroHoverVideo" arrow :delay-duration="450" :text="tooltipHeroHover"
-          :content="{ side: 'top', align: 'center' }">
-          <div class="relative overflow-hidden bg-default/25 border-b border-default/20 outline-none">
-            <img :src="project.image" :srcset="projectImageResponsiveSrcset" :sizes="projectImageSizes"
-              :alt="projectImageAlt"
-              class="relative z-0 w-full h-auto block transition-opacity duration-300"
-              :class="highlightDetailsCta ? 'opacity-0' : 'opacity-100'" loading="lazy" decoding="async" />
-            <video ref="hoverVideoRef" :src="heroHoverVideoSrc"
-              class="pointer-events-none absolute inset-0 z-10 h-full w-full object-cover object-top transition-opacity duration-300"
-              :class="highlightDetailsCta ? 'opacity-100' : 'opacity-0'" muted playsinline preload="metadata"
-              aria-hidden="true" @loadeddata="enforceMutedHoverVideo" @volumechange="enforceMutedHoverVideo" />
-            <span
-              class="pointer-events-none absolute end-3 top-3 z-20 inline-flex items-center gap-1 rounded-md bg-default/85 px-2 py-1 text-xs font-medium text-highlighted shadow-sm ring-1 ring-default/60 transition-opacity duration-300"
-              :class="highlightDetailsCta ? 'opacity-100' : 'opacity-0'" aria-hidden="true">
-              <UIcon name="i-lucide-clapperboard" class="size-3.5 shrink-0" />
-              {{ t('projectCard.liveBadge') }}
-            </span>
-          </div>
-        </UTooltip>
+    <div v-if="!project.image" class="relative aspect-16/10 flex items-center justify-center bg-dock-asphalt"
+      aria-hidden="true">
+      <UIcon name="i-lucide-layout-template" class="size-12 text-seal/40" />
+    </div>
 
-        <UTooltip v-else-if="project.image && project.mediaModules?.length" arrow :delay-duration="400"
-          :text="tooltipHeroStatic" :content="{ side: 'top', align: 'center' }">
-          <div class="overflow-hidden bg-default/25 border-b border-default/20">
-            <img :src="project.image" :srcset="projectImageResponsiveSrcset" :sizes="projectImageSizes"
-              :alt="projectImageAlt" class="w-full h-auto block" loading="lazy" decoding="async" />
-          </div>
-        </UTooltip>
-
-        <div v-else-if="project.image" class="overflow-hidden bg-default/25 border-b border-default/20">
-          <img :src="project.image" :srcset="projectImageResponsiveSrcset" :sizes="projectImageSizes"
-            :alt="projectImageAlt" class="w-full h-auto block" loading="lazy" decoding="async" />
-        </div>
-
-        <div v-if="hasProjectActions"
-          class="flex flex-wrap gap-2 border-b border-default/20 bg-elevated/15 px-4 py-3 sm:px-5">
-          <ProjectsProjectProductMediaDrawer v-if="project.mediaModules?.length" :project="project"
-            :highlight-details-cta="highlightDetailsCta" />
-          <UButton v-if="project.url" :to="project.url" target="_blank" rel="noopener noreferrer" size="sm"
-            variant="soft" trailing-icon="i-lucide-external-link">
-            {{ t('projectCard.viewProject') }}
-          </UButton>
-          <UButton v-if="project.repo" :to="project.repo" target="_blank" rel="noopener noreferrer" size="sm"
-            color="neutral" variant="ghost" icon="i-simple-icons-github" :aria-label="t('a11y.openRepoGithub')" />
-        </div>
-
-        <div class="flex items-start justify-between gap-3 p-4 sm:p-5">
-          <h3 class="font-semibold text-highlighted text-lg text-pretty">
-            {{ project.title }}
-          </h3>
-          <span class="text-sm text-muted shrink-0 tabular-nums">{{ project.year }}</span>
-        </div>
+    <UTooltip v-else-if="useHeroHoverVideo" arrow :delay-duration="450" :text="tooltipHeroHover"
+      :content="{ side: 'top', align: 'center' }">
+      <div class="relative aspect-16/10 overflow-hidden outline-none">
+        <img :src="project.image" :srcset="projectImageResponsiveSrcset" :sizes="projectImageSizes"
+          :alt="projectImageAlt" class="relative z-0 size-full object-cover object-top transition-opacity duration-300"
+          :class="highlightDetailsCta ? 'opacity-0' : 'opacity-100'" loading="lazy" decoding="async" />
+        <video ref="hoverVideoRef" :src="heroHoverVideoSrc"
+          class="pointer-events-none absolute inset-0 z-10 size-full object-cover object-top transition-opacity duration-300"
+          :class="highlightDetailsCta ? 'opacity-100' : 'opacity-0'" muted playsinline preload="metadata"
+          aria-hidden="true" @loadeddata="enforceMutedHoverVideo" @volumechange="enforceMutedHoverVideo" />
+        <span
+          class="pointer-events-none absolute inset-e-3 top-3 z-20 inline-flex items-center gap-1 bg-seal px-2 py-1 font-pixel text-[0.6875rem] font-bold uppercase tracking-wide text-seal-ink border-2 border-ink shadow-[2px_2px_0_var(--color-manifest-shadow)] transition-opacity duration-300"
+          :class="highlightDetailsCta ? 'opacity-100' : 'opacity-0'" aria-hidden="true">
+          <UIcon name="i-lucide-clapperboard" class="size-3.5 shrink-0" />
+          {{ t('projectCard.liveBadge') }}
+        </span>
       </div>
-    </template>
+    </UTooltip>
 
-    <p ref="descriptionRef" class="text-muted text-sm/relaxed flex-1 text-pretty"
-      :class="!showFullDescription && 'line-clamp-6'">
-      {{ project.description }}
-    </p>
+    <UTooltip v-else-if="project.image && project.mediaModules?.length" arrow :delay-duration="400"
+      :text="tooltipHeroStatic" :content="{ side: 'top', align: 'center' }">
+      <div class="relative aspect-16/10 overflow-hidden">
+        <img :src="project.image" :srcset="projectImageResponsiveSrcset" :sizes="projectImageSizes"
+          :alt="projectImageAlt" class="size-full object-cover object-top" loading="lazy" decoding="async" />
+      </div>
+    </UTooltip>
 
-    <div v-if="isDescriptionOverflowing" class="mt-3">
-      <UButton size="xs" color="neutral" variant="ghost"
-        :trailing-icon="showFullDescription ? 'i-lucide-chevron-up' : 'i-lucide-chevron-down'"
-        @click="showFullDescription = !showFullDescription">
-        {{ showFullDescription ? t('projectCard.showLess') : t('projectCard.showMore') }}
-      </UButton>
+    <div v-else-if="project.image" class="relative aspect-16/10 overflow-hidden">
+      <img :src="project.image" :srcset="projectImageResponsiveSrcset" :sizes="projectImageSizes" :alt="projectImageAlt"
+        class="size-full object-cover object-top" loading="lazy" decoding="async" />
     </div>
 
-    <div class="flex flex-wrap gap-2.5 sm:gap-3 mt-4">
-      <UBadge v-for="tag in project.tags" :key="tag" size="sm" color="primary" variant="subtle"
-        class="text-sm sm:text-sm font-medium">
-        {{ tag }}
-      </UBadge>
+    <div v-if="hasProjectActions" class="flex flex-wrap gap-2 border-y-2 border-ink bg-dock-steel px-3 py-3">
+      <ProjectsProjectProductMediaDrawer v-if="project.mediaModules?.length" :project="project"
+        :highlight-details-cta="highlightDetailsCta" />
+      <a v-if="project.url" :href="project.url" target="_blank" rel="noopener noreferrer"
+        class="hc-btn hc-btn--ghost hc-btn--sm">
+        {{ t('projectCard.viewProject') }}
+        <UIcon name="i-lucide-external-link" class="size-3.5" aria-hidden="true" />
+      </a>
+      <a v-if="project.repo" :href="project.repo" target="_blank" rel="noopener noreferrer"
+        class="hc-btn hc-btn--ghost hc-btn--sm" :aria-label="t('a11y.openRepoGithub')">
+        <UIcon name="i-simple-icons-github" class="size-4" aria-hidden="true" />
+      </a>
     </div>
-  </UCard>
+
+    <div class="flex flex-1 flex-col gap-3 p-4 sm:p-5 bg-dock-asphalt">
+      <p ref="descriptionRef" class="text-muted text-sm/relaxed flex-1 text-pretty"
+        :class="!showFullDescription && 'line-clamp-5'">
+        {{ project.description }}
+      </p>
+
+      <div v-if="isDescriptionOverflowing">
+        <button type="button" class="hc-btn hc-btn--ghost hc-btn--sm"
+          @click="showFullDescription = !showFullDescription">
+          {{ showFullDescription ? t('projectCard.showLess') : t('projectCard.showMore') }}
+        </button>
+      </div>
+
+      <div class="flex flex-wrap gap-2 pt-1">
+        <span v-for="tag in project.tags" :key="tag" class="manifest-chip">
+          {{ tag }}
+        </span>
+      </div>
+    </div>
+  </article>
 </template>
