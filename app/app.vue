@@ -217,24 +217,9 @@
         { rel: 'icon', type: 'image/svg+xml', href: assetHref('favicon.svg') },
         { rel: 'icon', type: 'image/png', href: assetHref('favicon-96x96.png'), sizes: '96x96' },
         { rel: 'apple-touch-icon', href: assetHref('apple-touch-icon.png') },
-        { rel: 'manifest', href: assetHref('site.webmanifest') },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.googleapis.com'
-        },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.gstatic.com',
-          crossorigin: ''
-        },
-        // `media="print"` + onload: no bloquea el primer paint (Lighthouse); luego aplica a pantalla.
-        {
-          key: 'fonts-space-grotesk',
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap',
-          media: 'print',
-          onload: "this.media='all'"
-        }
+        { rel: 'manifest', href: assetHref('site.webmanifest') }
+        // Tipografía: la carga Space Grotesk la hace `@nuxt/fonts` (vía @nuxt/ui)
+        // a partir de `--font-sans` en `main.css`. No duplicar con Google Fonts.
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -255,7 +240,8 @@
             {
               key: 'portfolio-jsonld',
               type: 'application/ld+json',
-              children: JSON.stringify({
+              // Unhead 3 (Nuxt 4.5+): JSON-LD va en `innerHTML`, no en `children`.
+              innerHTML: JSON.stringify({
                 '@context': 'https://schema.org',
                 '@graph': jsonLdGraph.value
               })

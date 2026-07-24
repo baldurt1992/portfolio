@@ -105,7 +105,7 @@
       wrapper: 'min-w-0 flex-1',
       title: 'text-pretty pr-1',
       description: 'text-pretty',
-      close: 'top-4 end-4 z-10 shrink-0',
+      close: 'top-4 inset-e-4 z-10 shrink-0',
       body: 'p-0 flex flex-col min-h-0 overflow-hidden',
       footer: 'border-t border-default bg-elevated/30',
     }">
@@ -114,7 +114,7 @@
         'cursor-pointer border-dashed transition-shadow duration-200',
         highlightDetailsCta &&
         'shadow-[0_0_0_1px_rgba(34,211,238,0.5),0_0_20px_rgba(34,211,238,0.22)] dark:shadow-[0_0_0_1px_rgba(34,211,238,0.45),0_0_24px_rgba(34,211,238,0.18)]',
-        highlightDetailsCta && allowBounce && 'details-cta-bounce',
+        highlightDetailsCta && allowBounce && 'details-cta-float',
         highlightDetailsCta && !allowBounce && 'scale-[1.02]',
       ]">
       {{ t('projectCard.viewDetails') }}
@@ -150,7 +150,7 @@
                   </span>
                   <span class="line-clamp-2 lg:line-clamp-3">{{
                     items[entry.index]?.title
-                  }}</span>
+                    }}</span>
                 </button>
               </li>
             </template>
