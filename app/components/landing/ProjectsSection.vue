@@ -18,7 +18,7 @@
 </script>
 
 <template>
-  <section id="projects" ref="sectionRef" class="relative px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
+  <section id="projects" ref="sectionRef" class="landing-section">
     <div class="mx-auto max-w-7xl">
       <div class="mb-12 space-y-4 sm:mb-16">
         <p class="font-mono text-sm font-medium uppercase tracking-widest text-accent">

@@ -85,6 +85,12 @@
       !!(props.project.mediaModules?.length || props.project.url || props.project.repo)
   )
 
+  const descriptionExpanded = ref(false)
+
+  function toggleDescription() {
+    descriptionExpanded.value = !descriptionExpanded.value
+  }
+
   onMounted(() => {
     enforceMutedHoverVideo()
   })
@@ -134,7 +140,7 @@
     </div>
 
     <!-- Content -->
-    <div class="flex flex-1 flex-col p-5" :class="props.variant === 'featured' && 'lg:justify-center lg:p-8'">
+    <div class="flex flex-1 flex-col p-5" :class="props.variant === 'featured' && 'lg:p-8'">
       <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
         <h3 class="text-lg font-semibold text-text text-pretty">
           {{ project.title }}
@@ -144,10 +150,17 @@
         </span>
       </div>
 
-      <p class="text-sm leading-relaxed text-text-muted text-pretty"
-        :class="isFlagship ? 'line-clamp-4' : 'line-clamp-3'">
-        {{ project.description }}
-      </p>
+      <div class="text-start">
+        <p class="text-sm leading-relaxed text-text-muted text-pretty"
+          :class="descriptionExpanded ? undefined : isFlagship ? 'line-clamp-4' : 'line-clamp-3'">
+          {{ project.description }}
+        </p>
+        <button type="button"
+          class="mt-1 inline-flex cursor-pointer text-sm font-medium text-accent hover:text-accent-hover"
+          :aria-expanded="descriptionExpanded" @click="toggleDescription">
+          {{ descriptionExpanded ? t('projectCard.showLess') : t('projectCard.showMore') }}
+        </button>
+      </div>
 
       <div class="mt-auto flex flex-col gap-4 pt-5">
         <div class="flex flex-wrap gap-2">

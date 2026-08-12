@@ -139,6 +139,11 @@ section[id] {
   scroll-margin-top: 5rem;
 }
 
+/* Ritmo vertical de la home: py-16 / sm:py-24 / lg:py-28 (antes py-36 en lg = ~288px entre bloques). */
+.landing-section {
+  @apply relative px-5 py-16 sm:px-8 sm:py-24 lg:px-10 lg:py-28;
+}
+
 main {
   overflow-x: clip;
   overflow-y: visible;

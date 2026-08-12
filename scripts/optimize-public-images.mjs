@@ -117,6 +117,23 @@ for (const name of projectImages) {
   }
 }
 
+const showcase = join(pub, 'showcase')
+const showcaseImages = ['vantapay', 'novaai']
+
+for (const name of showcaseImages) {
+  await sharp(join(showcase, `${name}.png`))
+    .resize({ width: 1920, withoutEnlargement: true })
+    .webp({ quality: 90, effort: 4 })
+    .toFile(join(showcase, `${name}.webp`))
+
+  for (const width of [960, 1280, 1920]) {
+    await sharp(join(showcase, `${name}.png`))
+      .resize({ width, withoutEnlargement: true })
+      .webp({ quality: 90, effort: 4 })
+      .toFile(join(showcase, `${name}-${width}.webp`))
+  }
+}
+
 const favicon32 = await pixelPng(32)
 writeFileSync(join(publicRoot, 'favicon-32x32.png'), favicon32)
 writeFileSync(join(publicRoot, 'favicon.ico'), pngToIco(favicon32))

@@ -10,6 +10,15 @@ export function projectImageSrcset(path: string | undefined) {
     .join(', ')
 }
 
+/** Capturas de landings: cards ~600px CSS en 2x necesitan ~1200–1920w. */
+export function showcaseImageSrcset(path: string | undefined) {
+  if (!path) return undefined
+
+  return [960, 1280, 1920]
+    .map((width) => `${replaceExtension(path, `-${width}`)} ${width}w`)
+    .join(', ')
+}
+
 export function portraitImageSrcset(path: string | undefined) {
   if (!path) return undefined
 

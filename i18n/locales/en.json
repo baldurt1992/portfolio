@@ -6,11 +6,11 @@
     "projects": "Projects",
     "experience": "Experience",
     "contact": "Contact",
-    "showcase": "Showcase Lab"
+    "showcase": "Landing pages"
   },
   "a11y": {
     "headerMenuTitle": "Navigation menu",
-    "headerMenuDescription": "Portfolio sections: projects, capabilities, about, experience, showcase, and contact.",
+    "headerMenuDescription": "Portfolio sections: projects, landing pages, capabilities, about, experience, and contact.",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "productMediaNav": "Product modules",
@@ -50,8 +50,7 @@
   "about": {
     "eyebrow": "Profile",
     "title": "About me",
-    "description": "How I work, what I build, and where I add the most value.",
-    "flipHint": "Hover to see the photo"
+    "description": "How I work, what I build, and where I add the most value."
   },
   "skills": {
     "eyebrow": "Capabilities",
@@ -139,18 +138,30 @@
   },
   "showcase": {
     "seo": {
-      "pageTitle": "Showcase Lab — BaldurDev",
-      "pageDescription": "Collection of frontend demos, landing pages, themes, and templates created by BaldurDev to explore different industries, stacks, and visual systems."
+      "pageTitle": "Landing pages — BaldurDev",
+      "pageDescription": "BaldurDev landing pages ready to explore: fintech, AI, and more. Open each demo and see how the public face of a product is designed."
     },
-    "eyebrow": "Frontend exploration",
-    "title": "Showcase Lab",
-    "description": "Frontend demos created to explore different industries, stacks, and visual systems. Each project is developed and published independently.",
+    "eyebrow": "Ready to open",
+    "title": "Landing pages",
+    "description": "Open each one and walk through the experience as a customer would. Fintech, AI, and whatever comes next.",
     "viewLanding": "View demo",
+    "teaser": {
+      "eyebrow": "I also design landings",
+      "title": "Landing pages",
+      "description": "This is the frontend when the goal is to convert. Open them and walk through the full experience — fintech, AI, and more.",
+      "viewCollection": "View all"
+    },
+    "landingImageAlt": "Screenshot of the {title} landing",
     "landings": {
       "fintech": {
         "category": "Fintech",
         "title": "VantaPay",
         "description": "Global financial infrastructure with multi-currency payments, corporate cards and treasury controls."
+      },
+      "ai": {
+        "category": "AI / Chatbot",
+        "title": "NovaAI",
+        "description": "AI-powered support agent that resolves conversations in seconds."
       }
     }
   },
@@ -163,7 +174,14 @@
       "title": "Full Stack Software Engineer",
       "tagline": "I build and evolve production SaaS, ERP, APIs, and web platforms, from architecture and frontend to CI/CD and deployment.",
       "taglinePrefix": "Full Stack Software Engineer",
-      "taglineRotatingTokens": ["SaaS", "ERP", "APIs", "Dashboards", "Automations", "Custom websites"],
+      "taglineRotatingTokens": [
+        "SaaS",
+        "ERP",
+        "APIs",
+        "Dashboards",
+        "Automations",
+        "Custom websites"
+      ],
       "heroTrustLine": "Laravel · Vue/Nuxt · Custom WordPress · Docker · CI/CD",
       "location": "Bello, Antioquia"
     },
@@ -174,48 +192,136 @@
         "title": "Ticador — production SaaS ecosystem",
         "year": "2024/2025",
         "description": "Production SaaS composed of four decoupled repositories: marketing site, multi-tenant provisioning, workforce attendance, and a Mail Center service. It automates onboarding, per-customer environments, employees, devices, time tracking, reporting, and real-time notifications. Private repositories; real video and screenshots are available in this portfolio.",
-        "tags": ["Laravel", "Vue 3", "PrimeVue", "Pinia", "Vite", "Pusher / WebSockets", "GitHub Actions", "Plesk", "MySQL", "REST APIs", "Queues / Jobs", "Multi-tenant provisioning"],
+        "tags": [
+          "Laravel",
+          "Vue 3",
+          "PrimeVue",
+          "Pinia",
+          "Vite",
+          "Pusher / WebSockets",
+          "GitHub Actions",
+          "Plesk",
+          "MySQL",
+          "REST APIs",
+          "Queues / Jobs",
+          "Multi-tenant provisioning"
+        ],
         "mediaModuleGroups": {
-          "provisioning-admin": { "title": "Provisioning platform (admin)" },
-          "workforce-app": { "title": "Workforce attendance app (customer)" }
+          "provisioning-admin": {
+            "title": "Provisioning platform (admin)"
+          },
+          "workforce-app": {
+            "title": "Workforce attendance app (customer)"
+          }
         },
         "mediaModules": {
-          "main-navigation": { "title": "Main navigation", "description": "Overview of the Ticador Automatization admin panel, where system operations, site management, subscription access, and key customer provisioning flows are centralized." },
-          "tenant-provisioning-flow": { "title": "Tenant provisioning flow", "description": "End-to-end provisioning from the admin panel: site creation, name validation, deployment kickoff, customer environment setup, administrator assignment, and access to the deployed project on its subdomain." },
-          "subscriptions-coupons-cycle": { "title": "Subscriptions and coupons lifecycle", "description": "Walkthrough of subscription management in the admin panel: active plans, the creation modal, expiration dates, each subscription’s lifecycle, and promotional coupon administration." },
-          "onboarding-wizard": { "title": "Onboarding wizard", "description": "Guided first-run setup to speed up each customer go-live: company, employees, devices, and reporting in a structured flow." },
-          "application-main-navigation": { "title": "Main application panel navigation", "description": "Walkthrough of the operational attendance app shell: employees, devices, clock-in/out, incidents, reporting, and workplace settings — the product admins and staff use every day on the customer site." },
-          "device-access": { "title": "Device access", "description": "Access control based on authorized devices. The system flags unregistered hardware, surfaces its status, and lets admins validate it before it’s allowed in the clock-in flow." },
-          "employee-check-in-out": { "title": "Employee check-in / check-out", "description": "Core time-tracking flow where employees clock in and out with an assigned token, keeping a clear record of their workday." },
-          "incident-report": { "title": "Incident report", "description": "Incident management to log issues, follow cases, and keep employee–admin communication inside the same platform." }
+          "main-navigation": {
+            "title": "Main navigation",
+            "description": "Overview of the Ticador Automatization admin panel, where system operations, site management, subscription access, and key customer provisioning flows are centralized."
+          },
+          "tenant-provisioning-flow": {
+            "title": "Tenant provisioning flow",
+            "description": "End-to-end provisioning from the admin panel: site creation, name validation, deployment kickoff, customer environment setup, administrator assignment, and access to the deployed project on its subdomain."
+          },
+          "subscriptions-coupons-cycle": {
+            "title": "Subscriptions and coupons lifecycle",
+            "description": "Walkthrough of subscription management in the admin panel: active plans, the creation modal, expiration dates, each subscription’s lifecycle, and promotional coupon administration."
+          },
+          "onboarding-wizard": {
+            "title": "Onboarding wizard",
+            "description": "Guided first-run setup to speed up each customer go-live: company, employees, devices, and reporting in a structured flow."
+          },
+          "application-main-navigation": {
+            "title": "Main application panel navigation",
+            "description": "Walkthrough of the operational attendance app shell: employees, devices, clock-in/out, incidents, reporting, and workplace settings — the product admins and staff use every day on the customer site."
+          },
+          "device-access": {
+            "title": "Device access",
+            "description": "Access control based on authorized devices. The system flags unregistered hardware, surfaces its status, and lets admins validate it before it’s allowed in the clock-in flow."
+          },
+          "employee-check-in-out": {
+            "title": "Employee check-in / check-out",
+            "description": "Core time-tracking flow where employees clock in and out with an assigned token, keeping a clear record of their workday."
+          },
+          "incident-report": {
+            "title": "Incident report",
+            "description": "Incident management to log issues, follow cases, and keep employee–admin communication inside the same platform."
+          }
         }
       },
       "cosmos-erp": {
         "title": "Cosmos ERP — multi-tenant ERP platform in development",
         "year": "2025 — present",
         "description": "Multi-tenant ERP for commercial operations and invoicing, with onboarding, customers, invoices, document conversion with traceability, POS, backups, and tenant administration. It is under active development; the modules shown are already implemented and tested in real-world scenarios.",
-        "tags": ["Laravel", "Nuxt", "TypeScript", "MySQL", "Redis", "Multi-tenant", "ERP", "POS", "Document lifecycle", "Docker", "GitHub Actions"],
+        "tags": [
+          "Laravel",
+          "Nuxt",
+          "TypeScript",
+          "MySQL",
+          "Redis",
+          "Multi-tenant",
+          "ERP",
+          "POS",
+          "Document lifecycle",
+          "Docker",
+          "GitHub Actions"
+        ],
         "mediaModuleGroups": {
-          "core-erp": { "title": "Core ERP" },
-          "pos-operations": { "title": "POS and operations" }
+          "core-erp": {
+            "title": "Core ERP"
+          },
+          "pos-operations": {
+            "title": "POS and operations"
+          }
         },
         "mediaModules": {
-          "initial-setup": { "title": "Initial setup", "description": "First-run ERP setup from the initial access: email validation through an OTP code, administrator personal data entry, company information setup, and fiscal data configuration. The flow ends with a summary screen that leaves the environment ready for daily operation." },
-          "erp-overview": { "title": "Main ERP navigation", "description": "General walkthrough of the system navigation, showing several dashboard modules, tax-relevant auxiliary records, reporting sections, settings, and help as a quick overview of the product’s functional scope." },
-          "customer-creation": { "title": "Customer creation", "description": "Customer creation flow inside the ERP, including general information, banking details with bank auto-fill based on the IBAN, and a walkthrough of the contact and billing tabs within the same modal to prepare the record for commercial operations." },
-          "sales-invoice-creation": { "title": "Sales invoice creation", "description": "Sales invoice issuance from the ERP, going through the main document tabs while focusing the flow on customer selection, line items, quantities, and the final invoice creation." },
-          "document-conversion": { "title": "Document conversion and traceability", "description": "Commercial document conversion flow, including source, target, fiscal year, customer, document selection, and conversion options. The demo also shows the converted document being opened and the full traceability available through that document’s conversion history." },
-          "pos-configuration-billing": { "title": "POS setup and operational billing", "description": "Walkthrough of the initial POS setup, including invoice series selection, cash register setup, tables, and work sections, followed by the full product billing flow. The demo also shows strict stock validation and invalidation when inventory conditions are not met." }
+          "initial-setup": {
+            "title": "Initial setup",
+            "description": "First-run ERP setup from the initial access: email validation through an OTP code, administrator personal data entry, company information setup, and fiscal data configuration. The flow ends with a summary screen that leaves the environment ready for daily operation."
+          },
+          "erp-overview": {
+            "title": "Main ERP navigation",
+            "description": "General walkthrough of the system navigation, showing several dashboard modules, tax-relevant auxiliary records, reporting sections, settings, and help as a quick overview of the product’s functional scope."
+          },
+          "customer-creation": {
+            "title": "Customer creation",
+            "description": "Customer creation flow inside the ERP, including general information, banking details with bank auto-fill based on the IBAN, and a walkthrough of the contact and billing tabs within the same modal to prepare the record for commercial operations."
+          },
+          "sales-invoice-creation": {
+            "title": "Sales invoice creation",
+            "description": "Sales invoice issuance from the ERP, going through the main document tabs while focusing the flow on customer selection, line items, quantities, and the final invoice creation."
+          },
+          "document-conversion": {
+            "title": "Document conversion and traceability",
+            "description": "Commercial document conversion flow, including source, target, fiscal year, customer, document selection, and conversion options. The demo also shows the converted document being opened and the full traceability available through that document’s conversion history."
+          },
+          "pos-configuration-billing": {
+            "title": "POS setup and operational billing",
+            "description": "Walkthrough of the initial POS setup, including invoice series selection, cash register setup, tables, and work sections, followed by the full product billing flow. The demo also shows strict stock validation and invalidation when inventory conditions are not met."
+          }
         }
       },
       "wordpress-elementor-agenda": {
         "title": "Dental clinic site with a custom booking plugin",
         "year": "2025",
         "description": "WordPress site for a dental clinic with a bespoke scheduling flow: service selection, date and time, patient details, Bold Payments integration, booking summary, and automated email notifications for both the patient and the practice.",
-        "tags": ["WordPress", "PHP", "Custom plugin", "Bold Payments", "Booking Flow", "Email Notifications"],
+        "tags": [
+          "WordPress",
+          "PHP",
+          "Custom plugin",
+          "Bold Payments",
+          "Booking Flow",
+          "Email Notifications"
+        ],
         "mediaModules": {
-          "main-navigation": { "title": "Main site navigation", "description": "Walkthrough of the live site: home, services, contact, and a quick look at the booking area — context for the product and the public-facing patient experience." },
-          "booking-flow": { "title": "Booking flow", "description": "Online booking flow with Bold Payments integration. The patient selects the service, date, and time, enters their details, confirms the reservation, and chooses full payment or deposit. The demo goes as far as opening the Bold modal because the project is already in production; once the transaction is confirmed, the system registers the appointment, takes the user to a summary view with reservation and payment status, and sends email notifications to both the clinic and the patient." }
+          "main-navigation": {
+            "title": "Main site navigation",
+            "description": "Walkthrough of the live site: home, services, contact, and a quick look at the booking area — context for the product and the public-facing patient experience."
+          },
+          "booking-flow": {
+            "title": "Booking flow",
+            "description": "Online booking flow with Bold Payments integration. The patient selects the service, date, and time, enters their details, confirms the reservation, and chooses full payment or deposit. The demo goes as far as opening the Bold modal because the project is already in production; once the transaction is confirmed, the system registers the appointment, takes the user to a summary view with reservation and payment status, and sends email notifications to both the clinic and the patient."
+          }
         }
       }
     },
@@ -226,9 +332,24 @@
         "company": "Freelance · Colombia",
         "description": "Since 2024 I’ve taken on more product and infrastructure-heavy work. With an agency in Colombia: Laravel, APIs, and WordPress, expanding from Elementor into Divi. Remotely, B2B product — SaaS, multi-tenant ERP (Laravel + Nuxt), user-management platforms, domain purchase, and hosting-linked deployment. Docker Compose across environments and GitHub Actions: backend/frontend tests (Pest, Vitest, guardrails) and automated deploys to servers and common panels (Plesk, cPanel, and similar). Remote, production-minded delivery."
       },
-      "university-eafit": { "date": "2024 — 2025", "title": "University studies", "company": "Universidad EAFIT", "description": "Degree completed. Integrator projects, software-engineering foundations, and quality habits I apply in client work." },
-      "freelance-early": { "date": "2023", "title": "Freelance — early projects", "company": "Independent · small landings and sites", "description": "Scoped client work: promotional landings and pages with WordPress and Elementor, focused on clear layout and fast turnaround." },
-      "cesde-tech": { "date": "2023", "title": "Technical training in web development", "company": "Cesde", "description": "Web-focused program: programming fundamentals, development basics, and databases as a bridge into real projects." }
+      "university-eafit": {
+        "date": "2024 — 2025",
+        "title": "University studies",
+        "company": "Universidad EAFIT",
+        "description": "Degree completed. Integrator projects, software-engineering foundations, and quality habits I apply in client work."
+      },
+      "freelance-early": {
+        "date": "2023",
+        "title": "Freelance — early projects",
+        "company": "Independent · small landings and sites",
+        "description": "Scoped client work: promotional landings and pages with WordPress and Elementor, focused on clear layout and fast turnaround."
+      },
+      "cesde-tech": {
+        "date": "2023",
+        "title": "Technical training in web development",
+        "company": "Cesde",
+        "description": "Web-focused program: programming fundamentals, development basics, and databases as a bridge into real projects."
+      }
     }
   }
 }

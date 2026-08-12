@@ -74,7 +74,13 @@
     return withTrailingSlash(pathUrl)
   }
 
-  function localizedCurrentPath(code?: string) {
+  type AppLocale = 'es' | 'en'
+
+  function isAppLocale(code: string): code is AppLocale {
+    return code === 'es' || code === 'en'
+  }
+
+  function localizedCurrentPath(code?: AppLocale) {
     return code
       ? localePath(currentContentPath.value, code)
       : localePath(currentContentPath.value)
@@ -92,6 +98,7 @@
 
     for (const entry of raw) {
       const code = typeof entry === 'string' ? entry : entry.code
+      if (!isAppLocale(code)) continue
       const href = routerPathToAbsoluteSiteUrl(localizedCurrentPath(code))
       if (!href) continue
 
@@ -105,7 +112,7 @@
     }
 
     const def = toValue(defaultLocale)
-    if (def) {
+    if (def && isAppLocale(def)) {
       const defHref = routerPathToAbsoluteSiteUrl(localizedCurrentPath(def))
       if (defHref) {
         links.unshift({

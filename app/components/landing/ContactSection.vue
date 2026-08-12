@@ -6,8 +6,7 @@
 </script>
 
 <template>
-  <section id="contact" aria-labelledby="contact-heading"
-    class="relative px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
+  <section id="contact" aria-labelledby="contact-heading" class="landing-section">
     <div class="mx-auto max-w-7xl">
       <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div class="lg:col-span-5">
@@ -78,7 +77,7 @@
             <p class="mt-5 text-sm text-text-muted">
               {{ t('contact.mailFallback') }}
               <a :href="`mailto:${bio.email}`" class="font-medium text-accent hover:text-accent-hover">{{ bio.email
-              }}</a>
+                }}</a>
             </p>
           </div>
         </div>
