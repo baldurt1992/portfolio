@@ -27,7 +27,7 @@
       </div>
 
       <ol class="relative space-y-6 lg:space-y-0">
-        <div class="absolute inset-s-5 top-2 bottom-2 w-px bg-border lg:inset-s-1/2/2/2/2 lg:-translate-x-px"
+        <div class="absolute start-5 top-2 bottom-2 w-px bg-border lg:start-1/2 lg:-translate-x-1/2"
           aria-hidden="true" />
 
         <li v-for="(item, index) in portfolioData.experience" :key="item.title"
