@@ -8,12 +8,6 @@
   const portraitSrc = computed(() => portfolioData.value.bio.avatar || '/images/portrait.webp')
   const avatarSrc = computed(() => publicPath('/images/avatar.webp'))
 
-  const stats = [
-    { value: '4+', label: t('about.statsYears') },
-    { value: '10+', label: t('about.statsProducts') },
-    { value: '18+', label: t('about.statsTechnologies') }
-  ]
-
   useGsapInViewReveal(sectionRef, '.about-reveal', { logTag: 'AboutSection' })
 </script>
 
@@ -40,7 +34,7 @@
           </p>
         </article>
 
-        <aside class="about-reveal lg:col-span-5 lg:row-span-2 lg:self-start">
+        <aside class="about-reveal lg:col-span-5 lg:self-start">
           <figure>
             <UiAvatarMorph :avatar-src="avatarSrc" :portrait-src="portraitSrc" :alt="portfolioData.bio.name" />
             <figcaption class="mt-3 flex flex-wrap items-baseline justify-between gap-2 border-t border-border pt-3">
@@ -49,14 +43,6 @@
             </figcaption>
           </figure>
         </aside>
-
-        <dl class="about-reveal grid gap-6 border-t border-border pt-8 sm:grid-cols-3 lg:col-span-7">
-          <div v-for="stat in stats" :key="stat.label" class="flex flex-col">
-            <dt class="order-2 mt-1 text-sm text-text-muted">{{ stat.label }}</dt>
-            <dd class="order-1 font-heading text-3xl font-bold tracking-tight text-text sm:text-4xl">{{ stat.value }}
-            </dd>
-          </div>
-        </dl>
       </div>
     </div>
   </section>

@@ -70,7 +70,10 @@
                 {{ t(`skills.category.${category.key}`) }}
               </h3>
             </div>
-            <div class="flex flex-wrap gap-2">
+            <p class="mb-5 text-sm leading-relaxed text-text-muted">
+              {{ t(`skills.categoryDescription.${category.key}`) }}
+            </p>
+            <div class="mt-auto flex flex-wrap gap-2">
               <span v-for="item in category.items" :key="item"
                 class="inline-flex rounded-full bg-surface px-2.5 py-1 text-xs font-medium text-text-muted ring-1 ring-border transition-colors group-hover:bg-bg">
                 {{ item }}

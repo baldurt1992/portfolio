@@ -9,21 +9,18 @@
   const { locale, locales, defaultLocale, t } = useI18n()
   const localePath = useLocalePath()
   const runtimeConfig = useRuntimeConfig()
+  const route = useRoute()
 
-  /** `seo: false`: las hreflang/canonical de i18n hacen `joinURL(baseUrl, localePath)` y duplican la base en subrutas. */
+  /** `seo: false`: canonical/hreflang se controlan aquí para soportar base paths de GitHub Pages. */
   const i18nHead = useLocaleHead({ seo: false })
 
-  // Prerender: hrefs deben usar runtime baseURL (subruta GitHub Pages)
   function assetHref(path: string) {
     return joinURL(runtimeConfig.app.baseURL, path.replace(/^\/+/, ''))
   }
 
   const siteBase = computed(() => {
-    // `siteUrl` viene de `NUXT_PUBLIC_SITE_URL` (en prod, el CI). Si vacío, origen de la petición / ventana.
     const fromEnv = (runtimeConfig.public.siteUrl as string | undefined)?.trim()
-    if (fromEnv) {
-      return fromEnv.replace(/\/$/, '')
-    }
+    if (fromEnv) return fromEnv.replace(/\/$/, '')
     if (import.meta.client && typeof window !== 'undefined') {
       return `${window.location.origin}${runtimeConfig.app.baseURL || '/'}`.replace(/\/$/, '')
     }
@@ -37,53 +34,68 @@
 
   const portfolioData = usePortfolioData()
 
-  // useSeoMeta: evitar datos de tm() en head (serialización); strings vía t() + claves SEO dedicadas
+  const currentContentPath = computed(() => {
+    const withoutLocale = route.path.replace(/^\/en(?=\/|$)/, '') || '/'
+    return withoutLocale.startsWith('/showcase') ? '/showcase' : '/'
+  })
+
+  function seoKey(scope: 'pageTitle' | 'pageDescription') {
+    return currentContentPath.value === '/showcase'
+      ? `showcase.seo.${scope}`
+      : `portfolio.seo.${scope}`
+  }
+
   function seoPageTitle() {
-    const title = t('portfolio.seo.pageTitle')
+    const title = t(seoKey('pageTitle'))
     return typeof title === 'string' ? title : ''
   }
 
   function seoPageDescription() {
-    const d = t('portfolio.seo.pageDescription')
-    return typeof d === 'string' ? d : ''
+    const description = t(seoKey('pageDescription'))
+    return typeof description === 'string' ? description : ''
   }
 
-  /**
-   * GitHub Pages sirve proyectos como carpetas (`index.html`) y redirige `/en` → `/en/`.
-   * Canonical y hreflang deben coincidir con esa URL final o Google reporta "error de redirección".
-   */
+  function portfolioSeoDescription() {
+    const description = t('portfolio.seo.pageDescription')
+    return typeof description === 'string' ? description : ''
+  }
+
   function routerPathToAbsoluteSiteUrl(pathFromLocalePath: string) {
     const base = siteBase.value
-    if (!base) {
-      return undefined
-    }
+    if (!base) return undefined
+
     const appBase = runtimeConfig.app.baseURL || '/'
     const norm = normalizeAppRouterPath(withoutHash(pathFromLocalePath), appBase)
     const trimmed = norm.replace(/\/$/, '') || '/'
-    const pathUrl =
-      trimmed === '/'
-        ? joinURL(base, '/')
-        : joinURL(base, trimmed.replace(/^\//, ''))
+    const pathUrl = trimmed === '/'
+      ? joinURL(base, '/')
+      : joinURL(base, trimmed.replace(/^\//, ''))
+
     return withTrailingSlash(pathUrl)
   }
 
-  const canonicalPageUrl = computed(() => routerPathToAbsoluteSiteUrl(localePath('/')))
+  function localizedCurrentPath(code?: string) {
+    return code
+      ? localePath(currentContentPath.value, code)
+      : localePath(currentContentPath.value)
+  }
+
+  const canonicalPageUrl = computed(() => routerPathToAbsoluteSiteUrl(localizedCurrentPath()))
 
   const hreflangHeadLinks = computed(() => {
-    const base = siteBase.value
-    if (!base) {
+    if (!siteBase.value) {
       return [] as { rel: 'alternate'; href: string; hreflang: string; key: string }[]
     }
+
     const raw = locales.value ?? []
     const links: { rel: 'alternate'; href: string; hreflang: string; key: string }[] = []
+
     for (const entry of raw) {
       const code = typeof entry === 'string' ? entry : entry.code
-      const href = routerPathToAbsoluteSiteUrl(localePath('/', code))
-      if (!href) {
-        continue
-      }
-      const hreflang =
-        typeof entry === 'string' ? code : (entry.language ?? code)
+      const href = routerPathToAbsoluteSiteUrl(localizedCurrentPath(code))
+      if (!href) continue
+
+      const hreflang = typeof entry === 'string' ? code : (entry.language ?? code)
       links.push({
         rel: 'alternate',
         href,
@@ -91,13 +103,11 @@
         key: `hreflang-${hreflang}`
       })
     }
+
     const def = toValue(defaultLocale)
-    if (def && links.length) {
-      const defHref = routerPathToAbsoluteSiteUrl(localePath('/', def))
-      if (
-        defHref &&
-        !links.some((l) => l.hreflang === 'x-default')
-      ) {
+    if (def) {
+      const defHref = routerPathToAbsoluteSiteUrl(localizedCurrentPath(def))
+      if (defHref) {
         links.unshift({
           rel: 'alternate',
           href: defHref,
@@ -106,40 +116,37 @@
         })
       }
     }
+
     return links
   })
 
   const defaultOgImagePath = 'og-image.png'
-
-  const ogImageUrl = computed(() => {
-    const base = siteBase.value
-    if (!base) {
-      return undefined
-    }
-    return joinURL(base, defaultOgImagePath)
-  })
+  const ogImageUrl = computed(() => siteBase.value ? joinURL(siteBase.value, defaultOgImagePath) : undefined)
 
   const jsonLdGraph = computed(() => {
     const bio = portfolioData.value.bio
     const base = siteBase.value
-    if (!base) {
-      return []
-    }
+    if (!base) return []
+
     const pageUrl = canonicalPageUrl.value ?? withTrailingSlash(joinURL(base, '/'))
     const name = bio.name
     const brand = bio.brandName ?? name
     const sameAs = [bio.social.github, bio.social.linkedin].filter(Boolean) as string[]
     const imagePath = (bio.avatar ?? `/${defaultOgImagePath}`).replace(/^\//, '')
     const image = joinURL(base, imagePath)
-
     const pageDesc = seoPageDescription()
+    const personDesc = portfolioSeoDescription()
     const knowsAbout = [
       'Laravel',
       'Vue.js',
       'Nuxt',
       'Full-stack web development',
       'SaaS',
-      'ERP software'
+      'Multi-tenant ERP',
+      'REST APIs',
+      'WordPress',
+      'Docker',
+      'CI/CD'
     ]
 
     return [
@@ -148,16 +155,16 @@
         '@id': `${base}/#website`,
         url: withTrailingSlash(joinURL(base, '/')),
         name: brand,
-        description: pageDesc,
+        description: personDesc,
         inLanguage: locale.value === 'en' ? 'en-US' : 'es-CO',
         publisher: { '@id': `${base}/#person` }
       },
       {
         '@type': 'WebPage',
-        '@id': `${pageUrl}/#webpage`,
+        '@id': `${pageUrl}#webpage`,
         url: pageUrl,
         name: seoPageTitle(),
-        description: seoPageDescription(),
+        description: pageDesc,
         isPartOf: { '@id': `${base}/#website` },
         about: { '@id': `${base}/#person` },
         inLanguage: locale.value === 'en' ? 'en-US' : 'es-CO'
@@ -168,7 +175,7 @@
         name,
         url: withTrailingSlash(joinURL(base, '/')),
         image,
-        description: pageDesc,
+        description: personDesc,
         jobTitle: bio.title,
         knowsAbout,
         workLocation: {
@@ -218,16 +225,13 @@
         { rel: 'icon', type: 'image/png', href: assetHref('favicon-96x96.png'), sizes: '96x96' },
         { rel: 'apple-touch-icon', href: assetHref('apple-touch-icon.png'), sizes: '180x180' },
         { rel: 'manifest', href: assetHref('site.webmanifest') }
-        // Tipografía: la carga Space Grotesk la hace `@nuxt/fonts` (vía @nuxt/ui)
-        // a partir de `--font-sans` en `main.css`. No duplicar con Google Fonts.
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'theme-color', content: '#0B0C0F' },
         {
           name: 'robots',
-          content:
-            'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+          content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         },
         {
           name: 'google-site-verification',
@@ -235,20 +239,18 @@
         },
         ...(h.meta ?? [])
       ],
-      script:
-        jsonLdGraph.value.length > 0
-          ? [
-            {
-              key: 'portfolio-jsonld',
-              type: 'application/ld+json',
-              // Unhead 3 (Nuxt 4.5+): JSON-LD va en `innerHTML`, no en `children`.
-              innerHTML: JSON.stringify({
-                '@context': 'https://schema.org',
-                '@graph': jsonLdGraph.value
-              })
-            }
-          ]
-          : []
+      script: jsonLdGraph.value.length > 0
+        ? [
+          {
+            key: 'portfolio-jsonld',
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': jsonLdGraph.value
+            })
+          }
+        ]
+        : []
     }
   })
 

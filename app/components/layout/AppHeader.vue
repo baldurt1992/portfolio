@@ -7,7 +7,6 @@
   const homePath = computed(() => localePath('/'))
   const contactTo = computed(() => ({ path: localePath('/'), hash: '#contact' }))
   const brandName = computed(() => portfolioData.value.bio.brandName ?? 'BaldurDev')
-  const logoSrc = computed(() => portfolioData.value.bio.aboutAvatar || '/images/avatar-cutout.webp')
 
   function localeLinkFor(code: 'es' | 'en') {
     return code === 'en' ? '/en' : '/'
@@ -20,9 +19,7 @@
 
   async function onLocaleClick(code: 'es' | 'en', close?: () => void) {
     try {
-      if (locale.value !== code) {
-        await setLocale(code)
-      }
+      if (locale.value !== code) await setLocale(code)
     } catch (error) {
       console.error('[AppHeader] Error al cambiar idioma', { code, error })
       await navigateTo(localeLinkFor(code))
@@ -32,11 +29,11 @@
   }
 
   const navLinks = computed(() => [
-    { label: t('nav.about'), to: { path: localePath('/'), hash: '#about' } },
-    { label: t('nav.skills'), to: { path: localePath('/'), hash: '#technologies' } },
     { label: t('nav.projects'), to: { path: localePath('/'), hash: '#projects' } },
-    { label: t('nav.showcase'), to: localePath('/showcase') },
+    { label: t('nav.skills'), to: { path: localePath('/'), hash: '#technologies' } },
+    { label: t('nav.about'), to: { path: localePath('/'), hash: '#about' } },
     { label: t('nav.experience'), to: { path: localePath('/'), hash: '#experience' } },
+    { label: t('nav.showcase'), to: localePath('/showcase') },
     { label: t('nav.contact'), to: { path: localePath('/'), hash: '#contact' } }
   ])
 
@@ -60,16 +57,12 @@
 <template>
   <UHeader v-model:open="menuOpen" mode="slideover" :title="brandName" :to="homePath" :menu="headerMenu" :ui="headerUi">
     <template #title>
-      <span class="flex items-center gap-3">
-        <img :src="logoSrc" alt="" width="36" height="36"
-          class="size-9 shrink-0 object-contain [image-rendering:pixelated]" />
-        <span class="font-heading text-lg font-semibold leading-none tracking-tight">
-          {{ brandName }}
-        </span>
+      <span class="font-heading text-lg font-semibold leading-none tracking-tight text-text">
+        {{ brandName }}
       </span>
     </template>
 
-    <nav class="flex items-center gap-1" aria-label="Navegación principal">
+    <nav class="flex items-center gap-1" :aria-label="t('header.description')">
       <NuxtLink v-for="link in navLinks" :key="link.label" :to="link.to"
         class="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-text-muted transition-colors hover:bg-surface-soft hover:text-text"
         active-class="text-accent">
@@ -99,10 +92,8 @@
     <template #content="{ close }">
       <div class="flex h-full flex-col bg-bg-elevated">
         <div class="flex items-center justify-between gap-3 border-b border-border px-5 sm:px-6 h-(--ui-header-height)">
-          <NuxtLink :to="homePath" class="flex items-center gap-3 text-base font-semibold text-text" @click="close?.()">
-            <img :src="logoSrc" alt="" width="36" height="36"
-              class="size-9 shrink-0 object-contain [image-rendering:pixelated]" />
-            <span class="font-heading leading-none">{{ brandName }}</span>
+          <NuxtLink :to="homePath" class="font-heading text-base font-semibold text-text" @click="close?.()">
+            {{ brandName }}
           </NuxtLink>
 
           <div class="flex items-center gap-1.5">
@@ -123,7 +114,7 @@
             </button>
           </div>
 
-          <nav class="flex flex-col gap-1" aria-label="Navegación móvil">
+          <nav class="flex flex-col gap-1" :aria-label="t('header.description')">
             <NuxtLink v-for="link in navLinks" :key="link.label" :to="link.to"
               class="rounded-lg px-3 py-3 text-lg font-medium text-text transition-colors hover:bg-surface-soft"
               active-class="text-accent" @click="close?.()">

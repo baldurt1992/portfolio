@@ -6,6 +6,7 @@
   const { t } = useI18n()
   const localePath = useLocalePath()
 
+  const projectsTo = computed(() => ({ path: localePath('/'), hash: '#projects' }))
   const contactTo = computed(() => ({ path: localePath('/'), hash: '#contact' }))
   const tokens = computed(() => portfolioData.value.bio.taglineRotatingTokens ?? [])
   const { index: tokenIndex } = useRotatingIndex(() => tokens.value.length, 3000)
@@ -36,9 +37,7 @@
 
     const wrapped = prev !== undefined && i === 0 && prev === n - 1
     gsap.killTweensOf(el)
-    if (wrapped) {
-      gsap.set(el, { scaleX: 0 })
-    }
+    if (wrapped) gsap.set(el, { scaleX: 0 })
     gsap.to(el, {
       scaleX: tokenProgress(i),
       duration: wrapped ? 0.35 : 0.45,
@@ -69,10 +68,7 @@
     if (!incoming) return
 
     tokenTl?.kill()
-    gsap.set(incoming, {
-      yPercent: 40,
-      opacity: 0
-    })
+    gsap.set(incoming, { yPercent: 40, opacity: 0 })
 
     tokenTl = gsap.timeline({
       onComplete: () => {
@@ -132,11 +128,7 @@
     introCtx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 0.5 } })
 
-      tl.from(title, {
-        y: 20,
-        opacity: 0,
-        delay: 0.08
-      })
+      tl.from(title, { y: 20, opacity: 0, delay: 0.08 })
         .from(subtitle, { y: 16, opacity: 0 }, '-=0.32')
         .from(cta, { y: 12, opacity: 0 }, '-=0.28')
         .from(impact, { y: 16, opacity: 0 }, '-=0.32')
@@ -158,31 +150,28 @@
         <div class="space-y-8 lg:col-span-7">
           <div class="space-y-5">
             <p class="font-mono text-sm font-medium uppercase tracking-widest text-accent">
-              {{ t('hero.taglinePrefix') }}
+              {{ portfolioData.bio.name }} · {{ t('hero.locationMeta') }}
             </p>
             <h1 ref="titleRef" class="font-heading text-5xl font-bold tracking-tight text-text sm:text-6xl lg:text-7xl">
-              {{ portfolioData.bio.brandName }}
+              {{ portfolioData.bio.title }}
             </h1>
             <div ref="subtitleRef" class="space-y-4">
-              <p class="font-mono text-lg text-primary sm:text-xl">
-                {{ portfolioData.bio.title }}
-              </p>
               <p class="max-w-2xl text-lg leading-relaxed text-text-muted sm:text-xl">
                 {{ portfolioData.bio.tagline }}
               </p>
-              <p class="max-w-2xl text-base text-text-subtle">
+              <p class="max-w-2xl font-mono text-sm leading-relaxed text-text-subtle sm:text-base">
                 {{ portfolioData.bio.heroTrustLine }}
               </p>
             </div>
           </div>
 
           <div ref="ctaRef" class="flex flex-wrap items-center gap-4">
-            <NuxtLink :to="contactTo"
+            <NuxtLink :to="projectsTo"
               class="motion-lift inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-base font-semibold text-slate-900 shadow-sm hover:bg-accent-hover hover:shadow-md">
               {{ t('hero.ctaPrimary') }}
               <UIcon name="i-lucide-arrow-right" class="size-5" aria-hidden="true" />
             </NuxtLink>
-            <NuxtLink :to="localePath({ path: '/', hash: '#projects' })"
+            <NuxtLink :to="contactTo"
               class="motion-lift inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-xl border border-border bg-bg-elevated/80 px-6 py-3 text-base font-medium text-text backdrop-blur-sm hover:border-border-strong hover:bg-surface-hover">
               {{ t('hero.ctaSecondary') }}
             </NuxtLink>
@@ -219,7 +208,6 @@
   .hero-token-clip {
     position: relative;
     overflow: hidden;
-    perspective: none;
     height: 1.2em;
   }
 

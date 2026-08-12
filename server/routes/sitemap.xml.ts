@@ -23,25 +23,29 @@ export default defineEventHandler((event) => {
 
   const base = (fromEnv || fallback).replace(/\/$/, '')
 
-  /** Misma convención que el HTML (GitHub Pages: `/en` → 301 a `/en/`). */
-  const urls = [
+  const localePairs = [
+    { es: `${base}/`, en: `${base}/en/` },
+    { es: `${base}/showcase/`, en: `${base}/en/showcase/` }
+  ]
+
+  const urls = localePairs.flatMap(({ es, en }) => [
     {
-      loc: `${base}/`,
+      loc: es,
       alternatives: [
-        { hreflang: 'es-CO', href: `${base}/` },
-        { hreflang: 'en-US', href: `${base}/en/` },
-        { hreflang: 'x-default', href: `${base}/` }
+        { hreflang: 'es-CO', href: es },
+        { hreflang: 'en-US', href: en },
+        { hreflang: 'x-default', href: es }
       ]
     },
     {
-      loc: `${base}/en/`,
+      loc: en,
       alternatives: [
-        { hreflang: 'es-CO', href: `${base}/` },
-        { hreflang: 'en-US', href: `${base}/en/` },
-        { hreflang: 'x-default', href: `${base}/` }
+        { hreflang: 'es-CO', href: es },
+        { hreflang: 'en-US', href: en },
+        { hreflang: 'x-default', href: es }
       ]
     }
-  ]
+  ])
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">

@@ -6,11 +6,11 @@
     "projects": "Proyectos",
     "experience": "Experiencia",
     "contact": "Contacto",
-    "showcase": "Showcase"
+    "showcase": "Showcase Lab"
   },
   "a11y": {
     "headerMenuTitle": "Menú de navegación",
-    "headerMenuDescription": "Secciones del portafolio: proyectos, sobre mí, habilidades, experiencia y contacto.",
+    "headerMenuDescription": "Secciones del portafolio: proyectos, capacidades, sobre mí, experiencia, showcase y contacto.",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "productMediaNav": "Módulos del producto",
@@ -25,7 +25,7 @@
     "open": "Abrir menú",
     "close": "Cerrar menú",
     "title": "Menú",
-    "description": "Navegación principal del sitio"
+    "description": "Navegación principal"
   },
   "languages": {
     "en": "English",
@@ -34,8 +34,8 @@
   },
   "hero": {
     "taglinePrefix": "Full Stack Software Engineer",
-    "ctaPrimary": "Hablemos de tu proyecto",
-    "ctaSecondary": "Ver proyectos",
+    "ctaPrimary": "Ver proyectos",
+    "ctaSecondary": "Contactar",
     "ctaCv": "Descargar CV",
     "downloadCvAria": "Descargar currículum en PDF",
     "roleMeta": "Full Stack Software Engineer",
@@ -45,32 +45,35 @@
     "aboutAvatarAlt": "Avatar ilustrado de {name}",
     "featuredLabel": "Proyecto destacado",
     "scroll": "Scroll",
-    "impactLead": "Construyo"
+    "impactLead": "Construyo y evoluciono"
   },
   "about": {
     "eyebrow": "Perfil",
     "title": "Sobre mí",
-    "description": "Una visión rápida de cómo trabajo, qué construyo y dónde aporto más valor.",
-    "statsYears": "Años de experiencia",
-    "statsProducts": "Productos en producción",
-    "statsTechnologies": "Tecnologías dominadas",
+    "description": "Cómo trabajo, qué construyo y dónde aporto más valor.",
     "flipHint": "Pasa el cursor para ver la foto"
   },
   "skills": {
-    "eyebrow": "Stack",
+    "eyebrow": "Capacidades",
     "title": "Capacidades de ingeniería",
-    "description": "Tecnologías que uso en el día a día, agrupadas por área de trabajo.",
+    "description": "Capacidades que aplico en productos reales, desde interfaces y APIs hasta infraestructura y entrega.",
     "category": {
       "frontend": "Producto / Frontend",
-      "backend": "Backend",
-      "wordpress": "WordPress",
+      "backend": "Backend Architecture",
+      "wordpress": "WordPress Engineering",
       "devops": "Infraestructura / Entrega"
+    },
+    "categoryDescription": {
+      "frontend": "Interfaces Vue/Nuxt orientadas a producto, estados complejos, UX clara y frontend mantenible.",
+      "backend": "APIs Laravel, autenticación, permisos, jobs, integraciones y arquitecturas multi-tenant.",
+      "wordpress": "Themes y plugins a medida, WooCommerce, reservas, pagos e integraciones cuando un CMS es la mejor herramienta.",
+      "devops": "Docker, GitHub Actions, despliegues, servidores y automatización del ciclo de entrega."
     }
   },
   "projects": {
-    "eyebrow": "Portafolio",
+    "eyebrow": "Trabajo seleccionado",
     "title": "Proyectos",
-    "description": "SaaS en producción, ERP Laravel + Nuxt y WordPress con plugin a medida: contexto técnico y de negocio (sin datos sensibles de cliente)."
+    "description": "Trabajo seleccionado que demuestra arquitectura, producto, integraciones y entrega en producción."
   },
   "experience": {
     "eyebrow": "Recorrido",
@@ -80,13 +83,13 @@
   "contact": {
     "eyebrow": "Siguiente paso",
     "title": "Contacto",
-    "description": "Cuéntame el contexto, el plazo y qué éxito significa para ti. Respondo con claridad y sin rodeos.",
+    "description": "¿Tienes un producto que construir, un sistema que evolucionar o un rol donde pueda aportar? Cuéntame el contexto y hablamos.",
     "name": "Nombre",
     "email": "Email",
     "message": "Mensaje",
     "placeholderName": "Tu nombre",
     "placeholderEmail": "tu{'@'}email.com",
-    "placeholderMessage": "Cuéntame sobre tu proyecto...",
+    "placeholderMessage": "Cuéntame sobre tu proyecto, sistema o rol...",
     "submit": "Enviar mensaje",
     "mailFallback": "O escríbeme directamente a"
   },
@@ -106,7 +109,7 @@
   "projectCard": {
     "tooltipHeroHover": "Vista previa breve al pasar el cursor. ¿Quieres saber más? Haz clic en Ver detalles.",
     "tooltipHeroStatic": "¿Quieres la demo completa y el detalle de cada módulo? Haz clic en Ver detalles.",
-    "liveBadge": "Vista en vivo",
+    "liveBadge": "Demo en video",
     "projectImageAlt": "Captura o vista del proyecto {title}",
     "viewProject": "Ver proyecto",
     "viewDetails": "Ver detalles",
@@ -136,13 +139,13 @@
   },
   "showcase": {
     "seo": {
-      "pageTitle": "Showcase — BaldurDev",
-      "pageDescription": "Colección de landing pages, themes y templates: VantaPay fintech y próximos productos."
+      "pageTitle": "Showcase Lab — BaldurDev",
+      "pageDescription": "Colección de demos frontend, landing pages, themes y templates creados por BaldurDev para explorar distintas industrias, stacks y sistemas visuales."
     },
-    "eyebrow": "Colección",
-    "title": "Landings que convierten",
-    "description": "Galería de landing pages modulares, bilingües y listas para producción. Cada una vive en su propio dominio y demuestra un stack distinto.",
-    "viewLanding": "Ver landing",
+    "eyebrow": "Exploración frontend",
+    "title": "Showcase Lab",
+    "description": "Demos de frontend creadas para explorar diferentes industrias, stacks y sistemas visuales. Cada proyecto se desarrolla y publica de forma independiente.",
+    "viewLanding": "Ver demo",
     "landings": {
       "fintech": {
         "category": "Fintech",
@@ -153,12 +156,12 @@
   },
   "portfolio": {
     "seo": {
-      "pageTitle": "BaldurDev — Ingeniero de Software Full Stack",
-      "pageDescription": "Andrés Baldur Tamayo, Ingeniero de Software Full Stack en Colombia. Laravel, Vue/Nuxt, WordPress a medida, SaaS, ERP multi-tenant, APIs y productos web en producción."
+      "pageTitle": "Andrés Baldur Tamayo — Desarrollador Full Stack | BaldurDev",
+      "pageDescription": "Portafolio de Andrés Baldur Tamayo, Full Stack Software Engineer en Colombia. Proyectos reales con Laravel, Vue/Nuxt, SaaS, ERP multi-tenant, APIs, WordPress a medida, Docker y CI/CD."
     },
     "bio": {
-      "title": "Full Stack Software Engineer · Laravel, Vue, Nuxt y Tailwind",
-      "tagline": "Construyo productos web: SaaS, ERP, APIs, dashboards, automatizaciones y sitios a medida con UX clara, performance y arquitectura mantenible.",
+      "title": "Full Stack Software Engineer",
+      "tagline": "Construyo y evoluciono SaaS, ERP, APIs y plataformas web de producción, desde la arquitectura y el frontend hasta CI/CD y despliegue.",
       "taglinePrefix": "Full Stack Software Engineer",
       "taglineRotatingTokens": [
         "SaaS",
@@ -168,146 +171,58 @@
         "Automatizaciones",
         "Sitios a medida"
       ],
-      "heroTrustLine": "Freelance · Bello, Antioquia · Colombia · Laravel, Vue, Nuxt, WordPress (Divi/Elementor), SaaS/ERP y despliegues",
+      "heroTrustLine": "Laravel · Vue/Nuxt · WordPress a medida · Docker · CI/CD",
       "location": "Bello, Antioquia"
     },
-    "aboutLead": "Soy desarrollador fullstack con foco en Laravel, Vue y Nuxt. En backend trabajo con APIs, Eloquent, colas cuando aportan valor e integraciones entre servicios; en frontend construyo interfaces con Vue, Nuxt UI, PrimeVue y Tailwind. También implemento sitios WordPress con Divi y Elementor cuando el proyecto encaja mejor con un CMS.",
-    "aboutMore": "Trabajo como freelance desde Colombia con equipos y clientes remotos en productos B2B, SaaS, ERP multi-tenant, gestión de usuarios, dominios y despliegues. Me enfoco en integraciones limpias entre backend y frontend, interfaces usables, entregas iterativas con Git y mejora continua de mi inglés.",
+    "aboutLead": "Trabajo end-to-end en productos web: diseño la arquitectura, implemento backend y frontend, integro servicios y dejo el software preparado para desplegarse y operar. Mi stack principal es Laravel + Vue/Nuxt; cuando el caso lo requiere, desarrollo soluciones WordPress a medida con plugins, e-commerce y flujos transaccionales.",
+    "aboutMore": "He trabajado en SaaS, ERP multi-tenant y plataformas B2B, con foco en código mantenible, UX clara, automatización de despliegues y entregas iterativas para equipos y clientes remotos.",
     "projects": {
       "ticador-platform": {
         "title": "Ticador — ecosistema SaaS en producción",
         "year": "2024/2025",
-        "description": "Desarrollé un ecosistema SaaS en producción para ticador.online, compuesto por cuatro repos desacoplados y conectados entre sí: landing comercial, plataforma de provisioning multi-tenant, sistema principal de control de asistencia laboral y un Mail Center como servicio Laravel dedicado a recibir, distribuir mensajes y registrar logs. La solución automatiza el ciclo completo de onboarding y operación de cada cliente: creación de entornos, configuración guiada, gestión de empleados, control de dispositivos autorizados, fichaje, reportes y notificaciones en tiempo real. Repositorios privados; video y capturas representativas en el portafolio.",
-        "tags": [
-          "Laravel",
-          "Vue 3",
-          "PrimeVue",
-          "Pinia",
-          "Vite",
-          "Pusher / WebSockets",
-          "GitHub Actions",
-          "Plesk",
-          "MySQL",
-          "REST APIs",
-          "Queues / Jobs",
-          "Aprovisionamiento multi-cliente"
-        ],
+        "description": "SaaS en producción compuesto por cuatro repos desacoplados: landing, provisioning multi-tenant, control de asistencia y Mail Center. Automatiza onboarding, entornos por cliente, empleados, dispositivos, fichaje, reportes y notificaciones en tiempo real. Repos privados; video y capturas reales en el portafolio.",
+        "tags": ["Laravel", "Vue 3", "PrimeVue", "Pinia", "Vite", "Pusher / WebSockets", "GitHub Actions", "Plesk", "MySQL", "REST APIs", "Queues / Jobs", "Aprovisionamiento multi-cliente"],
         "mediaModuleGroups": {
-          "provisioning-admin": {
-            "title": "Plataforma de aprovisionamiento (administración)"
-          },
-          "workforce-app": {
-            "title": "Aplicación de asistencia (cliente)"
-          }
+          "provisioning-admin": { "title": "Plataforma de aprovisionamiento (administración)" },
+          "workforce-app": { "title": "Aplicación de asistencia (cliente)" }
         },
         "mediaModules": {
-          "main-navigation": {
-            "title": "Navegación principal",
-            "description": "Vista general del panel de administración de Ticador Automatization, desde donde se centralizan la operación del sistema, la gestión de sitios, el acceso a suscripciones y los flujos clave de provisioning para clientes."
-          },
-          "tenant-provisioning-flow": {
-            "title": "Flujo de aprovisionamiento de clientes",
-            "description": "Flujo completo de aprovisionamiento desde el panel administrativo: creación del sitio, validación del nombre, inicio del despliegue, preparación del entorno cliente, asignación de administradores y acceso al proyecto desplegado en su subdominio."
-          },
-          "subscriptions-coupons-cycle": {
-            "title": "Ciclo de suscripciones y cupones",
-            "description": "Recorrido por la gestión de suscripciones dentro del panel administrativo: visualización de planes activos, uso del modal de creación, control de fechas de vencimiento, interacción con el ciclo de cada suscripción y administración de cupones promocionales."
-          },
-          "onboarding-wizard": {
-            "title": "Asistente de configuración inicial",
-            "description": "Asistente guiado de configuración inicial para acelerar la puesta en marcha de cada cliente, incluyendo empresa, empleados, dispositivos y reportes dentro de un flujo estructurado."
-          },
-          "application-main-navigation": {
-            "title": "Navegación principal de la aplicación",
-            "description": "Recorrido por la navegación del panel operativo de asistencia: acceso a empleados, dispositivos, fichaje, incidencias, reportes y la configuración del entorno de trabajo del cliente — la aplicación que usan día a día empleados y administradores del sitio."
-          },
-          "device-access": {
-            "title": "Acceso por dispositivo",
-            "description": "Control de acceso basado en dispositivos autorizados. El sistema detecta equipos no registrados, alerta su estado y permite su validación desde administración antes de habilitar su uso operativo en el flujo de fichaje."
-          },
-          "employee-check-in-out": {
-            "title": "Entrada y salida laboral",
-            "description": "Flujo principal de control horario, donde el empleado registra entradas y salidas mediante un token asignado, manteniendo trazabilidad sobre su jornada laboral."
-          },
-          "incident-report": {
-            "title": "Reporte de incidencias",
-            "description": "Módulo de gestión de incidencias para registrar novedades, dar seguimiento a casos y mantener comunicación entre empleado y administración dentro de la misma plataforma."
-          }
+          "main-navigation": { "title": "Navegación principal", "description": "Vista general del panel de administración de Ticador Automatization, desde donde se centralizan la operación del sistema, la gestión de sitios, el acceso a suscripciones y los flujos clave de provisioning para clientes." },
+          "tenant-provisioning-flow": { "title": "Flujo de aprovisionamiento de clientes", "description": "Flujo completo de aprovisionamiento desde el panel administrativo: creación del sitio, validación del nombre, inicio del despliegue, preparación del entorno cliente, asignación de administradores y acceso al proyecto desplegado en su subdominio." },
+          "subscriptions-coupons-cycle": { "title": "Ciclo de suscripciones y cupones", "description": "Recorrido por la gestión de suscripciones dentro del panel administrativo: visualización de planes activos, uso del modal de creación, control de fechas de vencimiento, interacción con el ciclo de cada suscripción y administración de cupones promocionales." },
+          "onboarding-wizard": { "title": "Asistente de configuración inicial", "description": "Asistente guiado de configuración inicial para acelerar la puesta en marcha de cada cliente, incluyendo empresa, empleados, dispositivos y reportes dentro de un flujo estructurado." },
+          "application-main-navigation": { "title": "Navegación principal de la aplicación", "description": "Recorrido por la navegación del panel operativo de asistencia: acceso a empleados, dispositivos, fichaje, incidencias, reportes y la configuración del entorno de trabajo del cliente — la aplicación que usan día a día empleados y administradores del sitio." },
+          "device-access": { "title": "Acceso por dispositivo", "description": "Control de acceso basado en dispositivos autorizados. El sistema detecta equipos no registrados, alerta su estado y permite su validación desde administración antes de habilitar su uso operativo en el flujo de fichaje." },
+          "employee-check-in-out": { "title": "Entrada y salida laboral", "description": "Flujo principal de control horario, donde el empleado registra entradas y salidas mediante un token asignado, manteniendo trazabilidad sobre su jornada laboral." },
+          "incident-report": { "title": "Reporte de incidencias", "description": "Módulo de gestión de incidencias para registrar novedades, dar seguimiento a casos y mantener comunicación entre empleado y administración dentro de la misma plataforma." }
         }
       },
       "cosmos-erp": {
         "title": "Cosmos ERP — plataforma ERP multi-tenant en desarrollo",
         "year": "2025 / actualidad",
-        "description": "ERP multi-tenant orientado a operación comercial y facturación, con flujos de configuración inicial, gestión de clientes, emisión de facturas, conversión documental con trazabilidad y operación TPV. El producto también incorpora archivos auxiliares con peso fiscal, estadísticas por módulo, modo kiosk y una capa administrativa para backups, provisión manual de tenants y gestión de administradores. Actualmente sigue en desarrollo activo, pero ya ha sido probado por clientes reales de empresas seleccionadas. Pendientes antes de su distribución general: integración Verifactu para normativa electrónica, módulo de notificaciones y configuraciones operativas adicionales.",
-        "tags": [
-          "Laravel",
-          "Nuxt",
-          "TypeScript",
-          "MySQL",
-          "Redis",
-          "Multi-tenant",
-          "ERP",
-          "POS",
-          "Document lifecycle",
-          "Docker",
-          "GitHub Actions"
-        ],
+        "description": "ERP multi-tenant para operación comercial y facturación, con onboarding, clientes, facturas, conversión documental con trazabilidad, TPV, backups y administración de tenants. En desarrollo activo; los módulos mostrados ya están implementados y probados en escenarios reales.",
+        "tags": ["Laravel", "Nuxt", "TypeScript", "MySQL", "Redis", "Multi-tenant", "ERP", "POS", "Document lifecycle", "Docker", "GitHub Actions"],
         "mediaModuleGroups": {
-          "core-erp": {
-            "title": "ERP principal"
-          },
-          "pos-operations": {
-            "title": "TPV y operación"
-          }
+          "core-erp": { "title": "ERP principal" },
+          "pos-operations": { "title": "TPV y operación" }
         },
         "mediaModules": {
-          "initial-setup": {
-            "title": "Configuración inicial",
-            "description": "Flujo de configuración inicial del ERP desde el primer acceso: validación del correo mediante código OTP, registro de los datos personales del administrador, configuración de la información de la empresa y carga de los datos fiscales. El proceso finaliza con una pantalla resumen que deja el entorno listo para comenzar a operar."
-          },
-          "erp-overview": {
-            "title": "Navegación principal del ERP",
-            "description": "Recorrido general por la navegación del sistema, mostrando distintos módulos del dashboard, archivos auxiliares con peso fiscal, secciones de informes, configuración y ayuda, como visión rápida de la amplitud funcional del producto."
-          },
-          "customer-creation": {
-            "title": "Creación de clientes",
-            "description": "Flujo de alta de clientes dentro del ERP, incluyendo datos generales, información bancaria con autocompletado del banco a partir del IBAN, y recorrido por las pestañas de contacto y facturación dentro del mismo modal para dejar el registro preparado para la operación comercial."
-          },
-          "sales-invoice-creation": {
-            "title": "Creación de facturas de venta",
-            "description": "Emisión de facturas de venta desde el ERP, recorriendo las pestañas principales del documento pero centrando el flujo en la selección del cliente, la carga de líneas, cantidades y la generación final de la factura."
-          },
-          "document-conversion": {
-            "title": "Conversión documental y trazabilidad",
-            "description": "Flujo de conversión entre documentos comerciales, incluyendo selección de origen, destino, ejercicio fiscal, cliente, documentos a convertir y opciones de conversión. La demostración muestra también la apertura del documento resultante y la trazabilidad completa a través del historial de conversiones asociadas a ese documento."
-          },
-          "pos-configuration-billing": {
-            "title": "Configuración TPV y facturación operativa",
-            "description": "Recorrido por la configuración inicial del TPV, incluyendo selección de serie de facturación, configuración de caja, mesas y secciones de trabajo, seguido del flujo completo de facturación de productos. La demostración incluye además validación estricta de stock e invalidación cuando no se cumplen las condiciones de inventario."
-          }
+          "initial-setup": { "title": "Configuración inicial", "description": "Flujo de configuración inicial del ERP desde el primer acceso: validación del correo mediante código OTP, registro de los datos personales del administrador, configuración de la información de la empresa y carga de los datos fiscales. El proceso finaliza con una pantalla resumen que deja el entorno listo para comenzar a operar." },
+          "erp-overview": { "title": "Navegación principal del ERP", "description": "Recorrido general por la navegación del sistema, mostrando distintos módulos del dashboard, archivos auxiliares con peso fiscal, secciones de informes, configuración y ayuda, como visión rápida de la amplitud funcional del producto." },
+          "customer-creation": { "title": "Creación de clientes", "description": "Flujo de alta de clientes dentro del ERP, incluyendo datos generales, información bancaria con autocompletado del banco a partir del IBAN, y recorrido por las pestañas de contacto y facturación dentro del mismo modal para dejar el registro preparado para la operación comercial." },
+          "sales-invoice-creation": { "title": "Creación de facturas de venta", "description": "Emisión de facturas de venta desde el ERP, recorriendo las pestañas principales del documento pero centrando el flujo en la selección del cliente, la carga de líneas, cantidades y la generación final de la factura." },
+          "document-conversion": { "title": "Conversión documental y trazabilidad", "description": "Flujo de conversión entre documentos comerciales, incluyendo selección de origen, destino, ejercicio fiscal, cliente, documentos a convertir y opciones de conversión. La demostración muestra también la apertura del documento resultante y la trazabilidad completa a través del historial de conversiones asociadas a ese documento." },
+          "pos-configuration-billing": { "title": "Configuración TPV y facturación operativa", "description": "Recorrido por la configuración inicial del TPV, incluyendo selección de serie de facturación, configuración de caja, mesas y secciones de trabajo, seguido del flujo completo de facturación de productos. La demostración incluye además validación estricta de stock e invalidación cuando no se cumplen las condiciones de inventario." }
         }
       },
       "wordpress-elementor-agenda": {
         "title": "Sitio web odontológico con plugin personalizado de reservas",
         "year": "2025",
         "description": "Sitio WordPress para clínica odontológica con flujo de agendamiento desarrollado a medida: selección de servicio, fecha y hora, captura de datos del paciente, integración con Bold Payments, resumen de la reserva y notificaciones automáticas por correo para paciente y administración.",
-        "tags": [
-          "WordPress",
-          "PHP",
-          "Plugin personalizado",
-          "Bold Payments",
-          "Booking Flow",
-          "Email Notifications"
-        ],
+        "tags": ["WordPress", "PHP", "Plugin personalizado", "Bold Payments", "Booking Flow", "Email Notifications"],
         "mediaModules": {
-          "main-navigation": {
-            "title": "Navegación principal",
-            "description": "Recorrido general por el sitio web en producción, mostrando las vistas principales de inicio, servicios, contacto y una vista rápida de la agenda, como contexto del producto y de la experiencia pública para el paciente."
-          },
-          "booking-flow": {
-            "title": "Flujo de agendamiento",
-            "description": "Flujo de reserva online con integración a Bold Payments. El paciente selecciona servicio, fecha y hora, completa sus datos, confirma la reserva y elige entre pago completo o depósito. La demostración llega hasta la apertura del modal de Bold, ya que el proyecto está en producción; una vez confirmada la transacción, el sistema registra la cita, dirige al usuario a una vista de resumen con el estado del pago y la reserva, y envía notificaciones por correo tanto a la clínica como al paciente."
-          }
+          "main-navigation": { "title": "Navegación principal", "description": "Recorrido general por el sitio web en producción, mostrando las vistas principales de inicio, servicios, contacto y una vista rápida de la agenda, como contexto del producto y de la experiencia pública para el paciente." },
+          "booking-flow": { "title": "Flujo de agendamiento", "description": "Flujo de reserva online con integración a Bold Payments. El paciente selecciona servicio, fecha y hora, completa sus datos, confirma la reserva y elige entre pago completo o depósito. La demostración llega hasta la apertura del modal de Bold, ya que el proyecto está en producción; una vez confirmada la transacción, el sistema registra la cita, dirige al usuario a una vista de resumen con el estado del pago y la reserva, y envía notificaciones por correo tanto a la clínica como al paciente." }
         }
       }
     },
@@ -318,24 +233,9 @@
         "company": "Freelance · Colombia",
         "description": "Desde 2024 intensifico colaboraciones con más carga de producto e infraestructura. Con una agencia en Colombia: Laravel, APIs y sitios WordPress ampliando stack hacia Divi además de Elementor. Además, en remoto, producto B2B — SaaS, ERP multi-tenant (Laravel + Nuxt), plataformas de gestión de usuarios, compra de dominios y despliegue enlazado a hosting. Docker Compose entre entornos (dev, staging, producción) y GitHub Actions: tests backend/frontend (Pest, Vitest, guardrails) y pipelines de despliegue automatizado a servidores y paneles habituales (Plesk, cPanel y similares). Remoto y entregas orientadas a producción."
       },
-      "university-eafit": {
-        "date": "2024 — 2025",
-        "title": "Formación universitaria",
-        "company": "Universidad EAFIT",
-        "description": "Carrera finalizada. Proyectos integradores, bases de ingeniería de software y hábitos de calidad que aplico en los proyectos con cliente."
-      },
-      "freelance-early": {
-        "date": "2023",
-        "title": "Freelance — primeros proyectos",
-        "company": "Autónomo · landings y sitios pequeños",
-        "description": "Proyectos acotados para clientes: landings y páginas promocionales con WordPress y Elementor, foco en maquetación clara y tiempos de entrega ágiles."
-      },
-      "cesde-tech": {
-        "date": "2023",
-        "title": "Formación técnica en desarrollo web",
-        "company": "Cesde",
-        "description": "Programa orientado a desarrollo web: fundamentos de programación, bases de desarrollo y bases de datos como soporte para pasar a proyectos reales."
-      }
+      "university-eafit": { "date": "2024 — 2025", "title": "Formación universitaria", "company": "Universidad EAFIT", "description": "Carrera finalizada. Proyectos integradores, bases de ingeniería de software y hábitos de calidad que aplico en los proyectos con cliente." },
+      "freelance-early": { "date": "2023", "title": "Freelance — primeros proyectos", "company": "Autónomo · landings y sitios pequeños", "description": "Proyectos acotados para clientes: landings y páginas promocionales con WordPress y Elementor, foco en maquetación clara y tiempos de entrega ágiles." },
+      "cesde-tech": { "date": "2023", "title": "Formación técnica en desarrollo web", "company": "Cesde", "description": "Programa orientado a desarrollo web: fundamentos de programación, bases de desarrollo y bases de datos como soporte para pasar a proyectos reales." }
     }
   }
 }

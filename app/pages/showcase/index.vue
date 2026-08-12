@@ -1,19 +1,7 @@
 <script setup lang="ts">
-  import { joinURL, withTrailingSlash } from 'ufo'
   import { showcaseLandings } from '~/data/showcase'
 
   const { t } = useI18n()
-  const localePath = useLocalePath()
-  const runtimeConfig = useRuntimeConfig()
-
-  const showcasePath = localePath('/showcase')
-
-  const canonicalUrl = computed(() => {
-    const base = String(runtimeConfig.public.siteUrl || '').trim().replace(/\/$/, '')
-    return base
-      ? withTrailingSlash(joinURL(base, showcasePath.replace(/^\//, '')))
-      : undefined
-  })
 
   const landings = computed(() =>
     showcaseLandings.map((landing) => ({
@@ -21,20 +9,6 @@
       url: useShowcaseLandingUrl(landing.slug)
     }))
   )
-
-  useHead(() => ({
-    link: canonicalUrl.value
-      ? [{ rel: 'canonical', href: canonicalUrl.value, key: 'canonical' }]
-      : []
-  }))
-
-  useSeoMeta({
-    title: () => t('showcase.seo.pageTitle'),
-    description: () => t('showcase.seo.pageDescription'),
-    ogTitle: () => t('showcase.seo.pageTitle'),
-    ogDescription: () => t('showcase.seo.pageDescription'),
-    ogUrl: () => canonicalUrl.value
-  })
 </script>
 
 <template>
