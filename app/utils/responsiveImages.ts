@@ -26,6 +26,7 @@ export function avatarImageSrcset(path: string | undefined) {
   return [
     `${replaceExtension(path, '-112')} 112w`,
     `${replaceExtension(path, '-224')} 224w`,
-    `${path} 256w`
+    `${replaceExtension(path, '-448')} 448w`,
+    `${path} 512w`
   ].join(', ')
 }

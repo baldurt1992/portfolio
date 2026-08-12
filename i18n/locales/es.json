@@ -33,21 +33,28 @@
     "switchTo": "Idioma"
   },
   "hero": {
-    "ctaProject": "Hablemos de tu proyecto",
-    "ctaWork": "Ver trabajo reciente",
-    "downloadCv": "Descargar CV",
+    "taglinePrefix": "Full Stack Software Engineer",
+    "ctaPrimary": "Hablemos de tu proyecto",
+    "ctaSecondary": "Ver proyectos",
+    "ctaCv": "Descargar CV",
     "downloadCvAria": "Descargar currículum en PDF",
     "roleMeta": "Full Stack Software Engineer",
     "locationMeta": "Remoto · Colombia",
     "stackMeta": "Laravel · Vue/Nuxt · WordPress",
     "portraitAlt": "Retrato de {name}",
     "aboutAvatarAlt": "Avatar ilustrado de {name}",
-    "featuredLabel": "Proyecto destacado"
+    "featuredLabel": "Proyecto destacado",
+    "scroll": "Scroll",
+    "impactLead": "Construyo"
   },
   "about": {
     "eyebrow": "Perfil",
     "title": "Sobre mí",
-    "description": "Una visión rápida de cómo trabajo, qué construyo y dónde aporto más valor."
+    "description": "Una visión rápida de cómo trabajo, qué construyo y dónde aporto más valor.",
+    "statsYears": "Años de experiencia",
+    "statsProducts": "Productos en producción",
+    "statsTechnologies": "Tecnologías dominadas",
+    "flipHint": "Pasa el cursor para ver la foto"
   },
   "skills": {
     "eyebrow": "Stack",
@@ -152,14 +159,14 @@
     "bio": {
       "title": "Full Stack Software Engineer · Laravel, Vue, Nuxt y Tailwind",
       "tagline": "Construyo productos web: SaaS, ERP, APIs, dashboards, automatizaciones y sitios a medida con UX clara, performance y arquitectura mantenible.",
-      "taglinePrefix": "Construyo productos web: ",
+      "taglinePrefix": "Full Stack Software Engineer",
       "taglineRotatingTokens": [
         "SaaS",
         "ERP",
         "APIs",
-        "dashboards",
-        "automatizaciones",
-        "sitios a medida"
+        "Dashboards",
+        "Automatizaciones",
+        "Sitios a medida"
       ],
       "heroTrustLine": "Freelance · Bello, Antioquia · Colombia · Laravel, Vue, Nuxt, WordPress (Divi/Elementor), SaaS/ERP y despliegues",
       "location": "Bello, Antioquia"

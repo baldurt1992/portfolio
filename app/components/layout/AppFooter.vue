@@ -5,7 +5,7 @@
 
 <template>
   <footer data-site-footer class="border-t border-border bg-bg">
-    <UContainer class="py-8">
+    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div class="space-y-1">
           <p class="text-sm font-medium text-text">
@@ -33,6 +33,6 @@
           </a>
         </div>
       </div>
-    </UContainer>
+    </div>
   </footer>
 </template>

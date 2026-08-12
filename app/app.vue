@@ -214,9 +214,9 @@
         })),
         ...(h.link ?? []),
         { rel: 'icon', href: assetHref('favicon.ico'), sizes: '32x32' },
-        { rel: 'icon', type: 'image/svg+xml', href: assetHref('favicon.svg') },
+        { rel: 'icon', type: 'image/png', href: assetHref('favicon-32x32.png'), sizes: '32x32' },
         { rel: 'icon', type: 'image/png', href: assetHref('favicon-96x96.png'), sizes: '96x96' },
-        { rel: 'apple-touch-icon', href: assetHref('apple-touch-icon.png') },
+        { rel: 'apple-touch-icon', href: assetHref('apple-touch-icon.png'), sizes: '180x180' },
         { rel: 'manifest', href: assetHref('site.webmanifest') }
         // Tipografía: la carga Space Grotesk la hace `@nuxt/fonts` (vía @nuxt/ui)
         // a partir de `--font-sans` en `main.css`. No duplicar con Google Fonts.
@@ -271,7 +271,8 @@
 
 <template>
   <UApp :locale="nuxtUiLocale">
-    <a href="#main-content" class="skip-link bg-primary text-white px-4 py-2 rounded-lg font-medium text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50">
+    <a href="#main-content"
+      class="skip-link bg-primary text-white px-4 py-2 rounded-lg font-medium text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50">
       {{ t('a11y.skipToMain') }}
     </a>
 

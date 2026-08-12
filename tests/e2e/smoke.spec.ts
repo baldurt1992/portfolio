@@ -41,7 +41,7 @@ test.describe('BaldurDev portfolio smoke', () => {
   test('important CTA hrefs are present', async ({ page }) => {
     await page.goto('/')
     await expect(page.getByRole('link', { name: /Hablemos|Let.s talk/i })).toBeVisible()
-    await expect(page.getByRole('link', { name: /Ver trabajo|See recent work/i }).first()).toBeVisible()
+    await expect(page.getByRole('link', { name: /Ver proyectos|View projects/i }).first()).toBeVisible()
     await expect(page.locator('a[download]').first()).toHaveAttribute('href', /Baldur_Tamayo_Resume_EN\.pdf/)
   })
 

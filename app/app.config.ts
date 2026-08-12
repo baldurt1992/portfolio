@@ -1,10 +1,10 @@
 const inputBase =
-  'w-full appearance-none rounded-lg border border-border bg-bg-elevated px-4 py-3 text-text placeholder:text-text-subtle transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:cursor-not-allowed disabled:opacity-60'
+  'w-full appearance-none rounded-lg border border-border bg-bg-elevated px-4 py-3 text-text placeholder:text-text-subtle transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 disabled:cursor-not-allowed disabled:opacity-60'
 
 export default defineAppConfig({
   ui: {
     colors: {
-      primary: 'indigo',
+      primary: 'orange',
       neutral: 'zinc'
     },
     footer: {
@@ -14,24 +14,24 @@ export default defineAppConfig({
     },
     button: {
       slots: {
-        base: 'inline-flex items-center justify-center gap-2 font-sans font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-60'
+        base: 'inline-flex items-center justify-center gap-2 font-sans font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 disabled:cursor-not-allowed disabled:opacity-60'
       },
       variants: {
         variant: {
           solid:
-            'bg-primary text-white shadow-sm hover:bg-primary-hover hover:shadow-md hover:-translate-y-0.5 active:translate-y-0',
+            'bg-accent text-slate-900 shadow-sm hover:bg-accent-hover hover:shadow-md hover:-translate-y-0.5 active:translate-y-0',
           outline:
             'border border-border bg-transparent text-text hover:bg-surface-hover hover:border-border-strong active:bg-surface-soft',
           ghost:
             'bg-transparent text-text hover:bg-surface-hover active:bg-surface-soft',
           soft:
-            'bg-primary-soft text-primary hover:bg-primary/20 active:bg-primary/25'
+            'bg-accent-soft text-accent hover:bg-accent/20 active:bg-accent/25'
         }
       }
     },
     card: {
       slots: {
-        root: 'rounded-xl border border-border bg-bg-elevated shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5'
+        root: 'rounded-xl border border-border bg-bg-elevated shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-1'
       }
     },
     badge: {
@@ -40,10 +40,10 @@ export default defineAppConfig({
       },
       variants: {
         variant: {
-          solid: 'bg-primary text-white',
+          solid: 'bg-accent text-slate-900',
           outline: 'border border-border bg-transparent text-text-muted',
           soft: 'bg-surface-soft text-text-muted',
-          subtle: 'bg-primary-soft text-primary'
+          subtle: 'bg-accent-soft text-accent'
         }
       }
     },
@@ -109,7 +109,7 @@ export default defineAppConfig({
     },
     header: {
       slots: {
-        root: 'sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md'
+        root: 'fixed top-0 start-0 end-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md'
       }
     }
   }

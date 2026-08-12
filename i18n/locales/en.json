@@ -33,21 +33,28 @@
     "switchTo": "Language"
   },
   "hero": {
-    "ctaProject": "Let’s talk about your project",
-    "ctaWork": "See recent work",
-    "downloadCv": "Download CV",
-    "downloadCvAria": "Download résumé as PDF",
+    "taglinePrefix": "Full Stack Software Engineer",
+    "ctaPrimary": "Let's talk about your project",
+    "ctaSecondary": "View projects",
+    "ctaCv": "Download CV",
+    "downloadCvAria": "Download resume PDF",
     "roleMeta": "Full Stack Software Engineer",
     "locationMeta": "Remote · Colombia",
     "stackMeta": "Laravel · Vue/Nuxt · WordPress",
     "portraitAlt": "Portrait of {name}",
     "aboutAvatarAlt": "Illustrated avatar of {name}",
-    "featuredLabel": "Featured project"
+    "featuredLabel": "Featured project",
+    "scroll": "Scroll",
+    "impactLead": "I build"
   },
   "about": {
     "eyebrow": "Profile",
     "title": "About me",
-    "description": "A quick view of how I work, what I build, and where I bring the most value."
+    "description": "A quick view of how I work, what I build and where I add the most value.",
+    "statsYears": "Years of experience",
+    "statsProducts": "Products in production",
+    "statsTechnologies": "Technologies mastered",
+    "flipHint": "Hover to see the photo"
   },
   "skills": {
     "eyebrow": "Stack",
@@ -152,14 +159,14 @@
     "bio": {
       "title": "Full Stack Software Engineer · Laravel, Vue, Nuxt & Tailwind",
       "tagline": "I build business web products: SaaS, ERP, APIs, dashboards, automations, and custom websites with clear UX, performance, and maintainable architecture.",
-      "taglinePrefix": "I build business web products: ",
+      "taglinePrefix": "Full Stack Software Engineer",
       "taglineRotatingTokens": [
         "SaaS",
         "ERP",
         "APIs",
-        "dashboards",
-        "automations",
-        "custom websites"
+        "Dashboards",
+        "Automations",
+        "Custom websites"
       ],
       "heroTrustLine": "Freelance · Bello, Antioquia · Colombia · Laravel, Vue, Nuxt, WordPress (Divi/Elementor), SaaS/ERP, and deployments",
       "location": "Bello, Antioquia"
