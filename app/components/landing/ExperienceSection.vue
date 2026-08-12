@@ -1,44 +1,13 @@
 <script setup lang="ts">
-  import gsap from 'gsap'
-  import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-  gsap.registerPlugin(ScrollTrigger)
-
   const { t } = useI18n()
   const portfolioData = usePortfolioData()
 
   const sectionRef = ref<HTMLElement | null>(null)
 
-  let revealCtx: gsap.Context | null = null
-
-  onMounted(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion) return
-
-    const root = sectionRef.value
-    if (!root) {
-      console.error('[ExperienceSection] No hay nodo de sección para GSAP')
-      return
-    }
-
-    revealCtx = gsap.context(() => {
-      gsap.from('.experience-item', {
-        scrollTrigger: {
-          trigger: root,
-          start: 'top 75%',
-          toggleActions: 'play none none reverse'
-        },
-        y: 32,
-        opacity: 0,
-        duration: 0.65,
-        stagger: 0.12,
-        ease: 'power3.out'
-      })
-    }, root)
-  })
-
-  onUnmounted(() => {
-    revealCtx?.revert()
+  useGsapInViewReveal(sectionRef, '.experience-item', {
+    y: 32,
+    duration: 0.65,
+    logTag: 'ExperienceSection'
   })
 </script>
 

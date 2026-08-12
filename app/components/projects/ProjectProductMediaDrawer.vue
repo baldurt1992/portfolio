@@ -93,16 +93,25 @@
 
 <template>
   <USlideover v-if="items.length > 0" v-model:open="open" side="right" :title="project.title"
-    :description="t('drawer.description')">
-    <button type="button" class="inline-flex items-center gap-1.5 rounded-lg bg-primary-soft px-3 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary/20" @click="open = true">
+    :description="t('drawer.description')" :ui="{
+      content: 'w-full max-w-6xl bg-bg-elevated text-text divide-border',
+      header: 'border-b border-border bg-bg-elevated',
+      body: 'flex min-h-0 flex-1 flex-col overflow-hidden p-0 bg-bg',
+      footer: 'border-t border-border bg-bg-elevated',
+      title: 'font-heading font-semibold text-text',
+      description: 'text-text-muted'
+    }">
+    <button type="button"
+      class="inline-flex cursor-pointer items-center gap-1.5 rounded-lg bg-primary-soft px-3 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
+      @click="open = true">
       <UIcon name="i-lucide-panel-right-open" class="size-4" aria-hidden="true" />
       {{ t('projectCard.viewDetails') }}
     </button>
 
     <template #body>
-      <div class="flex max-h-[min(85dvh,880px)] flex-col overflow-hidden lg:max-h-[min(90dvh,960px)] lg:flex-row">
+      <div class="flex h-full min-h-0 flex-col overflow-hidden lg:flex-row">
         <nav :aria-label="t('a11y.productMediaNav')"
-          class="shrink-0 border-b border-border bg-bg-elevated/50 lg:w-60 lg:border-e lg:border-b-0">
+          class="shrink-0 border-b border-border bg-bg-elevated lg:w-64 lg:border-e lg:border-b-0">
           <div class="border-b border-border px-4 py-3 lg:px-5">
             <p class="font-mono text-xs font-medium uppercase tracking-wider text-primary">
               {{ t('drawer.caseStudy') }}
@@ -111,19 +120,21 @@
               {{ t('drawer.moduleCount', { count: items.length }) }}
             </p>
           </div>
-          <ul class="flex list-none gap-1 overflow-x-auto p-2 lg:flex lg:flex-col lg:gap-0 lg:overflow-y-auto lg:p-3">
+          <ul
+            class="flex list-none gap-1 overflow-x-auto p-2 lg:flex lg:max-h-full lg:flex-col lg:gap-0 lg:overflow-y-auto lg:p-3">
             <template v-for="entry in navEntries" :key="entry.kind === 'heading' ? entry.key : `step-${entry.index}`">
               <li v-if="entry.kind === 'heading'" class="mt-0 shrink-0 lg:mt-3 lg:w-full first:lg:mt-0"
                 role="presentation">
                 <div class="px-2 py-1 lg:px-3">
-                  <span class="block max-w-44 text-[0.65rem] leading-tight font-semibold tracking-wide text-text-subtle uppercase sm:max-w-none lg:max-w-none">
+                  <span
+                    class="block max-w-44 font-mono text-xs font-semibold uppercase tracking-wide text-text-subtle sm:max-w-none">
                     {{ entry.label }}
                   </span>
                 </div>
               </li>
               <li v-else class="shrink-0 lg:w-full">
                 <button type="button"
-                  class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-sm transition-colors hover:bg-surface-soft"
+                  class="flex w-full cursor-pointer items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-sm transition-colors hover:bg-surface-soft"
                   :class="entry.index === activeIndex
                     ? 'bg-primary-soft text-primary'
                     : 'text-text-muted'
@@ -144,7 +155,7 @@
         <div class="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto p-4 sm:p-6">
           <div class="mb-4">
             <p v-if="current.mediaGroupTitle"
-              class="mb-1 font-mono text-[0.7rem] font-semibold tracking-wide text-primary uppercase">
+              class="mb-1 font-mono text-xs font-semibold uppercase tracking-wide text-primary">
               {{ current.mediaGroupTitle }}
             </p>
             <h3 class="text-base font-semibold text-text sm:text-lg">
@@ -169,7 +180,7 @@
               </span>
               <div class="flex flex-wrap gap-1">
                 <button v-for="rate in PLAYBACK_RATES" :key="rate" type="button"
-                  class="min-w-10 rounded-lg px-2 py-1 text-xs font-medium tabular-nums transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                  class="min-w-10 cursor-pointer rounded-lg px-2 py-1 text-xs font-medium tabular-nums transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
                   :class="playbackRate === rate
                     ? 'bg-primary text-white'
                     : 'bg-white/10 text-white/90 hover:bg-white/15'
@@ -194,8 +205,8 @@
         <span class="text-sm text-text-muted tabular-nums">
           {{ activeIndex + 1 }} / {{ items.length }}
         </span>
-        <UButton color="neutral" variant="ghost" size="sm" trailing-icon="i-lucide-chevron-right"
-          class="rounded-lg" :disabled="activeIndex >= items.length - 1" @click="goNext">
+        <UButton color="neutral" variant="ghost" size="sm" trailing-icon="i-lucide-chevron-right" class="rounded-lg"
+          :disabled="activeIndex >= items.length - 1" @click="goNext">
           {{ t('drawer.next') }}
         </UButton>
       </div>

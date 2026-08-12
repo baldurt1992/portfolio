@@ -1,9 +1,5 @@
 <script setup lang="ts">
-  import gsap from 'gsap'
-  import { ScrollTrigger } from 'gsap/ScrollTrigger'
   import { publicPath } from '~/utils/publicPath'
-
-  gsap.registerPlugin(ScrollTrigger)
 
   const { t } = useI18n()
   const portfolioData = usePortfolioData()
@@ -18,37 +14,7 @@
     { value: '18+', label: t('about.statsTechnologies') }
   ]
 
-  let revealCtx: gsap.Context | null = null
-
-  onMounted(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion) return
-
-    const root = sectionRef.value
-    if (!root) {
-      console.error('[AboutSection] No hay nodo de sección para GSAP')
-      return
-    }
-
-    revealCtx = gsap.context(() => {
-      gsap.from('.about-reveal', {
-        scrollTrigger: {
-          trigger: root,
-          start: 'top 75%',
-          toggleActions: 'play none none reverse'
-        },
-        y: 36,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.12,
-        ease: 'power3.out'
-      })
-    }, root)
-  })
-
-  onUnmounted(() => {
-    revealCtx?.revert()
-  })
+  useGsapInViewReveal(sectionRef, '.about-reveal', { y: 36, logTag: 'AboutSection' })
 </script>
 
 <template>

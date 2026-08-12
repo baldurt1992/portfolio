@@ -14,7 +14,7 @@ export default defineAppConfig({
     },
     button: {
       slots: {
-        base: 'inline-flex items-center justify-center gap-2 font-sans font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 disabled:cursor-not-allowed disabled:opacity-60'
+        base: 'inline-flex cursor-pointer items-center justify-center gap-2 font-sans font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 disabled:cursor-not-allowed disabled:opacity-60'
       },
       variants: {
         variant: {
@@ -22,10 +22,8 @@ export default defineAppConfig({
             'bg-accent text-slate-900 shadow-sm hover:bg-accent-hover hover:shadow-md hover:-translate-y-0.5 active:translate-y-0',
           outline:
             'border border-border bg-transparent text-text hover:bg-surface-hover hover:border-border-strong active:bg-surface-soft',
-          ghost:
-            'bg-transparent text-text hover:bg-surface-hover active:bg-surface-soft',
-          soft:
-            'bg-accent-soft text-accent hover:bg-accent/20 active:bg-accent/25'
+          ghost: 'bg-transparent text-text hover:bg-surface-hover active:bg-surface-soft',
+          soft: 'bg-accent-soft text-accent hover:bg-accent/20 active:bg-accent/25'
         }
       }
     },
@@ -64,7 +62,9 @@ export default defineAppConfig({
           outline: inputBase,
           soft: inputBase.replace('bg-bg-elevated', 'bg-surface'),
           subtle: inputBase.replace('border-border', 'border-transparent'),
-          ghost: inputBase.replace('bg-bg-elevated', 'bg-transparent').replace('border-border', 'border-transparent')
+          ghost: inputBase
+            .replace('bg-bg-elevated', 'bg-transparent')
+            .replace('border-border', 'border-transparent')
         }
       },
       defaultVariants: {
@@ -98,7 +98,12 @@ export default defineAppConfig({
     slideover: {
       slots: {
         overlay: 'bg-black/60 backdrop-blur-sm',
-        content: 'bg-bg-elevated shadow-xl'
+        content: 'bg-bg-elevated text-text shadow-xl divide-border',
+        header: 'border-b border-border bg-bg-elevated',
+        body: 'bg-bg-elevated text-text',
+        footer: 'border-t border-border bg-bg-elevated',
+        title: 'font-heading font-semibold text-text',
+        description: 'text-text-muted'
       }
     },
     modal: {

@@ -1,9 +1,4 @@
 <script setup lang="ts">
-  import gsap from 'gsap'
-  import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-  gsap.registerPlugin(ScrollTrigger)
-
   const { t } = useI18n()
   const portfolioData = usePortfolioData()
 
@@ -17,36 +12,10 @@
     portfolioData.value.projects.filter((project) => project.prominence !== 'flagship')
   )
 
-  let revealCtx: gsap.Context | null = null
-
-  onMounted(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion) return
-
-    const root = sectionRef.value
-    if (!root) {
-      console.error('[ProjectsSection] No hay nodo de sección para GSAP')
-      return
-    }
-
-    revealCtx = gsap.context(() => {
-      gsap.from('.project-card', {
-        scrollTrigger: {
-          trigger: root,
-          start: 'top 70%',
-          toggleActions: 'play none none reverse'
-        },
-        y: 64,
-        opacity: 0,
-        duration: 0.75,
-        stagger: 0.12,
-        ease: 'power3.out'
-      })
-    }, root)
-  })
-
-  onUnmounted(() => {
-    revealCtx?.revert()
+  useGsapInViewReveal(sectionRef, '.project-card', {
+    y: 64,
+    duration: 0.75,
+    logTag: 'ProjectsSection'
   })
 </script>
 
