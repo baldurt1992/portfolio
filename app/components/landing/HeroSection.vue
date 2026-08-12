@@ -41,8 +41,8 @@
     }
     gsap.to(el, {
       scaleX: tokenProgress(i),
-      duration: wrapped ? 0.5 : 0.75,
-      ease: 'expo.out'
+      duration: wrapped ? 0.35 : 0.45,
+      ease: 'power2.out'
     })
   }
 
@@ -70,13 +70,8 @@
 
     tokenTl?.kill()
     gsap.set(incoming, {
-      yPercent: 90,
-      rotateX: 58,
-      opacity: 0,
-      filter: 'blur(10px)',
-      scale: 0.92,
-      transformPerspective: 900,
-      transformOrigin: '50% 80%'
+      yPercent: 40,
+      opacity: 0
     })
 
     tokenTl = gsap.timeline({
@@ -89,12 +84,9 @@
       tokenTl.to(
         outgoing,
         {
-          yPercent: -90,
-          rotateX: -58,
+          yPercent: -40,
           opacity: 0,
-          filter: 'blur(10px)',
-          scale: 0.92,
-          duration: 0.5,
+          duration: 0.3,
           ease: 'power2.in'
         },
         0
@@ -105,14 +97,11 @@
       incoming,
       {
         yPercent: 0,
-        rotateX: 0,
         opacity: 1,
-        filter: 'blur(0px)',
-        scale: 1,
-        duration: 0.7,
-        ease: 'expo.out'
+        duration: 0.4,
+        ease: 'power2.out'
       },
-      0.06
+      0.05
     )
   })
 
@@ -141,17 +130,16 @@
     }
 
     introCtx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+      const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 0.5 } })
 
       tl.from(title, {
-        y: 48,
+        y: 20,
         opacity: 0,
-        duration: 0.9,
-        delay: 0.12
+        delay: 0.08
       })
-        .from(subtitle, { y: 28, opacity: 0, duration: 0.7 }, '-=0.55')
-        .from(cta, { y: 20, opacity: 0, duration: 0.5 }, '-=0.4')
-        .from(impact, { y: 28, opacity: 0, duration: 0.8 }, '-=0.55')
+        .from(subtitle, { y: 16, opacity: 0 }, '-=0.32')
+        .from(cta, { y: 12, opacity: 0 }, '-=0.28')
+        .from(impact, { y: 16, opacity: 0 }, '-=0.32')
     }, root)
   })
 
@@ -190,12 +178,12 @@
 
           <div ref="ctaRef" class="flex flex-wrap items-center gap-4">
             <NuxtLink :to="contactTo"
-              class="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-base font-semibold text-slate-900 shadow-lg transition-all hover:bg-accent-hover hover:shadow-xl hover:-translate-y-1 active:translate-y-0">
+              class="motion-lift inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-base font-semibold text-slate-900 shadow-sm hover:bg-accent-hover hover:shadow-md">
               {{ t('hero.ctaPrimary') }}
               <UIcon name="i-lucide-arrow-right" class="size-5" aria-hidden="true" />
             </NuxtLink>
             <NuxtLink :to="localePath({ path: '/', hash: '#projects' })"
-              class="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-border bg-bg-elevated/80 px-6 py-3 text-base font-medium text-text backdrop-blur-sm transition-all hover:border-border-strong hover:bg-surface-hover">
+              class="motion-lift inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-xl border border-border bg-bg-elevated/80 px-6 py-3 text-base font-medium text-text backdrop-blur-sm hover:border-border-strong hover:bg-surface-hover">
               {{ t('hero.ctaSecondary') }}
             </NuxtLink>
             <a v-if="portfolioData.bio.cvHref" :href="portfolioData.bio.cvHref" :download="portfolioData.bio.cvFileName"
@@ -231,7 +219,7 @@
   .hero-token-clip {
     position: relative;
     overflow: hidden;
-    perspective: 900px;
+    perspective: none;
     height: 1.2em;
   }
 
@@ -240,7 +228,7 @@
     font-size: inherit;
     line-height: 1.2;
     white-space: nowrap;
-    will-change: transform, opacity, filter;
+    will-change: transform, opacity;
   }
 
   .hero-token-out {

@@ -14,12 +14,11 @@ export default defineAppConfig({
     },
     button: {
       slots: {
-        base: 'inline-flex cursor-pointer items-center justify-center gap-2 font-sans font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 disabled:cursor-not-allowed disabled:opacity-60'
+        base: 'motion-lift inline-flex cursor-pointer items-center justify-center gap-2 font-sans font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 disabled:cursor-not-allowed disabled:opacity-60'
       },
       variants: {
         variant: {
-          solid:
-            'bg-accent text-slate-900 shadow-sm hover:bg-accent-hover hover:shadow-md hover:-translate-y-0.5 active:translate-y-0',
+          solid: 'bg-accent text-slate-900 shadow-sm hover:bg-accent-hover hover:shadow-md',
           outline:
             'border border-border bg-transparent text-text hover:bg-surface-hover hover:border-border-strong active:bg-surface-soft',
           ghost: 'bg-transparent text-text hover:bg-surface-hover active:bg-surface-soft',
@@ -29,7 +28,7 @@ export default defineAppConfig({
     },
     card: {
       slots: {
-        root: 'rounded-xl border border-border bg-bg-elevated shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-1'
+        root: 'motion-lift rounded-xl border border-border bg-bg-elevated shadow-sm hover:shadow-md'
       }
     },
     badge: {

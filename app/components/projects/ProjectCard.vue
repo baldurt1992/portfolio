@@ -160,12 +160,12 @@
         <div v-if="hasProjectActions" class="flex flex-wrap gap-2">
           <ProjectsProjectProductMediaDrawer v-if="project.mediaModules?.length" :project="project" />
           <a v-if="project.url" :href="project.url" target="_blank" rel="noopener noreferrer"
-            class="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium text-text transition-colors hover:bg-surface-hover">
+            class="motion-lift inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium text-text hover:bg-surface-hover">
             {{ t('projectCard.viewProject') }}
             <UIcon name="i-lucide-external-link" class="size-3.5" aria-hidden="true" />
           </a>
           <a v-if="project.repo" :href="project.repo" target="_blank" rel="noopener noreferrer"
-            class="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium text-text transition-colors hover:bg-surface-hover"
+            class="motion-lift inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium text-text hover:bg-surface-hover"
             :aria-label="t('a11y.openRepoGithub')">
             <UIcon name="i-simple-icons-github" class="size-4" aria-hidden="true" />
           </a>

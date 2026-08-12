@@ -26,7 +26,7 @@
 
           <div class="mt-8 space-y-4">
             <a :href="`mailto:${bio.email}`"
-              class="group flex items-center gap-3 rounded-2xl border border-border bg-bg-elevated p-4 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+              class="motion-lift group flex cursor-pointer items-center gap-3 rounded-2xl border border-border bg-bg-elevated p-4 shadow-sm hover:border-accent/30 hover:shadow-md">
               <span class="inline-flex size-10 items-center justify-center rounded-xl bg-accent-soft text-accent">
                 <UIcon name="i-lucide-mail" class="size-5" aria-hidden="true" />
               </span>
@@ -68,7 +68,7 @@
               </UFormField>
               <div v-if="showTurnstileWidget" ref="turnstileContainerRef" class="flex min-h-16 justify-start" />
               <button type="submit"
-                class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-base font-semibold text-slate-900 shadow-lg transition-all hover:bg-accent-hover hover:shadow-xl hover:-translate-y-1 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                class="motion-lift inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-base font-semibold text-slate-900 shadow-sm hover:bg-accent-hover hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 :disabled="loading" :aria-busy="loading">
                 <UIcon v-if="loading" name="i-lucide-loader-circle" class="size-5 animate-spin" aria-hidden="true" />
                 {{ t('contact.submit') }}
@@ -78,7 +78,7 @@
             <p class="mt-5 text-sm text-text-muted">
               {{ t('contact.mailFallback') }}
               <a :href="`mailto:${bio.email}`" class="font-medium text-accent hover:text-accent-hover">{{ bio.email
-                }}</a>
+              }}</a>
             </p>
           </div>
         </div>

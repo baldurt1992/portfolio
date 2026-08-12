@@ -51,7 +51,7 @@
   <Transition name="fade">
     <div v-if="show" class="pointer-events-none fixed inset-e-4 sm:inset-e-6 z-40" :style="{ bottom: `${bottomPx}px` }">
       <button type="button"
-        class="pointer-events-auto inline-flex size-11 items-center justify-center rounded-xl border border-border bg-bg-elevated text-text shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+        class="motion-lift pointer-events-auto inline-flex size-11 items-center justify-center rounded-xl border border-border bg-bg-elevated text-text shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
         :aria-label="t('a11y.scrollTop')" @click="scrollToTop">
         <UIcon name="i-lucide-arrow-up" class="size-5" aria-hidden="true" />
       </button>

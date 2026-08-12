@@ -89,7 +89,7 @@
       </div>
 
       <NuxtLink :to="contactTo"
-        class="hidden sm:inline-flex min-h-10 items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm transition-all hover:bg-accent-hover hover:shadow-md hover:-translate-y-0.5 active:translate-y-0">
+        class="motion-lift hidden min-h-10 cursor-pointer items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm hover:bg-accent-hover hover:shadow-md sm:inline-flex">
         {{ t('header.contact') }}
       </NuxtLink>
 
@@ -132,7 +132,7 @@
           </nav>
 
           <NuxtLink :to="contactTo"
-            class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-base font-semibold text-slate-900 shadow-sm transition-all hover:bg-accent-hover"
+            class="motion-lift inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-base font-semibold text-slate-900 shadow-sm hover:bg-accent-hover hover:shadow-md"
             @click="close?.()">
             {{ t('header.contact') }}
           </NuxtLink>

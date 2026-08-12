@@ -37,9 +37,6 @@
   })
 
   useGsapInViewReveal(sectionRef, '.skill-card', {
-    y: 24,
-    duration: 0.5,
-    stagger: 0.07,
     logTag: 'SkillsSection',
     triggerRef: gridRef
   })
@@ -63,7 +60,7 @@
       <div ref="gridRef" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         <div v-for="category in categories" :key="category.key" class="skill-card h-full">
           <div
-            class="group relative flex h-full flex-col rounded-2xl border border-border bg-bg-elevated p-5 shadow-sm transition-[color,box-shadow,border-color,transform] duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg">
+            class="motion-lift group relative flex h-full flex-col rounded-2xl border border-border bg-bg-elevated p-5 shadow-sm hover:border-accent/30 hover:shadow-md">
             <div class="mb-4 flex items-center gap-3">
               <span
                 class="inline-flex size-11 items-center justify-center rounded-xl bg-accent-soft text-accent ring-1 ring-accent/20 transition-colors group-hover:bg-accent group-hover:text-slate-900">

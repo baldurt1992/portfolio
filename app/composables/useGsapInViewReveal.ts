@@ -52,7 +52,7 @@ export function useGsapInViewReveal(
 
     gsap.set(targets, {
       opacity: 0,
-      y: options?.y ?? 28,
+      y: options?.y ?? 20,
       immediateRender: true
     })
 
@@ -69,7 +69,7 @@ export function useGsapInViewReveal(
           gsap.to(targets, {
             opacity: 1,
             y: 0,
-            duration: options?.duration ?? 0.55,
+            duration: options?.duration ?? 0.5,
             stagger: options?.stagger ?? 0.08,
             ease: 'power2.out',
             overwrite: 'auto',

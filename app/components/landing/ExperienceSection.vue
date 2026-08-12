@@ -3,10 +3,9 @@
   const portfolioData = usePortfolioData()
 
   const sectionRef = ref<HTMLElement | null>(null)
+  const experienceItems = computed(() => portfolioData.value.experience)
 
   useGsapInViewReveal(sectionRef, '.experience-item', {
-    y: 32,
-    duration: 0.65,
     logTag: 'ExperienceSection'
   })
 </script>
@@ -26,20 +25,25 @@
         </p>
       </div>
 
-      <ol class="relative space-y-6 lg:space-y-0">
-        <div class="absolute start-5 top-2 bottom-2 w-px bg-border lg:start-1/2 lg:-translate-x-1/2"
-          aria-hidden="true" />
-
-        <li v-for="(item, index) in portfolioData.experience" :key="item.title"
-          class="experience-item relative ps-14 lg:grid lg:grid-cols-2 lg:ps-0 lg:py-5">
-          <div
-            class="absolute inset-s-0 top-1 z-10 flex size-10 items-center justify-center rounded-full border border-border bg-bg-elevated lg:inset-s-1/2 lg:top-8 lg:-translate-x-1/2">
-            <UIcon :name="item.icon || 'i-lucide-briefcase'" class="size-4 text-accent" aria-hidden="true" />
+      <ol class="relative">
+        <li v-for="(item, index) in experienceItems" :key="item.title"
+          class="experience-item grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 lg:grid-cols-[minmax(0,1fr)_2.5rem_minmax(0,1fr)] lg:gap-x-0">
+          <div class="flex h-full flex-col items-center lg:col-start-2 lg:row-start-1">
+            <div
+              class="relative z-10 flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-bg-elevated">
+              <UIcon :name="item.icon || 'i-lucide-briefcase'" class="size-4 text-accent" aria-hidden="true" />
+            </div>
+            <div v-if="index < experienceItems.length - 1" class="w-px min-h-4 flex-1 bg-border" aria-hidden="true" />
           </div>
 
           <article
-            class="rounded-2xl border border-border bg-bg-elevated p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md sm:p-6"
-            :class="index % 2 === 0 ? 'lg:col-start-1 lg:pe-12' : 'lg:col-start-2 lg:ps-12'">
+            class="motion-lift rounded-2xl border border-border bg-bg-elevated p-5 shadow-sm hover:border-accent/30 hover:shadow-md sm:p-6"
+            :class="[
+              index < experienceItems.length - 1 ? 'mb-8' : '',
+              index % 2 === 0
+                ? 'lg:col-start-1 lg:row-start-1 lg:pe-10'
+                : 'lg:col-start-3 lg:row-start-1 lg:ps-10'
+            ]">
             <p class="mb-2 font-mono text-xs font-medium uppercase tracking-wider text-accent">
               {{ item.date }}
             </p>

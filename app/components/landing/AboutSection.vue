@@ -14,7 +14,7 @@
     { value: '18+', label: t('about.statsTechnologies') }
   ]
 
-  useGsapInViewReveal(sectionRef, '.about-reveal', { y: 36, logTag: 'AboutSection' })
+  useGsapInViewReveal(sectionRef, '.about-reveal', { logTag: 'AboutSection' })
 </script>
 
 <template>

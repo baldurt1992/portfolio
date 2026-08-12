@@ -28,11 +28,11 @@
   --color-danger: #ef4444;
   --color-danger-soft: rgba(239, 68, 68, 0.1);
 
-  /* Motion */
+  /* Motion — DESIGN.md: 150/200/300ms, ease standard, lift 2px */
   --motion-fast: 150ms;
-  --motion-normal: 250ms;
+  --motion-normal: 300ms;
   --motion-slow: 400ms;
-  --motion-section: 800ms;
+  --motion-section: 500ms;
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
@@ -150,6 +150,23 @@ main {
   outline-offset: 2px;
 }
 
+/* Hover/press compartido: cards, CTAs, chips */
+.motion-lift {
+  transition-property: transform, box-shadow, border-color, background-color, color;
+  transition-duration: var(--motion-normal);
+  transition-timing-function: var(--ease-standard);
+}
+
+.motion-lift:hover {
+  transform: translateY(-2px);
+}
+
+.motion-lift:active,
+.motion-lift:disabled:hover,
+.motion-lift[aria-disabled='true']:hover {
+  transform: translateY(0);
+}
+
 /* Reduced motion: remove decorative transitions and animations */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -159,6 +176,11 @@ main {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .motion-lift:hover,
+  .motion-lift:active {
+    transform: none;
   }
 }
 

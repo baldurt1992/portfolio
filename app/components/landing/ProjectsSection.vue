@@ -13,8 +13,6 @@
   )
 
   useGsapInViewReveal(sectionRef, '.project-card', {
-    y: 64,
-    duration: 0.75,
     logTag: 'ProjectsSection'
   })
 </script>
@@ -36,13 +34,13 @@
 
       <div class="space-y-5">
         <article v-if="flagshipProject"
-          class="project-card overflow-hidden rounded-2xl border border-border bg-bg-elevated shadow-sm transition-all duration-300 hover:border-accent/30 hover:shadow-xl">
+          class="project-card motion-lift overflow-hidden rounded-2xl border border-border bg-bg-elevated shadow-sm hover:border-accent/30 hover:shadow-md">
           <ProjectsProjectCard :project="flagshipProject" variant="featured" />
         </article>
 
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <article v-for="project in otherProjects" :key="project.id"
-            class="project-card overflow-hidden rounded-2xl border border-border bg-bg-elevated shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-xl">
+            class="project-card motion-lift overflow-hidden rounded-2xl border border-border bg-bg-elevated shadow-sm hover:border-accent/30 hover:shadow-md">
             <ProjectsProjectCard :project="project" />
           </article>
         </div>

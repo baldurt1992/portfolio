@@ -53,9 +53,8 @@
       </div>
 
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        <a v-for="landing in landings" :key="landing.id" :href="landing.url" target="_blank"
-          rel="noopener noreferrer"
-          class="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-elevated shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
+        <a v-for="landing in landings" :key="landing.id" :href="landing.url" target="_blank" rel="noopener noreferrer"
+          class="motion-lift group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-bg-elevated shadow-sm hover:border-accent/30 hover:shadow-md">
           <div class="h-52 overflow-hidden border-b border-border bg-surface">
             <ShowcaseLandingPreview :preview="landing.preview" />
           </div>
@@ -70,7 +69,8 @@
               {{ t(landing.descriptionKey) }}
             </p>
             <div class="flex items-center justify-between">
-              <span class="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium text-text transition-colors group-hover:bg-surface-hover">
+              <span
+                class="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium text-text transition-colors group-hover:bg-surface-hover">
                 {{ t('showcase.viewLanding') }}
                 <UIcon name="i-lucide-arrow-up-right" class="size-4" aria-hidden="true" />
               </span>
