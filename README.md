@@ -1,60 +1,61 @@
-# Nuxt Starter Template
+# BaldurDev Portfolio
 
-[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
+Personal portfolio of **Andrés Baldur Tamayo**, Full Stack Software Engineer based in Colombia and available for remote work.
 
-Use this template to get started with [Nuxt UI](https://ui.nuxt.com) quickly.
+The site is built to present real engineering work and production experience across SaaS, multi-tenant ERP, APIs, custom WordPress solutions, CI/CD and deployment.
 
-- [Live demo](https://starter-template.nuxt.dev/)
-- [Documentation](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
+## Selected work
 
-<a href="https://starter-template.nuxt.dev/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-    <img alt="Nuxt Starter Template" src="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-  </picture>
-</a>
+- **Ticador** — production SaaS ecosystem with multi-tenant provisioning, workforce attendance, real-time flows and automated delivery.
+- **Cosmos ERP** — multi-tenant ERP built with Laravel, Nuxt and TypeScript, including invoicing, document workflows and POS operations.
+- **Dental clinic platform** — WordPress solution with a custom booking plugin, Bold Payments integration and automated notifications.
 
-> The starter template for Vue is on https://github.com/nuxt-ui-templates/starter-vue.
+The portfolio also includes **Showcase Lab**, a separate collection of frontend demos used to explore different industries, stacks and visual systems.
 
-## Quick Start
+## Stack
 
-```bash [Terminal]
-npm create nuxt@latest -- -t github:nuxt-ui-templates/starter
-```
+- Nuxt 4 / Vue 3 / TypeScript
+- Nuxt UI / Tailwind CSS
+- Vue I18n — Spanish and English
+- GSAP for restrained interface motion
+- EmailJS + Cloudflare Turnstile for contact
+- Playwright for end-to-end smoke tests
+- GitHub Pages deployment through GitHub Actions
 
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-name=starter&repository-url=https%3A%2F%2Fgithub.com%2Fnuxt-ui-templates%2Fstarter&demo-image=https%3A%2F%2Fui.nuxt.com%2Fassets%2Ftemplates%2Fnuxt%2Fstarter-dark.png&demo-url=https%3A%2F%2Fstarter-template.nuxt.dev%2F&demo-title=Nuxt%20Starter%20Template&demo-description=A%20minimal%20template%20to%20get%20started%20with%20Nuxt%20UI.)
-
-## Setup
-
-Make sure to install the dependencies:
+## Local development
 
 ```bash
-npm install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
+npm ci
 npm run dev
 ```
 
-## Production
-
-Build the application for production:
+Quality checks:
 
 ```bash
+npm run lint
+npm run typecheck
 npm run build
+npm run test:e2e
 ```
 
-Locally preview production build:
+## Deployment
 
-```bash
-npm run preview
-```
+Production is prerendered with Nuxt's GitHub Pages preset. The workflow provides the public site URL and base path used by canonical URLs, hreflang, sitemap and other SEO metadata.
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## SEO and accessibility
+
+The portfolio includes:
+
+- prerendered Spanish and English routes
+- canonical URLs and `hreflang` / `x-default`
+- XML sitemap
+- index/follow robots metadata
+- Open Graph and Twitter metadata
+- Schema.org `WebSite`, `WebPage` and `Person` structured data
+- keyboard navigation and skip link
+- reduced-motion support
+- responsive layouts and project media
+
+## License
+
+See [LICENSE](LICENSE).
