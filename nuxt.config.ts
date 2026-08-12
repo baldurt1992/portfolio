@@ -17,8 +17,8 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  // Evitamos que @nuxt/fonts (traído por @nuxt/ui) escanee las variables CSS y genere requests a Google Fonts,
-  // ya que con Source Sans 3 produce URLs de descarga que devuelven 404. Cargamos las fuentes manualmente.
+  // Evitamos que @nuxt/fonts (traído por @nuxt/ui) escanee las variables CSS y genere requests a Google Fonts.
+  // Cargamos Inter y JetBrains Mono manualmente desde el <head>.
   fonts: {
     processCSSVariables: false
   },
@@ -30,7 +30,7 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Pixelify+Sans:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap'
+          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap'
         }
       ]
     }

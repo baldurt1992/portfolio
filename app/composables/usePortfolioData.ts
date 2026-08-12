@@ -9,7 +9,9 @@ export type {
   PortfolioData,
   Project,
   ProjectMediaModule,
-  Skill
+  ProjectProminence,
+  Skill,
+  SkillCategory
 } from '~/data/portfolio'
 
 export function usePortfolioData(): ComputedRef<PortfolioData> {

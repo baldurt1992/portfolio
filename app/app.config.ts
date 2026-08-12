@@ -1,56 +1,70 @@
-const hcFieldBase =
-  'rounded-none !ring-0 !outline-none border-2 border-ink bg-dock-void text-ink shadow-[3px_3px_0_var(--color-manifest-shadow)] placeholder:text-stencil focus-visible:!ring-0 focus-visible:!outline-none focus-visible:border-seal focus-visible:bg-dock-asphalt disabled:bg-dock-steel'
+const inputBase =
+  'w-full appearance-none rounded-lg border border-border bg-bg-elevated px-4 py-3 text-text placeholder:text-text-subtle transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:cursor-not-allowed disabled:opacity-60'
 
 export default defineAppConfig({
   ui: {
     colors: {
-      primary: 'amber',
+      primary: 'indigo',
       neutral: 'zinc'
     },
     footer: {
       slots: {
-        root: 'w-full border-t-[3px] border-ink bg-dock-asphalt'
+        root: 'w-full border-t border-border bg-bg'
       }
     },
     button: {
       slots: {
-        base: 'rounded-none font-pixel font-bold tracking-wide uppercase text-xs sm:text-sm'
+        base: 'inline-flex items-center justify-center gap-2 font-sans font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-60'
+      },
+      variants: {
+        variant: {
+          solid:
+            'bg-primary text-white shadow-sm hover:bg-primary-hover hover:shadow-md hover:-translate-y-0.5 active:translate-y-0',
+          outline:
+            'border border-border bg-transparent text-text hover:bg-surface-hover hover:border-border-strong active:bg-surface-soft',
+          ghost:
+            'bg-transparent text-text hover:bg-surface-hover active:bg-surface-soft',
+          soft:
+            'bg-primary-soft text-primary hover:bg-primary/20 active:bg-primary/25'
+        }
       }
     },
     card: {
       slots: {
-        root: 'rounded-none'
+        root: 'rounded-xl border border-border bg-bg-elevated shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5'
       }
     },
     badge: {
       slots: {
-        base: 'rounded-none font-display tracking-wide'
+        base: 'inline-flex items-center justify-center rounded-full font-mono text-xs font-medium'
+      },
+      variants: {
+        variant: {
+          solid: 'bg-primary text-white',
+          outline: 'border border-border bg-transparent text-text-muted',
+          soft: 'bg-surface-soft text-text-muted',
+          subtle: 'bg-primary-soft text-primary'
+        }
       }
     },
     formField: {
       slots: {
-        label: 'font-pixel text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-ink',
-        error: 'mt-2 font-pixel text-[0.6875rem] uppercase tracking-wide text-attract-magenta',
-        help: 'mt-2 font-pixel text-[0.6875rem] uppercase tracking-wide text-stencil',
-        hint: 'font-pixel text-[0.6875rem] uppercase tracking-wide text-stencil'
+        label: 'block text-sm font-medium text-text',
+        error: 'mt-1.5 text-sm text-danger',
+        help: 'mt-1.5 text-sm text-text-muted',
+        hint: 'text-sm text-text-muted'
       }
     },
     input: {
       slots: {
-        base: [
-          'w-full appearance-none disabled:cursor-not-allowed disabled:opacity-75',
-          'transition-colors',
-          hcFieldBase
-        ].join(' ')
+        base: inputBase
       },
       variants: {
         variant: {
-          outline: hcFieldBase,
-          soft: 'rounded-none !ring-0 border-2 border-ink bg-dock-asphalt text-ink shadow-[3px_3px_0_var(--color-manifest-shadow)] focus-visible:border-seal',
-          subtle: hcFieldBase,
-          ghost:
-            'rounded-none !ring-0 border-2 border-transparent bg-transparent text-ink focus-visible:border-seal focus-visible:bg-dock-void',
-          none: 'rounded-none !ring-0 border-0 bg-transparent shadow-none'
+          outline: inputBase,
+          soft: inputBase.replace('bg-bg-elevated', 'bg-surface'),
+          subtle: inputBase.replace('border-border', 'border-transparent'),
+          ghost: inputBase.replace('bg-bg-elevated', 'bg-transparent').replace('border-border', 'border-transparent')
         }
       },
       defaultVariants: {
@@ -60,25 +74,42 @@ export default defineAppConfig({
     },
     textarea: {
       slots: {
-        base: [
-          'w-full appearance-none disabled:cursor-not-allowed disabled:opacity-75',
-          'transition-colors',
-          hcFieldBase
-        ].join(' ')
+        base: `${inputBase} resize-y min-h-[6rem]`
       },
       variants: {
         variant: {
-          outline: hcFieldBase,
-          soft: 'rounded-none !ring-0 border-2 border-ink bg-dock-asphalt text-ink shadow-[3px_3px_0_var(--color-manifest-shadow)] focus-visible:border-seal',
-          subtle: hcFieldBase,
-          ghost:
-            'rounded-none !ring-0 border-2 border-transparent bg-transparent text-ink focus-visible:border-seal focus-visible:bg-dock-void',
-          none: 'rounded-none !ring-0 border-0 bg-transparent shadow-none'
+          outline: `${inputBase} resize-y min-h-[6rem]`,
+          soft: `${inputBase.replace('bg-bg-elevated', 'bg-surface')} resize-y min-h-[6rem]`,
+          subtle: `${inputBase.replace('border-border', 'border-transparent')} resize-y min-h-[6rem]`,
+          ghost: `${inputBase.replace('bg-bg-elevated', 'bg-transparent').replace('border-border', 'border-transparent')} resize-y min-h-[6rem]`
         }
       },
       defaultVariants: {
         color: 'neutral',
         variant: 'outline'
+      }
+    },
+    tooltip: {
+      slots: {
+        content:
+          'rounded-lg border border-border bg-bg-elevated px-3 py-2 text-sm text-text shadow-lg'
+      }
+    },
+    slideover: {
+      slots: {
+        overlay: 'bg-black/60 backdrop-blur-sm',
+        content: 'bg-bg-elevated shadow-xl'
+      }
+    },
+    modal: {
+      slots: {
+        overlay: 'bg-black/60 backdrop-blur-sm',
+        content: 'rounded-2xl border border-border bg-bg-elevated shadow-xl'
+      }
+    },
+    header: {
+      slots: {
+        root: 'sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md'
       }
     }
   }

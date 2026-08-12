@@ -9,24 +9,43 @@
   <section id="contact" aria-labelledby="contact-heading" class="py-20 sm:py-28">
     <UContainer>
       <UiScrollReveal>
-        <div class="max-w-2xl">
-          <UiSectionHeading id="contact-heading" lot="LINK" :eyebrow="t('contact.eyebrow')" :title="t('contact.title')"
-            :description="t('contact.description')" :contained="false" />
+        <div class="grid gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-5">
+            <UiSectionHeading id="contact-heading" :eyebrow="t('contact.eyebrow')" :title="t('contact.title')"
+              :description="t('contact.description')" :contained="false" />
 
-          <div class="hc-window mt-12">
-            <UiStackTitleBar title="CONTACT · GO TO" :meta="bio.email" credit />
-            <div class="hc-menubar" aria-hidden="true">
-              <strong>Message</strong>
-              <span>Send</span>
-              <span>Clear</span>
-            </div>
-            <div class="hc-body">
-              <div class="manifest-bol-rail mb-6 justify-start!">
-                <span><strong>GO</strong> · CONTACT</span>
-                <span>{{ bio.email }}</span>
+            <div class="mt-8 space-y-4">
+              <a :href="`mailto:${bio.email}`"
+                class="group flex items-center gap-3 rounded-2xl border border-border bg-bg-elevated p-4 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
+                <span class="inline-flex size-10 items-center justify-center rounded-xl bg-primary-soft text-primary">
+                  <UIcon name="i-lucide-mail" class="size-5" aria-hidden="true" />
+                </span>
+                <div>
+                  <p class="text-sm font-medium text-text-muted">Email</p>
+                  <p class="font-medium text-text group-hover:text-primary transition-colors">{{ bio.email }}</p>
+                </div>
+              </a>
+
+              <div class="flex flex-wrap gap-3">
+                <a v-if="bio.social.github" :href="bio.social.github" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 rounded-lg border border-border bg-bg-elevated px-4 py-2.5 text-sm font-medium text-text transition-colors hover:bg-surface-hover"
+                  :aria-label="t('a11y.github')">
+                  <UIcon name="i-simple-icons-github" class="size-4" aria-hidden="true" />
+                  GitHub
+                </a>
+                <a v-if="bio.social.linkedin" :href="bio.social.linkedin" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 rounded-lg border border-border bg-bg-elevated px-4 py-2.5 text-sm font-medium text-text transition-colors hover:bg-surface-hover"
+                  :aria-label="t('a11y.linkedin')">
+                  <UIcon name="i-simple-icons-linkedin" class="size-4" aria-hidden="true" />
+                  LinkedIn
+                </a>
               </div>
+            </div>
+          </div>
 
-              <UForm class="space-y-4" @submit.prevent="submit">
+          <div class="lg:col-span-7">
+            <div class="rounded-2xl border border-border bg-bg-elevated p-5 shadow-sm sm:p-8">
+              <UForm class="space-y-5" @submit.prevent="submit">
                 <UFormField name="name" :label="t('contact.name')" required>
                   <UInput v-model="form.name" name="name" :placeholder="t('contact.placeholderName')" required
                     class="w-full" />
@@ -37,23 +56,25 @@
                 </UFormField>
                 <UFormField name="message" :label="t('contact.message')" required>
                   <UTextarea v-model="form.message" name="message" :placeholder="t('contact.placeholderMessage')"
-                    :rows="4" required class="w-full" />
+                    :rows="5" required class="w-full" />
                 </UFormField>
-                <div v-if="showTurnstileWidget" ref="turnstileContainerRef" class="flex min-h-16.25 justify-start" />
-                <button type="submit" class="hc-btn" :disabled="loading" :aria-busy="loading">
-                  <UIcon v-if="loading" name="i-lucide-loader-circle" class="size-4 animate-spin" aria-hidden="true" />
+                <div v-if="showTurnstileWidget" ref="turnstileContainerRef" class="flex min-h-16 justify-start" />
+                <button type="submit"
+                  class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-base font-medium text-white shadow-sm transition-all hover:bg-primary-hover hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                  :disabled="loading" :aria-busy="loading">
+                  <UIcon v-if="loading" name="i-lucide-loader-circle" class="size-5 animate-spin" aria-hidden="true" />
                   {{ t('contact.submit') }}
                 </button>
               </UForm>
+
+              <p class="mt-5 text-sm text-text-muted">
+                {{ t('contact.mailFallback') }}
+                <a :href="`mailto:${bio.email}`" class="font-medium text-primary hover:text-primary-hover">
+                  {{ bio.email }}
+                </a>
+              </p>
             </div>
           </div>
-
-          <p class="mt-6 text-sm text-muted">
-            {{ t('contact.mailFallback') }}
-            <a :href="`mailto:${bio.email}`" class="font-pixel text-attract-magenta underline underline-offset-2">
-              {{ bio.email }}
-            </a>
-          </p>
         </div>
       </UiScrollReveal>
     </UContainer>

@@ -10,10 +10,6 @@
     return window.matchMedia('(min-width: 1024px)').matches ? 24 : 96
   }
 
-  /**
-   * Ancla el botón encima del borde superior del footer cuando este entra
-   * en viewport; evita overlay sobre el menubar del pie.
-   */
   function updatePosition() {
     const y = window.scrollY
     show.value = y > threshold
@@ -36,7 +32,6 @@
   }
 
   function scrollToTop() {
-    console.info('[GoToTop] scrollToTop', { scrollY: window.scrollY })
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -56,7 +51,7 @@
   <Transition name="fade">
     <div v-if="show" class="pointer-events-none fixed inset-e-4 sm:inset-e-6 z-40" :style="{ bottom: `${bottomPx}px` }">
       <button type="button"
-        class="hc-btn hc-btn--sm pointer-events-auto !size-11 !min-h-11 !p-0 justify-center shadow-[4px_4px_0_var(--color-manifest-shadow)]"
+        class="pointer-events-auto inline-flex size-11 items-center justify-center rounded-xl border border-border bg-bg-elevated text-text shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
         :aria-label="t('a11y.scrollTop')" @click="scrollToTop">
         <UIcon name="i-lucide-arrow-up" class="size-5" aria-hidden="true" />
       </button>

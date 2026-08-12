@@ -65,7 +65,7 @@ export async function handleTurnstileVerify(
     return json({ ok: false, error: 'server_misconfigured' }, 500, request, env)
   }
 
-  let token = ''
+  let token: string
   try {
     const body = (await request.json()) as { token?: string }
     token = typeof body?.token === 'string' ? body.token.trim() : ''

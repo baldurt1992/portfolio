@@ -4,27 +4,34 @@
 </script>
 
 <template>
-  <footer data-site-footer class="border-t-[3px] border-ink bg-dock-asphalt">
-    <div class="hc-bezel" aria-hidden="true" />
-    <UContainer class="py-0">
-      <div class="hc-menubar !border-b-0 justify-between gap-3">
-        <span>
-          © {{ new Date().getFullYear() }} · <strong>{{ portfolioData.bio.name }}</strong>
-        </span>
-        <span class="flex items-center gap-2">
+  <footer data-site-footer class="border-t border-border bg-bg">
+    <UContainer class="py-8">
+      <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div class="space-y-1">
+          <p class="text-sm font-medium text-text">
+            © {{ new Date().getFullYear() }} · {{ portfolioData.bio.name }}
+          </p>
+          <p class="text-sm text-text-muted">
+            Full Stack Software Engineer · Remote
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
           <a v-if="portfolioData.bio.social.github" :href="portfolioData.bio.social.github" target="_blank"
-            rel="noopener noreferrer" class="hc-nav-link !px-2 !py-1" :aria-label="t('a11y.github')">
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-text-muted transition-colors hover:bg-surface-soft hover:text-text"
+            :aria-label="t('a11y.github')">
+            <UIcon name="i-simple-icons-github" class="size-4" aria-hidden="true" />
             GitHub
           </a>
           <a v-if="portfolioData.bio.social.linkedin" :href="portfolioData.bio.social.linkedin" target="_blank"
-            rel="noopener noreferrer" class="hc-nav-link !px-2 !py-1" :aria-label="t('a11y.linkedin')">
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-text-muted transition-colors hover:bg-surface-soft hover:text-text"
+            :aria-label="t('a11y.linkedin')">
+            <UIcon name="i-simple-icons-linkedin" class="size-4" aria-hidden="true" />
             LinkedIn
           </a>
-          <a v-if="portfolioData.bio.social.twitter" :href="portfolioData.bio.social.twitter" target="_blank"
-            rel="noopener noreferrer" class="hc-nav-link !px-2 !py-1" aria-label="X">
-            X
-          </a>
-        </span>
+        </div>
       </div>
     </UContainer>
   </footer>

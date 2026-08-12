@@ -7,7 +7,6 @@
       id?: string
       contained?: boolean
       align?: 'center' | 'start'
-      lot?: string
     }>(),
     { contained: true, align: 'start' }
   )
@@ -15,22 +14,23 @@
 
 <template>
   <div :class="[
-    'manifest-section-head',
+    'space-y-4',
     contained && 'max-w-3xl',
-    align === 'center' && 'mx-auto text-center',
-    align === 'start' && 'text-start'
+    align === 'center' && 'mx-auto text-center'
   ]">
-    <UiStackTitleBar :title="lot ? `${lot} · ${title}` : title" :meta="eyebrow" />
-    <div class="manifest-section-head-body space-y-3">
-      <h2 :id="id" class="manifest-display text-3xl sm:text-4xl md:text-5xl text-highlighted text-balance">
+    <div class="space-y-3">
+      <p v-if="eyebrow" class="font-mono text-xs font-medium uppercase tracking-widest text-primary">
+        {{ eyebrow }}
+      </p>
+      <h2 :id="id" class="text-3xl font-bold tracking-tight text-text sm:text-4xl lg:text-5xl text-balance">
         {{ title }}
       </h2>
-      <p v-if="description" :class="[
-        'text-base sm:text-lg text-muted text-pretty max-w-prose',
-        align === 'center' && 'mx-auto'
-      ]">
-        {{ description }}
-      </p>
     </div>
+    <p v-if="description" :class="[
+      'text-base sm:text-lg text-text-muted leading-relaxed text-pretty max-w-prose',
+      align === 'center' && 'mx-auto'
+    ]">
+      {{ description }}
+    </p>
   </div>
 </template>

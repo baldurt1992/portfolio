@@ -6,23 +6,13 @@ export interface ProjectMediaModule {
   mediaGroupTitle?: string
 }
 
-export interface Project {
-  id: string
-  title: string
-  description: string
-  image?: string
-  tags: string[]
-  url?: string
-  repo?: string
-  year: string
-  mediaModules?: ProjectMediaModule[]
-}
-
 export interface ProjectMediaModuleStructure {
   id: string
   videoSrc: string
   mediaGroup?: string
 }
+
+export type ProjectProminence = 'flagship' | 'large' | 'medium' | 'small'
 
 export interface ProjectStructure {
   id: string
@@ -30,12 +20,22 @@ export interface ProjectStructure {
   url?: string
   repo?: string
   year: string
+  prominence: ProjectProminence
   mediaModules?: ProjectMediaModuleStructure[]
 }
 
+export interface Project extends Omit<ProjectStructure, 'mediaModules'> {
+  title: string
+  description: string
+  tags: string[]
+  mediaModules?: ProjectMediaModule[]
+}
+
+export type SkillCategory = 'frontend' | 'backend' | 'wordpress' | 'devops'
+
 export interface Skill {
   name: string
-  category: 'frontend' | 'backend' | 'tools' | 'devops'
+  category: SkillCategory
   icon?: string
 }
 
@@ -138,6 +138,7 @@ export const portfolioStructure: PortfolioStructure = {
       image: '/images/projects/ticador-dashboard.png',
       url: 'https://ticador.online',
       year: '2024/2025',
+      prominence: 'flagship',
       mediaModules: [
         {
           id: 'main-navigation',
@@ -185,6 +186,7 @@ export const portfolioStructure: PortfolioStructure = {
       id: 'cosmos-erp',
       image: '/images/projects/cosmos-erp-dashboard.png',
       year: '2025 / actualidad',
+      prominence: 'large',
       mediaModules: [
         {
           id: 'initial-setup',
@@ -223,6 +225,7 @@ export const portfolioStructure: PortfolioStructure = {
       image: '/images/projects/wordpress-dental-site.png',
       url: 'https://carolinaodontologa.com/',
       year: '2025',
+      prominence: 'medium',
       mediaModules: [
         {
           id: 'main-navigation',
@@ -248,13 +251,13 @@ export const portfolioStructure: PortfolioStructure = {
     { name: 'PHP', category: 'backend', icon: 'i-simple-icons-php' },
     { name: 'PostgreSQL', category: 'backend', icon: 'i-simple-icons-postgresql' },
     { name: 'MySQL', category: 'backend', icon: 'i-simple-icons-mysql' },
-    { name: 'Git', category: 'tools', icon: 'i-simple-icons-git' },
-    { name: 'GitHub', category: 'tools', icon: 'i-simple-icons-github' },
+    { name: 'Git', category: 'devops', icon: 'i-simple-icons-git' },
+    { name: 'GitHub', category: 'devops', icon: 'i-simple-icons-github' },
     { name: 'Docker', category: 'devops', icon: 'i-simple-icons-docker' },
     { name: 'GitHub Actions', category: 'devops', icon: 'i-simple-icons-githubactions' },
-    { name: 'WordPress', category: 'tools', icon: 'i-simple-icons-wordpress' },
-    { name: 'Divi', category: 'tools', icon: 'i-lucide-layout-template' },
-    { name: 'Elementor', category: 'tools', icon: 'i-simple-icons-elementor' }
+    { name: 'WordPress', category: 'wordpress', icon: 'i-simple-icons-wordpress' },
+    { name: 'Divi', category: 'wordpress', icon: 'i-lucide-layout-template' },
+    { name: 'Elementor', category: 'wordpress', icon: 'i-simple-icons-elementor' }
   ],
 
   experience: [

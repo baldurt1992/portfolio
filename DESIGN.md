@@ -1,145 +1,196 @@
 ---
 name: BaldurDev Portfolio
-description: HyperCard stack topology fused with arcade-cabinet retro color — hireable craft evidence as clickable cards/carts
+description: Product-engineering portfolio for Andrés Baldur Tamayo — editorial clarity, Bento modularity, developer precision, soft professional depth.
 colors:
-  # Light — cabinet cream / attract-mode day
-  cabinet-cream: '#efe6d5'
-  cabinet-sand: '#e2d6c2'
-  cabinet-panel: '#d4c4a8'
-  bezel: '#1a1a2e'
-  coin-amber: '#f0a202'
-  coin-deep: '#d48900'
-  attract-cyan: '#00b7c6'
-  attract-magenta: '#e83e8c'
-  muted-bezel: '#5c5c7a'
-  seal-ink: '#1a1a2e'
-  media-fg: '#efe6d5'
-  # Dark — CRT night / cabinet interior
-  crt-void: '#0d0d14'
-  crt-asphalt: '#161622'
-  crt-panel: '#222233'
-  chalk: '#efe6d5'
-  stencil-dark: '#a8a8c0'
+  light:
+    bg: '#F7F7F5'
+    bg-elevated: '#FFFFFF'
+    surface: '#F0F0ED'
+    surface-soft: '#E8E8E5'
+    surface-hover: '#E2E2DE'
+    text: '#111216'
+    text-muted: '#6B7280'
+    text-subtle: '#9CA3AF'
+    border: '#E2E2DE'
+    border-strong: '#D4D4D0'
+    primary: '#4F46E5'
+    primary-hover: '#4338CA'
+    success: '#10B981'
+    warning: '#F59E0B'
+    danger: '#EF4444'
+  dark:
+    bg: '#0B0C0F'
+    bg-elevated: '#15161B'
+    surface: '#1E2028'
+    surface-soft: '#252830'
+    surface-hover: '#2A2D36'
+    text: '#F0F1F5'
+    text-muted: '#9CA3AF'
+    text-subtle: '#6B7280'
+    border: '#2A2D36'
+    border-strong: '#3A3E49'
+    primary: '#6366F1'
+    primary-hover: '#818CF8'
+    success: '#34D399'
+    warning: '#FBBF24'
+    danger: '#F87171'
 typography:
   display:
-    fontFamily: 'Archivo Narrow, Arial Narrow, sans-serif'
-    fontSize: 'clamp(2.75rem, 8vw, 5.5rem)'
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
+    fontSize: 'clamp(2.5rem, 6vw, 4.5rem)'
     fontWeight: 700
-    lineHeight: 0.9
+    lineHeight: 1.05
     letterSpacing: '-0.02em'
-  headline:
-    fontFamily: 'Archivo Narrow, Arial Narrow, sans-serif'
-    fontSize: 'clamp(1.75rem, 4vw, 2.75rem)'
-    fontWeight: 600
+  title-1:
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
+    fontSize: 'clamp(2rem, 4.5vw, 3.5rem)'
+    fontWeight: 700
     lineHeight: 1.1
-    letterSpacing: '-0.015em'
+    letterSpacing: '-0.02em'
+  title-2:
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
+    fontSize: 'clamp(1.5rem, 3vw, 2.25rem)'
+    fontWeight: 600
+    lineHeight: 1.15
+    letterSpacing: '-0.01em'
   body:
-    fontFamily: 'Source Sans 3, system-ui, sans-serif'
-    fontSize: '1.0625rem'
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '1rem'
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: 'normal'
   label:
-    fontFamily: 'Pixelify Sans, Archivo Narrow, sans-serif'
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
     fontSize: '0.75rem'
-    fontWeight: 700
+    fontWeight: 500
     lineHeight: 1.2
-    letterSpacing: '0.12em'
-  pixel-sm:
-    fontFamily: 'Pixelify Sans, Archivo Narrow, sans-serif'
-    fontSize: '0.6875rem'
-    fontWeight: 700
-    lineHeight: 1.2
-    letterSpacing: '0.1em'
-  chip:
-    fontFamily: 'Pixelify Sans, Archivo Narrow, sans-serif'
+    letterSpacing: '0.08em'
+  mono:
+    fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace'
     fontSize: '0.75rem'
-    fontWeight: 700
-    lineHeight: 1.2
-    letterSpacing: '0.06em'
+    fontWeight: 500
+    lineHeight: 1.3
+    letterSpacing: '0.04em'
 rounded:
-  none: '0px'
-  sm: '0px'
-  md: '0px'
+  sm: '6px'
+  md: '10px'
+  lg: '14px'
+  xl: '20px'
+  2xl: '28px'
 spacing:
-  sm: '8px'
-  md: '16px'
-  lg: '32px'
-  xl: '64px'
+  1: '4px'
+  2: '8px'
+  3: '12px'
+  4: '16px'
+  5: '20px'
+  6: '24px'
+  8: '32px'
+  10: '40px'
+  12: '48px'
+  16: '64px'
+  20: '80px'
+  24: '96px'
 components:
   button-primary:
-    backgroundColor: '{colors.coin-amber}'
-    textColor: '{colors.seal-ink}'
-    rounded: '{rounded.sm}'
-    padding: '12px 22px'
+    backgroundColor: '{colors.primary}'
+    textColor: '#FFFFFF'
+    rounded: '{rounded.lg}'
+    padding: '10px 20px'
   button-primary-hover:
-    backgroundColor: '{colors.coin-deep}'
-    textColor: '{colors.media-fg}'
-  crate:
-    backgroundColor: '{colors.cabinet-panel}'
-    textColor: '{colors.bezel}'
-    rounded: '{rounded.sm}'
+    backgroundColor: '{colors.primary-hover}'
+    textColor: '#FFFFFF'
+  card:
+    backgroundColor: '{colors.bg-elevated}'
+    borderColor: '{colors.border}'
+    rounded: '{rounded.xl}'
+    shadow: '0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.04)'
 ---
 
 # DESIGN.md
 
-<!-- impeccable:design-seed HyperCard shoebox × arcade retro · seed 12e52a4a · chosen challenger-hypercard · steer arcade colors -->
-
 ## Overview
 
-Visual world: **HyperCard stack of craft cards**, painted with **arcade-cabinet retro color** (not 1-bit black/white). Each project is a card/cart you open onto real media. Composition stays asymmetric hero + equal card field. Dark = CRT night; light = cabinet cream day.
+The BaldurDev portfolio is a **product-engineering portfolio**, not a product sales site. Its job is to make technical visitors conclude that Andrés Baldur Tamayo is a hireable Full Stack Software Engineer who has built real production software.
 
-**THESIS:** Refuse centered SaaS hero. Lead with brand as card title plate; work as openable HyperCard carts in arcade color.
+The visual identity is built from five ideas:
 
-**FORM:** Shoebox stack (challenger HyperCard) · staging A+C crate/card field · seed `12e52a4a` · steer: arcade retro chroma (no B/N).
+1. **Editorial clarity** — who, what, proof, next step are scannable.
+2. **Bento modularity** — projects and capabilities are organized as asymmetric, content-first tiles.
+3. **Developer precision** — clean metadata, monospace labels for technical detail, no gimmicks.
+4. **Soft professional depth** — subtle elevation, accessible borders, controlled shadows, high-quality surfaces.
+5. **Restrained motion** — motion communicates hierarchy and feedback; it is never decoration.
+
+## Thesis
+
+> The work itself dominates. The UI gets out of the way and makes the engineering evidence easy to scan.
 
 ## Colors
 
-- **Cabinet cream / sand / panel** (light ground); **CRT void / asphalt / panel** (dark ground).
-- **Coin amber:** primary CTA / stamps (~35–50% interactive chrome).
-- **Attract cyan + magenta:** secondary accents (live badge, rails, hover) — sparingly, period arcade, not vaporwave purple glow.
-- **Bezel:** navy-black ink for type on cream; chalk cream type on CRT.
-- No purple neon haze; no factory steel-teal leftover.
+- **Deep neutral/ink surfaces** — warm white `#F7F7F5` in light, near-black `#0B0C0F` in dark.
+- **Professional indigo accent** — `#4F46E5` light, `#6366F1` dark; used sparingly for CTAs, active states and key metadata.
+- **Clear hierarchy** — primary text, muted secondary text, subtle tertiary text.
+- **Semantic functional colors** — success green, warning amber, danger red for states.
+- No neon, no purple AI dominance, no cyan/magenta arcade accents, no gradients as backgrounds.
 
 ## Typography
 
-- **Display/headline:** Archivo Narrow — bold card titles (HyperCard energy without Chicago clone costume).
-- **Body:** Source Sans 3 — readable hiring copy.
-- **Labels:** Archivo Narrow, tracked uppercase (CARD / STAGE / CREDIT) — bitmap only if a single system kicker needs it later; not every label.
+- **Primary:** Inter — modern, highly readable variable sans for headings, body and UI.
+- **Technical mono:** JetBrains Mono — used only for small metadata, dates, labels and technical details.
+- Monospace is not used as a developer cliché across the entire site.
 
 ## Layout
 
-- Keep asymmetric first viewport + dominant opening card with video.
-- Projects = equal **card field** (former crates); double-rule card chrome like HyperCard frames, in arcade fills.
-- Dense card rows, then air, then field.
+- **Bento Box Grid** — modular asymmetric tiles on desktop, simplified on tablet, single-column stack on mobile.
+- Container max-width `80rem` (1280px).
+- 4 px base spacing grid; generous section rhythm.
+- Mobile-first responsive validation: 320, 375, 430, 768, 1024, 1280, 1440, 1920 px.
 
 ## Elevation & Depth
 
-- Hard offset shadows (card lift / pressed invert feel), coin-amber hover edge.
-- Double border (outer bezel + inner dashed) on sheets/cards.
+- Subtle layered shadows, not hard offset shadows.
+- Surfaces are separated by 1 px borders plus soft shadows.
+- Hover elevation is small (`translateY(-2px)`) and paired with shadow growth.
 
 ## Shapes
 
-- Radius 0. Circles only for portrait.
-- Cards: rectangular frames, corner stamps as coin plates.
+- Consistent rounded corners: 6/10/14/20/28 px.
+- Pills for badges and labels; rounded rectangles for cards, buttons and inputs.
 
 ## Components
 
-- Primary = coin plate (amber).
-- Secondary = cyan outline on panel.
-- Nav: thin bezel bar; brand as card wordmark.
-- Hazard rail → attract candy stripe (amber/cyan or amber/bezel).
+- **Primary button:** indigo fill, white text, rounded, subtle shadow, small lift on hover.
+- **Secondary button:** transparent with border, hover fills surface-hover.
+- **Cards:** elevated surface, border, rounded-xl, subtle hover lift.
+- **Badges:** small rounded pills, soft backgrounds.
+- **Inputs/textarea:** elevated surface, border, focus ring.
+- **Drawer/slideover:** dark scrim, elevated surface, clear header/close, accessible focus.
+
+## Motion
+
+- Durations: 150/200/300 ms.
+- Easing: standard `cubic-bezier(0.4, 0, 0.2, 1)`.
+- Properties: `transform` and `opacity` only.
+- Entrance reveals are subtle fade-slide-up.
+- Respect `prefers-reduced-motion`; reduced-motion users get instant state changes and full content.
 
 ## Do's and Don'ts
 
 **Do**
 
-- Keep real project media as the card face.
-- Dual light/dark with the same arcade grammar.
-- Respect `prefers-reduced-motion`.
+- Lead with real project media as engineering evidence.
+- Keep the first viewport focused: name, role, proof, CTA.
+- Use Bento size to express project hierarchy.
+- Maintain both dark and light modes with equal polish.
+- Use semantic HTML and accessible focus states.
 
 **Don't**
 
-- Collapse to HyperCard 1-bit B/W (user steer forbids it).
-- Sell Ticador/Cosmos as products.
-- Purple glow / soft SaaS cards / Space Grotesk.
+- Use HyperCard, arcade, CRT, fake terminal or fake-code metaphors.
+- Fabricate customers, testimonials, metrics or client logos.
+- Rely on hover for important interactions.
+- Add decorative-only animation, parallax or scroll hijacking.
+- Use stock photography for the core portfolio story.
+
+## Source of truth
+
+The full token system, anti-patterns and pre-delivery checklist live in `design-system/MASTER.md`.

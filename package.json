@@ -13,6 +13,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "typecheck": "nuxt typecheck",
+    "test:e2e": "playwright test",
     "optimize:images": "node scripts/optimize-public-images.mjs",
     "deploy:turnstile-worker": "wrangler deploy --config workers/turnstile-verify/wrangler.toml"
   },
@@ -22,17 +23,18 @@
     "@iconify-json/simple-icons": "^1.2.68",
     "@nuxt/ui": "^4.10.0",
     "@nuxtjs/i18n": "^10.2.4",
-    "@nuxtjs/sitemap": "^8.0.13",
     "@vueuse/core": "^14.2.0",
     "nuxt": "^4.5.2",
-    "playwright": "^1.51.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.13.0",
+    "@playwright/test": "^1.51.0",
     "@types/node": "^25.6.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
+    "playwright": "^1.51.0",
+    "png-to-ico": "^3.0.2",
     "prettier": "^3.8.1",
     "sharp": "^0.35.3",
     "typescript": "^5.9.3",

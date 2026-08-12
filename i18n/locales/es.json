@@ -2,7 +2,7 @@
   "nav": {
     "home": "Inicio",
     "about": "Sobre mí",
-    "skills": "Tecnologías",
+    "skills": "Capacidades",
     "projects": "Proyectos",
     "experience": "Experiencia",
     "contact": "Contacto",
@@ -17,7 +17,8 @@
     "openRepoGithub": "Abrir repositorio en GitHub",
     "contactSection": "Ir a la sección de contacto",
     "scrollTop": "Volver arriba",
-    "scrollReadingProgress": "Progreso de lectura de la página"
+    "scrollReadingProgress": "Progreso de lectura de la página",
+    "skipToMain": "Saltar al contenido principal"
   },
   "header": {
     "contact": "Contactar",
@@ -36,12 +37,12 @@
     "ctaWork": "Ver trabajo reciente",
     "downloadCv": "Descargar CV",
     "downloadCvAria": "Descargar currículum en PDF",
-    "portraitTapHint": "Toca la foto para ir a Sobre mí.",
-    "portraitAriaFlip": "Ir a la sección Sobre mí. Con mouse o teclado, pasa el cursor o enfoca para ver la ilustración en el reverso; en táctil la ilustración también está en Sobre mí.",
-    "portraitAriaSimple": "Ir a la sección Sobre mí",
+    "roleMeta": "Full Stack Software Engineer",
+    "locationMeta": "Remoto · Colombia",
+    "stackMeta": "Laravel · Vue/Nuxt · WordPress",
     "portraitAlt": "Retrato de {name}",
-    "illustrationAlt": "Ilustración de {name}",
-    "aboutAvatarAlt": "Avatar ilustrado de {name}"
+    "aboutAvatarAlt": "Avatar ilustrado de {name}",
+    "featuredLabel": "Proyecto destacado"
   },
   "about": {
     "eyebrow": "Perfil",
@@ -50,13 +51,13 @@
   },
   "skills": {
     "eyebrow": "Stack",
-    "title": "Tecnologías",
-    "description": "Tecnologías que uso en el día a día, agrupadas por área.",
+    "title": "Capacidades de ingeniería",
+    "description": "Tecnologías que uso en el día a día, agrupadas por área de trabajo.",
     "category": {
-      "frontend": "Frontend",
+      "frontend": "Producto / Frontend",
       "backend": "Backend",
-      "tools": "Herramientas",
-      "devops": "DevOps"
+      "wordpress": "WordPress",
+      "devops": "Infraestructura / Entrega"
     }
   },
   "projects": {
@@ -103,7 +104,15 @@
     "viewProject": "Ver proyecto",
     "viewDetails": "Ver detalles",
     "showMore": "Ver más",
-    "showLess": "Ver menos"
+    "showLess": "Ver menos",
+    "prominence": {
+      "flagship": "Proyecto principal",
+      "large": "Proyecto destacado",
+      "medium": "Proyecto",
+      "small": "Proyecto"
+    },
+    "yearLabel": "Año",
+    "mediaAction": "Recorrido en video"
   },
   "drawer": {
     "description": "Demostraciones en video del producto, módulo por módulo. Elige un ítem en la lista o usa Anterior y Siguiente para recorrer los flujos.",
@@ -111,7 +120,9 @@
     "prev": "Anterior",
     "next": "Siguiente",
     "playbackSpeed": "Velocidad",
-    "playbackSpeedAria": "Velocidad de reproducción: {rate}"
+    "playbackSpeedAria": "Velocidad de reproducción: {rate}",
+    "caseStudy": "Caso de estudio",
+    "moduleCount": "{count} módulos"
   },
   "stickyContact": {
     "label": "Contactar"
@@ -135,11 +146,11 @@
   },
   "portfolio": {
     "seo": {
-      "pageTitle": "BaldurDev — Desarrollador fullstack Laravel, Vue y Nuxt",
-      "pageDescription": "Desarrollador fullstack en Colombia especializado en Laravel, Vue y Nuxt. SaaS, ERP multi-tenant, APIs, WordPress a medida y productos web con foco en producción."
+      "pageTitle": "BaldurDev — Ingeniero de Software Full Stack",
+      "pageDescription": "Andrés Baldur Tamayo, Ingeniero de Software Full Stack en Colombia. Laravel, Vue/Nuxt, WordPress a medida, SaaS, ERP multi-tenant, APIs y productos web en producción."
     },
     "bio": {
-      "title": "Desarrollador fullstack · Laravel, Vue, Nuxt y Tailwind",
+      "title": "Full Stack Software Engineer · Laravel, Vue, Nuxt y Tailwind",
       "tagline": "Construyo productos web: SaaS, ERP, APIs, dashboards, automatizaciones y sitios a medida con UX clara, performance y arquitectura mantenible.",
       "taglinePrefix": "Construyo productos web: ",
       "taglineRotatingTokens": [

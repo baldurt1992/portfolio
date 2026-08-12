@@ -20,7 +20,7 @@
 
 <template>
   <div
-    class="pointer-events-none fixed inset-x-0 top-0 z-55 h-1 bg-ink/15"
+    class="pointer-events-none fixed inset-x-0 top-0 z-50 h-1 bg-border"
     role="progressbar"
     :aria-valuenow="percent"
     aria-valuemin="0"
@@ -28,7 +28,7 @@
     :aria-label="t('a11y.scrollReadingProgress')"
   >
     <div
-      class="h-full max-w-full origin-left will-change-[width] bg-linear-to-r from-attract-magenta via-seal to-attract-cyan"
+      class="h-full max-w-full origin-left will-change-[width] bg-primary"
       :class="barTransitionClass"
       :style="{ width: widthPercent }"
     />

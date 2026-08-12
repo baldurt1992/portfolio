@@ -1,25 +1,36 @@
 <script setup lang="ts">
-  import type { Skill } from '~/composables/usePortfolioData'
+  import type { Skill, SkillCategory } from '~/composables/usePortfolioData'
 
   const { t } = useI18n()
   const portfolioData = usePortfolioData()
   const skills = computed(() => portfolioData.value.skills)
 
-  const categoryLabels = computed<Record<Skill['category'], string>>(() => ({
+  const categoryOrder: SkillCategory[] = ['frontend', 'backend', 'wordpress', 'devops']
+
+  const categoryLabels = computed<Record<SkillCategory, string>>(() => ({
     frontend: t('skills.category.frontend'),
     backend: t('skills.category.backend'),
-    tools: t('skills.category.tools'),
+    wordpress: t('skills.category.wordpress'),
     devops: t('skills.category.devops')
   }))
 
+  const categoryIcons: Record<SkillCategory, string> = {
+    frontend: 'i-lucide-layout',
+    backend: 'i-lucide-server',
+    wordpress: 'i-simple-icons-wordpress',
+    devops: 'i-lucide-cloud'
+  }
+
   const skillsByCategory = computed(() => {
-    const map = new Map<Skill['category'], Skill[]>()
+    const map = new Map<SkillCategory, Skill[]>()
     for (const s of skills.value) {
       const list = map.get(s.category) ?? []
       list.push(s)
       map.set(s.category, list)
     }
-    return Array.from(map.entries()).filter(([, list]) => list.length > 0)
+    return categoryOrder
+      .map((category) => ({ category, label: categoryLabels.value[category], icon: categoryIcons[category], list: map.get(category) ?? [] }))
+      .filter((g) => g.list.length > 0)
   })
 </script>
 
@@ -27,23 +38,27 @@
   <section id="technologies" aria-labelledby="technologies-heading" class="py-20 sm:py-28">
     <UContainer>
       <UiScrollReveal>
-        <UiSectionHeading id="technologies-heading" lot="STAGE-02" :eyebrow="t('skills.eyebrow')"
-          :title="t('skills.title')" :description="t('skills.description')" :contained="false" />
+        <UiSectionHeading id="technologies-heading" :eyebrow="t('skills.eyebrow')" :title="t('skills.title')"
+          :description="t('skills.description')" :contained="false" />
 
-        <div class="hc-window mt-12">
-          <UiStackTitleBar title="SKILLS · TOOLKIT" :meta="`${skills.length} CHIPS`" />
-          <div class="hc-body !pt-2">
-            <div v-for="[category, list] in skillsByCategory" :key="category"
-              class="manifest-row grid-cols-1 sm:grid-cols-[9rem_1fr]">
-              <h3 class="manifest-kicker mb-0 self-start pt-1">
-                {{ categoryLabels[category] }}
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div v-for="group in skillsByCategory" :key="group.category"
+            class="flex flex-col rounded-2xl border border-border bg-bg-elevated p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
+            <div class="mb-4 flex items-center gap-3">
+              <span class="inline-flex size-10 items-center justify-center rounded-xl bg-primary-soft text-primary">
+                <UIcon :name="group.icon" class="size-5" aria-hidden="true" />
+              </span>
+              <h3 class="text-base font-semibold text-text">
+                {{ group.label }}
               </h3>
-              <div class="flex flex-wrap gap-2">
-                <span v-for="skill in list" :key="skill.name" class="manifest-chip">
-                  <UIcon v-if="skill.icon" :name="skill.icon" class="size-4 shrink-0" />
-                  {{ skill.name }}
-                </span>
-              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              <span v-for="skill in group.list" :key="skill.name"
+                class="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-2.5 py-1 text-xs font-medium text-text-muted">
+                <UIcon v-if="skill.icon" :name="skill.icon" class="size-3.5" aria-hidden="true" />
+                {{ skill.name }}
+              </span>
             </div>
           </div>
         </div>

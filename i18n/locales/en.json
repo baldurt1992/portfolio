@@ -2,7 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "skills": "Technologies",
+    "skills": "Capabilities",
     "projects": "Projects",
     "experience": "Experience",
     "contact": "Contact",
@@ -17,7 +17,8 @@
     "openRepoGithub": "Open repository on GitHub",
     "contactSection": "Go to contact section",
     "scrollTop": "Back to top",
-    "scrollReadingProgress": "Page scroll progress"
+    "scrollReadingProgress": "Page scroll progress",
+    "skipToMain": "Skip to main content"
   },
   "header": {
     "contact": "Contact",
@@ -36,12 +37,12 @@
     "ctaWork": "See recent work",
     "downloadCv": "Download CV",
     "downloadCvAria": "Download résumé as PDF",
-    "portraitTapHint": "Tap the photo to go to About.",
-    "portraitAriaFlip": "Go to the About section. With mouse or keyboard, hover or focus to see the illustration on the back; on touch, the illustration is also in About.",
-    "portraitAriaSimple": "Go to the About section",
+    "roleMeta": "Full Stack Software Engineer",
+    "locationMeta": "Remote · Colombia",
+    "stackMeta": "Laravel · Vue/Nuxt · WordPress",
     "portraitAlt": "Portrait of {name}",
-    "illustrationAlt": "Illustration of {name}",
-    "aboutAvatarAlt": "Illustrated avatar of {name}"
+    "aboutAvatarAlt": "Illustrated avatar of {name}",
+    "featuredLabel": "Featured project"
   },
   "about": {
     "eyebrow": "Profile",
@@ -50,13 +51,13 @@
   },
   "skills": {
     "eyebrow": "Stack",
-    "title": "Technologies",
-    "description": "Technologies I use day to day, grouped by area.",
+    "title": "Engineering capabilities",
+    "description": "Technologies I use day to day, grouped by work area.",
     "category": {
-      "frontend": "Frontend",
+      "frontend": "Product / Frontend",
       "backend": "Backend",
-      "tools": "Tools",
-      "devops": "DevOps"
+      "wordpress": "WordPress",
+      "devops": "Infrastructure / Delivery"
     }
   },
   "projects": {
@@ -103,7 +104,15 @@
     "viewProject": "View project",
     "viewDetails": "View details",
     "showMore": "See more",
-    "showLess": "See less"
+    "showLess": "See less",
+    "prominence": {
+      "flagship": "Flagship project",
+      "large": "Featured project",
+      "medium": "Project",
+      "small": "Project"
+    },
+    "yearLabel": "Year",
+    "mediaAction": "Video walkthrough"
   },
   "drawer": {
     "description": "Video walkthroughs of the product, module by module. Pick an item in the list or use Previous and Next to move through the flows.",
@@ -111,7 +120,9 @@
     "prev": "Previous",
     "next": "Next",
     "playbackSpeed": "Speed",
-    "playbackSpeedAria": "Playback speed: {rate}"
+    "playbackSpeedAria": "Playback speed: {rate}",
+    "caseStudy": "Case study",
+    "moduleCount": "{count} modules"
   },
   "stickyContact": {
     "label": "Contact"
@@ -135,11 +146,11 @@
   },
   "portfolio": {
     "seo": {
-      "pageTitle": "BaldurDev — Laravel, Vue & Nuxt Full-Stack Developer",
-      "pageDescription": "Full-stack developer in Colombia focused on Laravel, Vue, and Nuxt. SaaS, multi-tenant ERP, APIs, custom WordPress, and production-ready web products."
+      "pageTitle": "BaldurDev — Full Stack Software Engineer",
+      "pageDescription": "Andrés Baldur Tamayo, Full Stack Software Engineer in Colombia. Laravel, Vue/Nuxt, custom WordPress, SaaS, multi-tenant ERP, APIs and production web products."
     },
     "bio": {
-      "title": "Full-stack developer · Laravel, Vue, Nuxt & Tailwind",
+      "title": "Full Stack Software Engineer · Laravel, Vue, Nuxt & Tailwind",
       "tagline": "I build business web products: SaaS, ERP, APIs, dashboards, automations, and custom websites with clear UX, performance, and maintainable architecture.",
       "taglinePrefix": "I build business web products: ",
       "taglineRotatingTokens": [

@@ -109,7 +109,7 @@
     return links
   })
 
-  const defaultOgImagePath = 'images/portrait.webp'
+  const defaultOgImagePath = 'og-image.png'
 
   const ogImageUrl = computed(() => {
     const base = siteBase.value
@@ -223,6 +223,7 @@
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'theme-color', content: '#0B0C0F' },
         {
           name: 'robots',
           content:
@@ -270,10 +271,14 @@
 
 <template>
   <UApp :locale="nuxtUiLocale">
+    <a href="#main-content" class="skip-link bg-primary text-white px-4 py-2 rounded-lg font-medium text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50">
+      {{ t('a11y.skipToMain') }}
+    </a>
+
     <LayoutAppHeader />
     <UiScrollReadingBar />
 
-    <UMain class="bg-transparent">
+    <UMain id="main-content" class="bg-transparent" tabindex="-1">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
