@@ -24,7 +24,7 @@
     "@nuxtjs/i18n": "^10.2.4",
     "@nuxtjs/sitemap": "^8.0.13",
     "@vueuse/core": "^14.2.0",
-    "nuxt": "^4.5.0",
+    "nuxt": "^4.5.2",
     "playwright": "^1.51.0",
     "tailwindcss": "^4.1.18"
   },

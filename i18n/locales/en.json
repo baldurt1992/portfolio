@@ -5,7 +5,8 @@
     "skills": "Technologies",
     "projects": "Projects",
     "experience": "Experience",
-    "contact": "Contact"
+    "contact": "Contact",
+    "showcase": "Showcase"
   },
   "a11y": {
     "headerMenuTitle": "Navigation menu",
@@ -114,6 +115,23 @@
   },
   "stickyContact": {
     "label": "Contact"
+  },
+  "showcase": {
+    "seo": {
+      "pageTitle": "Showcase — BaldurDev",
+      "pageDescription": "Landing pages, themes and templates collection: VantaPay fintech and upcoming products."
+    },
+    "eyebrow": "Collection",
+    "title": "Landings that convert",
+    "description": "Gallery of modular, bilingual, production-ready landing pages. Each lives on its own domain and showcases a different stack.",
+    "viewLanding": "View landing",
+    "landings": {
+      "fintech": {
+        "category": "Fintech",
+        "title": "VantaPay",
+        "description": "Global financial infrastructure with multi-currency payments, corporate cards and treasury controls."
+      }
+    }
   },
   "portfolio": {
     "seo": {

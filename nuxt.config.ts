@@ -17,6 +17,25 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  // Evitamos que @nuxt/fonts (traído por @nuxt/ui) escanee las variables CSS y genere requests a Google Fonts,
+  // ya que con Source Sans 3 produce URLs de descarga que devuelven 404. Cargamos las fuentes manualmente.
+  fonts: {
+    processCSSVariables: false
+  },
+
+  app: {
+    head: {
+      link: [
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Pixelify+Sans:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap'
+        }
+      ]
+    }
+  },
+
   // `classSuffix: ''` → clase `dark` (Tailwind). Declarar `@nuxtjs/color-mode` en modules antes que @nuxt/ui rompe esto (default `-mode`).
   colorMode: {
     preference: 'dark',
@@ -29,6 +48,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl: publicSiteUrl,
+      /** URL base del showcase (dominio separado). En local http://localhost:5500; en prod la URL de GitHub Pages. */
+      showcaseUrl: process.env.NUXT_PUBLIC_SHOWCASE_URL?.trim().replace(/\/$/, '') || '',
       emailjsPublicKey: '',
       emailjsServiceId: '',
       emailjsTemplateId: '',
@@ -42,6 +63,8 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true },
     '/en': { prerender: true },
+    '/showcase': { prerender: true },
+    '/en/showcase': { prerender: true },
     '/sitemap.xml': { prerender: true },
     '/sitemap_index.xml': { prerender: true },
     '/robots.txt': { prerender: true }
@@ -56,7 +79,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/robots.txt']
+      routes: ['/robots.txt', '/showcase']
     }
   },
 

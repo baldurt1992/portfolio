@@ -42,6 +42,12 @@ jobs:
             echo "site_url=https://${OWNER}.github.io/${NAME}" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: URL pública del showcase
+        id: showcase
+        run: |
+          OWNER="${{ github.repository_owner }}"
+          echo "showcase_url=https://${OWNER}.github.io/showcase" >> "$GITHUB_OUTPUT"
+
       - name: Node
         uses: actions/setup-node@v6
         with:
@@ -56,6 +62,8 @@ jobs:
           NUXT_APP_BASE_URL: ${{ steps.base.outputs.path }}
           # Público, no es secreto; si usas dominio propio define la variable de repositorio y sobreescribe.
           NUXT_PUBLIC_SITE_URL: ${{ vars.NUXT_PUBLIC_SITE_URL || steps.base.outputs.site_url }}
+          # URL del dominio separado del showcase. Variable de repositorio para custom domain; fallback al repo `showcase` del mismo owner.
+          NUXT_PUBLIC_SHOWCASE_URL: ${{ vars.NUXT_PUBLIC_SHOWCASE_URL || steps.showcase.outputs.showcase_url }}
           NUXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${{ secrets.NUXT_PUBLIC_EMAILJS_PUBLIC_KEY }}
           NUXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.NUXT_PUBLIC_EMAILJS_SERVICE_ID }}
           NUXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.NUXT_PUBLIC_EMAILJS_TEMPLATE_ID }}
