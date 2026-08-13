@@ -34,18 +34,18 @@
   },
   "hero": {
     "taglinePrefix": "Full Stack Software Engineer",
-    "ctaPrimary": "Ver proyectos",
+    "ctaPrimary": "Ver trabajos",
     "ctaSecondary": "Contactar",
     "ctaCv": "Descargar CV",
     "downloadCvAria": "Descargar currículum en PDF",
     "roleMeta": "Full Stack Software Engineer",
-    "locationMeta": "Remoto · Colombia",
+    "locationMeta": "Colombia",
     "stackMeta": "Laravel · Vue/Nuxt · WordPress",
     "portraitAlt": "Retrato de {name}",
     "aboutAvatarAlt": "Avatar ilustrado de {name}",
     "featuredLabel": "Proyecto destacado",
     "scroll": "Scroll",
-    "impactLead": "Construyo y evoluciono"
+    "impactLead": "Diseño y construyo"
   },
   "about": {
     "eyebrow": "Perfil",
@@ -58,12 +58,12 @@
     "description": "Capacidades que aplico en productos reales, desde interfaces y APIs hasta infraestructura y entrega.",
     "category": {
       "frontend": "Producto / Frontend",
-      "backend": "Backend Architecture",
-      "wordpress": "WordPress Engineering",
+      "backend": "Arquitectura backend",
+      "wordpress": "Ingeniería WordPress",
       "devops": "Infraestructura / Entrega"
     },
     "categoryDescription": {
-      "frontend": "Interfaces Vue/Nuxt orientadas a producto, estados complejos, UX clara y frontend mantenible.",
+      "frontend": "Landing pages e interfaces Vue/Nuxt orientadas a producto, conversión, UX clara y frontend mantenible.",
       "backend": "APIs Laravel, autenticación, permisos, jobs, integraciones y arquitecturas multi-tenant.",
       "wordpress": "Themes y plugins a medida, WooCommerce, reservas, pagos e integraciones cuando un CMS es la mejor herramienta.",
       "devops": "Docker, GitHub Actions, despliegues, servidores y automatización del ciclo de entrega."
@@ -72,7 +72,7 @@
   "projects": {
     "eyebrow": "Trabajo seleccionado",
     "title": "Proyectos",
-    "description": "Trabajo seleccionado que demuestra arquitectura, producto, integraciones y entrega en producción."
+    "description": "Trabajo seleccionado que demuestra diseño frontend, producto, arquitectura, integraciones y entrega en producción."
   },
   "experience": {
     "eyebrow": "Recorrido",
@@ -82,13 +82,13 @@
   "contact": {
     "eyebrow": "Siguiente paso",
     "title": "Contacto",
-    "description": "¿Tienes un producto que construir, un sistema que evolucionar o un rol donde pueda aportar? Cuéntame el contexto y hablamos.",
+    "description": "¿Necesitas una landing page, un sitio web, un producto que construir o un sistema que evolucionar? Cuéntame el contexto y hablamos.",
     "name": "Nombre",
     "email": "Email",
     "message": "Mensaje",
     "placeholderName": "Tu nombre",
     "placeholderEmail": "tu{'@'}email.com",
-    "placeholderMessage": "Cuéntame sobre tu proyecto, sistema o rol...",
+    "placeholderMessage": "Cuéntame sobre la landing, sitio, producto, sistema o rol...",
     "submit": "Enviar mensaje",
     "mailFallback": "O escríbeme directamente a"
   },
@@ -138,18 +138,24 @@
   },
   "showcase": {
     "seo": {
-      "pageTitle": "Landing pages — BaldurDev",
-      "pageDescription": "Landing pages de BaldurDev listas para recorrer: fintech, IA y más. Entra a cada demo y ve cómo se resuelve la cara pública de un producto."
+      "pageTitle": "Landing pages: diseño y desarrollo web | BaldurDev",
+      "pageDescription": "Landing pages rápidas, responsivas y orientadas a conversión para SaaS, fintech, IA y servicios. Diseño y desarrollo frontend completo por BaldurDev."
     },
-    "eyebrow": "Listas para abrir",
-    "title": "Landing pages",
-    "description": "Entra a cada una y recorre la experiencia como lo haría un cliente. Fintech, IA y lo que viene después.",
-    "viewLanding": "Ver demo",
+    "eyebrow": "Diseño + desarrollo frontend",
+    "title": "Landings pensadas para convertir",
+    "description": "Explora landing pages completas que combinan estrategia, interfaz y desarrollo para convertir productos complejos en experiencias claras y orientadas a la acción.",
+    "viewLanding": "Ver landing",
     "teaser": {
-      "eyebrow": "También diseño landings",
+      "eyebrow": "Frontend orientado a conversión",
       "title": "Landing pages",
-      "description": "Así se ve el frontend cuando el objetivo es convertir. Ábrelas y recorre la experiencia completa: fintech, IA y más.",
-      "viewCollection": "Ver todas"
+      "description": "Diseño y desarrollo experiencias rápidas, responsivas y enfocadas en comunicar valor, captar atención y llevar al usuario hacia la acción.",
+      "viewCollection": "Explorar landings"
+    },
+    "cta": {
+      "eyebrow": "Tu producto, listo para presentar",
+      "title": "¿Necesitas una landing como estas?",
+      "description": "Puedo convertir tu producto, servicio o idea en una experiencia clara, rápida y lista para captar clientes.",
+      "action": "Hablemos de tu landing"
     },
     "landingImageAlt": "Captura de la landing {title}",
     "landings": {
@@ -167,26 +173,26 @@
   },
   "portfolio": {
     "seo": {
-      "pageTitle": "Andrés Baldur Tamayo — Desarrollador Full Stack | BaldurDev",
-      "pageDescription": "Portafolio de Andrés Baldur Tamayo, Full Stack Software Engineer en Colombia. Proyectos reales con Laravel, Vue/Nuxt, SaaS, ERP multi-tenant, APIs, WordPress a medida, Docker y CI/CD."
+      "pageTitle": "Desarrollador Full Stack y Landing Pages | BaldurDev",
+      "pageDescription": "Desarrollo landing pages, sitios web, SaaS, ERP y APIs con Laravel y Nuxt para empresas, agencias y equipos de Europa y Latinoamérica, con foco en conversión."
     },
     "bio": {
       "title": "Full Stack Software Engineer",
-      "tagline": "Construyo y evoluciono SaaS, ERP, APIs y plataformas web de producción, desde la arquitectura y el frontend hasta CI/CD y despliegue.",
+      "tagline": "Diseño y desarrollo productos web que necesitan funcionar, escalar y vender: desde landing pages hasta SaaS y plataformas empresariales.",
       "taglinePrefix": "Full Stack Software Engineer",
       "taglineRotatingTokens": [
+        "Landing pages",
         "SaaS",
         "ERP",
         "APIs",
-        "Dashboards",
         "Automatizaciones",
         "Sitios a medida"
       ],
-      "heroTrustLine": "Laravel · Vue/Nuxt · WordPress a medida · Docker · CI/CD",
+      "heroTrustLine": "Laravel · Vue/Nuxt · Landing pages · WordPress · Docker · CI/CD",
       "location": "Bello, Antioquia"
     },
-    "aboutLead": "Trabajo end-to-end en productos web: diseño la arquitectura, implemento backend y frontend, integro servicios y dejo el software preparado para desplegarse y operar. Mi stack principal es Laravel + Vue/Nuxt; cuando el caso lo requiere, desarrollo soluciones WordPress a medida con plugins, e-commerce y flujos transaccionales.",
-    "aboutMore": "He trabajado en SaaS, ERP multi-tenant y plataformas B2B, con foco en código mantenible, UX clara, automatización de despliegues y entregas iterativas para equipos y clientes remotos.",
+    "aboutLead": "Trabajo end-to-end en productos web: desde landing pages y sitios orientados a conversión hasta la arquitectura, el backend y el frontend de plataformas completas. Mi stack principal es Laravel + Vue/Nuxt; cuando el caso lo requiere, desarrollo soluciones WordPress a medida con plugins, e-commerce y flujos transaccionales.",
+    "aboutMore": "He trabajado en landing pages, sitios promocionales, SaaS, ERP multi-tenant y plataformas B2B, con foco en UX clara, código mantenible y entregas iterativas para equipos y clientes.",
     "projects": {
       "ticador-platform": {
         "title": "Ticador — ecosistema SaaS en producción",

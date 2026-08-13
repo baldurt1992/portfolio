@@ -1,0 +1,306 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "NovaAI" [ref=e4] [cursor=pointer]:
+        - /url: "#top"
+      - generic [ref=e7]:
+        - link "Product" [ref=e8] [cursor=pointer]:
+          - /url: "#experience"
+        - link "How it works" [ref=e9] [cursor=pointer]:
+          - /url: "#workflow"
+        - link "Impact" [ref=e10] [cursor=pointer]:
+          - /url: "#impact"
+      - generic [ref=e11]:
+        - button "Change language" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: 
+          - generic [ref=e14]: ES
+        - button "Build an agent" [ref=e15] [cursor=pointer]
+        - text: 
+  - generic:
+    - button "Close menu":
+      - generic: 
+    - link "Product":
+      - /url: "#experience"
+    - link "How it works":
+      - /url: "#workflow"
+    - link "Impact":
+      - /url: "#impact"
+    - button "Build an agent"
+  - main [ref=e16]:
+    - region [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: Agent active · ready to learn
+          - heading "Turn every conversation into a useful answer." [level=1] [ref=e23]
+          - paragraph [ref=e24]: Train an agent with your business knowledge, connect it to your channels, and keep your team in control whenever a conversation needs human judgment.
+          - complementary "Simulation status" [ref=e25]:
+            - generic [ref=e26]:
+              - generic [ref=e27]: Simulation active
+              - generic [ref=e30]: NovaAI / 01
+            - strong [ref=e31]: One conversation ready to resolve
+            - generic [ref=e32]:
+              - generic [ref=e33]:
+                - generic [ref=e34]: 
+                - generic [ref=e35]: Help center
+              - generic [ref=e36]:
+                - generic [ref=e37]: 
+                - generic [ref=e38]: Orders
+              - generic [ref=e39]:
+                - generic [ref=e40]: 
+                - text: CRM
+            - link "Open workspace" [ref=e41] [cursor=pointer]:
+              - /url: "#live-demo"
+              - generic [ref=e43]: 
+          - generic [ref=e44]:
+            - button "Build my agent" [ref=e45] [cursor=pointer]
+            - link "Try the simulation" [ref=e46] [cursor=pointer]:
+              - /url: "#live-demo"
+              - generic [ref=e48]: 
+        - generic "Illustrative NovaAI workspace" [ref=e49]:
+          - complementary "Connected sources" [ref=e50]:
+            - generic [ref=e51]: Knowledge
+            - button "Help center 124 articles" [ref=e52] [cursor=pointer]:
+              - generic [ref=e53]: 
+              - generic [ref=e54]:
+                - strong [ref=e55]: Help center
+                - generic [ref=e56]: 124 articles
+              - generic [ref=e57]: 
+            - button "Orders Synced" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]: 
+              - generic [ref=e60]:
+                - strong [ref=e61]: Orders
+                - generic [ref=e62]: Synced
+              - generic [ref=e63]: 
+            - button "CRM Customer context" [ref=e64] [cursor=pointer]:
+              - generic [ref=e65]: 
+              - generic [ref=e66]:
+                - strong [ref=e67]: CRM
+                - generic [ref=e68]: Customer context
+              - generic [ref=e69]: 
+            - generic [ref=e70]: Channels
+            - generic "Available channels" [ref=e71]:
+              - generic [ref=e72]:
+                - generic [ref=e73]: 
+                - text: Chat web
+              - generic [ref=e74]:
+                - generic [ref=e75]: 
+                - text: WhatsApp
+              - generic [ref=e76]:
+                - generic [ref=e77]: 
+                - text: Email
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - generic [ref=e80]:
+                - generic [ref=e81]: Inbox · Web chat
+                - strong [ref=e82]: Conversation with Sofia
+              - generic [ref=e83]: Resolving
+            - log "Illustrative conversation with NovaAI" [ref=e86]:
+              - generic [ref=e87]: My order says delivered, but I did not receive it.
+              - generic [ref=e88]: "Let me check that with you. I found order #4821 and the courier evidence. Before opening a claim, can you confirm whether someone else may have received it?"
+            - generic "Try another scenario" [ref=e89]:
+              - generic [ref=e90]: "Try another case:"
+              - button "Order status" [ref=e91] [cursor=pointer]
+              - button "Plan change" [ref=e92] [cursor=pointer]
+              - button "Talk to someone" [ref=e93] [cursor=pointer]
+          - complementary [ref=e94]:
+            - generic [ref=e95]: Answer context
+            - generic [ref=e96]:
+              - generic [ref=e97]: "01"
+              - generic [ref=e98]:
+                - strong [ref=e99]: Intent detected
+                - generic [ref=e100]: Delivery not received
+            - generic [ref=e101]:
+              - generic [ref=e102]: "02"
+              - generic [ref=e103]:
+                - strong [ref=e104]: Sources checked
+                - generic [ref=e105]: Orders + shipping policy
+            - generic [ref=e106]:
+              - generic [ref=e107]: "03"
+              - generic [ref=e108]:
+                - strong [ref=e109]: Next action
+                - generic [ref=e110]: Confirm receipt
+            - paragraph [ref=e111]: Illustrative flow. Your team defines sources, rules, and boundaries.
+    - region [ref=e112]:
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - paragraph [ref=e115]: A different operation
+          - heading "Less queue. More context." [level=2] [ref=e116]
+          - paragraph [ref=e117]: NovaAI organizes work around resolution, not an inbox that never stops growing.
+        - generic [ref=e118]:
+          - generic [ref=e119]:
+            - generic [ref=e120]:
+              - strong [ref=e122]: Traditional inbox
+              - generic [ref=e123]: 18 pending
+            - generic "Illustrative traditional queue" [ref=e124]:
+              - generic [ref=e125]:
+                - generic [ref=e126]: SL
+                - paragraph [ref=e127]:
+                  - strong [ref=e128]: Where is my order?
+                  - generic [ref=e129]: Unassigned · 42 min
+                - generic [ref=e130]: 
+              - generic [ref=e131]:
+                - generic [ref=e132]: DM
+                - paragraph [ref=e133]:
+                  - strong [ref=e134]: I cannot change my plan
+                  - generic [ref=e135]: Waiting · 1 h 12 min
+                - generic [ref=e136]: 
+              - generic [ref=e137]:
+                - generic [ref=e138]: AR
+                - paragraph [ref=e139]:
+                  - strong [ref=e140]: I need to update the invoice
+                  - generic [ref=e141]: No context · 2 h
+                - generic [ref=e142]: 
+          - generic [ref=e143]: 
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - strong [ref=e148]: Operation with NovaAI
+              - generic [ref=e149]: In flow
+            - generic "Illustrative resolutions" [ref=e150]:
+              - generic [ref=e151]:
+                - generic [ref=e152]: 
+                - paragraph [ref=e153]:
+                  - strong [ref=e154]: Order located and explained
+                  - generic [ref=e155]: Resolved with Orders + Shipping
+                - generic [ref=e156]: Automatic
+              - generic [ref=e157]:
+                - generic [ref=e158]: 
+                - paragraph [ref=e159]:
+                  - strong [ref=e160]: Commercial change detected
+                  - generic [ref=e161]: Context prepared for sales
+                - generic [ref=e162]: Handed off
+              - generic [ref=e163]:
+                - generic [ref=e164]: 
+                - paragraph [ref=e165]:
+                  - strong [ref=e166]: Tax details updated
+                  - generic [ref=e167]: Resolved with Billing
+                - generic [ref=e168]: Automatic
+        - paragraph [ref=e169]: Illustrative scenario showing the product flow.
+    - region [ref=e170]:
+      - generic [ref=e171]:
+        - generic [ref=e173]:
+          - generic [ref=e174]:
+            - generic [ref=e175]:
+              - generic [ref=e176]: 
+              - text: NovaAI Studio
+            - generic [ref=e177]: Configuration ready
+          - generic [ref=e178]:
+            - generic [ref=e179]:
+              - generic [ref=e180]: 
+              - strong [ref=e182]: 124 articles understood
+            - text:      
+          - generic [ref=e185]: Rules active
+        - generic [ref=e192]:
+          - generic [ref=e193]:
+            - paragraph [ref=e194]: From knowledge to action
+            - heading "An agent is built step by step." [level=2] [ref=e195]
+            - paragraph [ref=e196]: Every stage leaves a visible, configurable decision for your team.
+          - list [ref=e197]:
+            - listitem [ref=e198]:
+              - generic [ref=e199]: "01"
+              - generic [ref=e200]:
+                - heading "Teach it your business" [level=3] [ref=e201]
+                - paragraph [ref=e202]: Connect documents, policies, and frequently asked questions. NovaAI keeps the source behind every answer.
+            - listitem [ref=e203]:
+              - generic [ref=e204]: "02"
+              - generic [ref=e205]:
+                - heading "Connect the channels" [level=3] [ref=e206]
+                - paragraph [ref=e207]: The conversation can arrive from chat, email, or messaging while keeping one operational identity.
+            - listitem [ref=e208]:
+              - generic [ref=e209]: "03"
+              - generic [ref=e210]:
+                - heading "Answer and act" [level=3] [ref=e211]
+                - paragraph [ref=e212]: The agent checks context, proposes a solution, and only performs the actions you have authorized.
+            - listitem [ref=e213]:
+              - generic [ref=e214]: "04"
+              - generic [ref=e215]:
+                - heading "Bring in a human when it matters" [level=3] [ref=e216]
+                - paragraph [ref=e217]: When it detects risk, ambiguity, or an escalation rule, it transfers the conversation, sources, and next step.
+    - region [ref=e218]:
+      - generic [ref=e219]:
+        - generic [ref=e220]:
+          - paragraph [ref=e221]: Explore your operation
+          - heading "Adjust the volume. See what changes." [level=2] [ref=e222]
+          - paragraph [ref=e223]: Use the simulator to visualize a possible configuration based on your monthly conversations.
+          - generic [ref=e224]:
+            - generic [ref=e225]:
+              - generic [ref=e226]: Conversations per month
+              - status [ref=e227]: 5,000
+            - slider "Conversations per month" [ref=e228] [cursor=pointer]: "5000"
+            - generic [ref=e229]:
+              - generic [ref=e230]: "500"
+              - generic [ref=e231]: 50k
+          - paragraph [ref=e232]: Illustrative estimate based on configurable assumptions; it does not represent guaranteed results.
+        - generic [ref=e233]:
+          - generic [ref=e234]:
+            - generic [ref=e235]: Operational projection
+            - generic [ref=e236]: Updated
+          - generic [ref=e239]:
+            - generic [ref=e240]: Assisted conversations
+            - strong [ref=e241]: 3,400
+            - generic [ref=e242]: Using an illustrative 68% rate
+          - generic [ref=e243]:
+            - generic [ref=e244]: Work hours freed
+            - strong [ref=e245]: 283 h
+            - generic [ref=e246]: At 5 minutes per assisted conversation
+          - generic [ref=e247]:
+            - generic [ref=e248]: Conversations for the team
+            - strong [ref=e249]: 1,600
+            - generic [ref=e250]: They arrive with context and consulted sources
+          - generic [ref=e251]:
+            - generic [ref=e252]:
+              - generic [ref=e253]: Suggested configuration
+              - strong [ref=e254]: Scale
+            - button "Configure this agent" [ref=e255] [cursor=pointer]
+    - region [ref=e256]:
+      - generic [ref=e258]:
+        - generic [ref=e259]:
+          - paragraph [ref=e260]: Start with what you already know
+          - heading "Turn your help center into an agent ready to answer." [level=2] [ref=e261]
+          - paragraph [ref=e262]: Add one knowledge source and receive an initial configuration for your team to review.
+        - group [ref=e263]:
+          - generic [ref=e265]:
+            - textbox "Your help center URL" [ref=e266]:
+              - /placeholder: https://help.yourcompany.com
+            - button "Build an agent" [ref=e267] [cursor=pointer]
+          - generic [ref=e268]: You can change or remove sources later.
+  - contentinfo [ref=e269]:
+    - generic [ref=e270]:
+      - generic [ref=e271]:
+        - generic [ref=e272]:
+          - link [ref=e273] [cursor=pointer]:
+            - /url: "#top"
+          - paragraph [ref=e276]: A conversational workspace to train, connect, and supervise AI support agents.
+        - generic [ref=e277]:
+          - generic [ref=e278]:
+            - heading "Product" [level=4] [ref=e279]
+            - link "Product" [ref=e280] [cursor=pointer]:
+              - /url: "#experience"
+            - link "How it works" [ref=e281] [cursor=pointer]:
+              - /url: "#workflow"
+            - link "Impact" [ref=e282] [cursor=pointer]:
+              - /url: "#impact"
+          - generic [ref=e283]:
+            - heading "Legal" [level=4] [ref=e284]
+            - link "Privacy" [ref=e285] [cursor=pointer]:
+              - /url: "#"
+            - link "Terms" [ref=e286] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e287]:
+        - generic [ref=e288]: © 2026 NovaAI. Experience built by BaldurDev.
+        - link "← Back to showcase" [ref=e289] [cursor=pointer]:
+          - /url: ../
+  - dialog:
+    - generic:
+      - generic:
+        - generic:
+          - heading [level=2]: Build your agent
+          - paragraph: Leave your email and we will send access to configure it.
+        - button:
+          - generic: 
+      - generic:
+        - generic:
+          - generic: Email address
+          - textbox:
+            - /placeholder: you@company.com
+        - button: Request access
+      - text: 
