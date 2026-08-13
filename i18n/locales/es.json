@@ -165,9 +165,9 @@
         "description": "Infraestructura financiera global con pagos multidivisa, tarjetas corporativas y controles de tesorería."
       },
       "ai": {
-        "category": "AI / Chatbot",
+        "category": "IA / Soporte",
         "title": "NovaAI",
-        "description": "Agente de soporte impulsado por IA para resolver conversaciones en segundos."
+        "description": "Espacio de trabajo conversacional para entrenar agentes, conectar fuentes y resolver soporte con contexto y supervisión humana."
       }
     }
   },
