@@ -33,6 +33,10 @@
     () => !!props.project.image && !!heroHoverVideoSrc.value && !prefersReducedMotion.value
   )
 
+  const useVideoOnlyPreview = computed(
+    () => !props.project.image && !!heroHoverVideoSrc.value && !prefersReducedMotion.value
+  )
+
   const hoverVideoRef = ref<HTMLVideoElement | null>(null)
   const isHovering = ref(false)
 
@@ -59,13 +63,13 @@
   }
 
   function onCardEnter() {
-    if (!useHeroHoverVideo.value) return
+    if (!useHeroHoverVideo.value && !useVideoOnlyPreview.value) return
     isHovering.value = true
     playHeroVideo()
   }
 
   function onCardLeave() {
-    if (!useHeroHoverVideo.value) return
+    if (!useHeroHoverVideo.value && !useVideoOnlyPreview.value) return
     isHovering.value = false
     resetHeroVideo()
   }
@@ -111,7 +115,20 @@
     </div>
 
     <!-- Media -->
-    <div v-if="!project.image" class="relative aspect-16/10 flex items-center justify-center bg-surface"
+    <div v-if="useVideoOnlyPreview" class="relative aspect-16/10 overflow-hidden bg-black"
+      :class="props.variant === 'featured' ? 'lg:aspect-auto lg:min-h-88 lg:w-[58%] lg:shrink-0' : isFlagship && 'lg:aspect-video'">
+      <video ref="hoverVideoRef" :src="heroHoverVideoSrc"
+        class="pointer-events-none size-full object-cover object-top" muted playsinline preload="metadata"
+        aria-hidden="true" @loadeddata="enforceMutedHoverVideo" @volumechange="enforceMutedHoverVideo" />
+      <span
+        class="pointer-events-none absolute inset-e-3 top-3 z-20 inline-flex items-center gap-1 rounded-full bg-bg-elevated/90 px-2.5 py-1 text-xs font-medium text-text backdrop-blur-sm border border-border transition-opacity duration-300"
+        :class="isHovering ? 'opacity-100' : 'opacity-0'" aria-hidden="true">
+        <UIcon name="i-lucide-clapperboard" class="size-3.5 shrink-0 text-accent" />
+        {{ t('projectCard.liveBadge') }}
+      </span>
+    </div>
+
+    <div v-else-if="!project.image" class="relative aspect-16/10 flex items-center justify-center bg-surface"
       aria-hidden="true">
       <UIcon name="i-lucide-layout-template" class="size-12 text-text-subtle" />
     </div>

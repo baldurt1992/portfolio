@@ -183,6 +183,33 @@ export const portfolioStructure: PortfolioStructure = {
       ]
     },
     {
+      id: 'bella-hotel',
+      year: '2026',
+      prominence: 'large',
+      mediaModules: [
+        {
+          id: 'home-hotel-discovery',
+          videoSrc: '/videos/bella-hotel/01-home-hotel-discovery.mp4',
+          mediaGroup: 'guest-booking'
+        },
+        {
+          id: 'room-availability-flow',
+          videoSrc: '/videos/bella-hotel/02-room-availability-flow.webm',
+          mediaGroup: 'guest-booking'
+        },
+        {
+          id: 'checkout-payment-confirmation',
+          videoSrc: '/videos/bella-hotel/03-checkout-payment-confirmation.webm',
+          mediaGroup: 'guest-booking'
+        },
+        {
+          id: 'admin-occupancy-manual-booking',
+          videoSrc: '/videos/bella-hotel/04-admin-occupancy-manual-booking.webm',
+          mediaGroup: 'hotel-operations'
+        }
+      ]
+    },
+    {
       id: 'cosmos-erp',
       image: '/images/projects/cosmos-erp-dashboard.png',
       year: '2025 / actualidad',

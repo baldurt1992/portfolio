@@ -255,6 +255,48 @@
           }
         }
       },
+      "bella-hotel": {
+        "title": "Hotel Bella Del Mar — hotel booking operations platform",
+        "year": "2026",
+        "description": "A WordPress hotel platform built to centralize the booking experience and internal operations for a property on Colombia’s Pacific coast. It combines room discovery, availability, island transportation, coupons, Mercado Pago payments, and guest-account tracking with occupancy control, manual bookings, and synchronized WooCommerce orders.",
+        "tags": [
+          "WordPress",
+          "Child theme",
+          "HivePress Bookings",
+          "WooCommerce",
+          "Mercado Pago",
+          "Hotel bookings",
+          "Coupons",
+          "Occupancy dashboard",
+          "Manual bookings"
+        ],
+        "mediaModuleGroups": {
+          "guest-booking": {
+            "title": "Guest booking experience"
+          },
+          "hotel-operations": {
+            "title": "Hotel operations"
+          }
+        },
+        "mediaModules": {
+          "home-hotel-discovery": {
+            "title": "Home, rooms and booking entry point",
+            "description": "Walkthrough of the public Hotel Bella Del Mar experience: from the homepage hero to the rooms section. The flow returns to the hero, opens the rooms CTA, and shows the catalogue as the commercial entry point into the booking journey."
+          },
+          "room-availability-flow": {
+            "title": "Rooms, availability and booking summary",
+            "description": "Accommodation-selection flow: room catalogue, individual listing page, date selection, guest count, and island transportation option. The demo ends on the booking view, where the guest can review the reservation summary before payment."
+          },
+          "checkout-payment-confirmation": {
+            "title": "Complete checkout, coupon, payment and confirmation",
+            "description": "Complete journey from the booking summary to payment confirmation. It includes transportation selection, coupon application with a visible discount, integrated Mercado Pago checkout, automatic transaction validation, booking confirmation, and access to reservation and order details from the guest profile."
+          },
+          "admin-occupancy-manual-booking": {
+            "title": "Occupancy, manual booking and WooCommerce order",
+            "description": "Operational flow for hotel staff: occupancy dashboard with day and status filters, completed-booking rendering, manual booking creation with coupon and transportation extra, and WooCommerce order verification using the same reservation data. This supports assisted reservations for guests who do not use the platform or prefer direct handling."
+          }
+        }
+      },
       "cosmos-erp": {
         "title": "Cosmos ERP — multi-tenant ERP platform in development",
         "year": "2025 — present",

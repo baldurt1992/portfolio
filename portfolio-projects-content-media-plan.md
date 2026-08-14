@@ -371,13 +371,13 @@ Use Invoice System for ERP, CRM, inventory, invoicing, logistics, delivery, inte
 
 ---
 
-# Project 3 — Hotel Bella del Mar
+# Project 3 — Hotel Bella Del Mar
 
 ## Project identity
 
-- **Project name:** Hotel Bella del Mar
-- **Repository name:** `baldurt1992/bella-mar`
-- **Repository:** <https://github.com/baldurt1992/bella-mar>
+- **Project name:** Hotel Bella Del Mar
+- **Local repository:** `~/work/bella-hotel`
+- **Repository link:** Private; confirm the remote name before adding an internal reference.
 - **Visibility:** Private
 - **Recommended prominence:** `large`
 - **Status:** Implementation completed; private final QA/staging
@@ -387,91 +387,81 @@ Use Invoice System for ERP, CRM, inventory, invoicing, logistics, delivery, inte
 
 ### English
 
-**Hotel Booking & Operations Platform on WordPress**
+**Hotel Bella Del Mar — Hotel Booking Operations Platform**
 
 ### Spanish
 
-**Plataforma hotelera de reservas y operación en WordPress**
+**Hotel Bella Del Mar — plataforma hotelera de reservas y operación**
 
 ## Suggested description
 
 ### English
 
-A complete WordPress implementation for a hotel on Colombia’s Pacific coast, combining a custom RentalHive child theme with HivePress Bookings, WooCommerce and Mercado Pago. Guests can discover rooms, check availability, complete reservations and manage bookings from their account. Hotel staff receive occupancy visibility, manual booking tools and synchronized WooCommerce orders while the transactional plugins remain the authoritative booking and payment layer.
+A WordPress hotel platform built to centralize the booking experience and internal operations for a property on Colombia’s Pacific coast. It combines room discovery, availability, island transportation, coupons, Mercado Pago payments and guest-account tracking with occupancy control, manual bookings and synchronized WooCommerce orders.
 
 ### Spanish
 
-Implementación completa en WordPress para un hotel del Pacífico colombiano, desarrollada mediante un child theme personalizado de RentalHive e integrada con HivePress Bookings, WooCommerce y Mercado Pago. Los huéspedes pueden explorar habitaciones, consultar disponibilidad, completar reservas y administrarlas desde su cuenta. El equipo del hotel obtiene visibilidad de ocupación, herramientas para reservas manuales y pedidos WooCommerce sincronizados, manteniendo los plugins transaccionales como fuente autoritativa para reservas y pagos.
+Plataforma hotelera desarrollada en WordPress para centralizar la experiencia de reserva y la operación interna de un hotel del Pacífico colombiano. Integra búsqueda de habitaciones, disponibilidad, transporte a la isla, cupones, pagos con Mercado Pago y seguimiento desde el perfil del huésped, junto con control de ocupación, reservas manuales y pedidos sincronizados en WooCommerce.
 
 ## Recommended complete engagement flow
 
 The story should follow both sides of a hotel reservation:
 
-1. Guest discovers the hotel and room offering.
-2. Guest opens a room and reviews price, capacity, amenities and gallery.
-3. Guest selects dates and number of guests.
-4. The platform validates availability and creates the booking.
-5. Guest continues through cart/checkout and reaches the payment stage.
-6. Guest sees the reservation in the account area.
-7. Hotel staff see the booking in occupancy management.
-8. Staff create or inspect a manual booking and its synchronized WooCommerce order.
+1. Guest discovers the hotel from the home hero and room sections.
+2. Guest opens the room catalogue and enters an individual listing.
+3. Guest selects dates, number of guests and transportation to the island.
+4. The platform creates the booking summary before payment.
+5. Guest completes checkout, applies a coupon and pays through Mercado Pago.
+6. The completed-purchase page refreshes payment validation until the reservation is confirmed.
+7. Guest opens the reservation detail and related order from the profile area.
+8. Hotel staff review occupancy, filter completed bookings, create assisted manual bookings and verify the synchronized WooCommerce order.
 
-This dual perspective is the project's primary differentiator: it is both a commercial website and an operating tool.
+This dual perspective is the project's primary differentiator: it is both a commercial website and an operating tool. The admin flow is especially important because it supports guests who do not use online platforms or prefer direct booking assistance.
 
 ## Portfolio video modules
 
-### Video 1 — Hotel discovery and brand experience
+### Video 1 — Home, rooms and booking entry point
 
-- **Filename:** `/videos/bella-mar/01-hotel-discovery-brand.mp4`
-- **Duration:** 40–55 seconds.
-- Show the hero and main value proposition.
-- Scroll through rooms, experiences, tides/how-to-arrive content and testimonials.
-- Open the rooms catalogue.
-- Finish on the strongest room card.
+- **Filename:** `/videos/bella-hotel/01-home-hotel-discovery.mp4`
+- Show the home from the hero to the rooms section.
+- Return to the hero and open the rooms CTA.
+- Show the room catalogue as the commercial entry point into the booking journey.
 
-### Video 2 — Room selection and availability
+### Video 2 — Rooms, availability and booking summary
 
-- **Filename:** `/videos/bella-mar/02-room-availability.mp4`
-- **Duration:** 45–60 seconds.
-- Open a room detail page.
-- Show gallery, capacity, amenities and price.
-- Select dates and guests.
-- Show availability validation and booking summary.
+- **Filename:** `/videos/bella-hotel/02-room-availability-flow.webm`
+- Show the room catalogue.
+- Open an individual listing.
+- Select dates, number of guests and transportation to the island.
+- Click reserve and finish on the booking summary view.
 
-### Video 3 — Booking, checkout and payment handoff
+### Video 3 — Complete checkout, coupon, payment and confirmation
 
-- **Filename:** `/videos/bella-mar/03-booking-checkout-payment.mp4`
-- **Duration:** 60–75 seconds.
-- Continue from the booking summary.
-- Show cart/checkout and hotel-specific fields.
-- Reach Mercado Pago in sandbox or stop before any real payment action.
-- Return to a successful reservation state using prepared test data.
+- **Filename:** `/videos/bella-hotel/03-checkout-payment-confirmation.webm`
+- Begin on the booking summary.
+- Select transportation to the island and review the summary.
+- Continue to checkout.
+- Apply a coupon and show the discount.
+- Complete the payment securely through Mercado Pago.
+- Pay and follow the completed-purchase redirect.
+- Show the refresh-based payment validation until confirmation.
+- Open booking details and then the related order from the guest profile.
 
-### Video 4 — Guest account experience
+### Video 4 — Occupancy, manual booking and WooCommerce order
 
-- **Filename:** `/videos/bella-mar/04-guest-account-booking.mp4`
-- **Duration:** 40–55 seconds.
-- Open the guest account.
-- Show reservation list, booking detail and payment status.
-- Demonstrate the next available guest action.
-- End on a clear confirmed or pending-payment state.
-
-### Video 5 — Occupancy and manual booking operations
-
-- **Filename:** `/videos/bella-mar/05-occupancy-manual-booking.mp4`
-- **Duration:** 60–75 seconds.
-- Open the occupancy dashboard.
-- Show date/room visibility.
-- Create or inspect a manual reservation.
-- Show the generated/synchronized WooCommerce order.
-- End with the occupancy state updated.
+- **Filename:** `/videos/bella-hotel/04-admin-occupancy-manual-booking.webm`
+- Begin on the occupancy dashboard.
+- Apply day and completed-status filters.
+- Show how bookings render in the occupancy interface.
+- Create a manual booking with coupon and transportation extra.
+- Open WooCommerce orders and verify that the generated order contains the manual booking data.
 
 ## Workana image sequence
 
 1. **Cover — Complete hotel booking platform:** hotel hero plus room and occupancy-dashboard crops.
 2. **Hotel discovery:** home sections, room catalogue and responsive presentation.
 3. **Room conversion:** room detail, gallery, amenities, capacity and availability selector.
-4. **Transactional booking:** booking summary, checkout and Mercado Pago handoff.
+4. **Transactional booking:** booking summary, integrated Mercado Pago checkout and automatic payment validation.
 5. **Guest self-service:** account, booking detail and payment state.
 6. **Hotel operations:** occupancy dashboard, manual booking and synchronized WooCommerce order.
 
@@ -818,4 +808,3 @@ Avoid adding contact details, external solicitation or long technical paragraphs
 - [ ] Present Bella del Mar as a private final-QA case study, not as a public production deployment.
 - [ ] Keep Essential deferred until its README and demo are presentation-ready.
 - [ ] Preserve Showcase Lab as a separate collection of templates and frontend demonstrations.
-

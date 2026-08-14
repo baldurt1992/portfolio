@@ -255,6 +255,48 @@
           }
         }
       },
+      "bella-hotel": {
+        "title": "Hotel Bella Del Mar — plataforma hotelera de reservas",
+        "year": "2026",
+        "description": "Plataforma hotelera desarrollada en WordPress para centralizar la experiencia de reserva y la operación interna de un hotel del Pacífico colombiano. Integra búsqueda de habitaciones, disponibilidad, transporte a la isla, cupones, pagos con Mercado Pago y seguimiento desde el perfil del huésped, junto con control de ocupación, reservas manuales y pedidos sincronizados en WooCommerce.",
+        "tags": [
+          "WordPress",
+          "Child theme",
+          "HivePress Bookings",
+          "WooCommerce",
+          "Mercado Pago",
+          "Reservas hoteleras",
+          "Cupones",
+          "Dashboard de ocupación",
+          "Reservas manuales"
+        ],
+        "mediaModuleGroups": {
+          "guest-booking": {
+            "title": "Experiencia del huésped"
+          },
+          "hotel-operations": {
+            "title": "Operación del hotel"
+          }
+        },
+        "mediaModules": {
+          "home-hotel-discovery": {
+            "title": "Home, habitaciones y entrada a reserva",
+            "description": "Recorrido por la experiencia pública del Hotel Bella Del Mar: desde el hero de la home hasta la sección de habitaciones. El flujo vuelve al hero, usa el CTA de habitaciones y muestra el catálogo como punto de entrada comercial hacia la reserva."
+          },
+          "room-availability-flow": {
+            "title": "Habitaciones, disponibilidad y resumen de reserva",
+            "description": "Flujo de selección de alojamiento: catálogo de habitaciones, ingreso al listing individual, elección de fechas, número de personas y transporte hacia la isla. La demostración termina en la vista de reserva, donde el huésped ve el resumen antes de pagar."
+          },
+          "checkout-payment-confirmation": {
+            "title": "Checkout completo, cupón, pago y confirmación",
+            "description": "Recorrido completo desde el resumen de la reserva hasta la confirmación del pago. Incluye selección de transporte, aplicación de cupón con descuento visible, pago integrado con Mercado Pago, validación automática de la transacción, confirmación de la reserva y acceso a sus detalles y a la orden desde el perfil del huésped."
+          },
+          "admin-occupancy-manual-booking": {
+            "title": "Ocupación, reserva manual y pedido WooCommerce",
+            "description": "Flujo operativo para el equipo del hotel: tablero de ocupación con filtros de días y estados, renderizado de reservas completas, creación de una reserva manual con cupón y transporte, y verificación en WooCommerce del pedido generado con los mismos datos. Este flujo cubre reservas asistidas para huéspedes que no usan la plataforma o prefieren gestión directa."
+          }
+        }
+      },
       "cosmos-erp": {
         "title": "Cosmos ERP — plataforma ERP multi-tenant en desarrollo",
         "year": "2025 / actualidad",
