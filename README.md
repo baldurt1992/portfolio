@@ -1,61 +1,77 @@
-# BaldurDev Portfolio
+# BaldurDev — Portfolio de Andrés Baldur Tamayo Marín
 
-Personal portfolio of **Andrés Baldur Tamayo**, Full Stack Software Engineer based in Colombia and available for remote work.
+> Este repositorio no es un template. No está hecho para clonar. Es el portafolio personal y el entorno de trabajo de **BaldurDev**.
 
-The site is built to present real engineering work and production experience across SaaS, multi-tenant ERP, APIs, custom WordPress solutions, CI/CD and deployment.
+---
 
-## Selected work
+## ¿Qué es esto?
 
-- **Ticador** — production SaaS ecosystem with multi-tenant provisioning, workforce attendance, real-time flows and automated delivery.
-- **Cosmos ERP** — multi-tenant ERP built with Laravel, Nuxt and TypeScript, including invoicing, document workflows and POS operations.
-- **Dental clinic platform** — WordPress solution with a custom booking plugin, Bold Payments integration and automated notifications.
+Este es el código fuente de mi portafolio profesional: una carta de presentación viva donde muestro cómo diseño, arquitecturo y construyo productos web.
 
-The portfolio also includes **Showcase Lab**, a separate collection of frontend demos used to explore different industries, stacks and visual systems.
+Soy **Andrés Baldur Tamayo Marín**, ingeniero de software full stack con base en Bello, Antioquia, Colombia, y trabajo remoto para equipos en Europa y Latinoamérica. Me especializo en pasar de cero a producción: landing pages orientadas a conversión, SaaS multi-tenant, ERP, APIs y plataformas completas.
 
-## Stack
+El sitio está en vivo aquí:
 
-- Nuxt 4 / Vue 3 / TypeScript
-- Nuxt UI / Tailwind CSS
-- Vue I18n — Spanish and English
-- GSAP for restrained interface motion
-- EmailJS + Cloudflare Turnstile for contact
-- Playwright for end-to-end smoke tests
-- GitHub Pages deployment through GitHub Actions
+**https://baldurt1992.github.io/portfolio/**
 
-## Local development
+---
 
-```bash
-npm ci
-npm run dev
-```
+## Lo que encontrarás aquí
 
-Quality checks:
+No vendo los proyectos que aparecen en el sitio. Los uso como **prueba de entrega real**:
 
-```bash
-npm run lint
-npm run typecheck
-npm run build
-npm run test:e2e
-```
+- **Ticador** — SaaS de workforce management con aprovisionamiento multi-tenant, flujos de asistencia en tiempo real y automatizaciones.
+- **Cosmos ERP** — ERP multi-tenant con facturación, flujos de documentos, POS e integraciones fiscales para España.
+- **Bella Hotel** — plataforma de reservas hoteleras con flujo de huésped, administración de ocupación y pagos.
+- **WordPress enterprise** — soluciones a medida con plugins propios, Elementor/Divi y integraciones de pago.
+- **Showcase Lab** — landings navegables como VantaPay y NovaAI, construidas como ejercicios de diseño y frontend orientados a conversión.
 
-## Deployment
+Cada proyecto incluye media real, contexto técnico y un enlace a la demo o al producto en producción.
 
-Production is prerendered with Nuxt's GitHub Pages preset. The workflow provides the public site URL and base path used by canonical URLs, hreflang, sitemap and other SEO metadata.
+---
 
-## SEO and accessibility
+## Mi forma de trabajar
 
-The portfolio includes:
+- **Especificidad sobre adjetivos.** Prefiero mostrar el sistema real que escribir "soluciones innovadoras".
+- **End-to-end ownership.** Puedo diseñar la interfaz, modelar la base de datos, construir la API, montar el CI/CD y desplegar.
+- **Producto antes que framework.** El stack es una herramienta; el objetivo siempre es que el negocio funcione.
+- **Accesibilidad y rendimiento como piso**, no como extra.
+- **Bilingüe por diseño.** Trabajo con equipos internacionales, por eso el sitio está en español e inglés.
 
-- prerendered Spanish and English routes
-- canonical URLs and `hreflang` / `x-default`
-- XML sitemap
-- index/follow robots metadata
-- Open Graph and Twitter metadata
-- Schema.org `WebSite`, `WebPage` and `Person` structured data
-- keyboard navigation and skip link
-- reduced-motion support
-- responsive layouts and project media
+---
 
-## License
+## Stack técnico
 
-See [LICENSE](LICENSE).
+- **Frontend:** Nuxt 4, Vue 3, TypeScript, Tailwind CSS, Nuxt UI
+- **Backend:** Laravel, PHP, PostgreSQL, MySQL, REST APIs
+- **WordPress:** Elementor, Divi, plugins a medida
+- **DevOps:** Docker, GitHub Actions, GitHub Pages, Cloudflare
+- **Motion:** GSAP, con respeto por `prefers-reduced-motion`
+- **Calidad:** ESLint, TypeScript, Playwright para smoke tests
+
+---
+
+## Contacto
+
+- **Email:** andresbaldur92@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/baldur92/
+- **GitHub:** https://github.com/baldurt1992
+- **Resume:** [Baldur_Tamayo_Resume_EN.pdf](./public/Baldur_Tamayo_Resume_EN.pdf)
+
+Si estás buscando a alguien que tome un producto, lo diseñe, lo construya y lo ponga en producción, hablemos.
+
+---
+
+## Sobre este repo
+
+Este código es parte de mi trabajo público. Refleja decisiones reales de arquitectura, SEO, accesibilidad, i18n y diseño de producto. No es un starter ni un ejemplo genérico: es el sitio que uso para conseguir contratos y mostrar lo que puedo entregar.
+
+Si llegaste aquí evaluando perfiles, te recomiendo empezar por el sitio en vivo.
+
+---
+
+## Licencia
+
+El código de este repositorio está disponible bajo la licencia del proyecto. El contenido, la marca BaldurDev, el resume y los assets visuales son propiedad de Andrés Baldur Tamayo Marín.
+
+Ver [LICENSE](./LICENSE).
