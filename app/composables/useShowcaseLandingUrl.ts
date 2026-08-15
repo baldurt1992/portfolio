@@ -1,10 +1,8 @@
-/**
- * Construye la URL absoluta de una landing dentro del showcase.
- * La base viene de `NUXT_PUBLIC_SHOWCASE_URL` (local: localhost:5500, prod: dominio separado).
- */
+import { withTrailingSlash } from 'ufo'
+import { publicPath } from '~/utils/publicPath'
+
+/** Construye la ruta interna de una landing estática integrada en el portafolio. */
 export function useShowcaseLandingUrl(slug: string): string {
-  const runtimeConfig = useRuntimeConfig()
-  const base = String(runtimeConfig.public.showcaseUrl || '').trim().replace(/\/$/, '')
   const normalizedSlug = slug.replace(/^\/+/, '').replace(/\/$/, '')
-  return base ? `${base}/${normalizedSlug}/` : `/${normalizedSlug}/`
+  return withTrailingSlash(publicPath(`/showcase/${normalizedSlug}`))
 }

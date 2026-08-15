@@ -1,0 +1,242 @@
+@media (max-width: 1023px) {
+  .hero__title {
+    grid-column: 1 / 9;
+  }
+
+  .hero__lead,
+  .hero__actions {
+    grid-column: 1 / 8;
+  }
+
+  .hero__sidecar {
+    grid-column: 9 / -1;
+  }
+
+  .agent-console {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .agent-console__trace {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    border-top: 1px solid var(--border);
+    border-left: 0;
+  }
+
+  .agent-console__trace .console-label,
+  .trace-note {
+    grid-column: 1 / -1;
+  }
+
+  .trace-step { margin-top: 0; }
+  .trace-note { margin-top: 0; }
+
+  .workflow__grid,
+  .impact__grid {
+    gap: 48px;
+  }
+
+  .final-cta__shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .container { padding-inline: 20px; }
+
+  .hero {
+    padding: 124px 0 88px;
+  }
+
+  .hero__title {
+    max-width: 10ch;
+    font-size: clamp(42px, 13vw, 58px);
+  }
+
+  .hero__intro {
+    display: block;
+  }
+
+  .hero__sidecar {
+    margin-top: 32px;
+  }
+
+  .hero__lead {
+    font-size: 17px;
+  }
+
+  .hero__actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .agent-console {
+    grid-template-columns: 1fr;
+    margin-top: 52px;
+  }
+
+  .agent-console__sources {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .agent-console__sources > .console-label:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .source-item {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    min-height: 82px;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .source-item span small,
+  .source-item__status,
+  .console-label--channels,
+  .channel-list {
+    display: none;
+  }
+
+  .source-item strong { white-space: normal; }
+
+  .conversation__topbar,
+  .chat__body,
+  .conversation__prompts {
+    padding-inline: 18px;
+  }
+
+  .conversation__prompts > span { display: none; }
+
+  .agent-console__trace {
+    grid-template-columns: 1fr;
+  }
+
+  .trace-step,
+  .agent-console__trace .console-label,
+  .trace-note {
+    grid-column: auto;
+  }
+
+  .operation,
+  .workflow,
+  .impact,
+  .final-cta {
+    padding: 88px 0;
+  }
+
+  .shift-board {
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+  }
+
+  .shift-board__bridge {
+    min-height: 58px;
+    border-block: 1px solid #e2e8f0;
+    border-inline: 0;
+  }
+
+  .shift-board__bridge i { transform: rotate(90deg); }
+  .shift-board__lane { padding: 22px; }
+
+  .workflow__grid,
+  .impact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow__stage {
+    position: static;
+    top: auto;
+  }
+
+  .workflow-screen__body {
+    min-height: 340px;
+    padding: 24px;
+  }
+
+  .workflow-step {
+    min-height: 0;
+    padding: 28px 0;
+    opacity: 1;
+  }
+
+  .impact-console__recommendation {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .final-cta__shell {
+    gap: 42px;
+    padding: 32px 24px;
+  }
+
+  .source-form > div {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 8px;
+  }
+
+  .source-form input {
+    min-height: 48px;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__links {
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .agent-console__sources {
+    grid-template-columns: 1fr;
+  }
+
+  .source-item {
+    grid-template-columns: 26px minmax(0, 1fr);
+    justify-items: start;
+    min-height: 52px;
+    text-align: left;
+  }
+
+  .chat__message { max-width: 92%; }
+
+  .resolution {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+
+  .resolution > span {
+    grid-column: 2;
+  }
+
+  .impact-outcome {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-outcome strong {
+    grid-row: auto;
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

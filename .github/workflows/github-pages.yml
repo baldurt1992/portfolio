@@ -1,18 +1,11 @@
-# Despliegue estático a GitHub Pages
-# Referencia: https://nuxt.com/deploy/github-pages · https://github.com/actions/deploy-pages
-#
-# Antes del primer deploy: Repo → Settings → Pages → Build and deployment → Source: GitHub Actions
-# (no "Deploy from a branch"). Si no, deploy-pages falla con HTTP 404 al crear el deployment.
-name: Deploy GitHub Pages
+name: Redirect legacy GitHub Pages
 
 on:
   workflow_dispatch:
   push:
     branches:
       - main
-      - master
 
-# No cancelar un deploy en curso: evita publicaciones a medias.
 concurrency:
   group: github-pages
   cancel-in-progress: false
@@ -23,66 +16,20 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Base URL y URL pública del sitio (SEO)
-        id: base
-        run: |
-          OWNER="${{ github.repository_owner }}"
-          NAME="${{ github.event.repository.name }}"
-          if [[ "$NAME" == *.github.io ]]; then
-            echo "path=/" >> "$GITHUB_OUTPUT"
-            echo "site_url=https://${OWNER}.github.io" >> "$GITHUB_OUTPUT"
-          else
-            echo "path=/${NAME}/" >> "$GITHUB_OUTPUT"
-            echo "site_url=https://${OWNER}.github.io/${NAME}" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: URL pública del showcase
-        id: showcase
-        run: |
-          OWNER="${{ github.repository_owner }}"
-          echo "showcase_url=https://${OWNER}.github.io/showcase" >> "$GITHUB_OUTPUT"
-
-      - name: Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install
-        run: npm ci
-
-      - name: Build (Nuxt github_pages)
-        env:
-          NUXT_APP_BASE_URL: ${{ steps.base.outputs.path }}
-          # Público, no es secreto; si usas dominio propio define la variable de repositorio y sobreescribe.
-          NUXT_PUBLIC_SITE_URL: ${{ vars.NUXT_PUBLIC_SITE_URL || steps.base.outputs.site_url }}
-          # URL del dominio separado del showcase. Variable de repositorio para custom domain; fallback al repo `showcase` del mismo owner.
-          NUXT_PUBLIC_SHOWCASE_URL: ${{ vars.NUXT_PUBLIC_SHOWCASE_URL || steps.showcase.outputs.showcase_url }}
-          NUXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${{ secrets.NUXT_PUBLIC_EMAILJS_PUBLIC_KEY }}
-          NUXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.NUXT_PUBLIC_EMAILJS_SERVICE_ID }}
-          NUXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.NUXT_PUBLIC_EMAILJS_TEMPLATE_ID }}
-          NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NUXT_PUBLIC_TURNSTILE_SITE_KEY }}
-          NUXT_PUBLIC_TURNSTILE_VERIFY_URL: ${{ vars.NUXT_PUBLIC_TURNSTILE_VERIFY_URL }}
-        run: npm run build:github
-
-      - name: Upload artifact
+      - name: Upload redirect site
         uses: actions/upload-pages-artifact@v5
         with:
-          path: .output/public
+          path: .github/legacy-pages
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy redirects
         id: deployment
         uses: actions/deploy-pages@v5

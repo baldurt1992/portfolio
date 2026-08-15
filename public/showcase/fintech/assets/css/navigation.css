@@ -1,0 +1,21 @@
+/* NAV */
+.nav-shell{position:sticky;top:0;z-index:40;padding-top:12px;padding-bottom:8px}
+.nav{height:66px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.08);background:rgba(15,23,42,.76);backdrop-filter:blur(18px);border-radius:18px;padding:0 18px 0 20px;box-shadow:0 12px 30px rgba(2,6,23,.18)}
+.brand{display:flex;align-items:center;gap:11px;font-size:18px;font-weight:900;letter-spacing:-.04em}
+.logo-mark{width:31px;height:31px;border-radius:9px;background:var(--primary);position:relative;box-shadow:inset 0 0 0 1px rgba(15,23,42,.14)}
+.logo-mark:before,.logo-mark:after{content:"";position:absolute;background:#0F172A;border-radius:2px;transform:skew(-15deg)}
+.logo-mark:before{width:7px;height:17px;left:8px;top:7px}
+.logo-mark:after{width:7px;height:12px;right:8px;top:7px}
+.nav-links{display:flex;align-items:center;gap:27px;color:#C5CDDA;font-size:13px;font-weight:650}
+.nav-links a:hover{color:#fff}
+.nav-actions{display:flex;align-items:center;gap:9px}
+.menu-btn{display:none;width:40px;height:40px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff;border-radius:11px;cursor:pointer;align-items:center;justify-content:center}
+.mobile-menu{display:none;position:absolute;top:76px;left:20px;right:20px;padding:10px;border:1px solid rgba(255,255,255,.1);background:rgba(15,23,42,.97);backdrop-filter:blur(20px);border-radius:16px;box-shadow:var(--shadow)}
+.mobile-menu.open{display:grid}.mobile-menu a,.mobile-menu button{display:flex;align-items:center;min-height:46px;padding:0 13px;border-radius:10px;color:#D7DFEB;background:none;border:0;text-align:left;font-weight:750;cursor:pointer}.mobile-menu a:hover,.mobile-menu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav-actions .btn{min-height:40px;padding:0 14px;font-size:13px}
+
+.language-switcher{display:inline-flex;align-items:center;padding:3px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);border-radius:10px;gap:2px}
+.lang-btn{min-width:34px;height:32px;border:0;border-radius:7px;background:transparent;color:#8F9BAE;font-size:11px;font-weight:850;cursor:pointer;transition:.2s ease}
+.lang-btn:hover{color:#fff;background:rgba(255,255,255,.06)}
+.lang-btn[aria-pressed="true"]{background:#F59E0B;color:#111827}
+.mobile-menu .language-switcher{margin:7px 8px 3px;justify-self:start}

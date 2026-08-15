@@ -22,7 +22,7 @@
 </script>
 
 <template>
-  <a :href="props.landing.url" target="_blank" rel="noopener noreferrer"
+  <a :href="props.landing.url"
     class="motion-lift group flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-bg-elevated shadow-sm hover:border-accent/30 hover:shadow-md">
     <div class="aspect-16/10 overflow-hidden border-b border-border bg-surface">
       <img :src="props.landing.image" :srcset="props.landing.imageSrcset" :sizes="props.sizes"
@@ -42,7 +42,7 @@
         <span
           class="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-2 text-sm font-medium text-text transition-colors group-hover:bg-surface-hover">
           {{ t('showcase.viewLanding') }}
-          <UIcon name="i-lucide-arrow-up-right" class="size-4" aria-hidden="true" />
+          <UIcon name="i-lucide-arrow-right" class="size-4" aria-hidden="true" />
         </span>
       </div>
     </div>

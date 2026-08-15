@@ -6,9 +6,9 @@
   <p><strong>Diseño, construyo y llevo a producción productos web que tienen que operar de verdad:</strong><br />desde landing pages orientadas a conversión hasta SaaS multi-tenant, ERP, APIs y plataformas transaccionales.</p>
 
   <p>
-    <a href="https://baldurt1992.github.io/portfolio/"><strong>Ver portafolio en vivo</strong></a>
+    <a href="https://baldurdev.com/"><strong>Ver portafolio en vivo</strong></a>
     ·
-    <a href="https://baldurt1992.github.io/showcase/">Explorar landing pages</a>
+    <a href="https://baldurdev.com/showcase/">Explorar landing pages</a>
     ·
     <a href="./public/Baldur_Tamayo_Resume_EN.pdf">Descargar CV</a>
     ·
@@ -41,9 +41,9 @@ No presento ejercicios aislados como experiencia comercial. Estos proyectos mues
 | **Cosmos ERP**                                                           | Unificar operación comercial y facturación con trazabilidad entre documentos.        | ERP multi-tenant con configuración inicial, clientes, facturas, conversión documental, TPV, control de stock, backups y administración de tenants. En desarrollo activo.                                       |
 | **Hotel Bella Del Mar**                                                  | Conectar la reserva del huésped con la operación diaria del hotel.                   | Plataforma WordPress con disponibilidad, transporte, cupones, Mercado Pago, perfil del huésped, dashboard de ocupación, reservas manuales y pedidos sincronizados con WooCommerce.                             |
 | **[Carolina Odontóloga](https://carolinaodontologa.com/)**               | Permitir que pacientes agendaran y pagaran sin depender de coordinación manual.      | Sitio en producción y plugin de reservas a medida con servicios, agenda, pago completo o depósito mediante Bold y notificaciones por correo.                                                                   |
-| **[Showcase de landing pages](https://baldurt1992.github.io/showcase/)** | Comunicar productos complejos con rapidez y llevar al visitante hacia una acción.    | Landings navegables para fintech e IA que combinan jerarquía de contenido, diseño responsive, motion y desarrollo frontend orientado a conversión.                                                             |
+| **[Showcase de landing pages](https://baldurdev.com/showcase/)** | Comunicar productos complejos con rapidez y llevar al visitante hacia una acción.    | Landings navegables para fintech e IA que combinan jerarquía de contenido, diseño responsive, motion y desarrollo frontend orientado a conversión.                                                             |
 
-Los repositorios comerciales son privados, pero el **[portafolio público](https://baldurt1992.github.io/portfolio/#projects)** incluye capturas y recorridos en video, módulo por módulo, para comprobar el alcance de cada producto.
+Los repositorios comerciales son privados, pero el **[portafolio público](https://baldurdev.com/#projects)** incluye capturas y recorridos en video, módulo por módulo, para comprobar el alcance de cada producto.
 
 ## Lo que aporto a un equipo
 
@@ -61,7 +61,7 @@ El sitio no solo enseña el resultado: su código demuestra cómo estructuro y p
 - **Experiencia:** i18n español/inglés, diseño responsive, GSAP con soporte para `prefers-reduced-motion` y una escena ambiental con Three.js.
 - **SEO y descubrimiento:** metadatos localizados, rutas prerenderizadas, sitemap y `robots.txt`.
 - **Integraciones:** formulario con EmailJS y verificación anti-spam mediante Cloudflare Turnstile.
-- **Entrega:** GitHub Actions, build estático y despliegue automatizado en GitHub Pages.
+- **Entrega:** CI con GitHub Actions y despliegue automatizado de `main` en Hostinger.
 - **Calidad:** ESLint, comprobación de tipos con Nuxt y smoke tests con Playwright.
 
 ## Ejecutarlo en local

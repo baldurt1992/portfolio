@@ -1,0 +1,1450 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="#0F172A" name="theme-color" />
+    <link href="favicon.svg" rel="icon" type="image/svg+xml" />
+    <title data-i18n-meta="title">VantaPay — Demo de landing page fintech | BaldurDev</title>
+    <meta
+      content="Demo interactiva de una landing page fintech conceptual, diseñada y desarrollada por BaldurDev."
+      data-i18n-meta="description"
+      name="description"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://baldurdev.com/showcase/fintech/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BaldurDev" />
+    <meta property="og:title" content="VantaPay — Demo de landing page fintech" />
+    <meta property="og:description" content="Demo interactiva de una landing page fintech conceptual, diseñada y desarrollada por BaldurDev." />
+    <meta property="og:url" content="https://baldurdev.com/showcase/fintech/" />
+    <meta property="og:image" content="https://baldurdev.com/images/showcase/vantapay-1920.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VantaPay — Demo de landing page fintech" />
+    <meta name="twitter:description" content="Demo interactiva diseñada y desarrollada por BaldurDev." />
+    <meta name="twitter:image" content="https://baldurdev.com/images/showcase/vantapay-1920.webp" />
+
+    <link href="assets/css/base.css" rel="stylesheet" />
+    <link href="assets/css/navigation.css" rel="stylesheet" />
+    <link href="assets/css/hero.css" rel="stylesheet" />
+    <link href="assets/css/sections.css" rel="stylesheet" />
+    <link href="assets/css/dialogs.css" rel="stylesheet" />
+    <link href="assets/css/responsive.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"CreativeWork","name":"VantaPay — landing page conceptual","url":"https://baldurdev.com/showcase/fintech/","isPartOf":{"@type":"WebSite","name":"BaldurDev","url":"https://baldurdev.com/"},"creator":{"@type":"Person","name":"Andrés Baldur Tamayo Marín","url":"https://baldurdev.com/"},"inLanguage":["es","en"]}
+    </script>
+  </head>
+  <body id="top">
+    <a class="portfolio-back" href="/showcase/" aria-label="Volver al showcase de BaldurDev">
+      <i class="bi bi-arrow-left" aria-hidden="true"></i>
+      <span data-i18n="portfolio.back">Volver al portafolio</span>
+    </a>
+    <header class="nav-shell container">
+      <nav
+        aria-label="Navegación principal"
+        class="nav"
+        data-i18n-aria-label="aria.primaryNav"
+      >
+        <a
+          aria-label="Inicio de VantaPay"
+          class="brand"
+          data-i18n-aria-label="aria.home"
+          href="#top"
+          ><span aria-hidden="true" class="logo-mark"></span>VantaPay</a
+        >
+        <div class="nav-links">
+          <a href="#platform"
+            ><span data-i18n="common.platform">Plataforma</span></a
+          ><a href="#security"
+            ><span data-i18n="common.security">Seguridad</span></a
+          ><a href="#pricing"><span data-i18n="common.pricing">Precios</span></a
+          ><a href="#company"
+            ><span data-i18n="common.company">Empresa</span></a
+          >
+        </div>
+        <div class="nav-actions">
+          <div
+            aria-label="Selector de idioma"
+            class="language-switcher"
+            data-i18n-aria-label="aria.language"
+            role="group"
+          >
+            <button
+              aria-pressed="true"
+              class="lang-btn"
+              data-language="es"
+              type="button"
+            >
+              ES</button
+            ><button
+              aria-pressed="false"
+              class="lang-btn"
+              data-language="en"
+              type="button"
+            >
+              EN
+            </button>
+          </div>
+          <button class="btn btn-ghost" data-open="loginModal" type="button">
+            <span data-i18n="actions.signIn">Iniciar sesión</span></button
+          ><button
+            class="btn btn-primary"
+            data-open="signupModal"
+            type="button"
+          >
+            <span data-i18n="actions.openAccount">Abrir cuenta</span></button
+          ><button
+            aria-expanded="false"
+            aria-label="Abrir navegación"
+            class="menu-btn"
+            data-i18n-aria-label="aria.openNav"
+            id="menuBtn"
+            type="button"
+          >
+            <i class="bi bi-list icon"></i>
+          </button>
+        </div>
+      </nav>
+      <div
+        aria-label="Navegación móvil"
+        class="mobile-menu"
+        data-i18n-aria-label="aria.mobileNav"
+        id="mobileMenu"
+      >
+        <div
+          aria-label="Selector de idioma"
+          class="language-switcher"
+          data-i18n-aria-label="aria.language"
+          role="group"
+        >
+          <button
+            aria-pressed="true"
+            class="lang-btn"
+            data-language="es"
+            type="button"
+          >
+            ES</button
+          ><button
+            aria-pressed="false"
+            class="lang-btn"
+            data-language="en"
+            type="button"
+          >
+            EN
+          </button>
+        </div>
+        <a href="#platform"
+          ><span data-i18n="common.platform">Plataforma</span></a
+        ><a href="#security"
+          ><span data-i18n="common.security">Seguridad</span></a
+        ><a href="#pricing"><span data-i18n="common.pricing">Precios</span></a
+        ><a href="#company"><span data-i18n="common.company">Empresa</span></a
+        ><button data-open="loginModal" type="button">
+          <span data-i18n="actions.signIn">Iniciar sesión</span></button
+        ><button data-open="signupModal" type="button">
+          <span data-i18n="actions.openAccount">Abrir cuenta</span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="reveal visible">
+            <div class="eyebrow">
+              <span class="dot"></span
+              ><span data-i18n="hero.eyebrow"
+                >Infraestructura financiera para equipos modernos</span
+              >
+            </div>
+            <h1>
+              <span data-i18n="hero.title1">Mueve dinero globalmente.</span
+              ><br /><span class="gold"
+                ><span data-i18n="hero.title2">Mantén el control.</span></span
+              >
+            </h1>
+            <p class="lead">
+              <span data-i18n="hero.lead"
+                >Un sistema operativo financiero para pagos globales, cuentas
+                multidivisa, tarjetas corporativas y controles de tesorería, con
+                cada comisión visible antes de mover un centavo.</span
+              >
+            </p>
+            <div class="hero-actions">
+              <button
+                class="btn btn-primary"
+                data-open="signupModal"
+                type="button"
+              >
+                <span data-i18n="actions.openYourAccount">Abre tu cuenta</span>
+                <i class="bi bi-arrow-right icon"></i></button
+              ><a class="btn btn-ghost" href="#platform"
+                ><span data-i18n="actions.explorePlatform"
+                  >Explorar plataforma</span
+                ></a
+              >
+            </div>
+            <div class="hero-note">
+              <span
+                ><i class="check">✓</i
+                ><span data-i18n="hero.noteSetup"
+                  >Sin costos de configuración</span
+                ></span
+              ><span
+                ><i class="check">✓</i
+                ><span data-i18n="hero.noteFx">FX transparente</span></span
+              ><span
+                ><i class="check">✓</i
+                ><span data-i18n="hero.noteFraud"
+                  >Monitoreo de fraude 24/7</span
+                ></span
+              >
+            </div>
+          </div>
+          <div
+            aria-label="Vista previa del panel del producto"
+            class="dashboard reveal visible"
+            data-i18n-aria-label="aria.dashboard"
+          >
+            <div class="dash-top">
+              <span class="dash-title"
+                ><span data-i18n="dashboard.overview"
+                  >Resumen de tesorería</span
+                ></span
+              ><span class="dots"><i></i><i></i><i></i></span>
+            </div>
+            <div class="balance-card">
+              <span class="balance-label"
+                ><span data-i18n="dashboard.totalBalance"
+                  >Saldo total</span
+                ></span
+              >
+              <div class="balance-row">
+                <strong class="balance">$284,930.42</strong
+                ><span class="delta">+8.4%</span>
+              </div>
+              <div class="chart">
+                <div class="chart-grid"></div>
+                <svg preserveaspectratio="none" viewbox="0 0 500 120">
+                  <defs>
+                    <lineargradient id="area" x1="0" x2="0" y1="0" y2="1">
+                      <stop
+                        offset="0"
+                        stop-color="#F59E0B"
+                        stop-opacity=".26"
+                      ></stop>
+                      <stop
+                        offset="1"
+                        stop-color="#F59E0B"
+                        stop-opacity="0"
+                      ></stop>
+                    </lineargradient>
+                  </defs>
+                  <path
+                    d="M0 98 C55 86,80 90,120 68 S200 74,240 46 S325 53,360 35 S430 42,500 13 L500 120 L0 120Z"
+                    fill="url(#area)"
+                  ></path>
+                  <path
+                    d="M0 98 C55 86,80 90,120 68 S200 74,240 46 S325 53,360 35 S430 42,500 13"
+                    fill="none"
+                    stroke="#F59E0B"
+                    stroke-linecap="round"
+                    stroke-width="3"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="cards-row">
+              <div class="mini-card">
+                <span class="mini-label"
+                  ><span data-i18n="dashboard.available"
+                    >Disponible para gastar</span
+                  ></span
+                >
+                <div class="mini-value">$91,440</div>
+              </div>
+              <div class="mini-card">
+                <span class="mini-label"
+                  ><span data-i18n="dashboard.fxSaved"
+                    >Ahorro en FX este mes</span
+                  ></span
+                >
+                <div class="mini-value">$3,842</div>
+              </div>
+            </div>
+            <div class="activity">
+              <div class="activity-item">
+                <div class="merchant">
+                  <span class="avatar">NL</span
+                  ><span
+                    ><b>Northline Labs</b
+                    ><small
+                      ><span data-i18n="dashboard.software"
+                        >Software · USD</span
+                      ></small
+                    ></span
+                  >
+                </div>
+                <span class="amount">− $4,280</span>
+              </div>
+              <div class="activity-item">
+                <div class="merchant">
+                  <span class="avatar">AK</span
+                  ><span
+                    ><b>Akari Studio</b
+                    ><small
+                      ><span data-i18n="dashboard.design"
+                        >Diseño · EUR</span
+                      ></small
+                    ></span
+                  >
+                </div>
+                <span class="amount">− €1,260</span>
+              </div>
+              <div class="activity-item">
+                <div class="merchant">
+                  <span class="avatar">+</span
+                  ><span
+                    ><b
+                      ><span data-i18n="dashboard.incoming"
+                        >Transferencia entrante</span
+                      ></b
+                    ><small
+                      ><span data-i18n="dashboard.clientPayment"
+                        >Pago de cliente · USD</span
+                      ></small
+                    ></span
+                  >
+                </div>
+                <span class="amount float-green">+ $12,500</span>
+              </div>
+            </div>
+            <div class="floating float-left">
+              <div class="float-head">
+                <span data-i18n="dashboard.transferStatus"
+                  >Estado de transferencia</span
+                >
+              </div>
+              <div class="float-val float-green">
+                <span data-i18n="dashboard.settled">● Liquidada</span>
+              </div>
+            </div>
+            <div class="floating float-right">
+              <div class="float-head">
+                <span data-i18n="dashboard.liveFx">Tasa FX en vivo</span>
+              </div>
+              <div class="float-val float-gold">1 USD = 0.917 EUR</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="trust">
+        <div class="container trust-inner">
+          <div class="trust-copy">
+            <span data-i18n="trust.copy"
+              >Creado para equipos que avanzan rápido</span
+            >
+          </div>
+          <div class="wordmark">NORTH<span>LABS</span></div>
+          <div class="wordmark">arc<span>systems</span></div>
+          <div class="wordmark">MONO<span>TYPE</span></div>
+          <div class="wordmark">fable<span>works</span></div>
+        </div>
+      </section>
+      <section class="block" id="platform">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="eyebrow">
+                <span class="dot"></span
+                ><span data-i18n="platform.eyebrow"
+                  >Un solo stack financiero</span
+                >
+              </div>
+              <h2>
+                <span data-i18n="platform.title"
+                  >Todo lo que tu equipo financiero necesita. Nada de lo que
+                  no.</span
+                >
+              </h2>
+            </div>
+            <p>
+              <span data-i18n="platform.lead"
+                >Reemplaza flujos bancarios fragmentados con una sola capa
+                operativa para movimientos de dinero, gastos con tarjeta,
+                aprobaciones y reportes.</span
+              >
+            </p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature large reveal" id="payments">
+              <div class="feature-icon"><i class="bi bi-cash-stack"></i></div>
+              <h3>
+                <span data-i18n="features.paymentsTitle"
+                  >Pagos globales, sin letra pequeña</span
+                >
+              </h3>
+              <p>
+                <span data-i18n="features.paymentsBody"
+                  >Envía y recibe en las principales monedas viendo
+                  destinatario, tasa de cambio, comisión y hora estimada de
+                  llegada antes de aprobar.</span
+                >
+              </p>
+              <div class="feature-visual">
+                <div class="payment-line">
+                  <span class="payment-icon">US</span
+                  ><span
+                    ><strong
+                      ><span data-i18n="features.route1"
+                        >Estados Unidos → Alemania</span
+                      ></strong
+                    ><small>$12,500.00 USD</small></span
+                  ><span class="status"
+                    ><span data-i18n="features.arrivesToday"
+                      >Llega hoy</span
+                    ></span
+                  >
+                </div>
+                <div class="payment-line">
+                  <span class="payment-icon">GB</span
+                  ><span
+                    ><strong
+                      ><span data-i18n="features.route2"
+                        >Reino Unido → Canadá</span
+                      ></strong
+                    ><small>£6,800.00 GBP</small></span
+                  ><span class="status"
+                    ><span data-i18n="features.scheduled"
+                      >Programada</span
+                    ></span
+                  >
+                </div>
+              </div>
+            </article>
+            <article class="feature side reveal" id="cards">
+              <div class="feature-icon"><i class="bi bi-credit-card"></i></div>
+              <h3>
+                <span data-i18n="features.cardsTitle"
+                  >Tarjetas con reglas integradas</span
+                >
+              </h3>
+              <p>
+                <span data-i18n="features.cardsBody"
+                  >Emite tarjetas virtuales y físicas con límites por rol,
+                  controles por comercio y bloqueo instantáneo.</span
+                >
+              </p>
+              <div class="card-visual">
+                <div class="card-chip"></div>
+                <div class="card-number">•••• 4832 7710</div>
+                <div class="card-bottom">
+                  <span>VANTAPAY BUSINESS</span><span>VISA</span>
+                </div>
+              </div>
+            </article>
+            <article class="feature third reveal" id="accounts">
+              <div class="feature-icon"><i class="bi bi-bank2"></i></div>
+              <h3>
+                <span data-i18n="features.accountsTitle"
+                  >Cuentas multidivisa</span
+                >
+              </h3>
+              <p>
+                <span data-i18n="features.accountsBody"
+                  >Mantén, convierte y concilia USD, EUR, GBP, CAD y más desde
+                  una sola vista de tesorería.</span
+                >
+              </p>
+            </article>
+            <article class="feature third reveal" id="treasury">
+              <div class="feature-icon">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <h3>
+                <span data-i18n="features.visibilityTitle"
+                  >Visibilidad financiera en tiempo real</span
+                >
+              </h3>
+              <p>
+                <span data-i18n="features.visibilityBody"
+                  >Saldos en tiempo real, actividad categorizada y datos listos
+                  para exportar en los que tu equipo puede confiar.</span
+                >
+              </p>
+              <div
+                aria-label="Tendencia de saldo de siete días"
+                class="visibility-card"
+                data-i18n-aria-label="aria.balanceTrend"
+              >
+                <div class="visibility-top">
+                  <span
+                    ><small
+                      ><span data-i18n="features.cashPosition"
+                        >Posición de caja · 7 días</span
+                      ></small
+                    ><strong>$284.9k</strong></span
+                  ><span class="visibility-delta">+8.4%</span>
+                </div>
+                <div class="visibility-chart">
+                  <svg
+                    aria-hidden="true"
+                    preserveaspectratio="none"
+                    viewbox="0 0 320 80"
+                  >
+                    <defs>
+                      <lineargradient id="miniArea" x1="0" x2="0" y1="0" y2="1">
+                        <stop
+                          offset="0"
+                          stop-color="#F59E0B"
+                          stop-opacity=".22"
+                        ></stop>
+                        <stop
+                          offset="1"
+                          stop-color="#F59E0B"
+                          stop-opacity="0"
+                        ></stop>
+                      </lineargradient>
+                    </defs>
+                    <path
+                      class="visibility-area"
+                      d="M0 68 C35 55 55 60 82 44 S125 50 150 35 S190 40 214 24 S255 31 280 17 S305 14 320 7 L320 80 L0 80Z"
+                      fill="url(#miniArea)"
+                    ></path>
+                    <path
+                      class="visibility-line"
+                      d="M0 68 C35 55 55 60 82 44 S125 50 150 35 S190 40 214 24 S255 31 280 17 S305 14 320 7"
+                      fill="none"
+                      stroke="#F59E0B"
+                      stroke-linecap="round"
+                      stroke-width="2.4"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </article>
+            <article class="feature third reveal">
+              <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+              <h3>
+                <span data-i18n="features.approvalsTitle"
+                  >Políticas de aprobación</span
+                >
+              </h3>
+              <p>
+                <span data-i18n="features.approvalsBody"
+                  >Crea flujos de aprobación precisos por monto, equipo,
+                  proveedor, entidad o nivel de riesgo.</span
+                >
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="money">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="eyebrow">
+                <span class="dot"></span
+                ><span data-i18n="money.eyebrow">Transparencia por diseño</span>
+              </div>
+              <h2>
+                <span data-i18n="money.title"
+                  >Deberías conocer el costo antes de hacer clic en
+                  enviar.</span
+                >
+              </h2>
+            </div>
+            <p>
+              <span data-i18n="money.lead"
+                >Sin spreads misteriosos ni cargos ocultos. VantaPay muestra el
+                costo real de cada transferencia antes de autorizarla.</span
+              >
+            </p>
+          </div>
+          <div class="money-shell">
+            <div class="money-copy reveal">
+              <div>
+                <span class="eyebrow"
+                  ><span class="dot"></span
+                  ><span data-i18n="money.clarityEyebrow"
+                    >Diseñado para ser claro</span
+                  ></span
+                >
+                <h3>
+                  <span data-i18n="money.clarityTitle"
+                    >Cada tasa, comisión y hora de llegada, desde el
+                    principio.</span
+                  >
+                </h3>
+                <p>
+                  <span data-i18n="money.clarityBody"
+                    >Los equipos financieros avanzan más rápido cuando no tienen
+                    que reconstruir el costo real de mover dinero.</span
+                  >
+                </p>
+                <div class="money-list">
+                  <div class="money-item">
+                    <i class="check">✓</i
+                    ><span
+                      ><span data-i18n="money.pointRate"
+                        >Tasa en vivo visible antes de aprobar</span
+                      ></span
+                    >
+                  </div>
+                  <div class="money-item">
+                    <i class="check">✓</i
+                    ><span
+                      ><span data-i18n="money.pointFee"
+                        >Comisión de transferencia separada del costo FX</span
+                      ></span
+                    >
+                  </div>
+                  <div class="money-item">
+                    <i class="check">✓</i
+                    ><span
+                      ><span data-i18n="money.pointRecipient"
+                        >Monto del destinatario confirmado antes de enviar</span
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+              <small style="color: #68758a; position: relative; z-index: 2"
+                ><span data-i18n="money.demoPricing"
+                  >Precios de ejemplo mostrados solo para demostración.</span
+                ></small
+              >
+            </div>
+            <div class="transfer reveal">
+              <div class="transfer-top">
+                <h4>
+                  <span data-i18n="transfer.title"
+                    >Nueva transferencia internacional</span
+                  >
+                </h4>
+                <span class="pill"
+                  ><span data-i18n="transfer.draft">Borrador</span></span
+                >
+              </div>
+              <div class="transfer-grid">
+                <div class="field">
+                  <label
+                    ><span data-i18n="transfer.youSend">Tú envías</span></label
+                  ><strong>$25,000.00 USD</strong>
+                </div>
+                <div class="field">
+                  <label
+                    ><span data-i18n="transfer.recipientGets"
+                      >El destinatario recibe</span
+                    ></label
+                  ><strong>€22,925.00 EUR</strong>
+                </div>
+                <div class="field wide">
+                  <label
+                    ><span data-i18n="transfer.exchangeRate"
+                      >Tasa de cambio</span
+                    ></label
+                  >
+                  <div class="conversion">
+                    <strong>1 USD = 0.9170 EUR</strong
+                    ><span class="rate"
+                      ><span data-i18n="transfer.liveRate"
+                        >Tasa en vivo</span
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="fees">
+                <div class="fee-row">
+                  <span
+                    ><span data-i18n="transfer.transferFee"
+                      >Comisión de transferencia</span
+                    ></span
+                  ><strong>$12.00</strong>
+                </div>
+                <div class="fee-row">
+                  <span
+                    ><span data-i18n="transfer.fxFee"
+                      >Comisión FX (0,35 %)</span
+                    ></span
+                  ><strong>$87.50</strong>
+                </div>
+                <div class="fee-row">
+                  <span
+                    ><span data-i18n="transfer.estimatedArrival"
+                      >Llegada estimada</span
+                    ></span
+                  ><strong
+                    ><span data-i18n="transfer.today"
+                      >Hoy, 4:30 p. m.</span
+                    ></strong
+                  >
+                </div>
+                <div class="fee-row total">
+                  <span
+                    ><span data-i18n="transfer.totalCharged"
+                      >Total cobrado</span
+                    ></span
+                  ><strong>$25,099.50</strong>
+                </div>
+              </div>
+              <button
+                class="btn btn-primary"
+                data-open="transferModal"
+                type="button"
+              >
+                <span data-i18n="transfer.review">Revisar transferencia</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="security" id="security">
+        <div class="container security-grid">
+          <div class="reveal">
+            <div class="eyebrow">
+              <span class="dot"></span
+              ><span data-i18n="security.eyebrow">Seguridad primero</span>
+            </div>
+            <h2>
+              <span data-i18n="security.title"
+                >Controles que no estorban, hasta que los necesitas.</span
+              >
+            </h2>
+            <p>
+              <span data-i18n="security.lead"
+                >Protege cada pago con aprobaciones configurables, acceso de
+                mínimo privilegio, detección de anomalías, controles de sesión y
+                trazabilidad completa.</span
+              >
+            </p>
+            <div class="security-list">
+              <div class="sec-item">
+                <b
+                  ><span data-i18n="security.roleTitle"
+                    >Acceso basado en roles</span
+                  ></b
+                ><small
+                  ><span data-i18n="security.roleBody"
+                    >Permisos granulares para administradores, finanzas,
+                    responsables y titulares de tarjetas.</span
+                  ></small
+                >
+              </div>
+              <div class="sec-item">
+                <b
+                  ><span data-i18n="security.monitorTitle"
+                    >Monitoreo en tiempo real</span
+                  ></b
+                ><small
+                  ><span data-i18n="security.monitorBody"
+                    >Análisis continuo de transacciones y alertas por actividad
+                    sospechosa.</span
+                  ></small
+                >
+              </div>
+              <div class="sec-item">
+                <b
+                  ><span data-i18n="security.auditTitle"
+                    >Registros listos para auditoría</span
+                  ></b
+                ><small
+                  ><span data-i18n="security.auditBody"
+                    >Cada aprobación, edición, inicio de sesión y transacción
+                    queda registrada con contexto.</span
+                  ></small
+                >
+              </div>
+              <div class="sec-item">
+                <b
+                  ><span data-i18n="security.cardTitle"
+                    >Controles instantáneos de tarjeta</span
+                  ></b
+                ><small
+                  ><span data-i18n="security.cardBody"
+                    >Bloquea, limita o restringe tarjetas sin esperar a
+                    soporte.</span
+                  ></small
+                >
+              </div>
+            </div>
+          </div>
+          <div class="shield-card reveal">
+            <div class="security-stat ss1">
+              <small
+                ><span data-i18n="security.riskEngine"
+                  >Motor de riesgo</span
+                ></small
+              ><strong class="float-green"
+                ><span data-i18n="security.active">Activo</span></strong
+              >
+            </div>
+            <div class="shield">
+              <div class="shield-inner"><div class="lock"></div></div>
+            </div>
+            <div class="security-stat ss2">
+              <small
+                ><span data-i18n="security.screened"
+                  >Transacciones analizadas</span
+                ></small
+              ><strong>100%</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pricing" id="pricing">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="eyebrow">
+                <span class="dot"></span
+                ><span data-i18n="pricing.eyebrow">Precios simples</span>
+              </div>
+              <h2>
+                <span data-i18n="pricing.title"
+                  >Empieza ligero. Escala sin renegociar tu stack.</span
+                >
+              </h2>
+            </div>
+            <p>
+              <span data-i18n="pricing.lead"
+                >Precios conceptuales para esta demo: planes transparentes y
+                costos de transferencia y FX visibles siempre antes de
+                autorizar.</span
+              >
+            </p>
+          </div>
+          <div class="pricing-grid">
+            <article class="price-card reveal">
+              <span class="price-tag"
+                ><span data-i18n="pricing.starter">Inicial</span></span
+              >
+              <h3>Core</h3>
+              <p>
+                <span data-i18n="pricing.coreBody"
+                  >Para equipos pequeños que centralizan tarjetas, pagos y una
+                  única vista de tesorería.</span
+                >
+              </p>
+              <div class="price-value">
+                $0
+                <small
+                  ><span data-i18n="pricing.perMonth"
+                    >/ mes de plataforma</span
+                  ></small
+                >
+              </div>
+              <div class="price-list">
+                <span
+                  ><i class="check">✓</i
+                  ><span data-i18n="pricing.multiAccount"
+                    >Cuenta multidivisa</span
+                  ></span
+                ><span
+                  ><i class="check">✓</i
+                  ><span data-i18n="pricing.virtualCards"
+                    >Tarjetas virtuales</span
+                  ></span
+                ><span
+                  ><i class="check">✓</i
+                  ><span data-i18n="pricing.basicApprovals"
+                    >Aprobaciones básicas</span
+                  ></span
+                >
+              </div>
+              <button
+                class="btn btn-ghost"
+                data-open="signupModal"
+                type="button"
+              >
+                <span data-i18n="pricing.startCore">Empezar con Core</span>
+              </button>
+            </article>
+            <article class="price-card featured reveal">
+              <span class="price-tag"
+                ><span data-i18n="pricing.popular">Más popular</span></span
+              >
+              <h3>Scale</h3>
+              <p>
+                <span data-i18n="pricing.scaleBody"
+                  >Para equipos financieros que necesitan políticas, entidades,
+                  roles y conciliación más rápida.</span
+                >
+              </p>
+              <div class="price-value">
+                $99
+                <small
+                  ><span data-i18n="pricing.perMonth"
+                    >/ mes de plataforma</span
+                  ></small
+                >
+              </div>
+              <div class="price-list">
+                <span
+                  ><i class="check">✓</i
+                  ><span data-i18n="pricing.everythingCore"
+                    >Todo lo de Core</span
+                  ></span
+                ><span
+                  ><i class="check">✓</i
+                  ><span data-i18n="pricing.advancedApprovals"
+                    >Políticas de aprobación avanzadas</span
+                  ></span
+                ><span
+                  ><i class="check">✓</i
+                  ><span data-i18n="pricing.teamControls"
+                    >Controles por equipo y entidad</span
+                  ></span
+                ><span
+                  ><i class="check">✓</i
+                  ><span data-i18n="pricing.prioritySupport"
+                    >Soporte prioritario</span
+                  ></span
+                >
+              </div>
+              <button
+                class="btn btn-primary"
+                data-open="signupModal"
+                type="button"
+              >
+                <span data-i18n="pricing.chooseScale">Elegir Scale</span>
+              </button>
+            </article>
+            <article class="price-card reveal">
+              <span class="price-tag"
+                ><span data-i18n="pricing.custom">A medida</span></span
+              >
+              <h3>Enterprise</h3>
+              <p>
+                <span data-i18n="pricing.enterpriseBody"
+                  >Para organizaciones multi-entidad que necesitan controles,
+                  onboarding y soporte a medida.</span
+                >
+              </p>
+              <div class="price-value">
+                <span data-i18n="pricing.custom">A medida</span>
+              </div>
+              <div class="price-list">
+                <span
+                  ><i class="check">✓</i
+                  ><span data-i18n="pricing.customStructure"
+                    >Estructura de cuentas personalizada</span
+                  ></span
+                ><span
+                  ><i class="check">✓</i
+                  ><span data-i18n="pricing.ssoAudit"
+                    >SSO y auditoría avanzada</span
+                  ></span
+                ><span
+                  ><i class="check">✓</i
+                  ><span data-i18n="pricing.onboarding"
+                    >Onboarding dedicado</span
+                  ></span
+                >
+              </div>
+              <button
+                class="btn btn-ghost"
+                data-open="salesModal"
+                type="button"
+              >
+                <span data-i18n="actions.talkSales">Hablar con ventas</span>
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="proof">
+        <div class="container">
+          <div class="quote reveal">
+            <div>
+              <div class="quote-mark">“</div>
+              <blockquote>
+                <span data-i18n="proof.quote"
+                  >Consolidamos tres herramientas bancarias y nuestra plataforma
+                  de tarjetas en VantaPay. La mayor ganancia no fue solo la
+                  velocidad: por fin vemos cada comisión, aprobación y saldo en
+                  un mismo lugar.</span
+                >
+              </blockquote>
+              <div class="person">
+                <span class="avatar">MJ</span
+                ><span
+                  ><strong>Mara Jensen</strong
+                  ><small
+                    ><span data-i18n="proof.role"
+                      >VP de Finanzas, Northline Labs</span
+                    ></small
+                  ></span
+                >
+              </div>
+            </div>
+            <div class="quote-stats">
+              <div class="qstat">
+                <strong>37%</strong
+                ><small
+                  ><span data-i18n="proof.reconcile"
+                    >menos tiempo conciliando</span
+                  ></small
+                >
+              </div>
+              <div class="qstat">
+                <strong>2.4×</strong
+                ><small
+                  ><span data-i18n="proof.approvals"
+                    >aprobaciones más rápidas</span
+                  ></small
+                >
+              </div>
+              <div class="qstat">
+                <strong>18</strong
+                ><small
+                  ><span data-i18n="proof.markets"
+                    >mercados pagados al mes</span
+                  ></small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="cta-section" id="start">
+        <div class="container">
+          <div class="cta reveal">
+            <div class="cta-copy">
+              <h2>
+                <span data-i18n="cta.title"
+                  >Construye una operación financiera más tranquila.</span
+                >
+              </h2>
+              <p>
+                <span data-i18n="cta.body"
+                  >Abre una cuenta VantaPay y reúne pagos, tarjetas, visibilidad
+                  de tesorería y controles en un solo espacio de trabajo.</span
+                >
+              </p>
+            </div>
+            <div class="cta-actions">
+              <button
+                class="btn btn-dark"
+                data-open="signupModal"
+                type="button"
+              >
+                <span data-i18n="actions.openAccount"
+                  >Abrir cuenta</span
+                ></button
+              ><button
+                class="btn btn-light"
+                data-open="salesModal"
+                type="button"
+              >
+                <span data-i18n="actions.talkSales">Hablar con ventas</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="company">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="foot-brand">
+            <a class="brand" href="#top"
+              ><span class="logo-mark"></span>VantaPay</a
+            >
+            <p>
+              <span data-i18n="footer.body"
+                >Infraestructura financiera moderna para equipos globales.
+                Comisiones claras, controles potentes y una única fuente de
+                verdad.</span
+              >
+            </p>
+          </div>
+          <div class="footer-col">
+            <strong><span data-i18n="common.platform">Plataforma</span></strong
+            ><a href="#accounts"
+              ><span data-i18n="footer.accounts">Cuentas</span></a
+            ><a href="#payments"
+              ><span data-i18n="footer.payments">Pagos</span></a
+            ><a href="#cards"><span data-i18n="footer.cards">Tarjetas</span></a
+            ><a href="#treasury"
+              ><span data-i18n="footer.treasury">Tesorería</span></a
+            >
+          </div>
+          <div class="footer-col">
+            <strong><span data-i18n="common.company">Empresa</span></strong
+            ><a data-info="about" href="#company"
+              ><span data-i18n="footer.about">Nosotros</span></a
+            ><a data-info="careers" href="#company"
+              ><span data-i18n="footer.careers">Trabaja con nosotros</span></a
+            ><a href="#security"
+              ><span data-i18n="common.security">Seguridad</span></a
+            ><button class="footer-link" data-open="salesModal" type="button">
+              <span data-i18n="footer.contact">Contacto</span>
+            </button>
+          </div>
+          <div class="footer-col">
+            <strong><span data-i18n="footer.legal">Legal</span></strong
+            ><a data-info="privacy" href="#company"
+              ><span data-i18n="footer.privacy">Privacidad</span></a
+            ><a data-info="terms" href="#company"
+              ><span data-i18n="footer.terms">Términos</span></a
+            ><a data-info="compliance" href="#company"
+              ><span data-i18n="footer.compliance">Cumplimiento</span></a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            ><span data-i18n="footer.copyright"
+              >© 2026 VantaPay. Landing page conceptual.</span
+            ></span
+          ><span
+            ><span data-i18n="footer.tagline"
+              >Diseñada para confianza, claridad y conversión.</span
+            ></span
+          >
+        </div>
+      </div>
+    </footer>
+    <dialog aria-labelledby="loginTitle" class="modal" id="loginModal">
+      <div class="modal-shell">
+        <div class="modal-head">
+          <div>
+            <span class="eyebrow"
+              ><span class="dot"></span
+              ><span data-i18n="login.eyebrow">Acceso seguro</span></span
+            >
+            <h3 id="loginTitle">
+              <span data-i18n="login.title">Bienvenido de nuevo</span>
+            </h3>
+            <p>
+              <span data-i18n="login.body"
+                >Inicia sesión en tu espacio de trabajo VantaPay.</span
+              >
+            </p>
+          </div>
+          <button
+            aria-label="Cerrar"
+            class="modal-close"
+            data-close=""
+            data-i18n-aria-label="aria.close"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <form
+          class="form-grid demo-form"
+          data-success-key="forms.success.login"
+        >
+          <div class="form-field">
+            <label for="loginEmail"
+              ><span data-i18n="forms.workEmail"
+                >Correo corporativo</span
+              ></label
+            ><input
+              autocomplete="email"
+              id="loginEmail"
+              name="email"
+              placeholder="you@company.com"
+              required=""
+              type="email"
+            />
+          </div>
+          <div class="form-field">
+            <label for="loginPassword"
+              ><span data-i18n="forms.password">Contraseña</span></label
+            ><input
+              autocomplete="current-password"
+              id="loginPassword"
+              minlength="6"
+              name="password"
+              placeholder="••••••••"
+              required=""
+              type="password"
+            />
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">
+              <span data-i18n="actions.signIn">Iniciar sesión</span></button
+            ><button class="btn btn-ghost" data-info="reset" type="button">
+              <span data-i18n="login.forgot">¿Olvidaste tu contraseña?</span>
+            </button>
+          </div>
+          <div class="modal-note">
+            <span data-i18n="login.note"
+              >Esta es una demo interactiva de portafolio. Las credenciales no
+              se envían a ningún lugar.</span
+            >
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <dialog aria-labelledby="signupTitle" class="modal" id="signupModal">
+      <div class="modal-shell">
+        <div class="modal-head">
+          <div>
+            <span class="eyebrow"
+              ><span class="dot"></span
+              ><span data-i18n="signup.eyebrow">Comenzar</span></span
+            >
+            <h3 id="signupTitle">
+              <span data-i18n="signup.title">Abre tu espacio de trabajo</span>
+            </h3>
+            <p>
+              <span data-i18n="signup.body"
+                >Crea una cuenta demo de VantaPay en segundos.</span
+              >
+            </p>
+          </div>
+          <button
+            aria-label="Cerrar"
+            class="modal-close"
+            data-close=""
+            data-i18n-aria-label="aria.close"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <form
+          class="form-grid demo-form"
+          data-success-key="forms.success.signup"
+        >
+          <div class="form-row">
+            <div class="form-field">
+              <label for="firstName"
+                ><span data-i18n="forms.firstName">Nombre</span></label
+              ><input id="firstName" placeholder="Alex" required="" />
+            </div>
+            <div class="form-field">
+              <label for="lastName"
+                ><span data-i18n="forms.lastName">Apellido</span></label
+              ><input id="lastName" placeholder="Morgan" required="" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="signupEmail"
+              ><span data-i18n="forms.workEmail"
+                >Correo corporativo</span
+              ></label
+            ><input
+              id="signupEmail"
+              placeholder="alex@company.com"
+              required=""
+              type="email"
+            />
+          </div>
+          <div class="form-field">
+            <label for="companyName"
+              ><span data-i18n="forms.company">Empresa</span></label
+            ><input id="companyName" placeholder="Northline Labs" required="" />
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">
+              <span data-i18n="signup.create">Crear espacio</span></button
+            ><button class="btn btn-ghost" data-close="" type="button">
+              <span data-i18n="actions.notNow">Ahora no</span>
+            </button>
+          </div>
+          <div class="modal-note">
+            <span data-i18n="signup.note"
+              >No se crea ninguna cuenta bancaria real; esta interacción
+              demuestra la experiencia de onboarding prevista.</span
+            >
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <dialog aria-labelledby="salesTitle" class="modal" id="salesModal">
+      <div class="modal-shell">
+        <div class="modal-head">
+          <div>
+            <span class="eyebrow"
+              ><span class="dot"></span
+              ><span data-i18n="sales.eyebrow">Ventas</span></span
+            >
+            <h3 id="salesTitle">
+              <span data-i18n="sales.title">Habla con un especialista</span>
+            </h3>
+            <p>
+              <span data-i18n="sales.body"
+                >Cuéntanos cómo funciona tu operación financiera.</span
+              >
+            </p>
+          </div>
+          <button
+            aria-label="Cerrar"
+            class="modal-close"
+            data-close=""
+            data-i18n-aria-label="aria.close"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <form
+          class="form-grid demo-form"
+          data-success-key="forms.success.sales"
+        >
+          <div class="form-row">
+            <div class="form-field">
+              <label for="salesName"
+                ><span data-i18n="forms.name">Nombre</span></label
+              ><input
+                data-i18n-placeholder="forms.yourName"
+                id="salesName"
+                placeholder="Tu nombre"
+                required=""
+              />
+            </div>
+            <div class="form-field">
+              <label for="salesEmail"
+                ><span data-i18n="forms.workEmail"
+                  >Correo corporativo</span
+                ></label
+              ><input
+                id="salesEmail"
+                placeholder="you@company.com"
+                required=""
+                type="email"
+              />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="companySize"
+              ><span data-i18n="forms.companySize"
+                >Tamaño de la empresa</span
+              ></label
+            ><select id="companySize" required="">
+              <option data-i18n="forms.select" value="">Selecciona…</option>
+              <option>1–20</option>
+              <option>21–100</option>
+              <option>101–500</option>
+              <option>500+</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="salesMessage"
+              ><span data-i18n="forms.need">¿Qué necesitas?</span></label
+            ><textarea
+              data-i18n-placeholder="forms.salesPlaceholder"
+              id="salesMessage"
+              placeholder="Pagos globales, tarjetas, controles de tesorería…"
+            ></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">
+              <span data-i18n="sales.request">Solicitar llamada</span></button
+            ><button class="btn btn-ghost" data-close="" type="button">
+              <span data-i18n="actions.cancel">Cancelar</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <dialog aria-labelledby="transferTitle" class="modal" id="transferModal">
+      <div class="modal-shell">
+        <div class="modal-head">
+          <div>
+            <span class="eyebrow"
+              ><span class="dot"></span
+              ><span data-i18n="review.eyebrow">Revisión final</span></span
+            >
+            <h3 id="transferTitle">
+              <span data-i18n="review.title"
+                >Revisar transferencia internacional</span
+              >
+            </h3>
+            <p>
+              <span data-i18n="review.body"
+                >Confirma el monto que recibirá el destinatario y el costo total
+                antes de aprobar.</span
+              >
+            </p>
+          </div>
+          <button
+            aria-label="Cerrar"
+            class="modal-close"
+            data-close=""
+            data-i18n-aria-label="aria.close"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <div class="transfer-review">
+          <div class="review-row">
+            <span><span data-i18n="transfer.youSend">Tú envías</span></span
+            ><strong>$25,000.00 USD</strong>
+          </div>
+          <div class="review-row">
+            <span
+              ><span data-i18n="transfer.recipientGets"
+                >El destinatario recibe</span
+              ></span
+            ><strong>€22,925.00 EUR</strong>
+          </div>
+          <div class="review-row">
+            <span><span data-i18n="review.rate">Tasa</span></span
+            ><strong>1 USD = 0.9170 EUR</strong>
+          </div>
+          <div class="review-row">
+            <span><span data-i18n="review.fees">Comisiones</span></span
+            ><strong>$99.50</strong>
+          </div>
+          <div class="review-row total">
+            <span
+              ><span data-i18n="transfer.totalCharged"
+                >Total cobrado</span
+              ></span
+            ><strong>$25,099.50</strong>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" id="approveTransfer" type="button">
+            <span data-i18n="review.approve"
+              >Aprobar transferencia</span
+            ></button
+          ><button class="btn btn-ghost" data-close="" type="button">
+            <span data-i18n="review.keepDraft">Mantener borrador</span>
+          </button>
+        </div>
+        <div class="modal-note">
+          <span data-i18n="review.note"
+            >Solo demo: no se mueve dinero real.</span
+          >
+        </div>
+      </div>
+    </dialog>
+    <dialog aria-labelledby="infoTitle" class="modal" id="infoModal">
+      <div class="modal-shell">
+        <div class="modal-head">
+          <div>
+            <span class="eyebrow"><span class="dot"></span>VantaPay</span>
+            <h3 id="infoTitle">
+              <span data-i18n="info.defaultTitle">Información</span>
+            </h3>
+          </div>
+          <button
+            aria-label="Cerrar"
+            class="modal-close"
+            data-close=""
+            data-i18n-aria-label="aria.close"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <div class="info-body" id="infoBody"></div>
+      </div>
+    </dialog>
+    <div aria-live="polite" class="toast" id="toast" role="status"></div>
+    <script src="assets/js/app.js" type="module"></script>
+  </body>
+</html>

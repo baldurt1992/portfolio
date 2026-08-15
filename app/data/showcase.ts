@@ -1,7 +1,7 @@
 export interface ShowcaseLanding {
   /** Identificador único de la landing. */
   id: string
-  /** Slug del directorio en el repo showcase (ej. 'fintech', 'ai'). */
+  /** Slug del micrositio estático en `public/showcase/` (ej. 'fintech', 'ai'). */
   slug: string
   /** Clave i18n para la categoría/etiqueta. */
   categoryKey: string

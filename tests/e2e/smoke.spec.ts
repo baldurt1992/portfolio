@@ -9,7 +9,7 @@ test.describe('BaldurDev portfolio smoke', () => {
     await expect(page.locator('#landings')).toContainText('VantaPay')
     await expect(page.locator('#landings')).toContainText('NovaAI')
     await expect(
-      page.locator('#landings').getByRole('link', { name: /Ver todas/i })
+      page.locator('#landings').getByRole('link', { name: /Explorar landings/i })
     ).toHaveAttribute('href', /\/showcase\/?$/)
   })
 
@@ -21,7 +21,7 @@ test.describe('BaldurDev portfolio smoke', () => {
     await expect(page.locator('#landings')).toContainText('VantaPay')
     await expect(page.locator('#landings')).toContainText('NovaAI')
     await expect(
-      page.locator('#landings').getByRole('link', { name: /View all/i })
+      page.locator('#landings').getByRole('link', { name: /Explore landing pages/i })
     ).toHaveAttribute('href', /\/en\/showcase\/?$/)
   })
 
@@ -60,7 +60,7 @@ test.describe('BaldurDev portfolio smoke', () => {
   test('important CTA hrefs are present', async ({ page }) => {
     await page.goto('/')
     await expect(
-      page.getByRole('link', { name: /Ver proyectos|View projects/i }).first()
+      page.getByRole('link', { name: /Ver trabajos|View work/i }).first()
     ).toBeVisible()
     await expect(page.getByRole('link', { name: /Contactar|Contact/i }).first()).toBeVisible()
     await expect(page.locator('a[download]').first()).toHaveAttribute(
@@ -73,7 +73,7 @@ test.describe('BaldurDev portfolio smoke', () => {
     await page.goto('/')
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       'href',
-      /\/portfolio\/$|localhost/
+      'https://baldurdev.com/'
     )
     await expect(page.locator('link[rel="alternate"][hreflang="es-CO"]')).toHaveCount(1)
     await expect(page.locator('link[rel="alternate"][hreflang="en-US"]')).toHaveCount(1)
@@ -101,6 +101,18 @@ test.describe('BaldurDev portfolio smoke', () => {
     await expect(page.locator('a[href$="/ai/"]')).toHaveCount(1)
     await expect(page.getByRole('img', { name: /VantaPay/ })).toBeVisible()
     await expect(page.getByRole('img', { name: /NovaAI/ })).toBeVisible()
+  })
+
+  test('integrated landing pages expose canonical metadata and portfolio return', async ({ page }) => {
+    for (const slug of ['fintech', 'ai']) {
+      await page.goto(`/showcase/${slug}/`)
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+        'href',
+        `https://baldurdev.com/showcase/${slug}/`
+      )
+      await expect(page.locator('.portfolio-back')).toBeVisible()
+      await expect(page.locator('.portfolio-back')).toHaveAttribute('href', '/showcase/')
+    }
   })
 
   test('no horizontal overflow on mobile', async ({ page }) => {

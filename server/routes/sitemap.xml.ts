@@ -28,7 +28,12 @@ export default defineEventHandler((event) => {
     { es: `${base}/showcase/`, en: `${base}/en/showcase/` }
   ]
 
-  const urls = localePairs.flatMap(({ es, en }) => [
+  const showcaseUrls = [
+    `${base}/showcase/fintech/`,
+    `${base}/showcase/ai/`
+  ]
+
+  const localizedUrls = localePairs.flatMap(({ es, en }) => [
     {
       loc: es,
       alternatives: [
@@ -46,6 +51,11 @@ export default defineEventHandler((event) => {
       ]
     }
   ])
+
+  const urls = [
+    ...localizedUrls,
+    ...showcaseUrls.map((loc) => ({ loc, alternatives: [] }))
+  ]
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">

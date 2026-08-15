@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#020617" name="theme-color"/>
+<title>NovaAI — Demo de landing page para soporte con IA | BaldurDev</title>
+<meta name="description" content="Demo interactiva de una landing page para un producto de soporte con IA, diseñada y desarrollada por BaldurDev."/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<link rel="canonical" href="https://baldurdev.com/showcase/ai/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="BaldurDev"/>
+<meta property="og:title" content="NovaAI — Demo de landing page para soporte con IA"/>
+<meta property="og:description" content="Demo interactiva de una landing page para un producto de soporte con IA, diseñada y desarrollada por BaldurDev."/>
+<meta property="og:url" content="https://baldurdev.com/showcase/ai/"/>
+<meta property="og:image" content="https://baldurdev.com/images/showcase/novaai-1920.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="NovaAI — Demo de landing page para soporte con IA"/>
+<meta name="twitter:description" content="Demo interactiva diseñada y desarrollada por BaldurDev."/>
+<meta name="twitter:image" content="https://baldurdev.com/images/showcase/novaai-1920.webp"/>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+
+<link rel="stylesheet" href="assets/css/base.css"/>
+<link rel="stylesheet" href="assets/css/components.css"/>
+<link rel="stylesheet" href="assets/css/navigation.css"/>
+<link rel="stylesheet" href="assets/css/hero.css"/>
+<link rel="stylesheet" href="assets/css/sections.css"/>
+<link rel="stylesheet" href="assets/css/dialogs.css"/>
+<link rel="stylesheet" href="assets/css/responsive.css"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CreativeWork","name":"NovaAI — landing page conceptual","url":"https://baldurdev.com/showcase/ai/","isPartOf":{"@type":"WebSite","name":"BaldurDev","url":"https://baldurdev.com/"},"creator":{"@type":"Person","name":"Andrés Baldur Tamayo Marín","url":"https://baldurdev.com/"},"inLanguage":["es","en"]}
+</script>
+</head>
+<body id="top">
+
+<a class="portfolio-back" href="/showcase/" aria-label="Volver al showcase de BaldurDev">
+  <i class="bi bi-arrow-left" aria-hidden="true"></i>
+  <span data-i18n="portfolio_back">Volver al portafolio</span>
+</a>
+
+<!--
+THESIS: NovaAI se entiende usándolo; evita la landing SaaS de cards, métricas y tres planes.
+OWN-WORLD: sala de control conversacional oscura, superficies sólidas, señal cian y estados vivos.
+STORY: ver una respuesta, entender cómo se entrena, comparar la operación y estimar el impacto.
+FIRST VIEWPORT: promesa breve arriba y una consola de soporte de ancho completo como protagonista.
+FORM: recorrido conversation-first con consola, secuencia sticky, comparación y calculadora operativa.
+-->
+
+<nav class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="#top" aria-label="NovaAI">
+      <span class="nav__logo-mark">
+        <img src="assets/img/logo.svg" alt="" aria-hidden="true" width="32" height="32"/>
+      </span>
+      NovaAI
+    </a>
+
+    <div class="nav__links">
+      <a href="#experience" data-i18n="nav_product">Producto</a>
+      <a href="#workflow" data-i18n="nav_workflow">Cómo funciona</a>
+      <a href="#impact" data-i18n="nav_impact">Impacto</a>
+    </div>
+
+    <div class="nav__actions">
+      <button class="lang-toggle" id="lang-toggle" data-i18n-aria-label="aria_language" aria-label="Cambiar idioma" type="button">
+        <i class="bi bi-globe" aria-hidden="true"></i>
+        <span id="lang-label">EN</span>
+      </button>
+      <button class="btn btn-primary btn-sm nav__cta js-open-dialog" type="button" data-i18n="nav_cta">Crear agente</button>
+      <button class="nav__menu-btn" id="menu-open" data-i18n-aria-label="aria_menu_open" aria-label="Abrir menú" type="button">
+        <i class="bi bi-list" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav__mobile" id="mobile-menu">
+  <button class="nav__mobile-close" id="menu-close" data-i18n-aria-label="aria_menu_close" aria-label="Cerrar menú" type="button">
+    <i class="bi bi-x-lg" aria-hidden="true"></i>
+  </button>
+  <a href="#experience" data-i18n="nav_product">Producto</a>
+  <a href="#workflow" data-i18n="nav_workflow">Cómo funciona</a>
+  <a href="#impact" data-i18n="nav_impact">Impacto</a>
+  <button class="btn btn-primary js-open-dialog" type="button" data-i18n="nav_cta">Crear agente</button>
+</div>
+
+<main id="top">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__intro reveal">
+      <div class="badge hero__badge">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span data-i18n="hero_badge">Agente activo · listo para aprender</span>
+      </div>
+      <h1 class="hero__title" id="hero-title" data-i18n="hero_title">Convierte cada conversación en una <span>respuesta útil.</span></h1>
+      <p class="hero__lead" data-i18n="hero_lead">Entrena un agente con el conocimiento de tu negocio, conéctalo a tus canales y mantén a tu equipo al mando cuando una conversación necesita criterio humano.</p>
+      <aside class="hero__sidecar" aria-label="Estado de la simulación" data-i18n-aria-label="aria_demo_status">
+        <div class="hero__sidecar-top">
+          <span class="live-status"><i aria-hidden="true"></i><span data-i18n="demo_live">Simulación activa</span></span>
+          <span>NovaAI / 01</span>
+        </div>
+        <strong data-i18n="demo_case">Una conversación lista para resolver</strong>
+        <div class="hero__sidecar-sources">
+          <span><i class="bi bi-journal-text" aria-hidden="true"></i><span data-i18n="demo_source_1">Centro de ayuda</span></span>
+          <span><i class="bi bi-bag" aria-hidden="true"></i><span data-i18n="demo_source_2">Pedidos</span></span>
+          <span><i class="bi bi-people" aria-hidden="true"></i>CRM</span>
+        </div>
+        <a href="#live-demo"><span data-i18n="demo_open">Abrir espacio de trabajo</span><i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
+      </aside>
+      <div class="hero__actions">
+        <button class="btn btn-primary js-open-dialog" id="hero-cta-primary" type="button" data-i18n="hero_cta_primary">Crear mi agente</button>
+        <a class="hero__text-link" href="#live-demo">
+          <span data-i18n="hero_cta_secondary">Probar la simulación</span>
+          <i class="bi bi-arrow-down" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="agent-console reveal" id="live-demo" aria-label="Espacio de trabajo ilustrativo de NovaAI" data-i18n-aria-label="aria_console">
+      <aside class="agent-console__sources" aria-label="Fuentes conectadas" data-i18n-aria-label="aria_sources">
+        <div class="console-label" data-i18n="console_knowledge">Conocimiento</div>
+        <button class="source-item is-active" type="button" data-source="help" aria-pressed="true">
+          <i class="bi bi-journal-text" aria-hidden="true"></i>
+          <span><strong data-i18n="source_help">Centro de ayuda</strong><small data-i18n="source_help_meta">124 artículos</small></span>
+          <i class="bi bi-check-circle-fill source-item__status" aria-hidden="true"></i>
+        </button>
+        <button class="source-item" type="button" data-source="orders" aria-pressed="false">
+          <i class="bi bi-bag" aria-hidden="true"></i>
+          <span><strong data-i18n="source_orders">Pedidos</strong><small data-i18n="source_orders_meta">Sincronizado</small></span>
+          <i class="bi bi-check-circle-fill source-item__status" aria-hidden="true"></i>
+        </button>
+        <button class="source-item" type="button" data-source="crm" aria-pressed="false">
+          <i class="bi bi-people" aria-hidden="true"></i>
+          <span><strong>CRM</strong><small data-i18n="source_crm_meta">Contexto del cliente</small></span>
+          <i class="bi bi-check-circle-fill source-item__status" aria-hidden="true"></i>
+        </button>
+        <div class="console-label console-label--channels" data-i18n="console_channels">Canales</div>
+        <div class="channel-list" aria-label="Canales disponibles" data-i18n-aria-label="aria_channels">
+          <span><i class="bi bi-chat-dots" aria-hidden="true"></i> Chat web</span>
+          <span><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp</span>
+          <span><i class="bi bi-envelope" aria-hidden="true"></i> Email</span>
+        </div>
+      </aside>
+
+      <div class="agent-console__conversation">
+        <div class="conversation__topbar">
+          <div>
+            <span class="conversation__eyebrow" data-i18n="conversation_inbox">Bandeja · Chat web</span>
+            <strong data-i18n="conversation_customer">Conversación con Sofía</strong>
+          </div>
+          <span class="live-status"><i aria-hidden="true"></i><span data-i18n="conversation_live">Resolviendo</span></span>
+        </div>
+        <div class="chat__body" id="chat-body" role="log" aria-live="polite" aria-label="Conversación ilustrativa con NovaAI" data-i18n-aria-label="aria_chat">
+          <div class="chat__message chat__message--user" data-i18n="chat_initial_user">Mi pedido aparece entregado, pero no lo recibí.</div>
+          <div class="chat__message chat__message--bot" data-i18n="chat_initial_bot">Lo reviso contigo. Encontré el pedido #4821 y la evidencia del transportista. Antes de abrir una incidencia, ¿confirmas si alguien más pudo recibirlo?</div>
+        </div>
+        <div class="conversation__prompts" aria-label="Probar otro escenario" data-i18n-aria-label="aria_scenarios">
+          <span data-i18n="conversation_try">Prueba otro caso:</span>
+          <button class="prompt-chip" type="button" data-scenario="order" data-i18n="scenario_order">Estado de pedido</button>
+          <button class="prompt-chip" type="button" data-scenario="plan" data-i18n="scenario_plan">Cambio de plan</button>
+          <button class="prompt-chip" type="button" data-scenario="human" data-i18n="scenario_human">Hablar con alguien</button>
+        </div>
+      </div>
+
+      <aside class="agent-console__trace">
+        <div class="console-label" data-i18n="trace_title">Contexto de respuesta</div>
+        <div class="trace-step is-complete">
+          <span>01</span>
+          <div><strong data-i18n="trace_intent">Intención detectada</strong><small id="trace-intent-value" data-i18n="trace_intent_value">Entrega no recibida</small></div>
+        </div>
+        <div class="trace-step is-complete">
+          <span>02</span>
+          <div><strong data-i18n="trace_sources">Fuentes consultadas</strong><small id="trace-sources-value" data-i18n="trace_sources_value">Pedidos + política de envíos</small></div>
+        </div>
+        <div class="trace-step is-current">
+          <span>03</span>
+          <div><strong data-i18n="trace_action">Siguiente acción</strong><small id="trace-action-value" data-i18n="trace_action_value">Confirmar recepción</small></div>
+        </div>
+        <p class="trace-note" data-i18n="trace_note">Flujo ilustrativo. Tu equipo define fuentes, reglas y límites.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="operation" id="experience" aria-labelledby="operation-title">
+  <div class="container">
+    <div class="operation__heading reveal">
+      <p class="section-kicker" data-i18n="operation_kicker">Una operación distinta</p>
+      <h2 class="section-title" id="operation-title" data-i18n="operation_title">Menos cola. Más <span>contexto.</span></h2>
+      <p class="section-subtitle" data-i18n="operation_lead">NovaAI organiza el trabajo alrededor de la resolución, no de una bandeja que crece sin parar.</p>
+    </div>
+
+    <div class="shift-board reveal">
+      <div class="shift-board__lane shift-board__lane--before">
+        <div class="lane-heading">
+          <span class="lane-signal lane-signal--warning" aria-hidden="true"></span>
+          <strong data-i18n="before_title">Bandeja tradicional</strong>
+          <span data-i18n="before_count">18 pendientes</span>
+        </div>
+        <div class="ticket-list" aria-label="Cola tradicional ilustrativa" data-i18n-aria-label="aria_before_queue">
+          <div class="ticket"><span>SL</span><p><strong data-i18n="before_ticket_1">¿Dónde está mi pedido?</strong><small data-i18n="before_ticket_1_meta">Sin asignar · 42 min</small></p><i class="bi bi-clock" aria-hidden="true"></i></div>
+          <div class="ticket"><span>DM</span><p><strong data-i18n="before_ticket_2">No puedo cambiar mi plan</strong><small data-i18n="before_ticket_2_meta">Esperando · 1 h 12 min</small></p><i class="bi bi-clock" aria-hidden="true"></i></div>
+          <div class="ticket"><span>AR</span><p><strong data-i18n="before_ticket_3">Necesito actualizar la factura</strong><small data-i18n="before_ticket_3_meta">Sin contexto · 2 h</small></p><i class="bi bi-clock" aria-hidden="true"></i></div>
+        </div>
+      </div>
+
+      <div class="shift-board__bridge" aria-hidden="true">
+        <i class="bi bi-arrow-right"></i>
+      </div>
+
+      <div class="shift-board__lane shift-board__lane--after">
+        <div class="lane-heading">
+          <span class="lane-signal lane-signal--success" aria-hidden="true"></span>
+          <strong data-i18n="after_title">Operación con NovaAI</strong>
+          <span data-i18n="after_count">En flujo</span>
+        </div>
+        <div class="resolution-stream" aria-label="Resoluciones ilustrativas" data-i18n-aria-label="aria_after_queue">
+          <div class="resolution"><i class="bi bi-check2" aria-hidden="true"></i><p><strong data-i18n="after_item_1">Pedido localizado y explicado</strong><small data-i18n="after_item_1_meta">Resuelto con Pedidos + Envíos</small></p><span data-i18n="after_auto">Automático</span></div>
+          <div class="resolution"><i class="bi bi-arrow-up-right" aria-hidden="true"></i><p><strong data-i18n="after_item_2">Cambio comercial detectado</strong><small data-i18n="after_item_2_meta">Contexto preparado para ventas</small></p><span data-i18n="after_handoff">Derivado</span></div>
+          <div class="resolution"><i class="bi bi-check2" aria-hidden="true"></i><p><strong data-i18n="after_item_3">Datos fiscales actualizados</strong><small data-i18n="after_item_3_meta">Resuelto con Facturación</small></p><span data-i18n="after_auto">Automático</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="illustrative-note" data-i18n="operation_note">Escenario ilustrativo para mostrar el flujo del producto.</p>
+  </div>
+</section>
+
+<section class="workflow" id="workflow" aria-labelledby="workflow-title">
+  <div class="container workflow__grid">
+    <div class="workflow__stage reveal" data-active-step="1">
+      <div class="workflow-screen">
+        <div class="workflow-screen__top">
+          <span><i class="bi bi-stars" aria-hidden="true"></i> NovaAI Studio</span>
+          <span class="workflow-screen__status" data-i18n="workflow_ready">Configuración lista</span>
+        </div>
+        <div class="workflow-screen__body">
+          <div class="workflow-visual workflow-visual--1">
+            <span class="visual-icon"><i class="bi bi-journal-richtext" aria-hidden="true"></i></span>
+            <strong data-i18n="workflow_visual_1">124 artículos comprendidos</strong>
+            <div class="visual-progress"><i></i></div>
+          </div>
+          <div class="workflow-visual workflow-visual--2">
+            <div class="channel-orbit" aria-hidden="true">
+              <span><i class="bi bi-whatsapp"></i></span><span><i class="bi bi-envelope"></i></span><span><i class="bi bi-chat-dots"></i></span>
+              <b><i class="bi bi-stars"></i></b>
+            </div>
+            <strong data-i18n="workflow_visual_2">Una voz en todos tus canales</strong>
+          </div>
+          <div class="workflow-visual workflow-visual--3">
+            <div class="answer-compose"><span></span><span></span><span></span></div>
+            <strong data-i18n="workflow_visual_3">Respuesta con fuente y acción</strong>
+          </div>
+          <div class="workflow-visual workflow-visual--4">
+            <div class="handoff-person"><span>LC</span><i class="bi bi-arrow-left-right" aria-hidden="true"></i><span class="handoff-person__ai"><i class="bi bi-stars" aria-hidden="true"></i></span></div>
+            <strong data-i18n="workflow_visual_4">El humano recibe todo el contexto</strong>
+          </div>
+        </div>
+        <div class="workflow-screen__footer">
+          <span data-i18n="workflow_guardrail">Reglas activas</span>
+          <div data-workflow-pagination></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="workflow__story">
+      <header class="workflow__header reveal">
+        <p class="section-kicker" data-i18n="workflow_kicker">Del conocimiento a la acción</p>
+        <h2 class="section-title" id="workflow-title" data-i18n="workflow_title">Un agente se construye <span>paso a paso.</span></h2>
+        <p class="section-subtitle" data-i18n="workflow_lead">Cada etapa deja una decisión visible y configurable para tu equipo.</p>
+      </header>
+
+      <ol class="workflow-steps">
+        <li class="workflow-step reveal is-active" data-workflow-step="1" tabindex="0" role="button" aria-current="step">
+          <span>01</span><div><h3 data-i18n="step_1_title">Enséñale tu negocio</h3><p data-i18n="step_1_text">Conecta documentos, políticas y preguntas frecuentes. NovaAI mantiene la fuente detrás de cada respuesta.</p></div>
+        </li>
+        <li class="workflow-step reveal" data-workflow-step="2" tabindex="0" role="button" aria-current="false">
+          <span>02</span><div><h3 data-i18n="step_2_title">Conecta los canales</h3><p data-i18n="step_2_text">La conversación llega desde chat, correo o mensajería y conserva una sola identidad operativa.</p></div>
+        </li>
+        <li class="workflow-step reveal" data-workflow-step="3" tabindex="0" role="button" aria-current="false">
+          <span>03</span><div><h3 data-i18n="step_3_title">Responde y actúa</h3><p data-i18n="step_3_text">El agente consulta contexto, propone una solución y ejecuta únicamente las acciones que autorizaste.</p></div>
+        </li>
+        <li class="workflow-step reveal" data-workflow-step="4" tabindex="0" role="button" aria-current="false">
+          <span>04</span><div><h3 data-i18n="step_4_title">Entrega al humano cuando importa</h3><p data-i18n="step_4_text">Si detecta riesgo, ambigüedad o una regla de escalación, transfiere conversación, fuentes y siguiente paso.</p></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="impact" id="impact" aria-labelledby="impact-title">
+  <div class="container impact__grid">
+    <div class="impact__copy reveal">
+      <p class="section-kicker" data-i18n="impact_kicker">Explora tu operación</p>
+      <h2 class="section-title" id="impact-title" data-i18n="impact_title">Ajusta el volumen. Mira qué <span>cambia.</span></h2>
+      <p class="section-subtitle" data-i18n="impact_lead">Usa el simulador para visualizar una configuración posible según tus conversaciones mensuales.</p>
+
+      <div class="volume-control">
+        <div class="volume-control__label">
+          <label for="volume-range" data-i18n="impact_volume">Conversaciones al mes</label>
+          <output id="volume-value" for="volume-range">5.000</output>
+        </div>
+        <input id="volume-range" type="range" min="500" max="50000" step="500" value="5000"/>
+        <div class="volume-control__scale" aria-hidden="true"><span>500</span><span>50k</span></div>
+      </div>
+      <p class="illustrative-note illustrative-note--left" data-i18n="impact_note">Estimación ilustrativa basada en supuestos configurables; no representa resultados garantizados.</p>
+    </div>
+
+    <div class="impact-console reveal" aria-live="polite">
+      <div class="impact-console__top">
+        <span data-i18n="impact_projection">Proyección operativa</span>
+        <span class="live-status"><i aria-hidden="true"></i><span data-i18n="impact_live">Actualizada</span></span>
+      </div>
+      <div class="impact-outcome impact-outcome--primary">
+        <span data-i18n="impact_resolved">Conversaciones asistidas</span>
+        <strong id="resolved-value">3.400</strong>
+        <small data-i18n="impact_resolved_help">Según una tasa ilustrativa del 68 %</small>
+      </div>
+      <div class="impact-outcome">
+        <span data-i18n="impact_hours">Horas de trabajo liberadas</span>
+        <strong id="hours-value">283 h</strong>
+        <small data-i18n="impact_hours_help">A 5 minutos por conversación asistida</small>
+      </div>
+      <div class="impact-outcome">
+        <span data-i18n="impact_handoffs">Conversaciones para el equipo</span>
+        <strong id="handoff-value">1.600</strong>
+        <small data-i18n="impact_handoffs_help">Llegan con contexto y fuentes consultadas</small>
+      </div>
+      <div class="impact-console__recommendation">
+        <div><span data-i18n="impact_setup">Configuración sugerida</span><strong id="setup-value">Scale</strong></div>
+        <button class="btn btn-primary js-open-dialog" id="impact-cta" type="button" data-i18n="impact_cta">Configurar este agente</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="final-cta__shell reveal">
+      <div>
+        <p class="section-kicker" data-i18n="cta_kicker">Empieza por lo que ya sabes</p>
+        <h2 id="cta-title" data-i18n="cta_title">Convierte tu centro de ayuda en un <span>agente listo para responder.</span></h2>
+        <p data-i18n="cta_lead">Añade una fuente de conocimiento y recibe una configuración inicial para revisar con tu equipo.</p>
+      </div>
+      <div class="source-form" role="group" aria-labelledby="source-label">
+        <label id="source-label" for="source-url" data-i18n="cta_source_label">URL de tu centro de ayuda</label>
+        <div>
+          <input id="source-url" type="url" inputmode="url" data-i18n-placeholder="cta_source_placeholder" placeholder="https://ayuda.tuempresa.com"/>
+          <button class="btn btn-primary js-open-dialog" id="cta-btn" type="button" data-i18n="cta_button">Crear agente</button>
+        </div>
+        <small data-i18n="cta_source_help">Puedes cambiar o eliminar las fuentes después.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="nav__logo" href="#top">
+          <span class="nav__logo-mark"><img src="assets/img/logo.svg" alt="" aria-hidden="true" width="32" height="32"/></span>
+          NovaAI
+        </a>
+        <p data-i18n="footer_desc">Un espacio de trabajo conversacional para entrenar, conectar y supervisar agentes de soporte con IA.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4 data-i18n="footer_col_product">Producto</h4>
+          <a href="#experience" data-i18n="nav_product">Producto</a>
+          <a href="#workflow" data-i18n="nav_workflow">Cómo funciona</a>
+          <a href="#impact" data-i18n="nav_impact">Impacto</a>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_col_legal">Legal</h4>
+          <a class="js-toast" href="#" data-toast="Página legal en construcción" data-i18n="footer_privacy">Privacidad</a>
+          <a class="js-toast" href="#" data-toast="Página legal en construcción" data-i18n="footer_terms">Términos</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span data-i18n="footer_copyright">© 2026 NovaAI. Experiencia construida por BaldurDev.</span>
+      <a href="/showcase/" data-i18n="footer_back">← Volver al showcase</a>
+    </div>
+  </div>
+</footer>
+
+<div class="dialog-overlay" id="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title" aria-hidden="true">
+  <div class="dialog">
+    <div class="dialog__header">
+      <div>
+        <h2 class="dialog__title" id="dialog-title" data-i18n="dialog_title">Crear tu agente</h2>
+        <p class="dialog__lead" data-i18n="dialog_lead">Déjanos tu email y te enviamos el acceso para configurarlo.</p>
+      </div>
+      <button class="dialog__close" id="dialog-close" data-i18n-aria-label="aria_dialog_close" aria-label="Cerrar" type="button">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
+    </div>
+    <form class="dialog__form" id="dialog-form">
+      <div class="dialog__field">
+        <label for="dialog-email" data-i18n="dialog_email_label">Correo electrónico</label>
+        <input id="dialog-email" type="email" autocomplete="email" required data-i18n-placeholder="dialog_email_placeholder" placeholder="tu@empresa.com"/>
+      </div>
+      <button class="btn btn-primary dialog__submit" type="submit" data-i18n="dialog_submit">Solicitar acceso</button>
+    </form>
+    <div class="dialog__success" id="dialog-success" hidden>
+      <i class="bi bi-check-circle" aria-hidden="true"></i>
+      <h3 data-i18n="dialog_success_title">¡Listo!</h3>
+      <p data-i18n="dialog_success_text">Revisa tu bandeja de entrada para continuar.</p>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

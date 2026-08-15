@@ -1,9 +1,11 @@
 /**
- * URL pública absoluta (sin barra final), desde `NUXT_PUBLIC_SITE_URL`.
- * En producción el workflow de GitHub Actions la define; en local tu `.env` puede ser localhost.
+ * URL pública absoluta (sin barra final). Hostinger puede sobreescribirla con
+ * `NUXT_PUBLIC_SITE_URL`; el fallback evita generar canonicals/sitemaps localhost
+ * si la variable no está presente durante un build de producción.
  */
 function normalizedPublicSiteUrl(): string {
-  return process.env.NUXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, '') ?? ''
+  const fromEnv = process.env.NUXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, '') ?? ''
+  return fromEnv || (process.env.NODE_ENV === 'production' ? 'https://baldurdev.com' : '')
 }
 
 const publicSiteUrl = normalizedPublicSiteUrl()
@@ -48,8 +50,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl: publicSiteUrl,
-      /** URL base del showcase (dominio separado). En local http://localhost:5500; en prod la URL de GitHub Pages. */
-      showcaseUrl: process.env.NUXT_PUBLIC_SHOWCASE_URL?.trim().replace(/\/$/, '') || '',
       emailjsPublicKey: '',
       emailjsServiceId: '',
       emailjsTemplateId: '',

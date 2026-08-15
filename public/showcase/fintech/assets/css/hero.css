@@ -1,0 +1,34 @@
+/* HERO */
+.hero{position:relative;padding:108px 0 78px;overflow-x:clip}
+.hero:before{content:"";position:absolute;inset:-150px -15vw auto auto;width:620px;height:620px;background:radial-gradient(circle,rgba(245,158,11,.10),transparent 66%);pointer-events:none}
+.hero:after{content:"";position:absolute;left:-260px;top:200px;width:520px;height:520px;background:radial-gradient(circle,rgba(139,92,246,.08),transparent 68%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(48px,6vw,78px);line-height:.99;letter-spacing:-.062em;margin:20px 0 24px;max-width:720px}
+.hero h1 .gold{color:#F8B63C}
+.lead{font-size:18px;color:var(--sub);max-width:610px;margin:0 0 30px;line-height:1.75}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-note{display:flex;align-items:center;gap:20px;margin-top:30px;color:#9BA7BA;font-size:12px}
+.hero-note span{display:flex;align-items:center;gap:8px}
+.check{display:grid;place-items:center;width:18px;height:18px;border-radius:99px;background:rgba(34,197,94,.12);color:#4ADE80;border:1px solid rgba(34,197,94,.2)}
+
+.dashboard{background:linear-gradient(180deg,#1B2334 0%,#161D2C 100%);border:1px solid rgba(255,255,255,.10);border-radius:28px;padding:17px;box-shadow:var(--shadow);position:relative;transform:rotate(.3deg)}
+.dashboard:before{content:"";position:absolute;inset:-1px;border-radius:28px;padding:1px;background:linear-gradient(125deg,rgba(245,158,11,.35),transparent 36%,transparent 72%,rgba(139,92,246,.25));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;pointer-events:none}
+.dash-top{display:flex;align-items:center;justify-content:space-between;padding:6px 6px 15px}
+.dash-title{font-size:12px;color:#AAB5C6;font-weight:700}.dots{display:flex;gap:5px}.dots i{width:6px;height:6px;border-radius:99px;background:#475569}
+.balance-card{background:#0F172A;border:1px solid #334155;border-radius:18px;padding:20px}
+.balance-label{font-size:11px;color:#94A3B8;font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+.balance-row{display:flex;align-items:end;justify-content:space-between;margin-top:6px;gap:12px}
+.balance{font-size:34px;font-weight:850;letter-spacing:-.045em}
+.delta{font-size:12px;color:#4ADE80;background:rgba(34,197,94,.10);padding:5px 8px;border-radius:8px;font-weight:750}
+.chart{height:130px;margin-top:13px;position:relative;overflow:hidden}
+.chart-grid{position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,rgba(148,163,184,.08) 32px)}
+.chart svg{position:absolute;inset:0;width:100%;height:100%}
+.cards-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.mini-card{border:1px solid #334155;background:#1E293B;border-radius:16px;padding:15px}
+.mini-label{color:#93A0B4;font-size:10px;text-transform:uppercase;letter-spacing:.11em;font-weight:800}
+.mini-value{font-size:20px;font-weight:830;margin-top:5px;letter-spacing:-.03em}
+.activity{margin-top:12px;border:1px solid #334155;background:#1A2232;border-radius:16px;padding:13px 14px}
+.activity-item{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(148,163,184,.09)}
+.activity-item:last-child{border:0}.merchant{display:flex;align-items:center;gap:10px}.avatar{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-weight:900;font-size:11px;background:#2B3445;color:#E2E8F0}.merchant b{font-size:11px;display:block}.merchant small{display:block;color:#7F8CA2;font-size:9px}.amount{font-size:11px;font-weight:800}
+.floating{position:absolute;border:1px solid rgba(255,255,255,.1);background:rgba(25,34,51,.94);backdrop-filter:blur(14px);box-shadow:0 15px 35px rgba(2,6,23,.28);border-radius:14px;padding:12px 14px}
+.float-left{left:-46px;bottom:82px}.float-right{right:-33px;top:85px}.float-head{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#8D99AB;font-weight:800}.float-val{font-size:15px;font-weight:850;margin-top:3px}.float-green{color:#4ADE80}.float-gold{color:#FBBF24}
