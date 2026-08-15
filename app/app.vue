@@ -10,6 +10,7 @@
   const localePath = useLocalePath()
   const runtimeConfig = useRuntimeConfig()
   const route = useRoute()
+  const colorMode = useColorMode()
 
   /** `seo: false`: canonical/hreflang se controlan aquí para soportar base paths de GitHub Pages. */
   const i18nHead = useLocaleHead({ seo: false })
@@ -235,7 +236,10 @@
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#05050a' },
+        {
+          name: 'theme-color',
+          content: colorMode.value === 'dark' ? '#05050a' : '#f7f7f5'
+        },
         {
           name: 'robots',
           content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
