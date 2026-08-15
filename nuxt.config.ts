@@ -40,8 +40,8 @@ export default defineNuxtConfig({
 
   // `classSuffix: ''` → clase `dark` (Tailwind). Declarar `@nuxtjs/color-mode` en modules antes que @nuxt/ui rompe esto (default `-mode`).
   colorMode: {
-    preference: 'dark',
-    fallback: 'dark',
+    preference: 'system',
+    fallback: 'light',
     classSuffix: '',
     disableTransition: true
   },
