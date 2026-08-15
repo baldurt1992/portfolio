@@ -235,7 +235,7 @@
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#0B0C0F' },
+        { name: 'theme-color', content: '#05050a' },
         {
           name: 'robots',
           content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
@@ -270,11 +270,18 @@
     ogSiteName: () => portfolioStructure.bio.brandName ?? 'BaldurDev',
     ogUrl: () => canonicalPageUrl.value,
     ogImage: () => ogImageUrl.value,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: 'image/png',
+    ogImageAlt: () =>
+      `${portfolioStructure.bio.brandName ?? 'BaldurDev'} — ${portfolioData.value.bio.title}`,
     ogLocale: () => (locale.value === 'en' ? 'en_US' : 'es_CO'),
     twitterCard: 'summary_large_image',
     twitterTitle: () => seoPageTitle(),
     twitterDescription: () => seoPageDescription(),
-    twitterImage: () => ogImageUrl.value
+    twitterImage: () => ogImageUrl.value,
+    twitterImageAlt: () =>
+      `${portfolioStructure.bio.brandName ?? 'BaldurDev'} — ${portfolioData.value.bio.title}`
   })
 </script>
 

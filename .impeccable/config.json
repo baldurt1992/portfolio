@@ -1,0 +1,29 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "createdAt": "2026-08-15T14:09:46.939Z",
+        "reason": "Tipografía del sitio (main.css --font-heading); el OG debe coincidir con el portafolio"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-08-15T14:09:47.000Z",
+        "reason": "Tipografía del sitio (main.css --font-sans); el OG debe coincidir con el portafolio"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "scripts/og-image.html"
+        ],
+        "createdAt": "2026-08-15T14:10:07.910Z",
+        "reason": "Fuente del OG: replica tipografía del sitio (Space Grotesk, Inter, JetBrains Mono) para rasterizar og-image.png"
+      }
+    ]
+  }
+}
