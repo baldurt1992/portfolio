@@ -124,7 +124,7 @@ export const portfolioStructure: PortfolioStructure = {
     brandName: 'BaldurDev',
     avatar: '/images/portrait.webp',
     aboutAvatar: '/images/avatar-cutout.webp',
-    email: 'andresbaldur92@gmail.com',
+    email: 'contact@baldurdev.com',
     social: {
       github: 'https://github.com/baldurt1992',
       linkedin: 'https://www.linkedin.com/in/baldur92/'

@@ -12,7 +12,7 @@
     ·
     <a href="./public/Baldur_Tamayo_Resume_EN_2026.pdf">Descargar CV</a>
     ·
-    <a href="mailto:andresbaldur92@gmail.com">Hablemos</a>
+    <a href="mailto:contact@baldurdev.com">Hablemos</a>
   </p>
 </div>
 
@@ -86,12 +86,12 @@ npm run build
 
 Puedo ayudarte con una landing que explique y convierta, un MVP listo para validar, una plataforma Laravel/Nuxt o una solución WordPress con lógica e integraciones a medida.
 
-- **Email:** [andresbaldur92@gmail.com](mailto:andresbaldur92@gmail.com)
+- **Email:** [contact@baldurdev.com](mailto:contact@baldurdev.com)
 - **LinkedIn:** [linkedin.com/in/baldur92](https://www.linkedin.com/in/baldur92/)
 - **GitHub:** [github.com/baldurt1992](https://github.com/baldurt1992)
 - **Ubicación:** Bello, Antioquia, Colombia · trabajo remoto
 
-Cuéntame qué necesitas resolver, en qué estado está el proyecto y cuál es el siguiente resultado importante. **[Escríbeme](mailto:andresbaldur92@gmail.com?subject=Proyecto%20web%20-%20Contacto%20desde%20GitHub)**.
+Cuéntame qué necesitas resolver, en qué estado está el proyecto y cuál es el siguiente resultado importante. **[Escríbeme](mailto:contact@baldurdev.com?subject=Proyecto%20web%20-%20Contacto%20desde%20GitHub)**.
 
 ## Licencia
 
