@@ -59,13 +59,11 @@ test.describe('BaldurDev portfolio smoke', () => {
 
   test('important CTA hrefs are present', async ({ page }) => {
     await page.goto('/')
-    await expect(
-      page.getByRole('link', { name: /Ver trabajos|View work/i }).first()
-    ).toBeVisible()
+    await expect(page.getByRole('link', { name: /Ver trabajos|View work/i }).first()).toBeVisible()
     await expect(page.getByRole('link', { name: /Contactar|Contact/i }).first()).toBeVisible()
     await expect(page.locator('a[download]').first()).toHaveAttribute(
       'href',
-      /Baldur_Tamayo_Resume_EN\.pdf/
+      /Baldur_Tamayo_Resume_EN_2026\.pdf/
     )
   })
 
@@ -103,7 +101,9 @@ test.describe('BaldurDev portfolio smoke', () => {
     await expect(page.getByRole('img', { name: /NovaAI/ })).toBeVisible()
   })
 
-  test('integrated landing pages expose canonical metadata and portfolio return', async ({ page }) => {
+  test('integrated landing pages expose canonical metadata and portfolio return', async ({
+    page
+  }) => {
     for (const slug of ['fintech', 'ai']) {
       await page.goto(`/showcase/${slug}/`)
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(

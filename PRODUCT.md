@@ -30,7 +30,7 @@ No eres un vendor de Ticador/Cosmos: eres el profesional que diseña y construye
 
 - Sitio estático Nuxt (prerender), bilingüe ES/EN.
 - Contacto: EmailJS + Cloudflare Turnstile cuando están configurados.
-- Resume descargable: `public/Baldur_Tamayo_Resume_EN.pdf`.
+- Resume descargable: `public/Baldur_Tamayo_Resume_EN_2026.pdf`.
 - Despliegue GitHub Pages / base path; dark-first.
 - Open to remote (Colombia).
 
@@ -47,7 +47,7 @@ No eres un vendor de Ticador/Cosmos: eres el profesional que diseña y construye
 - Persona: Andrés Baldur Tamayo Marín · Colombia · remoto.
 - Título profesional (HV): Full Stack Software Engineer.
 - Voz: clara, técnica, específica; vende **tu capacidad de contratación**, no productos de terceros.
-- Assets: portrait/avatar, media de proyectos, `Baldur_Tamayo_Resume_EN.pdf`.
+- Assets: portrait/avatar, media de proyectos, `Baldur_Tamayo_Resume_EN_2026.pdf`.
 
 ## Evidence on Hand
 

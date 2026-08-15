@@ -110,7 +110,7 @@ export interface PortfolioLocaleMessages {
 
 export interface PortfolioStructure {
   bio: Omit<Bio, 'title' | 'tagline' | 'heroTrustLine' | 'location' | 'cvHref' | 'cvFileName'> & {
-    /** Archivo en `public/` (ej. `Baldur_Tamayo_Resume_EN.pdf`). */
+    /** Archivo en `public/` (ej. `Baldur_Tamayo_Resume_EN_2026.pdf`). */
     cvFile?: string
   }
   projects: ProjectStructure[]
@@ -129,7 +129,7 @@ export const portfolioStructure: PortfolioStructure = {
       github: 'https://github.com/baldurt1992',
       linkedin: 'https://www.linkedin.com/in/baldur92/'
     },
-    cvFile: 'Baldur_Tamayo_Resume_EN.pdf'
+    cvFile: 'Baldur_Tamayo_Resume_EN_2026.pdf'
   },
 
   projects: [

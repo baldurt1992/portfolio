@@ -10,7 +10,7 @@
     ·
     <a href="https://baldurdev.com/showcase/">Explorar landing pages</a>
     ·
-    <a href="./public/Baldur_Tamayo_Resume_EN.pdf">Descargar CV</a>
+    <a href="./public/Baldur_Tamayo_Resume_EN_2026.pdf">Descargar CV</a>
     ·
     <a href="mailto:andresbaldur92@gmail.com">Hablemos</a>
   </p>
@@ -35,12 +35,12 @@ Puedo hacerme cargo del ciclo completo:
 
 No presento ejercicios aislados como experiencia comercial. Estos proyectos muestran flujos completos, decisiones de arquitectura y software utilizado en escenarios reales.
 
-| Proyecto                                                                 | El reto                                                                              | Lo que construí                                                                                                                                                                                                |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[Ticador](https://ticador.online)**                                    | Operar control horario para múltiples clientes sin mezclar sus entornos ni procesos. | Ecosistema SaaS de cuatro aplicaciones desacopladas con aprovisionamiento multi-tenant, onboarding, empleados, dispositivos autorizados, fichajes, incidencias, suscripciones y notificaciones en tiempo real. |
-| **Cosmos ERP**                                                           | Unificar operación comercial y facturación con trazabilidad entre documentos.        | ERP multi-tenant con configuración inicial, clientes, facturas, conversión documental, TPV, control de stock, backups y administración de tenants. En desarrollo activo.                                       |
-| **Hotel Bella Del Mar**                                                  | Conectar la reserva del huésped con la operación diaria del hotel.                   | Plataforma WordPress con disponibilidad, transporte, cupones, Mercado Pago, perfil del huésped, dashboard de ocupación, reservas manuales y pedidos sincronizados con WooCommerce.                             |
-| **[Carolina Odontóloga](https://carolinaodontologa.com/)**               | Permitir que pacientes agendaran y pagaran sin depender de coordinación manual.      | Sitio en producción y plugin de reservas a medida con servicios, agenda, pago completo o depósito mediante Bold y notificaciones por correo.                                                                   |
+| Proyecto                                                         | El reto                                                                              | Lo que construí                                                                                                                                                                                                |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[Ticador](https://ticador.online)**                            | Operar control horario para múltiples clientes sin mezclar sus entornos ni procesos. | Ecosistema SaaS de cuatro aplicaciones desacopladas con aprovisionamiento multi-tenant, onboarding, empleados, dispositivos autorizados, fichajes, incidencias, suscripciones y notificaciones en tiempo real. |
+| **Cosmos ERP**                                                   | Unificar operación comercial y facturación con trazabilidad entre documentos.        | ERP multi-tenant con configuración inicial, clientes, facturas, conversión documental, TPV, control de stock, backups y administración de tenants. En desarrollo activo.                                       |
+| **Hotel Bella Del Mar**                                          | Conectar la reserva del huésped con la operación diaria del hotel.                   | Plataforma WordPress con disponibilidad, transporte, cupones, Mercado Pago, perfil del huésped, dashboard de ocupación, reservas manuales y pedidos sincronizados con WooCommerce.                             |
+| **[Carolina Odontóloga](https://carolinaodontologa.com/)**       | Permitir que pacientes agendaran y pagaran sin depender de coordinación manual.      | Sitio en producción y plugin de reservas a medida con servicios, agenda, pago completo o depósito mediante Bold y notificaciones por correo.                                                                   |
 | **[Showcase de landing pages](https://baldurdev.com/showcase/)** | Comunicar productos complejos con rapidez y llevar al visitante hacia una acción.    | Landings navegables para fintech e IA que combinan jerarquía de contenido, diseño responsive, motion y desarrollo frontend orientado a conversión.                                                             |
 
 Los repositorios comerciales son privados, pero el **[portafolio público](https://baldurdev.com/#projects)** incluye capturas y recorridos en video, módulo por módulo, para comprobar el alcance de cada producto.
