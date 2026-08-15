@@ -236,6 +236,7 @@
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'color-scheme', content: 'light dark' },
         {
           name: 'theme-color',
           content: colorMode.value === 'dark' ? '#05050a' : '#f7f7f5'

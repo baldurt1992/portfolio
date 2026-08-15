@@ -122,12 +122,19 @@
 }
 
 html {
+  /* Evita que WebViews con Auto Dark recoloreen algorítmicamente el tema claro. */
+  color-scheme: only light;
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
   overflow-x: clip;
 }
 
+html.dark {
+  color-scheme: dark;
+}
+
 body {
+  color-scheme: inherit;
   font-family: var(--font-sans);
   background-color: var(--color-bg);
   color: var(--color-text);
