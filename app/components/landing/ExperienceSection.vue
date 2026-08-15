@@ -14,7 +14,7 @@
   <section id="experience" ref="sectionRef" class="landing-section">
     <div class="mx-auto max-w-7xl">
       <div class="mb-12 space-y-4 sm:mb-16">
-        <p class="font-mono text-sm font-medium uppercase tracking-widest text-accent">
+        <p class="font-mono text-sm font-medium uppercase tracking-widest text-primary">
           {{ t('experience.eyebrow') }}
         </p>
         <h2 class="font-heading text-3xl font-bold tracking-tight text-text sm:text-4xl lg:text-5xl">
@@ -44,7 +44,7 @@
                 ? 'lg:col-start-1 lg:row-start-1 lg:pe-10'
                 : 'lg:col-start-3 lg:row-start-1 lg:ps-10'
             ]">
-            <p class="mb-2 font-mono text-xs font-medium uppercase tracking-wider text-accent">
+            <p class="mb-2 font-mono text-xs font-medium uppercase tracking-wider text-primary">
               {{ item.date }}
             </p>
             <h3 class="mb-1 text-lg font-semibold text-text">

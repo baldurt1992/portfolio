@@ -6,12 +6,12 @@
 </script>
 
 <template>
-  <section id="contact" aria-labelledby="contact-heading" class="landing-section">
+  <section id="contact" aria-labelledby="contact-heading" class="landing-section landing-band">
     <div class="mx-auto max-w-7xl">
       <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div class="lg:col-span-5">
           <div class="space-y-4">
-            <p class="font-mono text-sm font-medium uppercase tracking-widest text-accent">
+            <p class="font-mono text-sm font-medium uppercase tracking-widest text-primary">
               {{ t('contact.eyebrow') }}
             </p>
             <h2 id="contact-heading"
@@ -31,7 +31,7 @@
               </span>
               <div>
                 <p class="text-sm font-medium text-text-muted">Email</p>
-                <p class="font-medium text-text group-hover:text-accent transition-colors">{{ bio.email }}</p>
+                <p class="font-medium text-text group-hover:text-primary transition-colors">{{ bio.email }}</p>
               </div>
             </a>
 
@@ -76,7 +76,7 @@
 
             <p class="mt-5 text-sm text-text-muted">
               {{ t('contact.mailFallback') }}
-              <a :href="`mailto:${bio.email}`" class="font-medium text-accent hover:text-accent-hover">{{ bio.email
+              <a :href="`mailto:${bio.email}`" class="font-medium text-primary hover:text-primary-hover">{{ bio.email
                 }}</a>
             </p>
           </div>

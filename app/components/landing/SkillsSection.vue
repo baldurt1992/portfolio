@@ -46,7 +46,7 @@
   <section id="technologies" ref="sectionRef" class="landing-section">
     <div class="mx-auto max-w-7xl">
       <div class="mb-12 space-y-4 text-center sm:mb-16">
-        <p class="font-mono text-sm font-medium uppercase tracking-widest text-accent">
+        <p class="font-mono text-sm font-medium uppercase tracking-widest text-primary">
           {{ t('skills.eyebrow') }}
         </p>
         <h2 class="font-heading text-3xl font-bold tracking-tight text-text sm:text-4xl lg:text-5xl">

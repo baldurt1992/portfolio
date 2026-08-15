@@ -173,7 +173,7 @@
           {{ project.description }}
         </p>
         <button type="button"
-          class="mt-1 inline-flex cursor-pointer text-sm font-medium text-accent hover:text-accent-hover"
+          class="mt-1 inline-flex cursor-pointer text-sm font-medium text-primary hover:text-primary-hover"
           :aria-expanded="descriptionExpanded" @click="toggleDescription">
           {{ descriptionExpanded ? t('projectCard.showLess') : t('projectCard.showMore') }}
         </button>

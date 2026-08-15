@@ -17,7 +17,7 @@
     <div class="mx-auto max-w-7xl">
       <div class="mb-12 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
         <div class="space-y-4">
-          <p class="font-mono text-sm font-medium uppercase tracking-widest text-accent">
+          <p class="font-mono text-sm font-medium uppercase tracking-widest text-primary">
             {{ t('showcase.teaser.eyebrow') }}
           </p>
           <h2 class="font-heading text-3xl font-bold tracking-tight text-text sm:text-4xl lg:text-5xl">

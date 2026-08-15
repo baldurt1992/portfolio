@@ -149,7 +149,7 @@
       <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <div class="space-y-8 lg:col-span-7">
           <div class="space-y-5">
-            <p class="font-mono text-sm font-medium uppercase tracking-widest text-accent">
+            <p class="font-mono text-sm font-medium uppercase tracking-widest text-primary">
               {{ portfolioData.bio.name }} · {{ t('hero.locationMeta') }}
             </p>
             <h1 ref="titleRef" class="font-heading text-5xl font-bold tracking-tight text-text sm:text-6xl lg:text-7xl">
@@ -176,7 +176,7 @@
               {{ t('hero.ctaSecondary') }}
             </NuxtLink>
             <a v-if="portfolioData.bio.cvHref" :href="portfolioData.bio.cvHref" :download="portfolioData.bio.cvFileName"
-              class="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-text-muted transition-colors hover:text-accent">
+              class="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-text-muted transition-colors hover:text-primary">
               <UIcon name="i-lucide-file-down" class="size-4" aria-hidden="true" />
               {{ t('hero.ctaCv') }}
             </a>

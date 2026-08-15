@@ -76,7 +76,7 @@ const headerUi = {
         :key="link.label"
         :to="link.to"
         class="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-text-muted transition-colors hover:bg-surface-soft hover:text-text"
-        active-class="text-accent"
+        active-class="text-primary"
       >
         {{ link.label }}
       </NuxtLink>
@@ -170,7 +170,7 @@ const headerUi = {
               :key="link.label"
               :to="link.to"
               class="rounded-lg px-3 py-3 text-lg font-medium text-text transition-colors hover:bg-surface-soft"
-              active-class="text-accent"
+              active-class="text-primary"
               @click="close?.()"
             >
               {{ link.label }}
