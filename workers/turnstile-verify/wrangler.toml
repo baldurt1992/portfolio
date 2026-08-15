@@ -14,3 +14,6 @@
 name = "portfolio-turnstile-verify"
 main = "src/index.ts"
 compatibility_date = "2025-01-15"
+
+[vars]
+TURNSTILE_ALLOWED_ORIGINS = "https://baldurdev.com,https://www.baldurdev.com"
