@@ -194,17 +194,17 @@ export const portfolioStructure: PortfolioStructure = {
         },
         {
           id: 'room-availability-flow',
-          videoSrc: '/videos/bella-hotel/02-room-availability-flow.webm',
+          videoSrc: '/videos/bella-hotel/02-room-availability-flow.mp4',
           mediaGroup: 'guest-booking'
         },
         {
           id: 'checkout-payment-confirmation',
-          videoSrc: '/videos/bella-hotel/03-checkout-payment-confirmation.webm',
+          videoSrc: '/videos/bella-hotel/03-checkout-payment-confirmation.mp4',
           mediaGroup: 'guest-booking'
         },
         {
           id: 'admin-occupancy-manual-booking',
-          videoSrc: '/videos/bella-hotel/04-admin-occupancy-manual-booking.webm',
+          videoSrc: '/videos/bella-hotel/04-admin-occupancy-manual-booking.mp4',
           mediaGroup: 'hotel-operations'
         }
       ]
