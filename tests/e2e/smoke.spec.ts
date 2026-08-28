@@ -124,6 +124,55 @@ test.describe('BaldurDev portfolio smoke', () => {
     expect(width).toBeLessThanOrEqual(clientWidth + 1)
   })
 
+  test('Hostinger partner badge and referral code are consistent', async ({ page }) => {
+    const referralUrl = 'https://www.hostinger.com/co?REFERRALCODE=BALDURDEV92'
+    const coupon = 'BALDURDEV92'
+
+    await page.goto('/')
+
+    await expect(
+      page.locator('#about').getByRole('link', { name: 'Hostinger Partner' })
+    ).toBeVisible()
+    await expect(page.locator('#about')).toContainText('Partner de Hostinger')
+    await expect(page.locator('#contact')).toContainText(coupon)
+    await expect(
+      page.locator('[data-site-footer]').getByRole('link', { name: 'Hostinger Partner' })
+    ).toBeVisible()
+    await expect(page.locator('[data-site-footer]')).toContainText(coupon)
+    await expect(
+      page.locator('[data-site-footer]').getByRole('button', {
+        name: `Copiar cupón de Hostinger ${coupon}`
+      })
+    ).toBeVisible()
+
+    const hostingerLinks = page.locator(`a[href="${referralUrl}"]`)
+    await expect(hostingerLinks.first()).toBeVisible()
+    const count = await hostingerLinks.count()
+    expect(count).toBeGreaterThanOrEqual(1)
+
+    for (let i = 0; i < count; i++) {
+      const link = hostingerLinks.nth(i)
+      await expect(link).toHaveAttribute('target', '_blank')
+      const rel = await link.getAttribute('rel')
+      expect(rel).toContain('sponsored')
+      expect(rel).toContain('noopener')
+      expect(rel).toContain('noreferrer')
+      const href = await link.getAttribute('href')
+      const referralCode = new URL(href ?? '').searchParams.get('REFERRALCODE')
+      expect(referralCode).toBe(coupon)
+    }
+
+    await expect(page.locator('body')).not.toContainText('YLPANDRESK8K')
+  })
+
+  test('EN Hostinger partner surfaces use the same referral code', async ({ page }) => {
+    await page.goto('/en/')
+    await expect(page.locator('#contact')).toContainText('BALDURDEV92')
+    await expect(
+      page.locator('#contact').getByRole('link', { name: /Visit Hostinger/i })
+    ).toHaveAttribute('href', 'https://www.hostinger.com/co?REFERRALCODE=BALDURDEV92')
+  })
+
   test('keyboard navigation reaches contact form', async ({ page }) => {
     await page.goto('/')
     await page

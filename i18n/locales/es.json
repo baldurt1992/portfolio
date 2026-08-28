@@ -105,6 +105,24 @@
     "toastCaptchaVerifyDescription": "La verificación expiró o fue rechazada. Inténtalo de nuevo.",
     "toastCaptchaLoadDescription": "No se pudo cargar la verificación. Revisa tu conexión o desactiva bloqueadores agresivos."
   },
+  "hostingerPartner": {
+    "badgeAlt": "Hostinger Partner",
+    "aboutEyebrow": "Reconocimiento profesional",
+    "aboutTitle": "Partner de Hostinger",
+    "aboutDescription": "Insignia concedida por Hostinger dentro de su programa de partners.",
+    "offerTitle": "Ahorra {percent}% en Hostinger",
+    "offerHint": "Usa este enlace para acceder al 20% o copia el cupón.",
+    "couponLabel": "Cupón",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "cta": "Visitar Hostinger",
+    "toastCopiedTitle": "Cupón copiado",
+    "toastCopiedDescription": "Pégalo en Hostinger: {code}",
+    "toastCopyErrorTitle": "No se pudo copiar",
+    "toastCopyErrorDescription": "El cupón sigue visible para que puedas copiarlo a mano.",
+    "footerCoupon": "Cupón {code}",
+    "footerCopyAria": "Copiar cupón de Hostinger {code}"
+  },
   "projectCard": {
     "tooltipHeroHover": "Vista previa breve al pasar el cursor. ¿Quieres saber más? Haz clic en Ver detalles.",
     "tooltipHeroStatic": "¿Quieres la demo completa y el detalle de cada módulo? Haz clic en Ver detalles.",

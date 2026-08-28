@@ -47,6 +47,8 @@
                 <UIcon name="i-simple-icons-linkedin" class="size-4" aria-hidden="true" /> LinkedIn
               </a>
             </div>
+
+            <PartnersHostingerReferralOffer class="mt-6" />
           </div>
         </div>
 
@@ -77,7 +79,7 @@
             <p class="mt-5 text-sm text-text-muted">
               {{ t('contact.mailFallback') }}
               <a :href="`mailto:${bio.email}`" class="font-medium text-primary hover:text-primary-hover">{{ bio.email
-                }}</a>
+              }}</a>
             </p>
           </div>
         </div>
