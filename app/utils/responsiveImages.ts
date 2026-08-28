@@ -39,3 +39,8 @@ export function avatarImageSrcset(path: string | undefined) {
     `${path} 512w`
   ].join(', ')
 }
+
+/** Fallback 448w: el 512 lossless pesa ~155 KiB y Lighthouse lo marca como LCP candidato. */
+export function avatarDisplaySrc(path: string) {
+  return replaceExtension(path, '-448')
+}

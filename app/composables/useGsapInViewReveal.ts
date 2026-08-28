@@ -9,9 +9,19 @@ type GsapInViewRevealOptions = {
   triggerRef?: Ref<HTMLElement | null>
 }
 
+function isIntersectingViewport(el: HTMLElement) {
+  const rect = el.getBoundingClientRect()
+  const vh = window.innerHeight || document.documentElement.clientHeight
+  return rect.top < vh && rect.bottom > 0
+}
+
 /**
  * Reveal al acercarse al viewport. IntersectionObserver + gsap.to,
  * sin ScrollTrigger, para no quedar en opacity 0 tras un refresh global.
+ *
+ * Invariante SSR: no ocultar lo que el HTML ya pintó en viewport.
+ * Si hidratamos y hacemos gsap.set(opacity: 0), el usuario ve el salto
+ * de “página lista → todo desaparece → animación”.
  */
 export function useGsapInViewReveal(
   rootRef: Ref<HTMLElement | null>,
@@ -22,6 +32,27 @@ export function useGsapInViewReveal(
   let ctx: gsap.Context | null = null
   let io: IntersectionObserver | null = null
   let played = false
+
+  function playReveal(root: HTMLElement, targets: HTMLElement[]) {
+    if (played) return
+    played = true
+    io?.disconnect()
+    io = null
+
+    ctx = gsap.context(() => {
+      gsap.to(targets, {
+        opacity: 1,
+        y: 0,
+        duration: options?.duration ?? 0.5,
+        stagger: options?.stagger ?? 0.08,
+        ease: 'power2.out',
+        overwrite: 'auto',
+        onComplete: () => {
+          gsap.set(targets, { clearProps: 'transform,opacity,transition' })
+        }
+      })
+    }, root)
+  }
 
   onMounted(async () => {
     await nextTick()
@@ -46,6 +77,15 @@ export function useGsapInViewReveal(
       return
     }
 
+    // El HTML de SSR ya se vio. Si el bloque está en pantalla, no lo ocultamos.
+    if (isIntersectingViewport(trigger)) {
+      console.info(`[${logTag}] Reveal omitido: el trigger ya está en viewport`, {
+        selector,
+        targetCount: targets.length
+      })
+      return
+    }
+
     for (const target of targets) {
       target.style.transition = 'none'
     }
@@ -58,26 +98,8 @@ export function useGsapInViewReveal(
 
     io = new IntersectionObserver(
       (entries) => {
-        if (played) return
         if (!entries.some((entry) => entry.isIntersecting)) return
-
-        played = true
-        io?.disconnect()
-        io = null
-
-        ctx = gsap.context(() => {
-          gsap.to(targets, {
-            opacity: 1,
-            y: 0,
-            duration: options?.duration ?? 0.5,
-            stagger: options?.stagger ?? 0.08,
-            ease: 'power2.out',
-            overwrite: 'auto',
-            onComplete: () => {
-              gsap.set(targets, { clearProps: 'transform,opacity,transition' })
-            }
-          })
-        }, root)
+        playReveal(root, targets)
       },
       {
         threshold: 0,

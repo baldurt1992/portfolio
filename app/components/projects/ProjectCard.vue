@@ -38,7 +38,19 @@
   )
 
   const hoverVideoRef = ref<HTMLVideoElement | null>(null)
+  const mediaRootRef = ref<HTMLElement | null>(null)
   const isHovering = ref(false)
+  const hoverVideoArmed = ref(false)
+  let videoIo: IntersectionObserver | null = null
+
+  const resolvedHoverVideoSrc = computed(() =>
+    hoverVideoArmed.value ? heroHoverVideoSrc.value : undefined
+  )
+
+  function armHoverVideo() {
+    if (!heroHoverVideoSrc.value || hoverVideoArmed.value) return
+    hoverVideoArmed.value = true
+  }
 
   function enforceMutedHoverVideo() {
     const el = hoverVideoRef.value
@@ -65,7 +77,8 @@
   function onCardEnter() {
     if (!useHeroHoverVideo.value && !useVideoOnlyPreview.value) return
     isHovering.value = true
-    playHeroVideo()
+    armHoverVideo()
+    nextTick(() => playHeroVideo())
   }
 
   function onCardLeave() {
@@ -97,6 +110,24 @@
 
   onMounted(() => {
     enforceMutedHoverVideo()
+
+    if (!useVideoOnlyPreview.value || !mediaRootRef.value) return
+
+    videoIo = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return
+        armHoverVideo()
+        videoIo?.disconnect()
+        videoIo = null
+      },
+      { rootMargin: '200px 0px' }
+    )
+    videoIo.observe(mediaRootRef.value)
+  })
+
+  onUnmounted(() => {
+    videoIo?.disconnect()
+    videoIo = null
   })
 </script>
 
@@ -115,9 +146,9 @@
     </div>
 
     <!-- Media -->
-    <div v-if="useVideoOnlyPreview" class="relative aspect-16/10 overflow-hidden bg-black"
+    <div v-if="useVideoOnlyPreview" ref="mediaRootRef" class="relative aspect-16/10 overflow-hidden bg-black"
       :class="props.variant === 'featured' ? 'lg:aspect-auto lg:min-h-88 lg:w-[58%] lg:shrink-0' : isFlagship && 'lg:aspect-video'">
-      <video ref="hoverVideoRef" :src="heroHoverVideoSrc"
+      <video ref="hoverVideoRef" :src="resolvedHoverVideoSrc"
         class="pointer-events-none size-full object-cover object-top" muted playsinline preload="metadata"
         aria-hidden="true" @loadeddata="enforceMutedHoverVideo" @volumechange="enforceMutedHoverVideo" />
       <span
@@ -138,9 +169,9 @@
       <img :src="project.image" :srcset="projectImageResponsiveSrcset" :sizes="projectImageSizes" :alt="projectImageAlt"
         class="relative z-0 size-full object-cover object-top transition-opacity duration-300"
         :class="isHovering ? 'opacity-0' : 'opacity-100'" loading="lazy" decoding="async" />
-      <video ref="hoverVideoRef" :src="heroHoverVideoSrc"
+      <video ref="hoverVideoRef" :src="resolvedHoverVideoSrc"
         class="pointer-events-none absolute inset-0 z-10 size-full object-cover object-top transition-opacity duration-300"
-        :class="isHovering ? 'opacity-100' : 'opacity-0'" muted playsinline preload="metadata" aria-hidden="true"
+        :class="isHovering ? 'opacity-100' : 'opacity-0'" muted playsinline preload="none" aria-hidden="true"
         @loadeddata="enforceMutedHoverVideo" @volumechange="enforceMutedHoverVideo" />
       <span
         class="pointer-events-none absolute inset-e-3 top-3 z-20 inline-flex items-center gap-1 rounded-full bg-bg-elevated/90 px-2.5 py-1 text-xs font-medium text-text backdrop-blur-sm border border-border transition-opacity duration-300"

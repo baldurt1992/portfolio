@@ -13,17 +13,11 @@
 
   const displayedToken = ref('')
   const outgoingToken = ref('')
-  const heroRef = ref<HTMLElement | null>(null)
-  const titleRef = ref<HTMLElement | null>(null)
-  const subtitleRef = ref<HTMLElement | null>(null)
-  const ctaRef = ref<HTMLElement | null>(null)
-  const impactRef = ref<HTMLElement | null>(null)
   const incomingRef = ref<HTMLElement | null>(null)
   const outgoingRef = ref<HTMLElement | null>(null)
   const sepAccentRef = ref<HTMLElement | null>(null)
 
   let tokenTl: gsap.core.Timeline | null = null
-  let introCtx: gsap.Context | null = null
 
   function tokenProgress(i: number) {
     const n = tokens.value.length
@@ -105,45 +99,16 @@
     if (sepAccentRef.value) {
       gsap.set(sepAccentRef.value, { scaleX: tokenProgress(tokenIndex.value) })
     }
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion) return
-
-    const root = heroRef.value
-    const title = titleRef.value
-    const subtitle = subtitleRef.value
-    const cta = ctaRef.value
-    const impact = impactRef.value
-    if (!root || !title || !subtitle || !cta || !impact) {
-      console.error('[HeroSection] Faltan nodos para la intro GSAP', {
-        hasRoot: Boolean(root),
-        hasTitle: Boolean(title),
-        hasSubtitle: Boolean(subtitle),
-        hasCta: Boolean(cta),
-        hasImpact: Boolean(impact)
-      })
-      return
-    }
-
-    introCtx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 0.5 } })
-
-      tl.from(title, { y: 20, opacity: 0, delay: 0.08 })
-        .from(subtitle, { y: 16, opacity: 0 }, '-=0.32')
-        .from(cta, { y: 12, opacity: 0 }, '-=0.28')
-        .from(impact, { y: 16, opacity: 0 }, '-=0.32')
-    }, root)
   })
 
   onUnmounted(() => {
     tokenTl?.kill()
     if (sepAccentRef.value) gsap.killTweensOf(sepAccentRef.value)
-    introCtx?.revert()
   })
 </script>
 
 <template>
-  <section id="hero" ref="heroRef"
+  <section id="hero"
     class="relative flex min-h-[calc(100dvh-var(--ui-header-height))] items-center overflow-x-clip px-5 pb-20 sm:px-8 lg:px-10 lg:pb-12">
     <div class="mx-auto w-full max-w-7xl">
       <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
@@ -152,10 +117,10 @@
             <p class="font-mono text-sm font-medium uppercase tracking-widest text-primary">
               {{ portfolioData.bio.name }} · {{ t('hero.locationMeta') }}
             </p>
-            <h1 ref="titleRef" class="font-heading text-5xl font-bold tracking-tight text-text sm:text-6xl lg:text-7xl">
+            <h1 class="font-heading text-5xl font-bold tracking-tight text-text sm:text-6xl lg:text-7xl">
               {{ portfolioData.bio.title }}
             </h1>
-            <div ref="subtitleRef" class="space-y-4">
+            <div class="space-y-4">
               <p class="max-w-2xl text-lg leading-relaxed text-text-muted sm:text-xl">
                 {{ portfolioData.bio.tagline }}
               </p>
@@ -165,7 +130,7 @@
             </div>
           </div>
 
-          <div ref="ctaRef" class="flex flex-wrap items-center gap-4">
+          <div class="flex flex-wrap items-center gap-4">
             <NuxtLink :to="projectsTo"
               class="motion-lift inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-base font-semibold text-slate-900 shadow-sm hover:bg-accent-hover hover:shadow-md">
               {{ t('hero.ctaPrimary') }}
@@ -183,7 +148,7 @@
           </div>
         </div>
 
-        <div ref="impactRef" class="lg:col-span-5" aria-live="polite">
+        <div class="lg:col-span-5" aria-live="polite">
           <p class="font-mono text-xs font-medium uppercase tracking-widest text-text-muted">
             {{ t('hero.impactLead') }}
           </p>

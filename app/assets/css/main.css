@@ -135,7 +135,7 @@ html.dark {
 
 body {
   color-scheme: inherit;
-  font-family: var(--font-sans);
+  font-family: 'Inter', var(--font-sans);
   background-color: var(--color-bg);
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;

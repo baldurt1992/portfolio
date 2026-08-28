@@ -1,24 +1,37 @@
 <script setup lang="ts">
+  import { avatarDisplaySrc, avatarImageSrcset, portraitImageSrcset } from '~/utils/responsiveImages'
+
   /**
    * Rollcard 8-bit → retrato. Frente: avatar pixel; dorso: foto real al hover/focus.
    */
-  const props = defineProps<{
-    avatarSrc: string
-    portraitSrc: string
-    alt: string
-  }>()
+  const props = withDefaults(
+    defineProps<{
+      avatarSrc: string
+      portraitSrc: string
+      alt: string
+      sizes?: string
+    }>(),
+    {
+      sizes: '(min-width: 1024px) 28rem, calc(100vw - 2.5rem)'
+    }
+  )
+
+  const avatarDisplay = computed(() => avatarDisplaySrc(props.avatarSrc))
+  const avatarSrcset = computed(() => avatarImageSrcset(props.avatarSrc))
+  const portraitSrcset = computed(() => portraitImageSrcset(props.portraitSrc))
 </script>
 
 <template>
   <div class="rollcard group relative aspect-3/4 w-full outline-none" tabindex="0" role="img" :aria-label="props.alt">
     <div class="rollcard-inner relative size-full">
       <div class="rollcard-face absolute inset-0 overflow-hidden">
-        <img :src="props.avatarSrc" alt="" width="512" height="512"
-          class="size-full object-cover object-center [image-rendering:pixelated]" decoding="async" />
+        <img :src="avatarDisplay" :srcset="avatarSrcset" :sizes="props.sizes" alt="" width="448" height="448"
+          class="size-full object-cover object-center [image-rendering:pixelated]" loading="lazy" decoding="async"
+          fetchpriority="low" />
       </div>
       <div class="rollcard-face rollcard-back absolute inset-0 overflow-hidden">
-        <img :src="props.portraitSrc" alt="" width="640" height="800" class="size-full object-cover object-top"
-          loading="lazy" decoding="async" />
+        <img :src="props.portraitSrc" :srcset="portraitSrcset" :sizes="props.sizes" alt="" width="640" height="800"
+          class="size-full object-cover object-top" loading="lazy" decoding="async" fetchpriority="low" />
       </div>
     </div>
   </div>

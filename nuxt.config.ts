@@ -10,6 +10,18 @@ function normalizedPublicSiteUrl(): string {
 
 const publicSiteUrl = normalizedPublicSiteUrl()
 
+const htmlCacheHeaders = {
+  'cache-control': 'public, max-age=300, s-maxage=86400, stale-while-revalidate=604800'
+}
+
+const immutableAssetHeaders = {
+  'cache-control': 'public, max-age=31536000, immutable'
+}
+
+const longLivedAssetHeaders = {
+  'cache-control': 'public, max-age=2592000, stale-while-revalidate=86400'
+}
+
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/i18n'],
 
@@ -19,23 +31,38 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  // Evitamos que @nuxt/fonts (traído por @nuxt/ui) escanee las variables CSS y genere requests a Google Fonts.
-  // Cargamos Inter y JetBrains Mono manualmente desde el <head>.
+  // @nuxt/fonts (vía @nuxt/ui) descarga las familias en build y las sirve en 1st party.
+  // Sin stylesheet de fonts.googleapis.com (era render-blocking ~290 ms).
   fonts: {
-    processCSSVariables: false
-  },
-
-  app: {
-    head: {
-      link: [
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap'
-        }
-      ]
-    }
+    processCSSVariables: true,
+    defaults: {
+      styles: ['normal'],
+      subsets: ['latin']
+    },
+    families: [
+      {
+        name: 'Inter',
+        provider: 'google',
+        weights: [400, 500, 600, 700],
+        display: 'swap',
+        global: true
+      },
+      {
+        name: 'Space Grotesk',
+        provider: 'google',
+        weights: [400, 500, 600, 700],
+        display: 'swap',
+        global: true,
+        preload: true
+      },
+      {
+        name: 'JetBrains Mono',
+        provider: 'google',
+        weights: [400, 500],
+        display: 'swap',
+        global: true
+      }
+    ]
   },
 
   // `classSuffix: ''` → clase `dark` (Tailwind). Declarar `@nuxtjs/color-mode` en modules antes que @nuxt/ui rompe esto (default `-mode`).
@@ -61,18 +88,32 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/': { prerender: true },
-    '/en': { prerender: true },
-    '/showcase': { prerender: true },
-    '/en/showcase': { prerender: true },
+    '/': { prerender: true, headers: htmlCacheHeaders },
+    '/en': { prerender: true, headers: htmlCacheHeaders },
+    '/showcase': { prerender: true, headers: htmlCacheHeaders },
+    '/en/showcase': { prerender: true, headers: htmlCacheHeaders },
     '/sitemap.xml': { prerender: true },
     '/sitemap_index.xml': { prerender: true },
-    '/robots.txt': { prerender: true }
+    '/robots.txt': { prerender: true },
+    '/_nuxt/**': { headers: immutableAssetHeaders },
+    '/_fonts/**': { headers: immutableAssetHeaders },
+    '/images/**': { headers: longLivedAssetHeaders },
+    '/videos/**': { headers: longLivedAssetHeaders }
   },
 
   // https://github.com/nuxt/nuxt/issues/34812 — warning useAppConfig duplicado
   experimental: {
-    serverAppConfig: false
+    serverAppConfig: false,
+    // El payload de esta app es <1 KiB; extraerlo a _payload.json añade un round-trip
+    // de ~5 s en Hostinger y retrasa la hidratación (y el salto de GSAP).
+    payloadExtraction: false,
+    // /_nuxt/builds/meta/*.json estaba en la critical path (~5.2 s).
+    appManifest: false,
+    defaults: {
+      nuxtLink: {
+        prefetch: false
+      }
+    }
   },
 
   compatibilityDate: '2025-01-15',
@@ -112,7 +153,14 @@ export default defineNuxtConfig({
     ],
     baseUrl: publicSiteUrl || 'http://localhost:3000',
     // Sin redirect por Accept-Language (evita /en no deseado)
-    detectBrowserLanguage: false
+    detectBrowserLanguage: false,
+    experimental: {
+      // Inyecta messages en el HTML y evita /_i18n/.../messages.json (~3.3 s).
+      preload: true,
+      stripMessagesPayload: false,
+      prerenderMessages: true,
+      httpCacheDuration: 86400
+    }
   },
 
   // Estático: sin servidor Nitro para `/api/_nuxt_icon` — Iconify en cliente

@@ -168,7 +168,7 @@
 
           <div class="overflow-hidden rounded-2xl border border-border bg-black shadow-lg">
             <video :key="current.id" ref="videoRef" :src="current.videoSrc" controls controlslist="nodownload" autoplay
-              muted playsinline preload="metadata"
+              muted playsinline preload="none"
               class="mx-auto max-h-[min(58vh,560px)] w-full object-contain sm:max-h-[min(64vh,640px)] lg:max-h-[min(70vh,720px)]"
               @loadeddata="applyPlaybackRate" @volumechange="enforceMutedPlayback">
               {{ t('drawer.videoFallback') }}

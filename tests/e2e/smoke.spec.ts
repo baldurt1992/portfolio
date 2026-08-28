@@ -13,6 +13,34 @@ test.describe('BaldurDev portfolio smoke', () => {
     ).toHaveAttribute('href', /\/showcase\/?$/)
   })
 
+  test('hero heading stays visible after hydration', async ({ page }) => {
+    await page.goto('/')
+    const heading = page.locator('#hero h1')
+    await expect(heading).toBeVisible()
+    await expect(heading).toHaveCSS('opacity', '1')
+    await expect(page.locator('#projects')).toBeVisible()
+    await expect
+      .poll(async () => {
+        return heading.evaluate((el) => Number(getComputedStyle(el).opacity))
+      })
+      .toBe(1)
+  })
+
+  test('project hover videos are not fetched on first paint', async ({ page }) => {
+    const videoUrls: string[] = []
+    page.on('request', (request) => {
+      if (request.url().includes('/videos/') && request.url().includes('.mp4')) {
+        videoUrls.push(request.url())
+      }
+    })
+
+    await page.goto('/')
+    await expect(page.locator('#hero h1')).toBeVisible()
+    await expect(page.locator('#projects')).toBeVisible()
+
+    expect(videoUrls, 'los mp4 no deben pedirse hasta hover o viewport').toEqual([])
+  })
+
   test('EN homepage renders role and projects', async ({ page }) => {
     await page.goto('/en/')
     await expect(page.locator('h1')).toContainText('Full Stack Software Engineer')
