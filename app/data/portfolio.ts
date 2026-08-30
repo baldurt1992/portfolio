@@ -21,6 +21,8 @@ export interface ProjectStructure {
   repo?: string
   year: string
   prominence: ProjectProminence
+  /** Si es true, el proyecto no se publica en el portafolio. */
+  hidden?: boolean
   mediaModules?: ProjectMediaModuleStructure[]
 }
 
@@ -253,6 +255,7 @@ export const portfolioStructure: PortfolioStructure = {
       url: 'https://carolinaodontologa.com/',
       year: '2025',
       prominence: 'medium',
+      hidden: true,
       mediaModules: [
         {
           id: 'main-navigation',

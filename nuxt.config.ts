@@ -90,8 +90,11 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true, headers: htmlCacheHeaders },
     '/en': { prerender: true, headers: htmlCacheHeaders },
+    '/en/': { prerender: true, headers: htmlCacheHeaders },
     '/showcase': { prerender: true, headers: htmlCacheHeaders },
+    '/showcase/': { prerender: true, headers: htmlCacheHeaders },
     '/en/showcase': { prerender: true, headers: htmlCacheHeaders },
+    '/en/showcase/': { prerender: true, headers: htmlCacheHeaders },
     '/sitemap.xml': { prerender: true },
     '/sitemap_index.xml': { prerender: true },
     '/robots.txt': { prerender: true },
@@ -120,7 +123,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/robots.txt', '/showcase']
+      routes: ['/robots.txt', '/showcase', '/showcase/', '/en/', '/en/showcase/']
     }
   },
 

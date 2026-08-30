@@ -1,10 +1,10 @@
 <script setup lang="ts">
   const { t } = useI18n()
-  const localePath = useLocalePath()
+  const localeDocumentPath = useLocaleDocumentPath()
   const { landings } = useShowcaseLandings()
 
   const sectionRef = ref<HTMLElement | null>(null)
-  const catalogTo = computed(() => localePath('/showcase'))
+  const catalogTo = computed(() => localeDocumentPath('/showcase'))
   const teaserLandings = computed(() => landings.value.slice(0, 2))
 
   useGsapInViewReveal(sectionRef, '.showcase-teaser-card', {

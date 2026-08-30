@@ -10,7 +10,7 @@ test.describe('BaldurDev portfolio smoke', () => {
     await expect(page.locator('#landings')).toContainText('NovaAI')
     await expect(
       page.locator('#landings').getByRole('link', { name: /Explorar landings/i })
-    ).toHaveAttribute('href', /\/showcase\/?$/)
+    ).toHaveAttribute('href', /\/showcase\/$/)
   })
 
   test('hero heading stays visible after hydration', async ({ page }) => {
@@ -50,7 +50,7 @@ test.describe('BaldurDev portfolio smoke', () => {
     await expect(page.locator('#landings')).toContainText('NovaAI')
     await expect(
       page.locator('#landings').getByRole('link', { name: /Explore landing pages/i })
-    ).toHaveAttribute('href', /\/en\/showcase\/?$/)
+    ).toHaveAttribute('href', /\/en\/showcase\/$/)
   })
 
   test('locale switching works', async ({ page }) => {
@@ -104,6 +104,20 @@ test.describe('BaldurDev portfolio smoke', () => {
     await expect(page.locator('link[rel="alternate"][hreflang="es-CO"]')).toHaveCount(1)
     await expect(page.locator('link[rel="alternate"][hreflang="en-US"]')).toHaveCount(1)
     await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveCount(1)
+  })
+
+  test('HTML document routes redirect to a trailing slash', async ({ request }) => {
+    const cases = [
+      ['/showcase', /\/showcase\/$/],
+      ['/en/showcase', /\/en\/showcase\/$/],
+      ['/en', /\/en\/$/]
+    ] as const
+
+    for (const [from, expected] of cases) {
+      const response = await request.get(from, { maxRedirects: 0 })
+      expect(response.status(), from).toBe(301)
+      expect(response.headers().location ?? '', from).toMatch(expected)
+    }
   })
 
   test('showcase exposes its own canonical and hreflang cluster', async ({ page }) => {

@@ -2,6 +2,7 @@
 const portfolioData = usePortfolioData()
 const { t, locale, setLocale } = useI18n()
 const localePath = useLocalePath()
+const localeDocumentPath = useLocaleDocumentPath()
 const menuOpen = ref(false)
 
 const homePath = computed(() => localePath('/'))
@@ -9,7 +10,7 @@ const contactTo = computed(() => ({ path: localePath('/'), hash: '#contact' }))
 const brandName = computed(() => portfolioData.value.bio.brandName ?? 'BaldurDev')
 
 function localeLinkFor(code: 'es' | 'en') {
-  return code === 'en' ? '/en' : '/'
+  return code === 'en' ? '/en/' : '/'
 }
 
 const langOptions = [
@@ -30,7 +31,7 @@ async function onLocaleClick(code: 'es' | 'en', close?: () => void) {
 
 const navLinks = computed(() => [
   { label: t('nav.projects'), to: { path: localePath('/'), hash: '#projects' } },
-  { label: t('nav.showcase'), to: localePath('/showcase') },
+  { label: t('nav.showcase'), to: localeDocumentPath('/showcase') },
   { label: t('nav.skills'), to: { path: localePath('/'), hash: '#technologies' } },
   { label: t('nav.about'), to: { path: localePath('/'), hash: '#about' } },
   { label: t('nav.experience'), to: { path: localePath('/'), hash: '#experience' } },

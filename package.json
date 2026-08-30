@@ -16,6 +16,7 @@
     "format": "prettier --write .",
     "typecheck": "nuxt typecheck",
     "test:e2e": "playwright test",
+    "test:unit": "node --test --experimental-strip-types tests/unit/*.test.ts",
     "optimize:images": "node scripts/optimize-public-images.mjs",
     "deploy:turnstile-worker": "wrangler deploy --config workers/turnstile-verify/wrangler.toml"
   },
