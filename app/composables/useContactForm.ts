@@ -1,3 +1,7 @@
+import type { ContactApiErrorCode } from './useContactFormApi'
+import { ContactApiError, submitContactMessage } from './useContactFormApi'
+import { CONTACT_LIMITS } from '../../shared/contact-payload'
+
 export interface ContactFormState {
   name: string
   email: string
@@ -5,13 +9,6 @@ export interface ContactFormState {
 }
 
 const LOG_TAG = '[ContactForm]'
-
-// Nombres deben coincidir con la plantilla EmailJS (dashboard)
-const EMAILJS_TEMPLATE_FIELDS = {
-  user_name: 'user_name',
-  user_email: 'user_email',
-  message: 'message'
-} as const
 
 function buildMailtoUrl(to: string, state: ContactFormState) {
   const subject = encodeURIComponent(`Contacto desde el sitio — ${state.name.trim()}`)
@@ -26,6 +23,34 @@ function triggerMailto(href: string) {
   a.href = href
   a.rel = 'noopener noreferrer'
   a.click()
+}
+
+function contactErrorI18n(code: ContactApiErrorCode): {
+  titleKey: 'toastCaptchaVerifyTitle' | 'toastErrorTitle'
+  descriptionKey: 'toastCaptchaVerifyDescription' | 'toastErrorDescription'
+} {
+  switch (code) {
+    case 'turnstile_failed':
+    case 'token_required':
+      return {
+        titleKey: 'toastCaptchaVerifyTitle',
+        descriptionKey: 'toastCaptchaVerifyDescription'
+      }
+    case 'invalid_payload':
+    case 'invalid_json':
+    case 'email_send_failed':
+    case 'origin_not_allowed':
+    case 'server_misconfigured':
+    case 'http_error':
+      return {
+        titleKey: 'toastErrorTitle',
+        descriptionKey: 'toastErrorDescription'
+      }
+    default: {
+      const _exhaustive: never = code
+      return _exhaustive
+    }
+  }
 }
 
 export function useContactForm() {
@@ -43,17 +68,12 @@ export function useContactForm() {
   const loading = ref(false)
   const sent = ref(false)
 
-  const isEmailJsConfigured = computed(() => {
-    const p = config.public
-    return Boolean(
-      typeof p.emailjsPublicKey === 'string' &&
-      p.emailjsPublicKey.trim() &&
-      typeof p.emailjsServiceId === 'string' &&
-      p.emailjsServiceId.trim() &&
-      typeof p.emailjsTemplateId === 'string' &&
-      p.emailjsTemplateId.trim()
-    )
-  })
+  const contactApiUrl = computed(
+    () =>
+      (typeof config.public.contactApiUrl === 'string' && config.public.contactApiUrl.trim()) || ''
+  )
+
+  const isContactApiConfigured = computed(() => Boolean(contactApiUrl.value))
 
   const turnstileSiteKey = computed(
     () =>
@@ -62,23 +82,14 @@ export function useContactForm() {
       ''
   )
 
-  const turnstileVerifyUrl = computed(
-    () =>
-      (typeof config.public.turnstileVerifyUrl === 'string' &&
-        config.public.turnstileVerifyUrl.trim()) ||
-      ''
-  )
-
-  const isTurnstileConfigured = computed(() =>
-    Boolean(turnstileSiteKey.value && turnstileVerifyUrl.value)
-  )
+  const isTurnstileConfigured = computed(() => Boolean(turnstileSiteKey.value))
 
   /**
-   * EmailJS + Turnstile configurados (lógica de negocio).
+   * Worker de contacto + Turnstile (lógica de negocio).
    * El DOM del widget no debe depender solo de esto en SSR: ver `showTurnstileWidget`.
    */
   const isTurnstileEnabledForEmail = computed(
-    () => isEmailJsConfigured.value && isTurnstileConfigured.value
+    () => isContactApiConfigured.value && isTurnstileConfigured.value
   )
 
   /**
@@ -126,25 +137,18 @@ export function useContactForm() {
     reset()
   }
 
-  async function submitWithEmailJs() {
-    const { emailjsPublicKey, emailjsServiceId, emailjsTemplateId } = config.public
-    const { send } = await import('@emailjs/browser')
+  async function submitWithContactApi() {
+    const token = turnstile.token.value?.trim() ?? ''
 
-    const templateParams = {
-      [EMAILJS_TEMPLATE_FIELDS.user_name]: form.name.trim(),
-      [EMAILJS_TEMPLATE_FIELDS.user_email]: form.email.trim(),
-      [EMAILJS_TEMPLATE_FIELDS.message]: form.message.trim()
-    }
-
-    const response = await send(
-      emailjsServiceId as string,
-      emailjsTemplateId as string,
-      templateParams,
-      { publicKey: emailjsPublicKey as string }
-    )
+    await submitContactMessage(contactApiUrl.value, {
+      name: form.name.trim(),
+      email: form.email.trim(),
+      message: form.message.trim(),
+      token
+    })
 
     if (import.meta.dev) {
-      console.info(`${LOG_TAG} EmailJS OK`, { status: response.status })
+      console.info(`${LOG_TAG} Contact API OK`)
     }
 
     toast.add({
@@ -163,7 +167,7 @@ export function useContactForm() {
 
     loading.value = true
     try {
-      if (!isEmailJsConfigured.value) {
+      if (!isContactApiConfigured.value) {
         await submitWithMailtoFallback()
         return
       }
@@ -186,24 +190,18 @@ export function useContactForm() {
           })
           return
         }
-
-        if (import.meta.dev) {
-          console.info(`${LOG_TAG} Turnstile → verify`, { verifyUrl: turnstileVerifyUrl.value })
-        }
-
-        await verifyTurnstileToken(turnstileVerifyUrl.value, turnstile.token.value)
       }
 
-      await submitWithEmailJs()
+      await submitWithContactApi()
     } catch (error: unknown) {
-      const isVerify = error instanceof TurnstileVerifyError
-      const err = error as { status?: number; text?: string; message?: string }
+      const isApi = error instanceof ContactApiError
+      const code = isApi ? error.code : 'http_error'
+      const keys = contactErrorI18n(code)
 
       console.error(`${LOG_TAG} envío fallido`, {
-        status: err?.status,
-        text: err?.text,
-        message: err?.message,
-        delivery: isVerify ? 'turnstile_verify' : 'emailjs'
+        status: isApi ? error.status : undefined,
+        code,
+        delivery: isApi && error.code === 'turnstile_failed' ? 'turnstile' : 'contact_api'
       })
 
       if (isTurnstileConfigured.value) {
@@ -211,12 +209,8 @@ export function useContactForm() {
       }
 
       toast.add({
-        title: isVerify
-          ? t('contactForm.toastCaptchaVerifyTitle')
-          : t('contactForm.toastErrorTitle'),
-        description: isVerify
-          ? t('contactForm.toastCaptchaVerifyDescription')
-          : t('contactForm.toastErrorDescription'),
+        title: t(`contactForm.${keys.titleKey}`),
+        description: t(`contactForm.${keys.descriptionKey}`),
         color: 'error'
       })
     } finally {
@@ -228,7 +222,8 @@ export function useContactForm() {
     form,
     loading,
     sent,
-    isEmailJsConfigured,
+    limits: CONTACT_LIMITS,
+    isContactApiConfigured,
     isTurnstileConfigured,
     showTurnstileWidget,
     turnstileContainerRef: turnstile.containerRef,

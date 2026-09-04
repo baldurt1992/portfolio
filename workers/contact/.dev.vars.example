@@ -1,0 +1,8 @@
+# Copia a `.dev.vars` (gitignored). Nunca en NUXT_PUBLIC_*.
+TURNSTILE_SECRET_KEY=
+GOOGLE_OAUTH_CLIENT_ID=
+GOOGLE_OAUTH_CLIENT_SECRET=
+GOOGLE_OAUTH_REFRESH_TOKEN=
+
+# Solo local: origin de `nuxt dev`.
+TURNSTILE_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000

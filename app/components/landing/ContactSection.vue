@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { form, loading, submit, showTurnstileWidget, turnstileContainerRef } = useContactForm()
+  const { form, loading, limits, submit, showTurnstileWidget, turnstileContainerRef } = useContactForm()
   const portfolioData = usePortfolioData()
   const { t } = useI18n()
   const bio = computed(() => portfolioData.value.bio)
@@ -57,15 +57,15 @@
             <UForm class="space-y-5" @submit.prevent="submit">
               <UFormField name="name" :label="t('contact.name')" required>
                 <UInput v-model="form.name" name="name" :placeholder="t('contact.placeholderName')" required
-                  class="w-full" />
+                  :maxlength="limits.name" class="w-full" />
               </UFormField>
               <UFormField name="email" :label="t('contact.email')" required>
                 <UInput v-model="form.email" name="email" type="email" :placeholder="t('contact.placeholderEmail')"
-                  required class="w-full" />
+                  required :maxlength="limits.email" class="w-full" />
               </UFormField>
               <UFormField name="message" :label="t('contact.message')" required>
                 <UTextarea v-model="form.message" name="message" :placeholder="t('contact.placeholderMessage')"
-                  :rows="5" required class="w-full" />
+                  :rows="5" required :maxlength="limits.message" class="w-full" />
               </UFormField>
               <div v-if="showTurnstileWidget" ref="turnstileContainerRef" class="flex min-h-16 justify-start" />
               <button type="submit"
@@ -79,7 +79,7 @@
             <p class="mt-5 text-sm text-text-muted">
               {{ t('contact.mailFallback') }}
               <a :href="`mailto:${bio.email}`" class="font-medium text-primary hover:text-primary-hover">{{ bio.email
-              }}</a>
+                }}</a>
             </p>
           </div>
         </div>

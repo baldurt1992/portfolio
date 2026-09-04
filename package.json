@@ -18,10 +18,10 @@
     "test:e2e": "playwright test",
     "test:unit": "node --test --experimental-strip-types tests/unit/*.test.ts",
     "optimize:images": "node scripts/optimize-public-images.mjs",
-    "deploy:turnstile-worker": "wrangler deploy --config workers/turnstile-verify/wrangler.toml"
+    "deploy:turnstile-worker": "wrangler deploy --config workers/turnstile-verify/wrangler.toml",
+    "deploy:contact-worker": "wrangler deploy --config workers/contact/wrangler.jsonc"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "@iconify-json/lucide": "^1.2.87",
     "@iconify-json/simple-icons": "^1.2.68",
     "@nuxt/ui": "^4.10.0",

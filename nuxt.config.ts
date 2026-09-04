@@ -73,17 +73,14 @@ export default defineNuxtConfig({
     disableTransition: true
   },
 
-  // EmailJS: vacíos sin secrets.
+  // Contact Worker: vacío sin secret. Turnstile site key es pública (widget).
   runtimeConfig: {
     public: {
       siteUrl: publicSiteUrl,
-      emailjsPublicKey: '',
-      emailjsServiceId: '',
-      emailjsTemplateId: '',
+      /** URL absoluta del Worker de contacto, ej. https://portfolio-contact.<subcuenta>.workers.dev/ */
+      contactApiUrl: '',
       /** Site key pública Turnstile (widget). */
-      turnstileSiteKey: '',
-      /** URL absoluta del verificador (Pages Function), ej. https://tu-proyecto.pages.dev/api/verify-turnstile */
-      turnstileVerifyUrl: ''
+      turnstileSiteKey: ''
     }
   },
 

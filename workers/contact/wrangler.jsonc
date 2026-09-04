@@ -1,0 +1,25 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "portfolio-contact",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-04",
+  "account_id": "56d0fc8f0eb307d8a7d37601e996fab2",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "contact.baldurdev.com",
+      "custom_domain": true
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "head_sampling_rate": 1
+    }
+  },
+  "vars": {
+    "TURNSTILE_ALLOWED_ORIGINS": "https://baldurdev.com,https://www.baldurdev.com",
+    "MAIL_FROM": "contact@baldurdev.com",
+    "MAIL_TO": "contact@baldurdev.com"
+  }
+}
