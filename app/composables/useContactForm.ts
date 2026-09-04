@@ -1,6 +1,6 @@
 import type { ContactApiErrorCode } from './useContactFormApi'
 import { ContactApiError, submitContactMessage } from './useContactFormApi'
-import { CONTACT_LIMITS } from '../../shared/contact-payload'
+import { CONTACT_LIMITS } from '~/utils/contactLimits'
 
 export interface ContactFormState {
   name: string
