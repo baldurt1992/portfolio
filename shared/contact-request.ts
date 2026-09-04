@@ -1,4 +1,5 @@
 import { parseContactPayload } from './contact-payload'
+import { buildContactEmailHtml, buildContactEmailText } from './contact-email-template'
 import { buildContactRfc822, encodeRfc822ToGmailRaw } from './contact-rfc822'
 import { sendGmailRawMessage } from './gmail-send'
 import { verifyTurnstileTokenOnServer } from './turnstile-siteverify'
@@ -99,11 +100,12 @@ export async function handleContactRequest(
   const { name, email, message } = payload.data
   const rfc822 = buildContactRfc822({
     fromEmail: env.MAIL_FROM.trim(),
-    fromName: 'Baldur Dev',
+    fromName: 'BaldurDev',
     to: env.MAIL_TO.trim(),
     replyTo: email,
     subject: `Contacto desde el sitio — ${name}`,
-    text: `${message}\n\n— ${name}\n${email}`
+    text: buildContactEmailText({ name, email, message }),
+    html: buildContactEmailHtml({ name, email, message })
   })
 
   try {

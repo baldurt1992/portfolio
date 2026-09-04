@@ -20,6 +20,8 @@ function encodeHeader(value: string): string {
   return `=?UTF-8?B?${toBase64(value)}?=`
 }
 
+const MIME_BOUNDARY = 'baldurdev_contact_v1'
+
 export function buildContactRfc822(params: {
   fromEmail: string
   fromName: string
@@ -27,6 +29,7 @@ export function buildContactRfc822(params: {
   replyTo: string
   subject: string
   text: string
+  html: string
 }): string {
   const from = `${encodeHeader(params.fromName)} <${params.fromEmail}>`
   return [
@@ -35,10 +38,19 @@ export function buildContactRfc822(params: {
     `Reply-To: ${params.replyTo}`,
     `Subject: ${encodeHeader(params.subject)}`,
     'MIME-Version: 1.0',
+    `Content-Type: multipart/alternative; boundary="${MIME_BOUNDARY}"`,
+    '',
+    `--${MIME_BOUNDARY}`,
     'Content-Type: text/plain; charset="UTF-8"',
     'Content-Transfer-Encoding: base64',
     '',
-    toBase64(params.text)
+    toBase64(params.text),
+    `--${MIME_BOUNDARY}`,
+    'Content-Type: text/html; charset="UTF-8"',
+    'Content-Transfer-Encoding: base64',
+    '',
+    toBase64(params.html),
+    `--${MIME_BOUNDARY}--`
   ].join('\r\n')
 }
 
