@@ -2,6 +2,10 @@
 const portfolioData = usePortfolioData()
 const { t } = useI18n()
 const { couponCode, copyCoupon } = useHostingerPartner()
+const { resolveExternal } = useAppBasePath()
+
+const brandMarkDark = computed(() => resolveExternal('/brand/favicon/brand-mark-dark.png'))
+const brandMarkLight = computed(() => resolveExternal('/brand/favicon/brand-mark-light.png'))
 
 const copied = ref(false)
 let copiedTimer: ReturnType<typeof setTimeout> | undefined
@@ -24,11 +28,29 @@ onUnmounted(() => {
   <footer data-site-footer class="border-t border-border bg-bg">
     <div class="mx-auto max-w-7xl px-4 pb-28 pt-8 sm:px-6 sm:py-8 lg:px-8">
       <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <div class="space-y-1">
-          <p class="text-sm font-medium text-text">
-            © {{ new Date().getFullYear() }} · {{ portfolioData.bio.name }}
-          </p>
-          <p class="text-sm text-text-muted">Full Stack Software Engineer · Remote</p>
+        <div class="flex items-center gap-3">
+          <span class="block size-9 shrink-0 overflow-hidden rounded-[10px]" aria-hidden="true">
+            <img
+              :src="brandMarkLight"
+              alt=""
+              width="256"
+              height="256"
+              class="size-full dark:hidden"
+            />
+            <img
+              :src="brandMarkDark"
+              alt=""
+              width="256"
+              height="256"
+              class="hidden size-full dark:block"
+            />
+          </span>
+          <div class="space-y-1">
+            <p class="text-sm font-medium text-text">
+              © {{ new Date().getFullYear() }} · {{ portfolioData.bio.name }}
+            </p>
+            <p class="text-sm text-text-muted">Full Stack Software Engineer · Remote</p>
+          </div>
         </div>
 
         <div class="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">

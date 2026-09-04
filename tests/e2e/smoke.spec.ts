@@ -215,6 +215,18 @@ test.describe('BaldurDev portfolio smoke', () => {
     ).toHaveAttribute('href', 'https://www.hostinger.com/co?REFERRALCODE=BALDURDEV92')
   })
 
+  test('homepage uses BaldurDev logo, mark and favicon', async ({ page }) => {
+    await page.goto('/')
+    await expect(
+      page.locator('[data-site-header] img[src*="baldurdev-logo-"]').first()
+    ).toBeAttached()
+    await expect(page.locator('[data-site-footer] img[src*="brand-mark-"]').first()).toBeAttached()
+    await expect(page.locator('link[rel="icon"][href*="favicon-"]').last()).toHaveAttribute(
+      'href',
+      /favicon-light-32x32\.png/
+    )
+  })
+
   test('keyboard navigation reaches contact form', async ({ page }) => {
     await page.goto('/')
     await page

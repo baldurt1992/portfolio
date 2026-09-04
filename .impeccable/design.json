@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-04T00:00:00.000Z",
+  "title": "Design System: BaldurDev",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Production Blue",
+        "canonical": "#2563eb",
+        "tonalRamp": [
+          "#10214a",
+          "#183b78",
+          "#1d4ed8",
+          "#2563eb",
+          "#60a5fa",
+          "#93c5fd",
+          "#dbeafe",
+          "#eff6ff"
+        ]
+      },
+      "accent": {
+        "role": "secondary",
+        "displayName": "Action Orange",
+        "canonical": "#f97316",
+        "tonalRamp": [
+          "#431407",
+          "#7c2d12",
+          "#c2410c",
+          "#f97316",
+          "#fb923c",
+          "#fdba74",
+          "#ffedd5",
+          "#fff7ed"
+        ]
+      },
+      "light-canvas": {
+        "role": "neutral",
+        "displayName": "Studio Light",
+        "canonical": "#f7f7f5",
+        "tonalRamp": [
+          "#20201f",
+          "#454542",
+          "#73736e",
+          "#a3a39d",
+          "#c9c9c4",
+          "#e2e2de",
+          "#f0f0ed",
+          "#f7f7f5"
+        ]
+      },
+      "dark-canvas": {
+        "role": "neutral",
+        "displayName": "Night Bench",
+        "canonical": "#05050a",
+        "tonalRamp": [
+          "#05050a",
+          "#0f111a",
+          "#161922",
+          "#252a36",
+          "#4b5563",
+          "#9aa3b2",
+          "#c9ced8",
+          "#f0f1f5"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Engineered Display",
+        "purpose": "Brand statements and major page headings."
+      },
+      "body": {
+        "displayName": "Reading Body",
+        "purpose": "Long-form explanation and interface copy."
+      },
+      "label": {
+        "displayName": "Technical Label",
+        "purpose": "References, measurements and metadata only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "interactive-medium",
+        "value": "0 4px 6px -1px rgba(0,0,0,.05), 0 2px 4px -2px rgba(0,0,0,.04)",
+        "purpose": "Raised hover state."
+      },
+      {
+        "name": "document",
+        "value": "0 24px 70px -45px rgba(15,23,42,.65)",
+        "purpose": "Physical document sheets only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "State transitions."
+      },
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entrances and responsive feedback."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single highest-priority action in a local surface.",
+      "html": "<button class=\"ds-btn-primary\">Contactar</button>",
+      "css": ".ds-btn-primary{border:0;border-radius:10px;background:var(--color-accent,#f97316);color:#111216;padding:10px 16px;font:600 14px Inter,sans-serif;transition:transform .3s cubic-bezier(.4,0,.2,1),background .15s}.ds-btn-primary:hover{transform:translateY(-2px);background:var(--color-accent-hover,#ea580c)}.ds-btn-primary:focus-visible{outline:2px solid var(--color-accent,#f97316);outline-offset:2px}"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "description": "Compact text navigation with tonal feedback.",
+      "html": "<a class=\"ds-nav\" href=\"#\">Proyectos</a>",
+      "css": ".ds-nav{display:inline-block;border-radius:8px;padding:8px 12px;color:var(--color-text-muted,#3f4654);font:500 14px Inter,sans-serif;text-decoration:none;transition:color .15s,background .15s}.ds-nav:hover{color:var(--color-text,#111216);background:var(--color-surface-soft,#e8e8e5)}.ds-nav:focus-visible{outline:2px solid var(--color-accent,#f97316);outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Production Workbench",
+    "overview": "BaldurDev feels like a skilled engineer's workbench: precise, useful and visibly made by someone who understands both product and implementation.",
+    "keyCharacteristics": [
+      "Technical without terminal costume",
+      "Restrained surfaces and one action color",
+      "Content-led hierarchy",
+      "Purposeful accessible motion"
+    ],
+    "rules": [
+      {
+        "name": "Rare Orange",
+        "body": "Orange identifies the most important action or marker; it never becomes ambient decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "Flat at Rest",
+        "body": "Common content surfaces stay flat; lift appears on interaction or physical metaphors.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do let concrete work lead.",
+      "Do use theme-correct brand assets.",
+      "Do preserve AA contrast and visible focus."
+    ],
+    "donts": [
+      "Don't invent claims or prices.",
+      "Don't use decorative gradients or glass.",
+      "Don't scatter the action color."
+    ]
+  }
+}

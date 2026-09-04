@@ -128,7 +128,7 @@
     return links
   })
 
-  const defaultOgImagePath = 'og-image.png'
+  const defaultOgImagePath = 'brand/og/baldurdev-og-dark.png'
   const ogImageUrl = computed(() => siteBase.value ? joinURL(siteBase.value, defaultOgImagePath) : undefined)
 
   const jsonLdGraph = computed(() => {
@@ -228,10 +228,27 @@
           key: x.key
         })),
         ...(h.link ?? []),
-        { rel: 'icon', href: assetHref('favicon.ico'), sizes: '32x32' },
-        { rel: 'icon', type: 'image/png', href: assetHref('favicon-32x32.png'), sizes: '32x32' },
-        { rel: 'icon', type: 'image/png', href: assetHref('favicon-96x96.png'), sizes: '96x96' },
-        { rel: 'apple-touch-icon', href: assetHref('apple-touch-icon.png'), sizes: '180x180' },
+        { rel: 'icon', href: assetHref('favicon.ico'), sizes: 'any' },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: assetHref(
+            colorMode.value === 'dark'
+              ? 'brand/favicon/favicon-dark-32x32.png'
+              : 'brand/favicon/favicon-light-32x32.png'
+          ),
+          sizes: '32x32',
+          key: 'theme-favicon'
+        },
+        {
+          rel: 'apple-touch-icon',
+          href: assetHref(
+            colorMode.value === 'dark'
+              ? 'brand/favicon/apple-touch-icon-dark.png'
+              : 'brand/favicon/apple-touch-icon-light.png'
+          ),
+          sizes: '180x180'
+        },
         { rel: 'manifest', href: assetHref('site.webmanifest') }
       ],
       meta: [
